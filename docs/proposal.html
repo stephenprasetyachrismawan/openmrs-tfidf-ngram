@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposal — Pencarian Terpadu OpenMRS</title>
+<style>
+:root{
+ --bg:#fbfaf8;--ink:#1c1b19;--mut:#6b6862;--line:#e2dfd8;--card:#fff;
+ --blue:#2f6ea8;--blue-bg:#e8f1f8;--org:#b8622a;--org-bg:#fbeee4;
+ --grn:#2f6f52;--grn-bg:#e6f2eb;--red:#a03434;--red-bg:#fbeaea;
+ --pur:#6b4c9a;--pur-bg:#f0eaf8;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font-family:ui-sans-serif,-apple-system,"Segoe UI",Inter,system-ui,sans-serif;
+ font-size:16px;line-height:1.68;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 26px 130px}
+.cover{padding:64px 0 26px;border-bottom:2px solid var(--ink)}
+.kicker{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mut);font-weight:650}
+h1{font-size:2.05rem;line-height:1.2;letter-spacing:-.022em;margin:12px 0 10px;font-weight:700}
+.cover .sub{font-size:1.02rem;color:var(--mut);margin:0 0 22px;line-height:1.55}
+.authors{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;font-size:.9rem;margin-top:6px}
+@media(max-width:620px){.authors{grid-template-columns:1fr}}
+.authors div{padding:5px 0;border-top:1px solid var(--line)}
+.authors b{font-weight:640;display:block;font-size:.93rem}
+.authors span{color:var(--mut);font-family:var(--mono);font-size:.79rem}
+h2{font-size:1.4rem;letter-spacing:-.016em;margin:70px 0 4px;font-weight:690;
+ padding-top:22px;border-top:1px solid var(--line)}
+h2 .n{color:var(--mut);font-weight:500;margin-right:8px;font-variant-numeric:tabular-nums}
+h3{font-size:1.06rem;margin:34px 0 4px;font-weight:660}
+p{margin:11px 0}
+code{font-family:var(--mono);font-size:.88em;background:#f0eee9;padding:1.5px 5px;border-radius:4px}
+.mono{font-family:var(--mono)}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:12px;
+ padding:20px 18px 14px;margin:22px 0;overflow-x:auto}
+.fig svg{display:block;margin:0 auto;max-width:100%;height:auto}
+svg text{font-family:ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif}
+.cap{font-size:.85rem;color:var(--mut);margin:12px 0 0;padding-top:10px;
+ border-top:1px dashed var(--line);line-height:1.55}
+.cap b{color:var(--ink);font-weight:620}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.9rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{font-weight:640;font-size:.76rem;text-transform:uppercase;letter-spacing:.045em;color:var(--mut)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.84rem}
+tr.hi td{background:var(--grn-bg)}
+.box{border-left:3px solid var(--blue);background:var(--blue-bg);padding:12px 16px;
+ border-radius:0 8px 8px 0;margin:20px 0;font-size:.95rem}
+.box.warn{border-color:var(--org);background:var(--org-bg)}
+.box.good{border-color:var(--grn);background:var(--grn-bg)}
+.box.bad{border-color:var(--red);background:var(--red-bg)}
+.box.neu{border-color:var(--mut);background:#f4f2ee}
+.box p{margin:5px 0} .box p:first-child{margin-top:0} .box p:last-child{margin-bottom:0}
+.box .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;
+ color:var(--blue);margin-bottom:2px}
+.box.warn .lbl{color:var(--org)} .box.good .lbl{color:var(--grn)}
+.box.bad .lbl{color:var(--red)} .box.neu .lbl{color:var(--mut)}
+ul,ol{margin:11px 0;padding-left:22px} li{margin:4px 0}
+.small{font-size:.86rem;color:var(--mut)}
+hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--card)}
+.card .h{font-weight:660;font-size:.98rem;margin-bottom:3px}
+.card .s{font-size:.86rem;color:var(--mut)}
+.step{display:flex;gap:14px;margin:14px 0;align-items:flex-start}
+.step .no{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--ink);
+ color:#fff;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.step .tx{flex:1}
+.step .tx b{display:block;font-weight:650}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 22px;margin:28px 0}
+.toc ol{margin:6px 0 0;padding-left:20px} .toc li{margin:2px 0;font-size:.92rem}
+.toc a{color:var(--blue);text-decoration:none} .toc a:hover{text-decoration:underline}
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="cover">
+<div class="kicker">Proposal Penelitian · Sistem Temu Balik Informasi</div>
+<h1>Pencarian Terpadu pada OpenMRS<br>dengan TF-IDF Kata–Karakter</h1>
+<p class="sub">Memperbaiki satu kelemahan nyata: pencarian OpenMRS berhenti bekerja begitu pengguna salah mengetik satu huruf.</p>
+<div class="authors">
+<div><b>STEPHEN PRASETYA CHRISMAWAN</b><span>25/563032/PPA/07093</span></div>
+<div><b>M. SYARIF HIDAYATULLAH</b><span>25/567018/PPA/07143</span></div>
+<div><b>SAMPURNO AJI</b><span>25/568826/PPA/07155</span></div>
+<div><b>REZA PURWANTARA FIRDAUS</b><span>25/565168/PPA/07125</span></div>
+</div>
+</div>
+
+<h2 style="border:0;margin-top:32px;padding-top:0">Baca ini dulu</h2>
+
+<h3>Masalahnya</h3>
+<p>Petugas mengetik <span class="mono">diabete melitus</span> — kurang satu huruf. OpenMRS mengembalikan <b>layar kosong</b>, padahal "Diabetes mellitus" ada di database. Pada pengujian kami, <b>18,3% pencarian berakhir tanpa hasil.</b></p>
+
+<h3>Sebabnya</h3>
+<p>OpenMRS mencocokkan <b>kata utuh</b>. Bagi program, <span class="mono">melitus</span> dan <span class="mono">mellitus</span> adalah dua kata yang sama sekali tak berhubungan.</p>
+
+<h3>Solusinya</h3>
+<p>Jangan pakai kata sebagai unit terkecil. Potong teks jadi <b>kepingan 4 huruf</b>, lalu jalankan TF-IDF di atas kepingan itu. Satu huruf salah cuma merusak beberapa kepingan; sisanya tetap cocok.</p>
+
+<h3>Yang akan kami bangun — tiga hal</h3>
+<div class="grid2">
+<div class="card"><div class="h">1 · Mesin pencarian</div><div class="s">Perpustakaan TF-IDF kata + kepingan karakter. Ini intinya.</div></div>
+<div class="card"><div class="h">2 · Search box ala Algolia</div><div class="s">Kotak pencarian OpenMRS yang sudah ada, dibuat instan dan tahan salah ketik.</div></div>
+<div class="card"><div class="h">3 · Menu baru "Pencarian Terpadu"</div><div class="s">Satu kotak yang mencari ke 6 tabel sekaligus + panel evaluasi.</div></div>
+<div class="card"><div class="h">4 · Pipeline eksperimen</div><div class="s">Untuk membuktikan angkanya. Sudah jalan.</div></div>
+</div>
+
+<h3>Buktinya sejauh ini</h3>
+<table>
+<thead><tr><th>Ukuran</th><th class="num">OpenMRS sekarang</th><th class="num">Metode kami</th></tr></thead>
+<tbody>
+<tr><td>Pencarian yang gagal total (0 hasil)</td><td class="num">18,3%</td><td class="num"><b>0,6%</b></td></tr>
+<tr><td>Hasil nomor 1 sudah benar (P@1)</td><td class="num">0,689</td><td class="num"><b>0,806</b></td></tr>
+<tr><td>Kualitas peringkat (nDCG@10)</td><td class="num">0,628</td><td class="num"><b>0,811</b></td></tr>
+<tr><td>Query salah ketik (nDCG@10)</td><td class="num">0,081</td><td class="num"><b>0,789</b></td></tr>
+<tr><td>Waktu pencarian</td><td class="num">0,15 ms</td><td class="num">1,28 ms</td></tr>
+</tbody>
+</table>
+<p class="small">Diuji pada demo data resmi OpenMRS: 4.748 dokumen dari 6 tabel, 180 query uji. Selisih nDCG +0,183, p &lt; 0,001. Tanpa GPU, tanpa AI, tanpa layanan luar.</p>
+
+<div class="box neu">
+<p class="lbl">Yang tidak berhasil — supaya tidak dikira semuanya mulus</p>
+<p>Dari 7 komponen yang kami uji, <b>hanya 1 yang benar-benar berpengaruh</b>: kepingan karakter. Pembobotan antar-tabel (yang di dalamnya RRF dipakai): selisih +0,007, tidak signifikan — perannya arsitektural, bukan peningkatan kualitas. Perluasan query otomatis: <b>memperburuk</b>. Semuanya tetap kami laporkan apa adanya.</p>
+</div>
+
+<div class="toc">
+<b>Isi</b>
+<ol>
+<li><a href="#b1">Masalahnya, dengan contoh</a></li>
+<li><a href="#b2">Ide perbaikannya</a></li>
+<li><a href="#b3">Cara kerjanya — 6 komponen</a></li>
+<li><a href="#b3x">Peta metode &amp; model: input → output</a></li>
+<li><a href="#b3y">Contoh nyata: dari ketikan sampai angka</a></li>
+<li><a href="#b4">Mockup: seperti apa nanti di OpenMRS</a></li>
+<li><a href="#b5">Rencana evaluasi</a></li>
+<li><a href="#b6">Hasil sementara</a></li>
+<li><a href="#b7">Pembagian kerja &amp; jadwal</a></li>
+</ol>
+</div>
+<h2 id="b1"><span class="n">1</span>Masalahnya, dengan contoh</h2>
+
+<h3>1.1 Tiga pencarian yang gagal</h3>
+
+<div class="fig">
+<svg viewBox="0 0 840 210" role="img" aria-label="Tiga contoh pencarian gagal">
+  <text x="20" y="20" font-size="11.5" font-weight="700" fill="#6b6862">DIKETIK PETUGAS</text>
+  <text x="330" y="20" font-size="11.5" font-weight="700" fill="#6b6862">HASIL OPENMRS</text>
+  <text x="600" y="20" font-size="11.5" font-weight="700" fill="#6b6862">SEBENARNYA ADA DI DATABASE</text>
+  <g font-size="12.5">
+    <rect x="20" y="30" width="290" height="48" rx="7" fill="#fff" stroke="#e2dfd8"/>
+    <text x="34" y="52" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">diabete melitus</text>
+    <text x="34" y="70" font-size="10.5" fill="#6b6862">kurang satu huruf "l"</text>
+    <rect x="322" y="30" width="256" height="48" rx="7" fill="#fbeaea" stroke="#a03434"/>
+    <text x="450" y="60" fill="#a03434" font-weight="700" text-anchor="middle">0 hasil</text>
+    <rect x="590" y="30" width="230" height="48" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+    <text x="604" y="53" fill="#2f6f52" font-size="11.5">Diabetes mellitus, type 2</text>
+    <text x="604" y="70" fill="#2f6f52" font-size="11.5">Diabetes mellitus, type 1</text>
+
+    <rect x="20" y="86" width="290" height="48" rx="7" fill="#fff" stroke="#e2dfd8"/>
+    <text x="34" y="108" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">pulmonari edema</text>
+    <text x="34" y="126" font-size="10.5" fill="#6b6862">salah eja "pulmonary"</text>
+    <rect x="322" y="86" width="256" height="48" rx="7" fill="#fbeaea" stroke="#a03434"/>
+    <text x="450" y="116" fill="#a03434" font-weight="700" text-anchor="middle">0 hasil</text>
+    <rect x="590" y="86" width="230" height="48" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+    <text x="604" y="116" fill="#2f6f52" font-size="11.5">Pulmonary edema</text>
+
+    <rect x="20" y="142" width="290" height="48" rx="7" fill="#fff" stroke="#e2dfd8"/>
+    <text x="34" y="164" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">type 2 diabetes</text>
+    <text x="34" y="182" font-size="10.5" fill="#6b6862">ejaan benar</text>
+    <rect x="322" y="142" width="256" height="48" rx="7" fill="#fbeee4" stroke="#b8622a"/>
+    <text x="450" y="166" fill="#b8622a" font-weight="700" text-anchor="middle">ketemu — peringkat 17</text>
+    <text x="450" y="182" fill="#b8622a" font-size="10.5" text-anchor="middle">di luar layar pertama</text>
+    <rect x="590" y="142" width="230" height="48" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+    <text x="604" y="172" fill="#2f6f52" font-size="11.5">sinonim persisnya ada</text>
+  </g>
+</svg>
+<p class="cap">Kasus 1 dan 3 dilaporkan pengguna di forum OpenMRS. Kasus 2 kami reproduksi sendiri.</p>
+</div>
+
+<h3>1.2 Kenapa bisa nol hasil</h3>
+
+<p>Pencarian OpenMRS bekerja dua tahap. Kerusakannya ada di tahap pertama.</p>
+
+<div class="fig">
+<svg viewBox="0 0 840 190" role="img" aria-label="Dua tahap pencarian OpenMRS">
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#6b6862"/></marker></defs>
+  <rect x="20" y="24" width="170" height="30" rx="6" fill="#fff" stroke="#e2dfd8"/>
+  <text x="105" y="44" font-size="12" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19" text-anchor="middle">diabete melitus</text>
+  <path d="M196,39 L228,39" stroke="#6b6862" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <rect x="236" y="18" width="270" height="76" rx="8" fill="#fbeaea" stroke="#a03434" stroke-width="1.5"/>
+  <text x="371" y="38" font-size="11.5" font-weight="700" fill="#a03434" text-anchor="middle">TAHAP 1 · SARING KANDIDAT</text>
+  <text x="250" y="58" font-size="11" fill="#1c1b19">Aturan: tiap kata query harus jadi awalan</text>
+  <text x="250" y="74" font-size="11" fill="#1c1b19">dari suatu kata pada nama konsep.</text>
+  <text x="250" y="90" font-size="11" fill="#a03434" font-weight="640">"melitus" bukan awalan "mellitus" → dibuang</text>
+
+  <path d="M512,56 L544,56" stroke="#cfcbc3" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <rect x="552" y="18" width="268" height="76" rx="8" fill="#f4f2ee" stroke="#cfcbc3" stroke-dasharray="4 3"/>
+  <text x="686" y="38" font-size="11.5" font-weight="700" fill="#9b9b9b" text-anchor="middle">TAHAP 2 · BERI SKOR</text>
+  <text x="566" y="58" font-size="11" fill="#9b9b9b">kode persis +10000 · nama persis +1000</text>
+  <text x="566" y="74" font-size="11" fill="#9b9b9b">nama utama +500 · awalan kata +100</text>
+  <text x="566" y="90" font-size="11" fill="#9b9b9b" font-weight="640">tidak pernah dijalankan</text>
+
+  <rect x="20" y="106" width="800" height="34" rx="7" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="40" y="128" font-size="11.5" fill="#1c1b19"><tspan font-weight="700">Artinya:</tspan> menyetel ulang angka +10000 / +1000 / +500 tidak akan menolong. Dokumen yang benar sudah dibuang sebelum diberi skor.</text>
+
+  <rect x="20" y="148" width="800" height="34" rx="7" fill="#fff" stroke="#e2dfd8"/>
+  <text x="40" y="170" font-size="11.5" fill="#1c1b19"><tspan font-weight="700">Tapi heuristik OpenMRS tidak jelek.</tspan> Pada query terpotong ia justru menang: nDCG 0,822 vs 0,353 milik TF-IDF biasa. Ia punya satu lubang, bukan cacat menyeluruh.</text>
+</svg>
+<p class="cap"><b>Kesimpulan:</b> masalahnya ada pada <em>unit pencocokan</em> — kata utuh. Itu yang kami ganti.</p>
+</div>
+
+<h3>1.3 Kenapa tidak pakai AI</h3>
+
+<table>
+<thead><tr><th style="width:170px">Alasan</th><th>Penjelasan</th></tr></thead>
+<tbody>
+<tr><td><b>Tidak ada perangkatnya</b></td><td>OpenMRS banyak dipasang di puskesmas tanpa GPU. Modul AI resmi OpenMRS (Chart Search AI) butuh embedding + LLM. Mode remote berarti kirim data pasien ke server luar.</td></tr>
+<tr><td><b>Bukan masalah makna</b></td><td><span class="mono">diabete melitus</span> gagal bukan karena sistem tak paham artinya, tapi karena ejaannya meleset. Itu masalah bentuk kata.</td></tr>
+<tr><td><b>Buktinya tidak mendukung</b></td><td>Studi 2025 pada 1.472 dokumen medis: pencarian leksikal <em>mengungguli</em> pencarian semantik, jauh lebih cepat. Istilah medis presisi dan konsisten — kondisi di mana pencocokan leksikal unggul.</td></tr>
+</tbody>
+</table>
+
+<h2 id="b2"><span class="n">2</span>Ide perbaikannya</h2>
+
+<h3>2.1 Ganti unit pencocokan</h3>
+
+<p>Potong tiap teks jadi jendela 4 huruf yang bergeser satu per satu. Lalu jalankan TF-IDF biasa di atas kepingan itu. Tidak ada algoritma baru — hanya "kosakata"-nya yang berubah.</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 180" role="img" aria-label="Cara memotong jadi kepingan 4 huruf">
+  <text x="20" y="18" font-size="11" fill="#6b6862">Spasi diganti garis bawah supaya batas kata ikut jadi sinyal.</text>
+  <text x="20" y="44" font-size="14" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19" letter-spacing="3.5">p u l m o n a r y _ e d e m a</text>
+  <g font-family="ui-monospace,Menlo,monospace" font-size="11">
+    <rect x="20" y="54" width="58" height="19" rx="4" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.4"/><text x="49" y="68" text-anchor="middle" fill="#2f6f52" font-weight="700">pulm</text>
+    <rect x="84" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="113" y="68" text-anchor="middle" fill="#6b6862">ulmo</text>
+    <rect x="148" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="177" y="68" text-anchor="middle" fill="#6b6862">lmon</text>
+    <rect x="212" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="241" y="68" text-anchor="middle" fill="#6b6862">mona</text>
+    <rect x="276" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="305" y="68" text-anchor="middle" fill="#6b6862">onar</text>
+    <rect x="340" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="369" y="68" text-anchor="middle" fill="#6b6862">nary</text>
+    <rect x="404" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="433" y="68" text-anchor="middle" fill="#6b6862">ary_</text>
+    <rect x="468" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="497" y="68" text-anchor="middle" fill="#6b6862">ry_e</text>
+    <rect x="532" y="54" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="561" y="68" text-anchor="middle" fill="#6b6862">y_ed</text>
+    <rect x="596" y="54" width="58" height="19" rx="4" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.4"/><text x="625" y="68" text-anchor="middle" fill="#2f6f52" font-weight="700">_ede</text>
+    <rect x="660" y="54" width="58" height="19" rx="4" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.4"/><text x="689" y="68" text-anchor="middle" fill="#2f6f52" font-weight="700">edem</text>
+  </g>
+  <text x="20" y="96" font-size="11" fill="#6b6862">Yang diketik petugas:</text>
+  <text x="20" y="120" font-size="14" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19" letter-spacing="3.5">p u l m _ e d e m</text>
+  <g font-family="ui-monospace,Menlo,monospace" font-size="11">
+    <rect x="226" y="106" width="58" height="19" rx="4" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.4"/><text x="255" y="120" text-anchor="middle" fill="#2f6f52" font-weight="700">pulm</text>
+    <rect x="290" y="106" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="319" y="120" text-anchor="middle" fill="#9b9b9b">ulm_</text>
+    <rect x="354" y="106" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="383" y="120" text-anchor="middle" fill="#9b9b9b">lm_e</text>
+    <rect x="418" y="106" width="58" height="19" rx="4" fill="#f0eee9" stroke="#d8d4cc"/><text x="447" y="120" text-anchor="middle" fill="#9b9b9b">m_ed</text>
+    <rect x="482" y="106" width="58" height="19" rx="4" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.4"/><text x="511" y="120" text-anchor="middle" fill="#2f6f52" font-weight="700">_ede</text>
+    <rect x="546" y="106" width="58" height="19" rx="4" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.4"/><text x="575" y="120" text-anchor="middle" fill="#2f6f52" font-weight="700">edem</text>
+  </g>
+  <rect x="20" y="138" width="380" height="34" rx="6" fill="#fbeaea" stroke="#a03434"/>
+  <text x="210" y="159" font-size="11.5" fill="#a03434" text-anchor="middle" font-weight="640">Dilihat sebagai KATA: cocok 0 dari 2</text>
+  <rect x="410" y="138" width="380" height="34" rx="6" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="600" y="159" font-size="11.5" fill="#2f6f52" text-anchor="middle" font-weight="640">Dilihat sebagai KEPINGAN: cocok 3 dari 6</text>
+</svg>
+</div>
+
+<h3>2.2 Kenapa satu huruf salah tidak merusak semuanya</h3>
+
+<div class="fig">
+<svg viewBox="0 0 800 150" role="img" aria-label="Kerusakan akibat tipo bersifat lokal">
+  <text x="20" y="20" font-size="12" font-weight="650" fill="#1c1b19">Query <tspan font-family="ui-monospace,Menlo,monospace" fill="#a03434">diabete melitus</tspan> vs <tspan font-family="ui-monospace,Menlo,monospace">diabetes mellitus</tspan> — 2 huruf meleset</text>
+  <g font-family="ui-monospace,Menlo,monospace" font-size="14">
+    <text x="30" y="58" fill="#6b6862">d i a b e t e</text>
+    <text x="180" y="58" fill="#a03434" font-weight="700">[s]</text>
+    <text x="228" y="58" fill="#6b6862">_ m e l</text>
+    <text x="330" y="58" fill="#a03434" font-weight="700">[l]</text>
+    <text x="378" y="58" fill="#6b6862">i t u s</text>
+  </g>
+  <path d="M30,70 L172,70" stroke="#2f6f52" stroke-width="3"/>
+  <path d="M178,70 L272,70" stroke="#a03434" stroke-width="3" stroke-dasharray="4 3"/>
+  <path d="M278,70 L324,70" stroke="#2f6f52" stroke-width="3"/>
+  <path d="M330,70 L422,70" stroke="#a03434" stroke-width="3" stroke-dasharray="4 3"/>
+  <path d="M428,70 L468,70" stroke="#2f6f52" stroke-width="3"/>
+  <text x="30" y="92" font-size="11" fill="#2f6f52">hijau — kepingan yang tidak melewati huruf salah: tetap cocok</text>
+  <text x="30" y="108" font-size="11" fill="#a03434">merah — hanya kepingan yang melewati huruf salah yang rusak (± 3 per kesalahan)</text>
+  <rect x="500" y="26" width="290" height="52" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="645" y="48" font-size="12" fill="#1c1b19" text-anchor="middle">Kepingan query: <tspan font-weight="700">12</tspan></text>
+  <text x="645" y="66" font-size="12" fill="#2f6f52" text-anchor="middle" font-weight="700">tetap cocok: 7 (58%)</text>
+  <rect x="20" y="120" width="770" height="24" rx="6" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="405" y="136" font-size="11.5" fill="#1c1b19" text-anchor="middle"><tspan font-weight="700">Kuncinya lokalitas.</tspan> Kerusakan tidak menyebar. Ini alasan matematisnya, bukan kebetulan.</text>
+</svg>
+</div>
+
+<h3>2.3 Kenapa 4 huruf, bukan 3 atau 6</h3>
+<p>Kami jalankan semuanya:</p>
+<table>
+<thead><tr><th>panjang kepingan</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th><th class="num">6</th></tr></thead>
+<tbody><tr><td>nDCG@10</td><td class="num">0,811</td><td class="num">0,811</td><td class="num"><b>0,811</b></td><td class="num">0,784</td><td class="num">0,735</td></tr></tbody>
+</table>
+<p class="small">2–4 setara, turun mulai 5. Kepingan terlalu panjang kembali berperilaku seperti kata: satu tipo merusak 5–6 kepingan, dan query pendek seperti <span class="mono">pulm</span> (4 huruf) tidak menghasilkan kepingan sama sekali pada n = 6. Kami pilih 4.</p>
+
+<h3>2.4 Kenapa bukan cara lain</h3>
+<table>
+<thead><tr><th style="width:160px">Alternatif</th><th>Kenapa ditolak</th></tr></thead>
+<tbody>
+<tr><td><b>Stemming</b></td><td>Memetakan <span class="mono">pulmonary → pulmonari</span>, bukan <span class="mono">pulm</span>. Tidak menolong tipo maupun singkatan.</td></tr>
+<tr><td><b>Jarak edit</b> (Levenshtein)</td><td>Harus dihitung terhadap tiap kandidat — mahal untuk 29.320 nama. Dan tidak menyatu dengan TF-IDF; jadi dua mekanisme terpisah yang skornya harus didamaikan.</td></tr>
+<tr><td><b>Soundex</b></td><td>Dirancang untuk nama orang Inggris. Istilah Latin seperti <em>mellitus</em> tidak mengikuti pola fonetiknya.</td></tr>
+<tr><td><b>Kamus koreksi ejaan</b></td><td>Butuh daftar kesalahan yang sudah diketahui. Salah ketik tidak terbatas, dan istilah medis tidak ada di kamus umum.</td></tr>
+</tbody>
+</table>
+<h2 id="b3"><span class="n">3</span>Cara kerjanya — 6 komponen</h2>
+
+<p>Tiap komponen bisa dimatikan sendiri-sendiri. Itu disengaja: supaya kontribusinya bisa diukur satu per satu.</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 250" role="img" aria-label="Kontribusi tiap komponen">
+  <text x="20" y="20" font-size="12" font-weight="700" fill="#1c1b19">Seberapa besar tiap komponen berpengaruh — diukur, bukan dikira</text>
+  <g font-size="11.5">
+    <text x="20" y="52" fill="#1c1b19">K4 kepingan karakter</text>
+    <rect x="230" y="42" width="360" height="14" fill="#f0eee9" rx="3"/>
+    <rect x="230" y="42" width="312" height="14" fill="#2f6f52" rx="3"/>
+    <text x="602" y="53" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">+0,176  p&lt;0,001</text>
+
+    <text x="20" y="80" fill="#1c1b19">K6 pembobotan antar tabel (RRF)</text>
+    <rect x="230" y="70" width="360" height="14" fill="#f0eee9" rx="3"/>
+    <rect x="230" y="70" width="13" height="14" fill="#9b9b9b" rx="3"/>
+    <text x="602" y="81" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">+0,007  p=0,207</text>
+
+    <text x="20" y="108" fill="#1c1b19">K3 TF-IDF kata saja</text>
+    <rect x="230" y="98" width="360" height="14" fill="#f0eee9" rx="3"/>
+    <rect x="230" y="98" width="32" height="14" fill="#9b9b9b" rx="3"/>
+    <text x="602" y="109" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">+0,018  p=0,510</text>
+
+    <text x="20" y="136" fill="#1c1b19">perluasan query (dibuang)</text>
+    <rect x="230" y="126" width="360" height="14" fill="#fbeaea" rx="3"/>
+    <rect x="230" y="126" width="115" height="14" fill="#a03434" rx="3"/>
+    <text x="602" y="137" font-family="ui-monospace,Menlo,monospace" fill="#a03434">−0,222  memperburuk</text>
+  </g>
+  <text x="20" y="164" font-size="10.5" fill="#6b6862">Dibandingkan terhadap heuristik OpenMRS, kecuali K6 (terhadap penggabungan skor biasa).</text>
+
+  <rect x="20" y="178" width="760" height="60" rx="8" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="40" y="200" font-size="12" font-weight="700" fill="#2f6ea8">Baca ini sebelum lanjut</text>
+  <text x="40" y="218" font-size="11.5" fill="#1c1b19">Satu komponen menyumbang hampir seluruh perbaikan. Sisanya kecil atau nol. Kami tetap menjelaskan semuanya karena tiap</text>
+  <text x="40" y="234" font-size="11.5" fill="#1c1b19">keputusan desain harus punya alasan — tapi jangan sampai terbaca seolah semuanya sama pentingnya.</text>
+</svg>
+</div>
+
+<h3>K1 · Ubah 6 tabel jadi bentuk yang sama</h3>
+<table>
+<tbody>
+<tr><td style="width:100px"><b>Masalah</b></td><td>Tabel pasien punya kolom <span class="mono">given_name, family_name</span>; tabel konsep punya <span class="mono">name, synonyms, mappings</span>. Tidak ada kolom yang sama. TF-IDF butuh "dokumen".</td></tr>
+<tr><td><b>Yang dibuat</b></td><td>Satu fungsi kecil per tabel yang mengubah barisnya jadi bentuk seragam: <b>judul · alias · kode · konteks</b>.</td></tr>
+<tr><td><b>Contoh</b></td><td>Pasien "Betty Williams" → judul <span class="mono">Betty Williams</span>, kode <span class="mono">100000Y</span>. Konsep diabetes → judul nama utama, alias 3 sinonim, kode <span class="mono">E11</span> dan <span class="mono">44054006</span>.</td></tr>
+<tr><td><b>Kenapa begini</b></td><td>Setelah tahap ini, sisa sistem tidak peduli data dari tabel mana. Menambah tabel ketujuh cukup tulis satu fungsi baru — mesin peringkatnya tidak disentuh.</td></tr>
+</tbody>
+</table>
+
+<h3>K2 · Tiap nama dicari sendiri, ambil yang terbaik</h3>
+<table>
+<tbody>
+<tr><td style="width:100px"><b>Masalah</b></td><td>Konsep <em>Acetaminophen</em> punya <b>129 alias</b> (Tylenol, Panadol, Calpol…). Kalau dilebur jadi satu teks, konsep yang punya banyak sinonim justru jadi susah ditemukan — normalisasi panjang mengencerkan bobot tiap katanya.</td></tr>
+<tr><td><b>Yang dibuat</b></td><td>Tiap nama/alias/kode jadi dokumen kecil sendiri. Skor entri = <b>skor tertinggi</b> di antara semuanya.</td></tr>
+<tr><td><b>Contoh</b></td><td>Query <span class="mono">panadol</span>: alias "Panadol" dapat 1,0, alias "Acetaminophen" dapat 0. Skor konsepnya 1,0 — bukan rata-ratanya yang cuma 0,008.</td></tr>
+<tr><td><b>Kenapa begini</b></td><td>Petugas mencocokkan <em>sebuah nama</em>, bukan gabungan semua nama. Maksimum meniru cara berpikir itu.</td></tr>
+<tr><td><b>Ongkosnya</b></td><td>4.748 entri jadi 29.320 nama yang diindeks. Ternyata tidak masalah — indeks tetap 1,32 detik.</td></tr>
+</tbody>
+</table>
+
+<h3>K3 · TF-IDF sebagai mesin dasar</h3>
+<table>
+<tbody>
+<tr><td style="width:100px"><b>Yang dibuat</b></td><td>Pembobotan standar <span class="mono">ltc</span>: TF logaritmik (muncul 2× bukan berarti 2× penting), IDF (kata langka lebih berbobot), normalisasi panjang (nama panjang tidak menang karena kebanyakan kata). Kemiripan diukur dengan cosine.</td></tr>
+<tr><td><b>Kenapa TF-IDF, bukan BM25</b></td><td>Kami uji keduanya. BM25 <b>tidak lebih baik</b> (0,615 vs 0,646, dua-duanya tidak beda signifikan dari baseline). Masuk akal: BM25 unggul pada dokumen panjang dengan kata berulang, sementara dokumen kami adalah <em>nama</em> — 2–4 kata, hampir tanpa pengulangan.</td></tr>
+<tr><td><b>Status</b></td><td>TF-IDF kata saja <b>tidak menyelesaikan masalah</b>: +0,018 dengan p = 0,510. K3 adalah fondasi, bukan solusi.</td></tr>
+</tbody>
+</table>
+
+<h3>K4 · Kepingan karakter — inti penelitian</h3>
+<table>
+<tbody>
+<tr><td style="width:100px"><b>Masalah</b></td><td>Selama unitnya kata, kemiripan cuma punya dua nilai: cocok atau tidak.</td></tr>
+<tr><td><b>Yang dibuat</b></td><td>Indeks TF-IDF kedua, di atas kepingan 4 huruf. Rumusnya sama persis, cuma "kosakata"-nya beda.</td></tr>
+<tr><td><b>Status</b></td><td><b>+0,176 nDCG, p &lt; 0,001.</b> Query nol-hasil 18,3% → 0,6%. Ini komponen yang membawa perbaikan.</td></tr>
+</tbody>
+</table>
+
+<h3>K5 · Gabungkan skor kata dan skor kepingan</h3>
+<table>
+<tbody>
+<tr><td style="width:100px"><b>Masalah</b></td><td>Kepingan bisa terlalu murah hati — <span class="mono">Pulmonary tuberculosis</span> berbagi banyak kepingan dengan <span class="mono">pulm edem</span>. Pencocokan kata lebih tegas. Kita mau dua-duanya.</td></tr>
+<tr><td><b>Yang dibuat</b></td><td><span class="mono">skor = α × cosine_kata + (1−α) × cosine_kepingan</span>. Sah dijumlahkan langsung karena keduanya dari korpus yang sama dan sama-sama di rentang [0,1].</td></tr>
+<tr><td><b>Berapa α</b></td><td>Disapu seluruh rentangnya: kepingan saja (α=0) 0,793 · α=0,25 <b>0,818</b> · α=0,45 0,811 · kata saja (α=1) 0,657. <b>Jalur kepingan menyumbang jauh lebih besar.</b> Optimum ≈ 0,25.</td></tr>
+<tr><td><b>Catatan</b></td><td>Rentang 0–0,65 cuma bergerak 0,793–0,818. Sistemnya tidak peka — bagus untuk penerapan, tapi juga alasan kami tidak menjadikan penyetelan α sebagai kontribusi.</td></tr>
+</tbody>
+</table>
+
+<h3>K6 · Satukan hasil dari 6 tabel jadi satu daftar — di sinilah RRF dipakai</h3>
+<table>
+<tbody>
+<tr><td style="width:100px"><b>Masalah</b></td><td>Setelah K5 kita punya 6 daftar peringkat terpisah — satu per tabel. Petugas mau satu daftar. Skor mentah antar tabel juga tidak selalu sebanding (indeks konsep punya 4.249 dokumen pembanding, indeks provider cuma 6), jadi menjumlah skor mentah begitu saja berisiko bias ke tabel yang kebetulan skalanya beda.</td></tr>
+<tr><td><b>Yang dibuat</b></td><td>RRF (Reciprocal Rank Fusion): tiap entri dinilai dari <b>posisi peringkatnya</b> di daftar asalnya (1/(K+peringkat)), bukan dari skor mentahnya. Lalu, karena RRF polos punya cacat (lihat kotak di bawah), kami tambahkan pembobotan per tabel berbasis IDF global sebelum RRF dijalankan — disebut <b>Weighted RRF</b>.</td></tr>
+<tr><td><b>Kenapa RRF, bukan sekadar gabung-skor</b></td><td>RRF berguna karena ia tidak butuh skor yang sebanding — cukup peringkat. Itu artinya menambah tabel ketujuh yang mesin pencariannya beda (atau bahkan yang cuma mengembalikan peringkat tanpa skor sama sekali, misalnya hasil dari sistem pihak ketiga) tetap bisa digabung tanpa mengubah rumus. Itulah kegunaannya di proposal ini: <b>jembatan penyatu format</b>, bukan alat peningkat akurasi.</td></tr>
+<tr><td><b>Status — penting</b></td><td><b>+0,007 dengan p = 0,207. Tidak signifikan.</b> Penggabungan skor biasa — cara paling sederhana — ternyata sudah bekerja sama baiknya. Pada P@5 dan MAP ia malah sedikit unggul.</td></tr>
+<tr><td><b>Kenapa tetap dipakai</b></td><td>Ongkosnya hampir nol (0,74 → 1,28 ms) dan ia bisa bekerja tanpa perlu skor — berguna kalau kelak ditambah sumber yang cuma memberi peringkat. Nilainya arsitektural, bukan kualitas hasil. Kalau ada yang lebih suka penggabungan skor biasa karena lebih sederhana, data kami tidak melarangnya.</td></tr>
+</tbody>
+</table>
+
+<div class="box warn">
+<p class="lbl">Satu jebakan yang kami temukan di sini</p>
+<p>RRF versi polos (tanpa pembobotan) <b>merusak</b>: hasil 0,804 jatuh ke 0,580, lebih buruk dari OpenMRS. Sebabnya: RRF dirancang untuk beberapa mesin yang memeringkat dokumen yang <em>sama</em>. Pada tabel yang saling lepas, tiap tabel otomatis dapat satu kursi berskor sama di puncak. Tabel <span class="mono">form</span> yang cuma berisi 10 dari 4.748 dokumen dapat 7,6% kursi di lima besar.</p>
+<p>Pembobotan memperbaikinya (+0,231), tapi itu <b>menambal lubang yang kami gali sendiri</b> — bukan perbaikan atas keadaan OpenMRS. Kami tulis sebagai temuan tentang perilaku RRF, bukan sebagai pencapaian.</p>
+</div>
+
+<div class="box neu">
+<p class="lbl">Jadi RRF difiturkan sebagai apa</p>
+<p>Tiga peran, bukan "peningkat kualitas": <b>(1) mekanisme penyatuan</b> enam daftar peringkat jadi satu — dipilih setelah dibandingkan dengan penggabungan skor langsung dan RRF polos; <b>(2) temuan penelitian</b> — bukti terukur bahwa RRF polos degeneratif pada koleksi yang saling lepas, dan pembobotan IDF global memperbaikinya; <b>(3) asuransi perluasan</b> — kalau kelak ada sumber data baru yang cuma memberi peringkat tanpa skor, mekanisme ini sudah siap menampungnya, dengan ongkos hampir nol.</p>
+</div>
+
+<h3>Yang diuji lalu dibuang: perluasan query otomatis</h3>
+<p>Idenya: cari sekali, ambil 5 teratas, panen sinonim &amp; kodenya, cari ulang dengan query yang diperkaya. Hasilnya <b>memperburuk: 0,811 → 0,589</b>. Sebabnya alias obat berisi ratusan nama dagang, jadi query 2 kata membengkak jadi 30 kata yang sebagian besar bising. Ini kegagalan kedua untuk komponen ini (sebelumnya gagal karena pemicunya tidak pernah menyala), jadi kami keluarkan dari sistem.</p>
+<p class="small">Tetap ditulis karena orang berikutnya pasti terpikir ide yang sama — sinonimnya jelas-jelas tersedia melimpah. Lebih berguna tahu bahwa sudah dicoba dua kali dan bagaimana gagalnya.</p>
+
+<h3>Alurnya utuh</h3>
+
+<div class="fig">
+<svg viewBox="0 0 800 330" role="img" aria-label="Alur lengkap sistem">
+  <defs><marker id="a3" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#6b6862"/></marker></defs>
+  <rect x="14" y="12" width="772" height="112" rx="10" fill="#f6f4f0" stroke="#cfcbc3" stroke-dasharray="6 4"/>
+  <text x="32" y="32" font-size="11.5" font-weight="700" fill="#6b6862">SEKALI saat modul dimuat — 1,32 detik</text>
+  <rect x="32" y="42" width="150" height="32" rx="6" fill="#fff" stroke="#e2dfd8"/>
+  <text x="107" y="57" font-size="10.5" fill="#1c1b19" text-anchor="middle">Baca 6 tabel</text>
+  <text x="107" y="69" font-size="9.5" fill="#6b6862" text-anchor="middle">4.748 entri</text>
+  <path d="M188,58 L212,58" stroke="#6b6862" stroke-width="1.4" marker-end="url(#a3)"/>
+  <rect x="218" y="42" width="150" height="32" rx="6" fill="#fff" stroke="#e2dfd8"/>
+  <text x="293" y="57" font-size="10.5" fill="#1c1b19" text-anchor="middle">K1 + K2</text>
+  <text x="293" y="69" font-size="9.5" fill="#6b6862" text-anchor="middle">29.320 nama</text>
+  <path d="M374,58 L398,58" stroke="#6b6862" stroke-width="1.4" marker-end="url(#a3)"/>
+  <rect x="404" y="42" width="170" height="32" rx="6" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="489" y="62" font-size="10.5" fill="#2f6ea8" text-anchor="middle" font-weight="640">6 indeks KATA (K3)</text>
+  <rect x="590" y="42" width="180" height="32" rx="6" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="680" y="62" font-size="10.5" fill="#2f6f52" text-anchor="middle" font-weight="640">6 indeks KEPINGAN (K4)</text>
+  <rect x="404" y="84" width="366" height="30" rx="6" fill="#f0eaf8" stroke="#6b4c9a"/>
+  <text x="587" y="103" font-size="10.5" fill="#6b4c9a" text-anchor="middle" font-weight="640">1 indeks GLOBAL — hanya untuk bobot tabel (K6)</text>
+
+  <rect x="14" y="136" width="772" height="184" rx="10" fill="#fff" stroke="#2f6ea8" stroke-width="1.5"/>
+  <text x="32" y="156" font-size="11.5" font-weight="700" fill="#2f6ea8">SETIAP KETIKAN — 1,28 milidetik</text>
+  <rect x="300" y="164" width="200" height="24" rx="6" fill="#f6f4f0" stroke="#e2dfd8"/>
+  <text x="400" y="181" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19" text-anchor="middle">diabete melitus</text>
+  <path d="M400,190 L400,200" stroke="#6b6862" stroke-width="1.3"/>
+  <path d="M85,200 L715,200" stroke="#6b6862" stroke-width="1.3"/>
+  <g stroke="#6b6862" stroke-width="1.3" marker-end="url(#a3)">
+    <path d="M85,200 L85,212"/><path d="M211,200 L211,212"/><path d="M337,200 L337,212"/>
+    <path d="M463,200 L463,212"/><path d="M589,200 L589,212"/><path d="M715,200 L715,212"/>
+  </g>
+  <g font-size="9" text-anchor="middle">
+    <rect x="39" y="216" width="92" height="34" rx="6" fill="#e8f1f8" stroke="#2f6ea8"/><text x="85" y="231" fill="#2f6ea8" font-weight="640">KONSEP</text><text x="85" y="244" fill="#6b6862">kata+kepingan</text>
+    <rect x="165" y="216" width="92" height="34" rx="6" fill="#fbeee4" stroke="#b8622a"/><text x="211" y="231" fill="#b8622a" font-weight="640">OBAT</text><text x="211" y="244" fill="#6b6862">kata+kepingan</text>
+    <rect x="291" y="216" width="92" height="34" rx="6" fill="#f0eaf8" stroke="#6b4c9a"/><text x="337" y="231" fill="#6b4c9a" font-weight="640">PASIEN</text><text x="337" y="244" fill="#6b6862">kata+kepingan</text>
+    <rect x="417" y="216" width="92" height="34" rx="6" fill="#e6f2eb" stroke="#2f6f52"/><text x="463" y="231" fill="#2f6f52" font-weight="640">FORM</text><text x="463" y="244" fill="#6b6862">kata+kepingan</text>
+    <rect x="543" y="216" width="92" height="34" rx="6" fill="#f0eee9" stroke="#9b9b9b"/><text x="589" y="231" fill="#6b6862" font-weight="640">LOKASI</text><text x="589" y="244" fill="#6b6862">kata+kepingan</text>
+    <rect x="669" y="216" width="92" height="34" rx="6" fill="#fbeaea" stroke="#a03434"/><text x="715" y="231" fill="#a03434" font-weight="640">PROVIDER</text><text x="715" y="244" fill="#6b6862">kata+kepingan</text>
+  </g>
+  <rect x="39" y="260" width="460" height="22" rx="6" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="269" y="275" font-size="10.5" font-weight="640" fill="#2f6f52" text-anchor="middle">K5 — gabung skor kata &amp; kepingan → 6 daftar terurut</text>
+  <rect x="515" y="260" width="246" height="22" rx="6" fill="#f0eaf8" stroke="#6b4c9a"/>
+  <text x="638" y="275" font-size="10.5" font-weight="640" fill="#6b4c9a" text-anchor="middle">indeks global → bobot tabel</text>
+  <path d="M269,284 L269,292 L400,292" stroke="#6b6862" stroke-width="1.3" fill="none"/>
+  <path d="M638,284 L638,292 L400,292" stroke="#6b6862" stroke-width="1.3" fill="none"/>
+  <path d="M400,292 L400,300" stroke="#6b6862" stroke-width="1.3" marker-end="url(#a3)"/>
+  <rect x="220" y="304" width="360" height="20" rx="6" fill="#f4f2ee" stroke="#cfcbc3"/>
+  <text x="400" y="318" font-size="10.5" font-weight="640" fill="#1c1b19" text-anchor="middle">K6 — RRF berbobot: satukan jadi satu daftar terurut</text>
+</svg>
+<p class="cap">13 indeks terdengar rumit, tapi semuanya dibangun <b>satu fungsi yang sama</b>. Yang beda cuma dokumen apa yang dimasukkan dan cara memotong teksnya.</p>
+</div>
+
+<h2 id="b3x"><span class="n">3+</span>Peta metode &amp; model: input → output</h2>
+
+<p>Supaya tidak ada yang tersamar di balik nama komponen, berikut semua metode/model yang dipakai berjejer sebagai satu tabel — apa masukannya, apa keluarannya, dan untuk apa dipakai. Termasuk RRF, supaya jelas dari tabel ini juga bahwa perannya bukan "otak" sistem, melainkan satu langkah penyatu di ujung alur.</p>
+
+<table>
+<thead><tr><th style="width:150px">Metode / model</th><th style="width:110px">Jenis</th><th>Input</th><th>Output</th><th>Peran dalam sistem</th></tr></thead>
+<tbody>
+<tr><td><b>K1 · Virtualisasi dokumen</b></td><td class="small">transformasi data, tanpa training</td><td>Baris mentah dari 6 tabel OpenMRS (konsep, obat, pasien, form, lokasi, provider)</td><td>Dokumen seragam: judul · alias · kode · konteks</td><td>Menyamakan bentuk data lintas tabel supaya bisa diproses satu mesin yang sama</td></tr>
+<tr><td><b>K2 · Surface form + maksimum</b></td><td class="small">agregasi skor</td><td>Satu dokumen dengan banyak alias</td><td>Beberapa "nama kecil" terpisah + aturan ambil skor tertinggi</td><td>Mencegah entitas beralias banyak (mis. 129 nama obat) tenggelam karena skornya terlalu diencerkan</td></tr>
+<tr><td><b>K3 · TF-IDF kata (ltc)</b></td><td class="small">statistik leksikal</td><td>Query kata + indeks kata per tabel</td><td>Skor cosine similarity 0–1 per entri, per tabel</td><td>Mesin pencocokan dasar — mewakili kecocokan "kata demi kata"</td></tr>
+<tr><td><b>K4 · TF-IDF kepingan 4-huruf</b></td><td class="small">statistik leksikal</td><td>Query dipotong jadi kepingan 4 huruf + indeks kepingan per tabel</td><td>Skor cosine similarity 0–1 per entri, per tabel</td><td>Sumber utama perbaikan — toleran salah ketik, singkatan, dan urutan kata</td></tr>
+<tr><td><b>K5 · Fusi linear α</b></td><td class="small">gabungan skor, tanpa training</td><td>Skor K3 dan skor K4 untuk entri yang sama</td><td>Satu skor gabungan 0–1 per entri, per tabel</td><td>Menyeimbangkan ketegasan kata dengan toleransi kepingan sebelum masuk ke penyatuan antar-tabel</td></tr>
+<tr><td><b>K6 · Weighted RRF</b></td><td class="small">fusi peringkat lintas-koleksi</td><td>6 daftar terurut hasil K5 (satu per tabel) + bobot per tabel dari indeks IDF global</td><td>1 daftar terurut gabungan lintas 6 tabel</td><td><b>RRF di sini menjembatani, bukan menilai ulang relevansi.</b> Ia menyatukan enam daftar yang skalanya berbeda-beda memakai posisi peringkat, dan berfungsi sebagai titik sambung untuk sumber data yang kelak hanya menyediakan peringkat tanpa skor.</td></tr>
+<tr><td class="small">✕ Perluasan query (PRF)</td><td class="small">dicoba, dibuang</td><td>Top-5 hasil pencarian pertama</td><td>Query baru berisi sinonim &amp; kode hasil panen</td><td>Terbukti memperburuk hasil dua kali percobaan — tidak dipakai di sistem final</td></tr>
+</tbody>
+</table>
+
+<div class="fig">
+<svg viewBox="0 0 800 300" role="img" aria-label="Bagan metode dan model beserta input output">
+  <defs><marker id="a4" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#6b6862"/></marker></defs>
+  <text x="20" y="18" font-size="11.5" font-weight="700" fill="#1c1b19">Query petugas masuk dari kiri, satu daftar hasil keluar di kanan</text>
+
+  <rect x="16" y="30" width="112" height="52" rx="7" fill="#f6f4f0" stroke="#cfcbc3"/>
+  <text x="72" y="50" font-size="10.5" text-anchor="middle" fill="#1c1b19" font-weight="640">Query</text>
+  <text x="72" y="65" font-size="9.5" text-anchor="middle" fill="#6b6862">"diabete melitus"</text>
+  <path d="M128,56 L150,56" stroke="#6b6862" stroke-width="1.4" marker-end="url(#a4)"/>
+
+  <rect x="150" y="18" width="140" height="34" rx="6" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="220" y="39" font-size="10" text-anchor="middle" fill="#2f6ea8" font-weight="640">K3 · TF-IDF kata</text>
+  <text x="150" y="66" font-size="9" fill="#6b6862">in: token kata · out: skor 0–1</text>
+
+  <rect x="150" y="66" width="140" height="34" rx="6" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="220" y="87" font-size="10" text-anchor="middle" fill="#2f6f52" font-weight="640">K4 · TF-IDF kepingan</text>
+  <text x="150" y="114" font-size="9" fill="#6b6862">in: kepingan 4h · out: skor 0–1</text>
+
+  <path d="M290,35 L316,52" stroke="#6b6862" stroke-width="1.3" marker-end="url(#a4)"/>
+  <path d="M290,83 L316,66" stroke="#6b6862" stroke-width="1.3" marker-end="url(#a4)"/>
+
+  <rect x="320" y="40" width="140" height="34" rx="6" fill="#fbeee4" stroke="#b8622a"/>
+  <text x="390" y="61" font-size="10" text-anchor="middle" fill="#b8622a" font-weight="640">K5 · Fusi α</text>
+  <text x="320" y="88" font-size="9" fill="#6b6862">in: 2 skor · out: 1 skor/entri</text>
+  <text x="320" y="99" font-size="9" fill="#6b6862">diulang × 6 tabel</text>
+
+  <path d="M460,57 L486,57" stroke="#6b6862" stroke-width="1.3" marker-end="url(#a4)"/>
+
+  <rect x="490" y="20" width="150" height="80" rx="7" fill="#f0eaf8" stroke="#6b4c9a" stroke-width="1.5"/>
+  <text x="565" y="38" font-size="10.5" text-anchor="middle" fill="#6b4c9a" font-weight="700">K6 · Weighted RRF</text>
+  <text x="502" y="56" font-size="9" fill="#1c1b19">in: 6 daftar peringkat</text>
+  <text x="502" y="68" font-size="9" fill="#1c1b19">    + bobot tabel (IDF global)</text>
+  <text x="502" y="86" font-size="9" fill="#1c1b19">out: 1 daftar gabungan</text>
+  <text x="502" y="98" font-size="8.5" fill="#6b4c9a" font-weight="640">peran: penyatu, bukan penilai relevansi</text>
+
+  <path d="M640,60 L666,60" stroke="#6b6862" stroke-width="1.4" marker-end="url(#a4)"/>
+
+  <rect x="670" y="40" width="112" height="40" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="726" y="58" font-size="10" text-anchor="middle" fill="#2f6f52" font-weight="640">Hasil akhir</text>
+  <text x="726" y="72" font-size="9" text-anchor="middle" fill="#6b6862">1 daftar terurut</text>
+
+  <rect x="150" y="128" width="632" height="70" rx="8" fill="#fbeaea" stroke="#a03434" stroke-dasharray="4 3"/>
+  <text x="166" y="148" font-size="10.5" font-weight="700" fill="#a03434">✕ Perluasan query (K7, dicoba lalu dibuang)</text>
+  <text x="166" y="164" font-size="9.5" fill="#1c1b19">in: top-5 hasil ronde pertama → panen sinonim/kode → out: query baru yang diperkaya</text>
+  <text x="166" y="180" font-size="9.5" fill="#a03434" font-weight="640">Hasilnya memperburuk (0,811 → 0,589) — jalur ini tidak dipakai, digambar putus-putus sebagai catatan sejarah percobaan.</text>
+
+  <rect x="150" y="210" width="632" height="76" rx="8" fill="#f4f2ee" stroke="#cfcbc3"/>
+  <text x="166" y="230" font-size="10.5" font-weight="700" fill="#1c1b19">Apa gunanya RRF di bagan ini</text>
+  <text x="166" y="248" font-size="9.5" fill="#1c1b19">RRF TIDAK menilai relevansi teks — itu sudah selesai di K3/K4/K5. Tugas RRF cuma menggabung 6 daftar peringkat yang</text>
+  <text x="166" y="262" font-size="9.5" fill="#1c1b19">skalanya beda-beda jadi satu daftar, memakai posisi peringkat (bukan skor mentah) supaya tabel kecil (mis. provider,</text>
+  <text x="166" y="276" font-size="9.5" fill="#1c1b19">6 entri) tidak otomatis kalah oleh tabel besar (konsep, 4.249 entri) hanya karena skalanya lebih kecil.</text>
+</svg>
+<p class="cap"><b>Cara baca:</b> tiap kotak = satu metode/model dengan input dan output eksplisit. Yang berwarna abu-putus-putus (K7) sudah dikeluarkan dari sistem final tapi tetap digambar supaya jelas bahwa pilihan itu sudah dipertimbangkan dan diuji, bukan diabaikan begitu saja.</p>
+</div>
+
+<div class="box good">
+<p class="lbl">Kalimat kontribusi yang bisa dipakai di ringkasan/kesimpulan</p>
+<p>"Penelitian ini menunjukkan bahwa Reciprocal Rank Fusion baku berperilaku degeneratif pada koleksi yang saling lepas — setiap koleksi memperoleh satu posisi teratas berskor identik terlepas dari relevansinya — dan mengusulkan pembobotan koleksi berbasis IDF global sebagai perbaikannya. Pembobotan tersebut tidak meningkatkan efektivitas dibanding penggabungan skor langsung (+0,007, p = 0,207), tetapi memulihkan kelayakan fusi berbasis peringkat yang tanpa pembobotan kehilangan 0,231 nDCG@10."</p>
+</div>
+<h2 id="b3y"><span class="n">3++</span>Contoh nyata: dari ketikan sampai angka</h2>
+
+<p>Bagian sebelumnya menyebut nama komponen. Bagian ini menjalankannya pada angka betulan, langkah demi langkah, memakai korpus contoh 26 konsep + 5 tabel lain yang juga dipakai mockup di bawah. Semua angka di sini dihitung, bukan dikarang — Anda bisa mengeceknya sendiri di mockup.</p>
+
+<h3>Contoh 1 — <span class="mono">pulm edem</span>: jalur kata mati total, jalur kepingan yang menyelamatkan</h3>
+
+<p>Petugas mengetik <span class="mono">pulm edem</span>. Sistem memotongnya dua kali, dengan dua cara berbeda:</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 200" role="img" aria-label="Query dipotong dua cara">
+  <rect x="290" y="14" width="220" height="30" rx="7" fill="#f6f4f0" stroke="#cfcbc3"/>
+  <text x="400" y="34" font-size="12.5" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19" text-anchor="middle">pulm edem</text>
+  <path d="M340,44 L230,66" stroke="#2f6ea8" stroke-width="1.5"/>
+  <path d="M460,44 L570,66" stroke="#2f6f52" stroke-width="1.5"/>
+
+  <rect x="30" y="70" width="330" height="112" rx="8" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="195" y="90" font-size="11.5" font-weight="700" fill="#2f6ea8" text-anchor="middle">JALUR KATA (K3)</text>
+  <text x="46" y="110" font-size="10.5" fill="#1c1b19">Dipotong di spasi → 2 token:</text>
+  <text x="46" y="128" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#2f6ea8">["pulm", "edem"]</text>
+  <text x="46" y="150" font-size="10.5" fill="#a03434">Tidak ada satu pun konsep yang punya kata</text>
+  <text x="46" y="164" font-size="10.5" fill="#a03434">persis "pulm" atau "edem".</text>
+  <text x="46" y="178" font-size="11" font-weight="700" fill="#a03434">Hasil jalur ini: KOSONG (skor 0,000)</text>
+
+  <rect x="440" y="70" width="330" height="112" rx="8" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="605" y="90" font-size="11.5" font-weight="700" fill="#2f6f52" text-anchor="middle">JALUR KEPINGAN (K4)</text>
+  <text x="456" y="110" font-size="10.5" fill="#1c1b19">Jendela 4 huruf digeser → 6 kepingan:</text>
+  <text x="456" y="128" font-size="10" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52">pulm ulm_ lm_e m_ed _ede edem</text>
+  <text x="456" y="150" font-size="10.5" fill="#2f6f52">"pulm" cocok dengan awal "pulmonary".</text>
+  <text x="456" y="164" font-size="10.5" fill="#2f6f52">"_ede" dan "edem" cocok dengan "edema".</text>
+  <text x="456" y="178" font-size="11" font-weight="700" fill="#2f6f52">Hasil jalur ini: ada, skor 0,514</text>
+</svg>
+</div>
+
+<p>Lima kandidat teratas, dengan skor tiap jalur dipisah supaya kelihatan siapa yang bekerja:</p>
+
+<table>
+<thead><tr><th>Konsep</th><th class="num">skor jalur KATA</th><th class="num">skor jalur KEPINGAN</th><th class="num">gabungan (α=0,30)</th></tr></thead>
+<tbody>
+<tr class="hi"><td>Pulmonary edema</td><td class="num">0,000</td><td class="num">0,514</td><td class="num"><b>0,360</b></td></tr>
+<tr><td>Edema</td><td class="num">0,000</td><td class="num">0,380</td><td class="num">0,266</td></tr>
+<tr><td>Acute pulmonary edema</td><td class="num">0,000</td><td class="num">0,378</td><td class="num">0,265</td></tr>
+<tr><td>Pulmonary tuberculosis</td><td class="num">0,000</td><td class="num">0,140</td><td class="num">0,098</td></tr>
+<tr><td>Pulmonary embolism</td><td class="num">0,000</td><td class="num">0,089</td><td class="num">0,062</td></tr>
+</tbody>
+</table>
+
+<p>Rumus gabungannya cuma penjumlahan berbobot. Untuk baris pertama:</p>
+<p class="mono" style="background:#f0eee9;padding:10px 14px;border-radius:7px;font-size:.9rem">
+gabungan = 0,30 × <span style="color:#2f6ea8">0,000</span> + 0,70 × <span style="color:#2f6f52">0,514</span> = <b>0,360</b>
+</p>
+
+<div class="box bad">
+<p class="lbl">Kalau K4 dimatikan</p>
+<p>Sistem cuma punya kolom "skor jalur kata", yang isinya nol semua. Hasilnya: <b>layar kosong.</b> Ini yang terjadi pada B1 — TF-IDF kata murni — untuk query ini.</p>
+</div>
+
+<div class="box warn">
+<p class="lbl">Tapi hati-hati: untuk query INI, OpenMRS asli sebenarnya berhasil</p>
+<p><span class="mono">pulm</span> memang awalan dari <span class="mono">pulmonary</span>, jadi penyaring awalan OpenMRS (B0) meloloskannya. Query ini kami pakai di sini karena ia contoh paling bersih untuk memperlihatkan <em>jalur kata mati, jalur kepingan hidup</em> — bukan karena OpenMRS gagal di sini.</p>
+<p>Yang benar-benar membuat OpenMRS mengembalikan layar kosong adalah <b>salah eja di tengah kata</b>, seperti <span class="mono">diabete melitus</span> atau <span class="mono">pulmonari edema</span>. Silakan uji ketiganya di mockup bagian 4 dengan berpindah metode.</p>
+</div>
+
+<h3>Contoh 2 — <span class="mono">diabetes type 2</span>: kebalikannya, di sini kata yang paling menentukan</h3>
+
+<p>Kalau ejaannya benar, jalur kata jadi jauh lebih tajam daripada jalur kepingan. Perhatikan kolom mana yang paling membedakan juara 1 dari juara 2:</p>
+
+<table>
+<thead><tr><th>Konsep</th><th class="num">skor KATA</th><th class="num">skor KEPINGAN</th><th class="num">gabungan</th></tr></thead>
+<tbody>
+<tr class="hi"><td>Diabetes mellitus, type 2</td><td class="num"><b>0,830</b></td><td class="num">0,659</td><td class="num"><b>0,710</b></td></tr>
+<tr><td>Diabetes mellitus, type 1</td><td class="num">0,456</td><td class="num">0,572</td><td class="num">0,537</td></tr>
+<tr><td>Diabetes insipidus</td><td class="num">0,251</td><td class="num">0,292</td><td class="num">0,279</td></tr>
+<tr><td>Gestational diabetes</td><td class="num">0,202</td><td class="num">0,267</td><td class="num">0,247</td></tr>
+<tr><td>Diabetic ketoacidosis</td><td class="num">0,000</td><td class="num">0,111</td><td class="num">0,078</td></tr>
+</tbody>
+</table>
+
+<p>Bandingkan jarak juara 1 ke juara 2 di tiap kolom:</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 160" role="img" aria-label="Perbandingan ketajaman jalur kata dan kepingan">
+  <text x="20" y="20" font-size="11.5" font-weight="700" fill="#1c1b19">Seberapa tegas sistem memisahkan "type 2" dari "type 1"?</text>
+
+  <text x="20" y="50" font-size="11" fill="#2f6ea8" font-weight="640">JALUR KATA</text>
+  <rect x="150" y="38" width="500" height="16" fill="#f0eee9" rx="3"/>
+  <rect x="150" y="38" width="415" height="16" fill="#2f6ea8" rx="3"/>
+  <text x="160" y="51" font-size="10" fill="#fff">type 2 = 0,830</text>
+  <rect x="150" y="58" width="500" height="16" fill="#f0eee9" rx="3"/>
+  <rect x="150" y="58" width="228" height="16" fill="#9dc3e0" rx="3"/>
+  <text x="160" y="71" font-size="10" fill="#1c1b19">type 1 = 0,456</text>
+  <text x="662" y="61" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#2f6ea8" font-weight="700">jarak 0,374</text>
+
+  <text x="20" y="106" font-size="11" fill="#2f6f52" font-weight="640">JALUR KEPINGAN</text>
+  <rect x="150" y="94" width="500" height="16" fill="#f0eee9" rx="3"/>
+  <rect x="150" y="94" width="330" height="16" fill="#2f6f52" rx="3"/>
+  <text x="160" y="107" font-size="10" fill="#fff">type 2 = 0,659</text>
+  <rect x="150" y="114" width="500" height="16" fill="#f0eee9" rx="3"/>
+  <rect x="150" y="114" width="286" height="16" fill="#9ecdb4" rx="3"/>
+  <text x="160" y="127" font-size="10" fill="#1c1b19">type 1 = 0,572</text>
+  <text x="662" y="117" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">jarak 0,087</text>
+
+  <rect x="20" y="140" width="760" height="16" rx="4" fill="#e8f1f8"/>
+  <text x="400" y="152" font-size="10.5" fill="#1c1b19" text-anchor="middle">Kepingan hampir tidak bisa membedakan keduanya — "type 1" dan "type 2" berbagi 11 dari 12 kepingan. Kata bisa, karena token "2" ≠ token "1".</text>
+</svg>
+</div>
+
+<div class="box good">
+<p class="lbl">Inilah alasan K5 ada</p>
+<p>Contoh 1 butuh kepingan (kata mati). Contoh 2 butuh kata (kepingan tumpul). Tidak ada satu jalur yang menang di dua-duanya. Karena itu skornya dijumlahkan, bukan dipilih salah satu. α = 0,30 artinya: <b>70% suara diberikan ke kepingan, 30% ke kata</b> — kepingan dapat porsi lebih besar karena ia yang menyelamatkan kasus gagal total, sementara kata cukup berperan sebagai penajam urutan saat ejaannya sudah benar.</p>
+</div>
+
+<h3>Contoh 3 — Weighted RRF, dijalankan langkah demi langkah</h3>
+
+<p>Query: <span class="mono">diabete</span>. Ini query untuk <b>menu Pencarian Terpadu</b>, jadi enam tabel dicari sekaligus.</p>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:22px">Langkah 1 — tiap tabel mencari sendiri, menghasilkan daftarnya sendiri</h4>
+
+<table>
+<thead><tr><th style="width:110px">Tabel</th><th>Daftar hasil, sudah terurut (skor K5)</th></tr></thead>
+<tbody>
+<tr><td><b>konsep</b></td><td>1. Diabetes mellitus, type 1 <span class="mono small">0,311</span> · 2. Diabetes mellitus, type 2 <span class="mono small">0,311</span> · 3. Diabetes insipidus <span class="mono small">0,248</span> · 4. Gestational diabetes <span class="mono small">0,235</span> · 5. Diabetic ketoacidosis <span class="mono small">0,155</span></td></tr>
+<tr><td><b>lokasi</b></td><td>1. Diabetes Clinic <span class="mono small">0,442</span></td></tr>
+<tr><td><b>form</b></td><td>1. Diabetes Follow-up Form <span class="mono small">0,326</span></td></tr>
+<tr><td><b>pasien</b></td><td>1. Peter Diabate <span class="mono small">0,226</span></td></tr>
+<tr><td><b>obat</b></td><td class="small">— kosong —</td></tr>
+<tr><td><b>provider</b></td><td class="small">— kosong —</td></tr>
+</tbody>
+</table>
+
+<p>Enam daftar. Petugas mau satu. Ada tiga cara menggabungnya, dan kami mencoba ketiganya.</p>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:22px">Cara A — RRF polos: rusak, dan begini rusaknya</h4>
+
+<p>RRF polos memberi nilai murni dari posisi peringkat: <span class="mono">nilai = 1 / (K + peringkat)</span>, dengan K = 20. Skor asli dibuang sama sekali.</p>
+
+<table>
+<thead><tr><th class="num">#</th><th>Entri</th><th>Tabel</th><th class="num">peringkat di tabelnya</th><th class="num">1/(20+peringkat)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Diabetes Clinic</td><td>lokasi</td><td class="num">1</td><td class="num">0,04762</td></tr>
+<tr><td class="num">2</td><td>Diabetes Follow-up Form</td><td>form</td><td class="num">1</td><td class="num">0,04762</td></tr>
+<tr><td class="num">3</td><td>Diabetes mellitus, type 1</td><td>konsep</td><td class="num">1</td><td class="num">0,04762</td></tr>
+<tr><td class="num">4</td><td><b>Peter Diabate</b> <span class="small">(nama pasien, cuma mirip kebetulan)</span></td><td>pasien</td><td class="num">1</td><td class="num">0,04762</td></tr>
+<tr><td class="num">5</td><td>Diabetes mellitus, type 2</td><td>konsep</td><td class="num">2</td><td class="num">0,04545</td></tr>
+</tbody>
+</table>
+
+<div class="box bad">
+<p class="lbl">Lihat masalahnya</p>
+<p>Empat entri teratas <b>skornya persis sama</b> — 0,04762 — karena semuanya kebetulan peringkat 1 di tabelnya masing-masing. Padahal kualitasnya jauh berbeda: "Diabetes Clinic" skor aslinya 0,442, sementara "Peter Diabate" cuma 0,226 dan sebenarnya cuma nama orang yang kebetulan mirip.</p>
+<p>Akibatnya urutan 4 besar ditentukan oleh <em>tie-break</em>, bukan relevansi. Dan konsep "Diabetes mellitus, type 2" — jawaban yang paling mungkin dicari petugas — terlempar ke posisi 5, kalah dari nama pasien.</p>
+<p><b>Ini bukan bug implementasi.</b> Ini sifat bawaan RRF ketika dipakai pada koleksi yang saling lepas. RRF dirancang Cormack dkk. untuk beberapa mesin yang memeringkat <em>dokumen yang sama</em>; di situ peringkat 1 dari mesin A dan peringkat 1 dari mesin B memang layak dianggap setara. Pada tabel yang isinya beda total, "peringkat 1 dari 6 provider" jelas tidak setara dengan "peringkat 1 dari 4.249 konsep".</p>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:22px">Cara B — Weighted RRF: tambal lubangnya</h4>
+
+<p>Perbaikannya: sebelum memakai peringkat, hitung dulu <b>seberapa besar kemungkinan tabel ini memang menyimpan jawabannya</b>. Caranya, jalankan query yang sama di satu indeks gabungan (semua tabel dijadikan satu), lalu lihat skor tertinggi yang dicapai tiap tabel di sana.</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 250" role="img" aria-label="Cara menghitung bobot tabel">
+  <defs><marker id="a7" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
+    <path d="M0,0 L7,3.2 L0,6.4 z" fill="#6b6862"/></marker></defs>
+  <rect x="270" y="12" width="260" height="28" rx="6" fill="#f6f4f0" stroke="#cfcbc3"/>
+  <text x="400" y="31" font-size="11.5" font-family="ui-monospace,Menlo,monospace" text-anchor="middle" fill="#1c1b19">diabete</text>
+  <path d="M400,40 L400,54" stroke="#6b6862" stroke-width="1.4" marker-end="url(#a7)"/>
+  <rect x="230" y="58" width="340" height="28" rx="6" fill="#f0eaf8" stroke="#6b4c9a"/>
+  <text x="400" y="77" font-size="11" text-anchor="middle" fill="#6b4c9a" font-weight="640">indeks GLOBAL — semua tabel dijadikan satu korpus</text>
+  <text x="400" y="100" font-size="10" text-anchor="middle" fill="#6b6862">skor tertinggi yang dicapai tiap tabel di indeks global:</text>
+
+  <g font-size="10.5">
+    <text x="90" y="126" fill="#1c1b19" text-anchor="end">lokasi</text>
+    <rect x="100" y="115" width="380" height="14" fill="#f0eee9" rx="3"/><rect x="100" y="115" width="380" height="14" fill="#2f6f52" rx="3"/>
+    <text x="492" y="126" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,304 → bobot 0,376</text>
+
+    <text x="90" y="146" fill="#1c1b19" text-anchor="end">konsep</text>
+    <rect x="100" y="135" width="380" height="14" fill="#f0eee9" rx="3"/><rect x="100" y="135" width="384" height="14" fill="#2f6f52" rx="3"/>
+    <text x="492" y="146" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,307 → bobot 0,379</text>
+
+    <text x="90" y="166" fill="#1c1b19" text-anchor="end">form</text>
+    <rect x="100" y="155" width="380" height="14" fill="#f0eee9" rx="3"/><rect x="100" y="155" width="262" height="14" fill="#b8622a" rx="3"/>
+    <text x="492" y="166" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,210 → bobot 0,275</text>
+
+    <text x="90" y="186" fill="#1c1b19" text-anchor="end">pasien</text>
+    <rect x="100" y="175" width="380" height="14" fill="#f0eee9" rx="3"/><rect x="100" y="175" width="81" height="14" fill="#6b4c9a" rx="3"/>
+    <text x="492" y="186" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,065 → bobot 0,120</text>
+
+    <text x="90" y="206" fill="#1c1b19" text-anchor="end">obat</text>
+    <rect x="100" y="195" width="380" height="14" fill="#f0eee9" rx="3"/>
+    <text x="492" y="206" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,000 → bobot 0,050 (lantai ε)</text>
+
+    <text x="90" y="226" fill="#1c1b19" text-anchor="end">provider</text>
+    <rect x="100" y="215" width="380" height="14" fill="#f0eee9" rx="3"/>
+    <text x="492" y="226" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,000 → bobot 0,050 (lantai ε)</text>
+  </g>
+  <text x="20" y="244" font-size="10" fill="#6b6862">Bobot = ε + (1−ε) × skor_tabel / jumlah_semua_skor, dengan ε = 0,05. Lantai ε menjaga agar tabel yang tampak tak relevan tidak dimatikan total.</text>
+</svg>
+</div>
+
+<p>Baru setelah itu RRF dijalankan, dengan peringkat dikalikan bobot tabelnya:</p>
+<p class="mono" style="background:#f0eee9;padding:10px 14px;border-radius:7px;font-size:.9rem">
+skor akhir = bobot_tabel × 1 / (20 + peringkat)
+</p>
+
+<table>
+<thead><tr><th class="num">#</th><th>Entri</th><th>Tabel</th><th class="num">peringkat</th><th class="num">bobot</th><th class="num">hitungan</th><th class="num">skor akhir</th></tr></thead>
+<tbody>
+<tr class="hi"><td class="num">1</td><td>Diabetes mellitus, type 1</td><td>konsep</td><td class="num">1</td><td class="num">0,379</td><td class="num">0,379 × 1/21</td><td class="num"><b>0,01805</b></td></tr>
+<tr><td class="num">2</td><td>Diabetes Clinic</td><td>lokasi</td><td class="num">1</td><td class="num">0,376</td><td class="num">0,376 × 1/21</td><td class="num">0,01792</td></tr>
+<tr class="hi"><td class="num">3</td><td>Diabetes mellitus, type 2</td><td>konsep</td><td class="num">2</td><td class="num">0,379</td><td class="num">0,379 × 1/22</td><td class="num">0,01723</td></tr>
+<tr><td class="num">4</td><td>Diabetes insipidus</td><td>konsep</td><td class="num">3</td><td class="num">0,379</td><td class="num">0,379 × 1/23</td><td class="num">0,01648</td></tr>
+<tr><td class="num">5</td><td>Gestational diabetes</td><td>konsep</td><td class="num">4</td><td class="num">0,379</td><td class="num">0,379 × 1/24</td><td class="num">0,01580</td></tr>
+<tr><td class="num">6</td><td>Diabetic ketoacidosis</td><td>konsep</td><td class="num">5</td><td class="num">0,379</td><td class="num">0,379 × 1/25</td><td class="num">0,01517</td></tr>
+<tr><td class="num">7</td><td>Diabetes Follow-up Form</td><td>form</td><td class="num">1</td><td class="num">0,275</td><td class="num">0,275 × 1/21</td><td class="num">0,01310</td></tr>
+<tr><td class="num">8</td><td>Peter Diabate</td><td>pasien</td><td class="num">1</td><td class="num">0,120</td><td class="num">0,120 × 1/21</td><td class="num">0,00569</td></tr>
+</tbody>
+</table>
+
+<div class="box good">
+<p class="lbl">Apa yang berubah</p>
+<p>Tidak ada lagi skor kembar. "Peter Diabate" turun dari posisi 4 ke posisi 8, karena tabel pasien memang tidak menjanjikan untuk query ini (bobot 0,120 saja). Konsep-konsep diabetes naik dan berkumpul di atas. Selisih terhadap RRF polos pada eksperimen sungguhan: <b>+0,231 nDCG@10</b>.</p>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:22px">Cara C — gabung skor mentah saja: ternyata sudah cukup baik</h4>
+
+<p>Cara paling malas: buang RRF, tempel semua daftar jadi satu, urutkan pakai skor K5 apa adanya.</p>
+
+<table>
+<thead><tr><th class="num">#</th><th>Entri</th><th>Tabel</th><th class="num">skor K5</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Diabetes Clinic</td><td>lokasi</td><td class="num">0,442</td></tr>
+<tr><td class="num">2</td><td>Diabetes Follow-up Form</td><td>form</td><td class="num">0,326</td></tr>
+<tr class="hi"><td class="num">3</td><td>Diabetes mellitus, type 1</td><td>konsep</td><td class="num">0,311</td></tr>
+<tr class="hi"><td class="num">4</td><td>Diabetes mellitus, type 2</td><td>konsep</td><td class="num">0,311</td></tr>
+<tr><td class="num">5</td><td>Diabetes insipidus</td><td>konsep</td><td class="num">0,248</td></tr>
+<tr><td class="num">6</td><td>Gestational diabetes</td><td>konsep</td><td class="num">0,235</td></tr>
+<tr><td class="num">7</td><td>Peter Diabate</td><td>pasien</td><td class="num">0,226</td></tr>
+</tbody>
+</table>
+
+<div class="box neu">
+<p class="lbl">Kesimpulan jujur dari tiga cara ini</p>
+<p>Cara C (skor mentah) hasilnya <b>hampir sama bagusnya</b> dengan cara B. Pada 180 query uji, selisihnya cuma +0,007 nDCG dan itu tidak signifikan (p = 0,207). Yang jelas kalah cuma cara A (RRF polos), yang memang rusak.</p>
+<p>Jadi kenapa kami tetap memakai cara B? Karena cara C punya satu ketergantungan tersembunyi: ia mensyaratkan <b>semua tabel memberi skor pada skala yang sama</b>. Selama semua tabel dicari dengan mesin yang sama (TF-IDF cosine 0–1), itu benar. Begitu ada satu sumber data yang mesinnya beda — misalnya nanti ditambah pencarian ke server terminologi luar yang cuma mengembalikan urutan tanpa skor — cara C langsung tidak bisa dipakai, sementara cara B tetap jalan. Itu satu-satunya alasan cara B dipertahankan, dan kami tulis apa adanya: <b>nilainya arsitektural, bukan peningkatan kualitas.</b></p>
+</div>
+
+<h2 id="b4"><span class="n">4</span>Mockup: seperti apa nanti di OpenMRS</h2>
+
+<p>Dua tempat yang kami sentuh. Yang pertama memperbaiki yang sudah ada; yang kedua menambah halaman baru.</p>
+
+<div class="grid2">
+<div class="card"><div class="h">A · Search box yang sudah ada</div><div class="s">Kotak pencarian diagnosis di form encounter. Tampilannya tetap, mesinnya diganti — jadi instan dan tahan salah ketik, seperti Algolia.</div></div>
+<div class="card"><div class="h">B · Menu baru "Pencarian Terpadu"</div><div class="s">Halaman baru: satu kotak mencari ke 6 tabel sekaligus, plus panel evaluasi yang menghitung metrik sendiri.</div></div>
+</div>
+
+<h3>4.1 Mockup A — search box ala Algolia</h3>
+
+<p>Ini <b>berjalan sungguhan</b>: mesin TF-IDF kata + kepingan 4 huruf jalan di halaman ini pada 26 konsep contoh. Silakan ketik.</p>
+
+<div class="mk">
+  <div class="mk-bar">
+    <span class="mk-logo">OpenMRS</span>
+    <span class="mk-nav">Beranda</span><span class="mk-nav">Pasien</span><span class="mk-nav">Apotek</span>
+    <span class="mk-right">Betty Williams · 42 th</span>
+  </div>
+  <div class="mk-body">
+    <div class="mk-form">Form: <b>Visit Note</b></div>
+    <div class="modebar">
+      <span class="modelbl">Metode:</span>
+      <button class="mode" data-g="1" data-m="b0">B0 · Heuristik OpenMRS</button>
+      <button class="mode" data-g="1" data-m="b1">B1 · TF-IDF kata</button>
+      <button class="mode on" data-g="1" data-m="e1">Usulan · kata + kepingan <span class="tagusul">E1/E3</span></button>
+    </div>
+    <label class="mk-lab">Diagnosis</label>
+    <div class="ac">
+      <input id="ac1" class="ac-in" type="text" value="diabete melitus" autocomplete="off" spellcheck="false" placeholder="ketik diagnosis…">
+      <div id="ac1d" class="ac-dd"></div>
+    </div>
+    <div class="mk-try">
+      Coba:
+      <button class="chip" data-t="ac1" data-q="diabete melitus">diabete melitus</button>
+      <button class="chip" data-t="ac1" data-q="pulm edem">pulm edem</button>
+      <button class="chip" data-t="ac1" data-q="pulmonari edema">pulmonari edema</button>
+      <button class="chip" data-t="ac1" data-q="pnemonia">pnemonia</button>
+      <button class="chip" data-t="ac1" data-q="hypertention">hypertention</button>
+      <button class="chip" data-t="ac1" data-q="tuberkulosis">tuberkulosis</button>
+    </div>
+    <label class="mk-lab" style="margin-top:14px">Catatan klinis</label>
+    <div class="mk-ta"></div>
+  </div>
+</div>
+
+<p class="small">Huruf yang <mark>disorot</mark> adalah kepingan yang cocok dengan ketikan Anda — itulah yang membuat hasilnya tetap ketemu meskipun ejaannya meleset. Angka di kanan adalah skor kemiripan.</p>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Perbandingan langsung</h4>
+
+<div class="fig">
+<svg viewBox="0 0 800 190" role="img" aria-label="Perbandingan search box sekarang dan usulan">
+  <text x="20" y="20" font-size="12" fill="#1c1b19">Query yang sama: <tspan font-family="ui-monospace,Menlo,monospace" font-weight="700">diabete melitus</tspan></text>
+
+  <rect x="20" y="32" width="370" height="146" rx="9" fill="#fff" stroke="#e2dfd8"/>
+  <text x="205" y="52" font-size="11.5" font-weight="700" fill="#6b6862" text-anchor="middle">SEKARANG</text>
+  <rect x="36" y="62" width="338" height="26" rx="5" fill="#fff" stroke="#cfcbc3"/>
+  <text x="48" y="79" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">diabete melitus</text>
+  <rect x="36" y="94" width="338" height="70" rx="5" fill="#fbeaea" stroke="#a03434"/>
+  <text x="205" y="126" font-size="14" font-weight="700" fill="#a03434" text-anchor="middle">Tidak ada hasil</text>
+  <text x="205" y="146" font-size="10.5" fill="#a03434" text-anchor="middle">petugas harus menebak ejaan yang benar</text>
+
+  <rect x="410" y="32" width="370" height="146" rx="9" fill="#fff" stroke="#2f6f52" stroke-width="1.5"/>
+  <text x="595" y="52" font-size="11.5" font-weight="700" fill="#2f6f52" text-anchor="middle">USULAN</text>
+  <rect x="426" y="62" width="338" height="26" rx="5" fill="#fff" stroke="#2f6f52"/>
+  <text x="438" y="79" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">diabete melitus</text>
+  <g font-size="11">
+    <rect x="426" y="94" width="338" height="22" rx="4" fill="#e6f2eb"/>
+    <text x="438" y="109" fill="#1c1b19" font-weight="640">Diabetes mellitus, type 2</text>
+    <text x="752" y="109" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,29</text>
+    <rect x="426" y="118" width="338" height="22" rx="4" fill="#fff"/>
+    <text x="438" y="133" fill="#1c1b19">Diabetes mellitus, type 1</text>
+    <text x="752" y="133" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,29</text>
+    <rect x="426" y="142" width="338" height="22" rx="4" fill="#fff"/>
+    <text x="438" y="157" fill="#1c1b19">Gestational diabetes</text>
+    <text x="752" y="157" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">0,11</text>
+  </g>
+</svg>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Yang membuatnya terasa "seperti Algolia"</h4>
+<table>
+<thead><tr><th style="width:180px">Sifat</th><th>Bagaimana dicapai</th></tr></thead>
+<tbody>
+<tr><td><b>Muncul saat mengetik</b></td><td>Pencarian 1,28 ms — jauh di bawah 100 ms yang terasa instan. Tidak perlu tombol "Cari".</td></tr>
+<tr><td><b>Tahan salah ketik</b></td><td>K4, kepingan karakter. Ini yang paling terasa bedanya.</td></tr>
+<tr><td><b>Cocok saat baru separuh diketik</b></td><td>Kepingan karakter juga: <span class="mono">diabe</span> sudah berbagi kepingan dengan <span class="mono">diabetes</span>.</td></tr>
+<tr><td><b>Sorotan huruf yang cocok</b></td><td>Tandai posisi yang tercakup kepingan query. Bonus: pengguna jadi paham kenapa hasil itu muncul.</td></tr>
+<tr><td><b>Navigasi keyboard</b></td><td>Panah atas/bawah, Enter pilih, Esc tutup. Murni urusan antarmuka, tidak menyentuh mesin.</td></tr>
+</tbody>
+</table>
+
+<div class="box neu">
+<p class="lbl">Yang TIDAK kami tiru dari Algolia</p>
+<p>Algolia mengurutkan hasil dengan mempertimbangkan popularitas dan riwayat klik. Kami tidak — tidak ada data itu, dan menambahkannya akan membuat hasil tidak bisa dijelaskan. Peringkat kami sepenuhnya ditentukan kemiripan teks, dan itu bisa ditelusuri per keputusan.</p>
+</div>
+
+<h3>4.2 Mockup B — menu baru "Pencarian Terpadu", dengan pemilih metode</h3>
+
+<p>Halaman baru, terpisah dari kotak pencarian utama. Satu ketikan mencari ke enam tabel sekaligus.</p>
+
+<p><b>Yang membuat halaman ini berbeda dari mockup A:</b> ada pemilih metode. Modul memuat keempat sistem sekaligus, dan pengguna bisa berpindah-pindah untuk melihat langsung apa bedanya pada query yang sama. Ini bukan hiasan — inilah yang membuat klaim penelitian kami bisa diperiksa orang lain tanpa harus membangun ulang apa pun.</p>
+
+<div class="box neu">
+<p class="lbl">Kenapa perlu pemilih metode</p>
+<p>Angka di bagian 6 mengatakan "E1 lebih baik 0,176 dari B0". Itu angka rata-rata dari 180 query — sulit dirasakan. Dengan pemilih ini, penguji cukup mengetik <span class="mono">diabete melitus</span>, menekan B0, lalu menekan E3, dan melihat sendiri bedanya dalam satu detik. <b>Metode default yang dipakai sehari-hari tetap E3;</b> pemilih ini ada di halaman eksperimental, bukan di kotak pencarian produksi.</p>
+</div>
+
+<div class="mk">
+  <div class="mk-bar">
+    <span class="mk-logo">OpenMRS</span>
+    <span class="mk-nav">Beranda</span><span class="mk-nav">Pasien</span><span class="mk-nav">Apotek</span>
+    <span class="mk-act">Pencarian Terpadu</span>
+    <span class="mk-right">menu baru dari modul ini</span>
+  </div>
+  <div class="mk-body">
+
+    <div class="modebar">
+      <span class="modelbl">Metode peringkat:</span>
+      <button class="mode" data-g="2" data-m="b0">B0 · Heuristik OpenMRS</button>
+      <button class="mode" data-g="2" data-m="b1">B1 · TF-IDF kata</button>
+      <button class="mode" data-g="2" data-m="e1">E1 · + kepingan karakter</button>
+      <button class="mode on" data-g="2" data-m="e3">E3 · + Weighted RRF <span class="tagusul">usulan</span></button>
+    </div>
+
+    <div id="modeinfo" class="modeinfo"></div>
+
+    <div class="ac ac-wide">
+      <input id="ac2" class="ac-in" type="text" value="diabete" autocomplete="off" spellcheck="false" placeholder="cari pasien, diagnosis, obat, form, lokasi, tenaga medis…">
+      <div id="ac2d" class="ac-dd ac-open"></div>
+    </div>
+    <div class="mk-try">
+      Coba:
+      <button class="chip" data-t="ac2" data-q="diabete">diabete</button>
+      <button class="chip" data-t="ac2" data-q="diabete melitus">diabete melitus</button>
+      <button class="chip" data-t="ac2" data-q="pulm edem">pulm edem</button>
+      <button class="chip" data-t="ac2" data-q="malari">malari</button>
+      <button class="chip" data-t="ac2" data-q="betty">betty</button>
+      <button class="chip" data-t="ac2" data-q="furosemid">furosemid</button>
+    </div>
+  </div>
+</div>
+
+<p class="small">Hasil dikelompokkan per jenis data. Tiap baris bisa diklik untuk membuka rekaman aslinya di OpenMRS. Kotak keterangan di atas berubah mengikuti metode yang dipilih, dan menjelaskan apa yang sedang dan tidak sedang dijalankan.</p>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Apa yang berubah di tiap metode</h4>
+
+<table>
+<thead><tr><th style="width:64px">Kode</th><th style="width:150px">Nama</th><th>Yang dijalankan</th><th>Yang akan Anda lihat</th></tr></thead>
+<tbody>
+<tr><td class="mono"><b>B0</b></td><td>Heuristik OpenMRS</td><td>Saring kandidat dengan aturan awalan kata, lalu beri skor bertingkat (kode persis, nama persis, nama utama, awalan).</td><td>Query benar → hasil bagus. Query salah ketik seperti <span class="mono">diabete melitus</span> → <b>layar kosong</b>.</td></tr>
+<tr><td class="mono"><b>B1</b></td><td>TF-IDF kata</td><td>Hanya jalur kata (K3). Jalur kepingan dimatikan. Penggabungan antar tabel pakai skor mentah.</td><td>Lebih toleran urutan kata, tapi <span class="mono">pulm edem</span> tetap kosong — tidak ada kata yang cocok.</td></tr>
+<tr><td class="mono"><b>E1</b></td><td>+ kepingan karakter</td><td>Jalur kata + jalur kepingan digabung (K4 + K5). Penggabungan antar tabel masih pakai skor mentah.</td><td>Salah ketik dan singkatan mulai ketemu. <b>Ini lompatan terbesarnya.</b></td></tr>
+<tr><td class="mono"><b>E3</b></td><td>+ Weighted RRF</td><td>Sama seperti E1, tapi penyatuan enam tabel memakai peringkat × bobot tabel (K6), bukan skor mentah.</td><td>Isi hasilnya mirip E1. Yang berubah cuma <em>urutan antar kelompok</em> — tabel yang tidak menjanjikan turun.</td></tr>
+</tbody>
+</table>
+
+<div class="box warn">
+<p class="lbl">Yang jujur harus disampaikan saat mendemokan ini</p>
+<p>Loncatan besar terjadi dari <b>B1 ke E1</b>. Dari <b>E1 ke E3</b> perubahannya halus dan pada banyak query <b>tidak terlihat sama sekali</b> — itu bukan kesalahan mockup, itu memang temuan kami (+0,007, p = 0,207). Jangan menjanjikan penonton akan melihat perbedaan dramatis di sana.</p>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Tiga query yang paling memperlihatkan bedanya</h4>
+
+<p>Silakan ketik ketiganya di mockup di atas sambil berpindah metode. Ketiganya sengaja dipilih karena <b>pemenangnya berbeda-beda</b> — tidak ada satu metode yang menang di semuanya.</p>
+
+<table>
+<thead><tr><th style="width:142px">Ketik ini</th><th style="width:96px">Jenis kesalahan</th><th>Yang terjadi saat berpindah metode</th></tr></thead>
+<tbody>
+<tr><td class="mono"><b>diabete melitus</b></td><td>salah ketik</td><td><b>B0 → kosong.</b> Penyaring awalan membuang semuanya: "melitus" bukan awalan "mellitus". <b>B1 → juga kosong</b>, karena tidak ada kata yang persis begitu. <b>E1 dan E3 → ketemu</b>, Diabetes mellitus type 1 dan 2 di puncak. <span class="small">Inilah lubang yang jadi alasan seluruh penelitian ini.</span></td></tr>
+<tr><td class="mono"><b>pulm edem</b></td><td>disingkat</td><td><b>B0 justru BERHASIL</b> — "pulm" memang awalan "pulmonary". <b>B1 malah gagal total</b>, karena bagi TF-IDF kata, token "pulm" dan "pulmonary" tidak berhubungan sama sekali. <b>E1 dan E3 → berhasil.</b> <span class="small">Kasus ini membuktikan heuristik OpenMRS tidak jelek-jelek amat, dan mengganti mesinnya dengan TF-IDF kata saja justru merugikan.</span></td></tr>
+<tr><td class="mono"><b>diabete</b></td><td>separuh diketik</td><td>Semua metode kecuali B1 dapat hasil, tapi <b>urutan kelompoknya beda</b>. E1 menaruh <em>Diabetes Clinic</em> (lokasi) di puncak karena skor mentahnya paling besar (0,44). E3 menaikkan kelompok Konsep ke atas, karena bobot tabel konsep (0,38) sedikit lebih besar dari lokasi (0,376). <span class="small">Di sinilah peran K6 terlihat — halus, dan memang cuma sebesar itu.</span></td></tr>
+</tbody>
+</table>
+
+<div class="box good">
+<p class="lbl">Perhatikan baris kedua — ini bukti bahwa kami tidak sedang menjual TF-IDF</p>
+<p>Pada <span class="mono">pulm edem</span>, sistem yang sudah ada (B0) <b>mengalahkan</b> TF-IDF kata murni (B1). Ini bukan anomali mockup: di eksperimen sungguhan pada 180 query, untuk jenis kesalahan "trunkasi" B0 memperoleh nDCG 0,822 sementara B1 cuma 0,353 — lihat tabel per jenis kesalahan di bagian 6.</p>
+<p>Kesimpulan yang kami ambil bukan "ganti heuristik OpenMRS dengan TF-IDF", melainkan <b>"tambahkan jalur kepingan karakter supaya kedua lubang tertutup sekaligus"</b>. Karena itu juga judul proposal ini menyebut TF-IDF <em>kata–karakter</em>, bukan TF-IDF saja.</p>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Panel evaluasi di halaman yang sama</h4>
+
+<p>Ini yang membuat penelitian kami bisa diperiksa orang lain: modulnya membawa data uji dan penghitung metriknya sendiri.</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 250" role="img" aria-label="Mockup panel evaluasi">
+  <rect x="20" y="18" width="760" height="216" rx="9" fill="#fff" stroke="#e2dfd8"/>
+  <text x="40" y="42" font-size="12.5" font-weight="700" fill="#1c1b19">Panel Evaluasi</text>
+  <text x="40" y="60" font-size="11" fill="#6b6862">Menjalankan data uji bawaan modul dan menghitung metrik saat itu juga.</text>
+
+  <rect x="40" y="74" width="340" height="140" rx="7" fill="#f8f7f4" stroke="#e2dfd8"/>
+  <text x="56" y="94" font-size="10.5" font-weight="700" fill="#6b6862">HASIL AGREGAT · 180 QUERY</text>
+  <g font-size="11">
+    <text x="56" y="118" fill="#1c1b19">P@1</text><text x="220" y="118" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,806</text>
+    <text x="56" y="138" fill="#1c1b19">MRR</text><text x="220" y="138" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,888</text>
+    <text x="56" y="158" fill="#1c1b19">R@10</text><text x="220" y="158" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,781</text>
+    <text x="56" y="178" fill="#2f6f52" font-weight="700">nDCG@10</text><text x="220" y="178" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">0,811</text>
+    <text x="56" y="200" fill="#1c1b19">query 0-hasil</text><text x="220" y="200" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,6%</text>
+  </g>
+  <text x="250" y="118" font-size="10.5" fill="#6b6862">vs OpenMRS 0,689</text>
+  <text x="250" y="138" font-size="10.5" fill="#6b6862">vs 0,743</text>
+  <text x="250" y="158" font-size="10.5" fill="#6b6862">vs 0,521</text>
+  <text x="250" y="178" font-size="10.5" fill="#2f6f52">vs 0,628 · p&lt;0,001</text>
+  <text x="250" y="200" font-size="10.5" fill="#6b6862">vs 18,3%</text>
+
+  <rect x="396" y="74" width="384" height="140" rx="7" fill="#f8f7f4" stroke="#e2dfd8"/>
+  <text x="412" y="94" font-size="10.5" font-weight="700" fill="#6b6862">BANDINGKAN SISTEM</text>
+  <g font-size="10.5">
+    <rect x="412" y="102" width="352" height="20" rx="4" fill="#fff"/>
+    <text x="424" y="116" fill="#1c1b19">Heuristik OpenMRS</text><text x="752" y="116" text-anchor="end" font-family="ui-monospace,Menlo,monospace">0,628</text>
+    <rect x="412" y="124" width="352" height="20" rx="4" fill="#fff"/>
+    <text x="424" y="138" fill="#1c1b19">TF-IDF kata saja</text><text x="752" y="138" text-anchor="end" font-family="ui-monospace,Menlo,monospace">0,646</text>
+    <rect x="412" y="146" width="352" height="20" rx="4" fill="#e6f2eb"/>
+    <text x="424" y="160" fill="#1c1b19" font-weight="640">+ kepingan karakter</text><text x="752" y="160" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-weight="700">0,804</text>
+    <rect x="412" y="168" width="352" height="20" rx="4" fill="#e6f2eb"/>
+    <text x="424" y="182" fill="#1c1b19" font-weight="640">+ pembobotan tabel</text><text x="752" y="182" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-weight="700">0,811</text>
+  </g>
+  <rect x="412" y="192" width="352" height="20" rx="4" fill="#2f6f52"/>
+  <text x="588" y="206" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="640">Jalankan ulang seluruh data uji</text>
+</svg>
+<p class="cap"><b>Kenapa panel ini penting:</b> biasanya angka penelitian cuma tertulis di dokumen, dan untuk memeriksanya orang harus membangun ulang semuanya — jadi praktis tidak pernah diperiksa. Dengan panel ini, penguji cukup memasang modul dan menekan satu tombol.</p>
+</div>
+
+<h3>4.3 Bagaimana modulnya dipasang</h3>
+
+<table>
+<thead><tr><th style="width:170px">Bagian</th><th>Isi</th></tr></thead>
+<tbody>
+<tr><td><b>Pembangun indeks</b></td><td>Java, jalan sekali saat OpenMRS start. Baca 6 tabel, bangun 13 indeks di memori. 1,32 detik pada demo data.</td></tr>
+<tr><td><b>Endpoint pencarian</b></td><td><span class="mono">GET /ws/rest/v1/unifiedsearch?q=…</span> — kembalikan daftar terurut + asal tabel + skor.</td></tr>
+<tr><td><b>Endpoint evaluasi</b></td><td><span class="mono">GET /ws/rest/v1/unifiedsearch/eval</span> — jalankan data uji, kembalikan metrik.</td></tr>
+<tr><td><b>Halaman menu</b></td><td>HTML/JS biasa, tanpa framework tambahan.</td></tr>
+<tr><td><b>Data uji</b></td><td>Berkas JSON ikut terpasang bersama modul, jadi semua orang pakai data uji yang sama.</td></tr>
+</tbody>
+</table>
+
+<div class="box good">
+<p class="lbl">Urutan pengerjaan yang kami sarankan</p>
+<p><b>Tahap 1 — kirim mockup A dulu</b> (pencarian konsep saja). Perubahan terkecil, memberi hampir seluruh perbaikan, dan tidak menyentuh data pasien sehingga soal privasi tidak muncul.</p>
+<p><b>Tahap 2 — menu terpadu</b> (mockup B). Di sini enam tabel dan soal hak akses ditangani, di halaman yang jelas berstatus eksperimental.</p>
+</div>
+<h2 id="b5"><span class="n">5</span>Rencana evaluasi</h2>
+
+<h3>5.1 Datanya</h3>
+<p>Demo data resmi OpenMRS Reference Application di Docker. Bukan data rumah sakit sungguhan, karena: bebas masalah etik, tersedia untuk siapa pun yang ingin memeriksa ulang, dan versinya tetap sehingga angkanya bisa dibandingkan lintas waktu.</p>
+<table>
+<thead><tr><th>Tabel</th><th class="num">konsep</th><th class="num">obat</th><th class="num">pasien</th><th class="num">lokasi</th><th class="num">form</th><th class="num">provider</th><th class="num">total</th></tr></thead>
+<tbody><tr><td>Jumlah entri</td><td class="num">4.249</td><td class="num">322</td><td class="num">100</td><td class="num">61</td><td class="num">10</td><td class="num">6</td><td class="num"><b>4.748</b></td></tr></tbody>
+</table>
+
+<h3>5.2 Query-nya dari mana</h3>
+<p>Tidak dikarang. Kami ambil nama yang benar-benar ada di database, lalu <b>merusaknya meniru kesalahan nyata petugas</b>. Lima jenis:</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 200" role="img" aria-label="Lima jenis degradasi query">
+  <text x="20" y="18" font-size="11.5" fill="#6b6862">Nama asli: <tspan font-family="ui-monospace,Menlo,monospace" fill="#1c1b19" font-weight="700">Diabetes mellitus, type 2</tspan></text>
+  <g font-size="11.5">
+    <rect x="20" y="28" width="760" height="30" rx="6" fill="#f8f7f4" stroke="#e2dfd8"/>
+    <text x="34" y="47" font-weight="700" fill="#2f6ea8">persis</text>
+    <text x="150" y="47" font-family="ui-monospace,Menlo,monospace">diabetes mellitus type 2</text>
+    <text x="440" y="47" fill="#6b6862">diketik lengkap dan benar</text>
+    <rect x="20" y="62" width="760" height="30" rx="6" fill="#f8f7f4" stroke="#e2dfd8"/>
+    <text x="34" y="81" font-weight="700" fill="#a03434">tipo</text>
+    <text x="150" y="81" font-family="ui-monospace,Menlo,monospace">diabetes melitus type 2</text>
+    <text x="440" y="81" fill="#6b6862">satu huruf hilang atau tertukar</text>
+    <rect x="20" y="96" width="760" height="30" rx="6" fill="#f8f7f4" stroke="#e2dfd8"/>
+    <text x="34" y="115" font-weight="700" fill="#b8622a">trunkasi</text>
+    <text x="150" y="115" font-family="ui-monospace,Menlo,monospace">diabe melli type 2</text>
+    <text x="440" y="115" fill="#6b6862">disingkat, kebiasaan mengetik cepat</text>
+    <rect x="20" y="130" width="760" height="30" rx="6" fill="#f8f7f4" stroke="#e2dfd8"/>
+    <text x="34" y="149" font-weight="700" fill="#6b4c9a">hilang kata</text>
+    <text x="150" y="149" font-family="ui-monospace,Menlo,monospace">diabetes type 2</text>
+    <text x="440" y="149" fill="#6b6862">tidak menulis seluruh nama resmi</text>
+    <rect x="20" y="164" width="760" height="30" rx="6" fill="#f8f7f4" stroke="#e2dfd8"/>
+    <text x="34" y="183" font-weight="700" fill="#2f6f52">urut balik</text>
+    <text x="150" y="183" font-family="ui-monospace,Menlo,monospace">type 2 diabetes</text>
+    <text x="440" y="183" fill="#6b6862">urutan mengikuti cara bicara</text>
+  </g>
+</svg>
+<p class="cap">280 query dibangkitkan begini dari enam tabel, diacak, lalu dibagi: <b>100 untuk menyetel parameter, 180 untuk pelaporan</b>. Kelemahannya harus disebut: kerusakannya dibangkitkan program, bukan diambil dari log nyata — jadi sebagian keunggulan kepingan karakter adalah konsekuensi dari cara query dibuat.</p>
+</div>
+
+<h3>5.3 Penilaian relevansi</h3>
+<p>Untuk menghindari bias, kami <b>tidak menilai sendiri</b>. Relevansi ditarik dari relasi yang sudah ada di database.</p>
+<table>
+<thead><tr><th style="width:80px">Nilai</th><th>Artinya</th><th>Dari mana</th></tr></thead>
+<tbody>
+<tr><td><b>2</b></td><td>memang ini yang dicari</td><td>Entri yang namanya dipakai membuat query itu. Selalu tepat satu.</td></tr>
+<tr><td><b>1</b></td><td>berkaitan</td><td>Obat yang menunjuk konsep target lewat <span class="mono">drug.concept_id</span>; konsep yang berbagi kode terminologi non-CIEL; obat lain pada konsep yang sama.</td></tr>
+<tr><td><b>0</b></td><td>tidak relevan</td><td>Selain itu — termasuk kaitan klinis yang tidak leksikal, misalnya obat yang mengobati diagnosis tanpa berbagi nama.</td></tr>
+</tbody>
+</table>
+<p class="small"><b>Kenapa kaitan klinis dinilai 0:</b> sistem leksikal tidak akan pernah tahu Furosemide mengobati Pulmonary edema — tidak ada satu huruf pun yang sama. Memasukkannya sebagai relevan berarti mengukur sesuatu yang mustahil dicapai. Ini batas jujur dari apa yang metode ini klaim bisa lakukan.</p>
+
+<h3>5.4 Yang dibandingkan</h3>
+<p>Tujuh sistem, tiap baris menambah <b>tepat satu</b> komponen dari baris di atasnya — supaya selisihnya bisa diatribusikan.</p>
+<table>
+<thead><tr><th style="width:56px">Kode</th><th>Sistem</th><th>Menguji</th></tr></thead>
+<tbody>
+<tr><td class="mono"><b>B0</b></td><td>Heuristik OpenMRS</td><td>baseline, keadaan sekarang</td></tr>
+<tr><td class="mono"><b>B1</b></td><td>TF-IDF kata</td><td>apakah ganti rumus peringkat saja cukup</td></tr>
+<tr><td class="mono"><b>B2</b></td><td>BM25</td><td>pembanding IR probabilistik</td></tr>
+<tr><td class="mono"><b>E1</b></td><td>B1 + kepingan karakter</td><td><b>kontribusi K4</b></td></tr>
+<tr><td class="mono"><b>E2</b></td><td>E1 + RRF polos</td><td>apakah fusi peringkat polos berhasil</td></tr>
+<tr><td class="mono"><b>E3</b></td><td>E1 + Weighted RRF</td><td>kontribusi K6</td></tr>
+<tr><td class="mono"><b>E4</b></td><td>E3 + perluasan query</td><td>kontribusi ekspansi sinonim</td></tr>
+</tbody>
+</table>
+
+<h3>5.5 Metrik evaluasi — apa artinya masing-masing</h3>
+
+<p>Semua metrik di bawah nilainya <b>antara 0 dan 1, dan makin besar makin baik</b> — kecuali dua yang terakhir (persentase query gagal dan waktu), yang justru makin kecil makin baik. Tapi masing-masing mengukur hal yang berbeda, dan bisa saja satu naik sementara yang lain turun. Bagian ini menjelaskan tiap metrik dengan satu contoh yang sama supaya bisa dibandingkan.</p>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:22px">Contoh yang dipakai seterusnya</h4>
+
+<p>Petugas mengetik <span class="mono">diabete melitus</span>. Sebelum melihat hasil, kita sudah tahu jawaban yang benar (dari relasi database, lihat §5.3):</p>
+
+<table>
+<thead><tr><th>Entri</th><th class="num">nilai relevansi</th><th>artinya</th></tr></thead>
+<tbody>
+<tr><td>Diabetes mellitus, type 2</td><td class="num"><b>2</b></td><td>ini yang dicari</td></tr>
+<tr><td>Diabetes mellitus, type 1</td><td class="num"><b>1</b></td><td>berkaitan, masih berguna</td></tr>
+<tr><td>Gestational diabetes</td><td class="num"><b>1</b></td><td>berkaitan, masih berguna</td></tr>
+<tr><td class="small">semua entri lain</td><td class="num">0</td><td class="small">tidak relevan</td></tr>
+</tbody>
+</table>
+
+<p>Sistem mengembalikan lima hasil dengan urutan ini:</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 130" role="img" aria-label="Daftar hasil dan nilai relevansinya">
+  <text x="20" y="18" font-size="11" fill="#6b6862">Urutan yang dikembalikan sistem →</text>
+  <g font-size="10.5">
+    <rect x="20" y="28" width="146" height="46" rx="7" fill="#e6f2eb" stroke="#2f6f52" stroke-width="1.6"/>
+    <text x="93" y="45" text-anchor="middle" fill="#1c1b19" font-weight="640">posisi 1</text>
+    <text x="93" y="59" text-anchor="middle" fill="#1c1b19" font-size="9.5">DM tipe 2</text>
+    <text x="93" y="70" text-anchor="middle" fill="#2f6f52" font-weight="700">relevansi 2</text>
+
+    <rect x="174" y="28" width="146" height="46" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+    <text x="247" y="45" text-anchor="middle" fill="#1c1b19" font-weight="640">posisi 2</text>
+    <text x="247" y="59" text-anchor="middle" fill="#1c1b19" font-size="9.5">DM tipe 1</text>
+    <text x="247" y="70" text-anchor="middle" fill="#2f6f52" font-weight="700">relevansi 1</text>
+
+    <rect x="328" y="28" width="146" height="46" rx="7" fill="#fbeaea" stroke="#a03434"/>
+    <text x="401" y="45" text-anchor="middle" fill="#1c1b19" font-weight="640">posisi 3</text>
+    <text x="401" y="59" text-anchor="middle" fill="#1c1b19" font-size="9.5">Diabetes insipidus</text>
+    <text x="401" y="70" text-anchor="middle" fill="#a03434" font-weight="700">relevansi 0</text>
+
+    <rect x="482" y="28" width="146" height="46" rx="7" fill="#e6f2eb" stroke="#2f6f52"/>
+    <text x="555" y="45" text-anchor="middle" fill="#1c1b19" font-weight="640">posisi 4</text>
+    <text x="555" y="59" text-anchor="middle" fill="#1c1b19" font-size="9.5">Gestational diabetes</text>
+    <text x="555" y="70" text-anchor="middle" fill="#2f6f52" font-weight="700">relevansi 1</text>
+
+    <rect x="636" y="28" width="146" height="46" rx="7" fill="#fbeaea" stroke="#a03434"/>
+    <text x="709" y="45" text-anchor="middle" fill="#1c1b19" font-weight="640">posisi 5</text>
+    <text x="709" y="59" text-anchor="middle" fill="#1c1b19" font-size="9.5">Ketoasidosis diabetik</text>
+    <text x="709" y="70" text-anchor="middle" fill="#a03434" font-weight="700">relevansi 0</text>
+  </g>
+  <rect x="20" y="86" width="762" height="34" rx="6" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="40" y="107" font-size="11" fill="#1c1b19">Semua angka metrik di bawah dihitung dari deretan relevansi ini: <tspan font-family="ui-monospace,Menlo,monospace" font-weight="700">[2, 1, 0, 1, 0]</tspan> — dan totalnya ada 3 entri relevan di seluruh database.</text>
+</svg>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">P@1 — apakah tebakan pertama sudah benar</h4>
+<table>
+<tbody>
+<tr><td style="width:110px"><b>Pertanyaannya</b></td><td>Dari 1 hasil teratas, berapa bagian yang relevan?</td></tr>
+<tr><td><b>Hitungannya</b></td><td>Posisi 1 relevansinya 2 (&gt; 0, jadi relevan) → <span class="mono">1 ÷ 1 = <b>1,00</b></span></td></tr>
+<tr><td><b>Nilai 1,00 artinya</b></td><td>Hasil teratas selalu benar. Petugas tidak perlu melihat ke bawah sama sekali.</td></tr>
+<tr><td><b>Nilai 0,00 artinya</b></td><td>Hasil teratas selalu salah. Petugas selalu harus membaca daftar.</td></tr>
+<tr><td><b>Kenapa penting</b></td><td>Ini metrik yang paling terasa langsung. Pada kotak autocomplete, hasil nomor 1 adalah yang paling sering diklik.</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">P@5 — seberapa bersih layar pertama</h4>
+<table>
+<tbody>
+<tr><td style="width:110px"><b>Pertanyaannya</b></td><td>Dari 5 hasil teratas, berapa bagian yang relevan?</td></tr>
+<tr><td><b>Hitungannya</b></td><td>Yang relevan di posisi 1, 2, 4 → 3 dari 5 → <span class="mono">3 ÷ 5 = <b>0,60</b></span></td></tr>
+<tr><td><b>Makin besar</b></td><td>Makin sedikit sampah yang harus disaring mata petugas.</td></tr>
+<tr><td><b>Makin kecil</b></td><td>Layar pertama banyak berisi hasil tak berguna.</td></tr>
+<tr><td><b>Jebakannya</b></td><td>Kalau di database cuma ada 3 entri yang relevan, P@5 <b>tidak mungkin</b> melebihi 3/5 = 0,60 walaupun sistemnya sempurna. Jadi P@5 rendah belum tentu sistemnya jelek — bisa saja jawabannya memang sedikit. Ini alasan kami tidak memakai P@5 sebagai metrik utama.</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">R@10 (recall) — berapa banyak jawaban yang berhasil terjaring</h4>
+<table>
+<tbody>
+<tr><td style="width:110px"><b>Pertanyaannya</b></td><td>Dari semua entri relevan yang ada di database, berapa bagian yang muncul di 10 hasil teratas?</td></tr>
+<tr><td><b>Hitungannya</b></td><td>Ada 3 entri relevan total; ketiganya muncul di top-10 → <span class="mono">3 ÷ 3 = <b>1,00</b></span></td></tr>
+<tr><td><b>Makin besar</b></td><td>Makin sedikit jawaban yang <em>hilang</em>. Sistem tidak melewatkan apa pun.</td></tr>
+<tr><td><b>Makin kecil</b></td><td>Ada jawaban benar yang tidak pernah ditampilkan sama sekali — petugas tidak akan pernah tahu itu ada.</td></tr>
+<tr><td><b>Beda dengan presisi</b></td><td>Presisi bertanya "yang muncul apakah benar"; recall bertanya "yang benar apakah muncul". Keduanya bisa berlawanan: menampilkan 1000 hasil membuat recall tinggi tapi presisi hancur.</td></tr>
+</tbody>
+</table>
+
+<div class="fig">
+<svg viewBox="0 0 800 200" role="img" aria-label="Beda presisi dan recall">
+  <text x="20" y="20" font-size="12" font-weight="700" fill="#1c1b19">Presisi vs Recall — dua pertanyaan yang berbeda</text>
+
+  <circle cx="200" cy="110" r="70" fill="#e8f1f8" stroke="#2f6ea8" stroke-width="1.6"/>
+  <circle cx="290" cy="110" r="70" fill="#e6f2eb" fill-opacity="0.75" stroke="#2f6f52" stroke-width="1.6"/>
+  <text x="150" y="60" font-size="10.5" fill="#2f6ea8" font-weight="700" text-anchor="middle">yang DITAMPILKAN</text>
+  <text x="150" y="72" font-size="9.5" fill="#2f6ea8" text-anchor="middle">sistem</text>
+  <text x="345" y="60" font-size="10.5" fill="#2f6f52" font-weight="700" text-anchor="middle">yang RELEVAN</text>
+  <text x="345" y="72" font-size="9.5" fill="#2f6f52" text-anchor="middle">sebenarnya</text>
+  <text x="245" y="115" font-size="11" font-weight="700" fill="#1c1b19" text-anchor="middle">irisan</text>
+  <text x="245" y="128" font-size="9" fill="#6b6862" text-anchor="middle">benar &amp; muncul</text>
+
+  <rect x="410" y="46" width="370" height="58" rx="8" fill="#e8f1f8" stroke="#2f6ea8"/>
+  <text x="426" y="66" font-size="11" font-weight="700" fill="#2f6ea8">PRESISI = irisan ÷ yang ditampilkan</text>
+  <text x="426" y="82" font-size="10.5" fill="#1c1b19">"Dari yang saya tunjukkan, berapa yang berguna?"</text>
+  <text x="426" y="96" font-size="10" fill="#6b6862">Turun kalau sistem menampilkan banyak sampah.</text>
+
+  <rect x="410" y="112" width="370" height="58" rx="8" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="426" y="132" font-size="11" font-weight="700" fill="#2f6f52">RECALL = irisan ÷ yang relevan</text>
+  <text x="426" y="148" font-size="10.5" fill="#1c1b19">"Dari yang seharusnya ada, berapa yang saya temukan?"</text>
+  <text x="426" y="162" font-size="10" fill="#6b6862">Turun kalau sistem melewatkan jawaban.</text>
+
+  <rect x="20" y="182" width="762" height="16" rx="4" fill="#f4f2ee"/>
+  <text x="400" y="194" font-size="10" fill="#1c1b19" text-anchor="middle">Metode kami menaikkan recall paling drastis (0,521 → 0,781): yang tadinya hilang karena salah ketik, sekarang ketemu.</text>
+</svg>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">MRR — seberapa cepat jawaban pertama muncul</h4>
+<table>
+<tbody>
+<tr><td style="width:110px"><b>Pertanyaannya</b></td><td>Di posisi berapa hasil relevan yang <em>pertama</em> muncul? Nilainya = 1 ÷ posisi itu.</td></tr>
+<tr><td><b>Hitungannya</b></td><td>Relevan pertama ada di posisi 1 → <span class="mono">1 ÷ 1 = <b>1,00</b></span></td></tr>
+<tr><td><b>Skala rasanya</b></td><td>posisi 1 → 1,00 · posisi 2 → 0,50 · posisi 3 → 0,33 · posisi 5 → 0,20 · posisi 10 → 0,10 · tidak ketemu → 0</td></tr>
+<tr><td><b>Makin besar</b></td><td>Petugas menemukan sesuatu yang berguna makin cepat, makin sedikit menggulir.</td></tr>
+<tr><td><b>Makin kecil</b></td><td>Petugas harus turun jauh sebelum ketemu apa pun yang berguna.</td></tr>
+<tr><td><b>Batasnya</b></td><td>MRR hanya melihat <b>satu</b> hasil — yang pertama relevan. Apa yang terjadi setelahnya tidak dihitung sama sekali.</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">MAP — rata-rata presisi di sepanjang daftar</h4>
+<table>
+<tbody>
+<tr><td style="width:110px"><b>Pertanyaannya</b></td><td>Setiap kali menemukan hasil relevan, seberapa bersih daftar sampai titik itu? Lalu semuanya dirata-ratakan.</td></tr>
+<tr><td><b>Hitungannya</b></td><td>
+Relevan di posisi 1 → presisi sampai situ = 1/1 = 1,00<br>
+Relevan di posisi 2 → presisi sampai situ = 2/2 = 1,00<br>
+Relevan di posisi 4 → presisi sampai situ = 3/4 = 0,75<br>
+Rata-rata dibagi jumlah relevan (3) → <span class="mono">(1,00 + 1,00 + 0,75) ÷ 3 = <b>0,917</b></span></td></tr>
+<tr><td><b>Makin besar</b></td><td>Hasil relevan berkumpul rapat di atas, tidak diselingi sampah.</td></tr>
+<tr><td><b>Makin kecil</b></td><td>Hasil relevan tersebar jauh ke bawah, banyak sampah menyela.</td></tr>
+<tr><td><b>Bedanya dari MRR</b></td><td>MRR berhenti di jawaban pertama; MAP menghukum juga kalau jawaban kedua dan ketiga letaknya jauh.</td></tr>
+<tr><td><b>Kelemahannya di sini</b></td><td>MAP memperlakukan relevansi sebagai ya/tidak. Ia tidak bisa membedakan "ini persis yang dicari" (nilai 2) dari "ini cuma berkaitan" (nilai 1). Karena itu MAP bukan metrik utama kami.</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">nDCG@10 — metrik utama kami</h4>
+
+<p>Ini satu-satunya metrik yang <b>peduli pada tingkat relevansi</b>, bukan cuma relevan/tidak. Namanya panjang tapi idenya dua kalimat: hasil yang lebih tepat memberi nilai lebih besar, dan nilai itu dipotong makin dalam posisinya.</p>
+
+<p><b>Langkah 1 — hitung DCG (nilai yang benar-benar didapat).</b> Tiap posisi menyumbang <span class="mono">relevansi ÷ log₂(posisi + 1)</span>:</p>
+
+<table>
+<thead><tr><th class="num">posisi</th><th>entri</th><th class="num">relevansi</th><th class="num">pembagi log₂(posisi+1)</th><th class="num">sumbangan</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>DM tipe 2</td><td class="num">2</td><td class="num">1,000</td><td class="num"><b>2,000</b></td></tr>
+<tr><td class="num">2</td><td>DM tipe 1</td><td class="num">1</td><td class="num">1,585</td><td class="num">0,631</td></tr>
+<tr><td class="num">3</td><td>Diabetes insipidus</td><td class="num">0</td><td class="num">2,000</td><td class="num">0,000</td></tr>
+<tr><td class="num">4</td><td>Gestational diabetes</td><td class="num">1</td><td class="num">2,322</td><td class="num">0,431</td></tr>
+<tr><td class="num">5</td><td>Ketoasidosis</td><td class="num">0</td><td class="num">2,585</td><td class="num">0,000</td></tr>
+<tr><td colspan="4"><b>DCG = total</b></td><td class="num"><b>3,062</b></td></tr>
+</tbody>
+</table>
+
+<p><b>Langkah 2 — hitung IDCG (nilai maksimum yang mungkin).</b> Bayangkan urutan sempurna: relevansi 2, lalu 1, lalu 1, tanpa sampah menyela.</p>
+
+<table>
+<thead><tr><th class="num">posisi</th><th class="num">relevansi ideal</th><th class="num">pembagi</th><th class="num">sumbangan</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="num">2</td><td class="num">1,000</td><td class="num">2,000</td></tr>
+<tr><td class="num">2</td><td class="num">1</td><td class="num">1,585</td><td class="num">0,631</td></tr>
+<tr><td class="num">3</td><td class="num">1</td><td class="num">2,000</td><td class="num">0,500</td></tr>
+<tr><td colspan="3"><b>IDCG = total</b></td><td class="num"><b>3,131</b></td></tr>
+</tbody>
+</table>
+
+<p><b>Langkah 3 — bagi.</b></p>
+<p class="mono" style="background:#f0eee9;padding:10px 14px;border-radius:7px;font-size:.92rem">
+nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
+</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 170" role="img" aria-label="Kenapa posisi bawah bernilai lebih kecil">
+  <text x="20" y="20" font-size="12" font-weight="700" fill="#1c1b19">Kenapa dibagi log₂ — hasil di bawah memang lebih jarang dilihat</text>
+  <g font-size="10.5">
+    <text x="20" y="46" fill="#1c1b19">posisi 1</text>
+    <rect x="110" y="35" width="480" height="14" fill="#f0eee9" rx="3"/><rect x="110" y="35" width="480" height="14" fill="#2f6f52" rx="3"/>
+    <text x="600" y="46" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">nilai penuh · 100%</text>
+    <text x="20" y="68" fill="#1c1b19">posisi 2</text>
+    <rect x="110" y="57" width="480" height="14" fill="#f0eee9" rx="3"/><rect x="110" y="57" width="303" height="14" fill="#4d8a6d" rx="3"/>
+    <text x="600" y="68" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">63%</text>
+    <text x="20" y="90" fill="#1c1b19">posisi 3</text>
+    <rect x="110" y="79" width="480" height="14" fill="#f0eee9" rx="3"/><rect x="110" y="79" width="240" height="14" fill="#7aa892" rx="3"/>
+    <text x="600" y="90" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">50%</text>
+    <text x="20" y="112" fill="#1c1b19">posisi 5</text>
+    <rect x="110" y="101" width="480" height="14" fill="#f0eee9" rx="3"/><rect x="110" y="101" width="186" height="14" fill="#a5c4b5" rx="3"/>
+    <text x="600" y="112" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">39%</text>
+    <text x="20" y="134" fill="#1c1b19">posisi 10</text>
+    <rect x="110" y="123" width="480" height="14" fill="#f0eee9" rx="3"/><rect x="110" y="123" width="139" height="14" fill="#c9dcd2" rx="3"/>
+    <text x="600" y="134" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">29%</text>
+  </g>
+  <rect x="20" y="148" width="762" height="18" rx="4" fill="#e8f1f8"/>
+  <text x="400" y="161" font-size="10.5" fill="#1c1b19" text-anchor="middle">Penurunannya melandai, bukan jatuh drastis — supaya posisi 9 dan 10 masih dihargai, tidak dianggap nol.</text>
+</svg>
+</div>
+
+<table>
+<tbody>
+<tr><td style="width:110px"><b>Nilai 1,00</b></td><td>Urutannya sempurna — tidak ada urutan lain yang lebih baik.</td></tr>
+<tr><td><b>Nilai 0,00</b></td><td>Tidak ada satu pun hasil relevan di 10 besar.</td></tr>
+<tr><td><b>Kenapa jadi metrik utama</b></td><td>Satu-satunya yang menghukum kalau sistem menaruh "berkaitan" (nilai 1) di atas "persis ini" (nilai 2). Metrik lain menganggap keduanya sama saja.</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Semua metrik pada tiga skenario — supaya terasa bedanya</h4>
+
+<p>Query yang sama, tiga kualitas urutan yang berbeda:</p>
+
+<table>
+<thead><tr><th>Skenario</th><th>Deret relevansi</th><th class="num">P@1</th><th class="num">P@5</th><th class="num">R@10</th><th class="num">MRR</th><th class="num">MAP</th><th class="num">nDCG@10</th></tr></thead>
+<tbody>
+<tr class="hi"><td><b>Baik</b> — jawaban di atas</td><td class="mono">[2, 1, 0, 1, 0]</td><td class="num">1,00</td><td class="num">0,60</td><td class="num">1,00</td><td class="num">1,000</td><td class="num">0,917</td><td class="num"><b>0,978</b></td></tr>
+<tr><td><b>Sedang</b> — jawaban ada tapi tergeser</td><td class="mono">[0, 2, 0, 1, 1]</td><td class="num">0,00</td><td class="num">0,60</td><td class="num">1,00</td><td class="num">0,500</td><td class="num">0,533</td><td class="num">0,664</td></tr>
+<tr><td><b>Buruk</b> — hampir semua meleset</td><td class="mono">[0, 0, 0, 0, 1]</td><td class="num">0,00</td><td class="num">0,20</td><td class="num">0,33</td><td class="num">0,200</td><td class="num">0,067</td><td class="num">0,124</td></tr>
+</tbody>
+</table>
+
+<div class="box warn">
+<p class="lbl">Perhatikan baris "Sedang" — ini pelajaran pentingnya</p>
+<p><b>P@5 dan R@10 nilainya sama persis dengan skenario "Baik"</b> (0,60 dan 1,00), padahal urutannya jelas lebih buruk. Sebabnya kedua metrik itu cuma menghitung <em>berapa banyak</em> yang relevan, bukan <em>di posisi mana</em>. Yang menangkap perbedaannya justru MRR (1,000 → 0,500), MAP (0,917 → 0,533), dan nDCG (0,978 → 0,664).</p>
+<p>Karena itu satu angka saja tidak pernah cukup. Kami melaporkan enam-enamnya, dan memakai nDCG@10 sebagai penentu karena ia satu-satunya yang sensitif terhadap posisi <em>dan</em> tingkat relevansi sekaligus.</p>
+</div>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Dua metrik yang makin KECIL makin baik</h4>
+
+<table>
+<thead><tr><th style="width:170px">Metrik</th><th>Artinya</th><th>Angka kami</th></tr></thead>
+<tbody>
+<tr><td><b>% query nol-hasil</b></td><td>Berapa persen pencarian yang mengembalikan layar kosong total. Ini kegagalan paling parah — bukan cuma urutannya jelek, tapi petugas tidak dapat apa pun dan harus menebak ejaan sendiri. Metrik ini tidak muncul di P/R/nDCG karena query nol-hasil sudah dihitung nol di semuanya; ia perlu dilaporkan terpisah supaya besarnya masalah kelihatan.</td><td>18,3% → <b>0,6%</b></td></tr>
+<tr><td><b>Waktu (ms)</b></td><td>Berapa milidetik satu pencarian. Penting karena premis kami adalah "ringan, bisa dipasang di puskesmas tanpa GPU". Di bawah ~100 ms terasa instan bagi manusia, jadi 1,28 ms masih sangat longgar. Kalau ini membengkak jadi ratusan ms, klaim "bisa dipakai sambil mengetik" batal.</td><td>0,15 → <b>1,28 ms</b></td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:1rem;font-weight:660;margin-top:26px">Uji signifikansi — kenapa selisih angka saja tidak cukup</h4>
+
+<p>Kalau sistem A dapat nDCG 0,811 dan sistem B dapat 0,804, apakah A benar-benar lebih baik? Belum tentu — bisa saja itu kebetulan dari 180 query yang kebetulan terpilih. Kalau kami mengambil 180 query lain, urutannya mungkin terbalik.</p>
+
+<p><b>Paired bootstrap</b> mengujinya begini: dari 180 query, ambil acak 180 query dengan pengembalian (boleh berulang), hitung selisih nDCG di sampel itu. Ulangi 5.000 kali. Lalu lihat sebaran 5.000 selisih itu.</p>
+
+<div class="fig">
+<svg viewBox="0 0 800 200" role="img" aria-label="Cara membaca hasil bootstrap">
+  <text x="20" y="20" font-size="11.5" font-weight="700" fill="#1c1b19">Membaca hasil bootstrap: apakah selang kepercayaan melewati angka nol?</text>
+
+  <rect x="30" y="38" width="740" height="66" rx="8" fill="#e6f2eb" stroke="#2f6f52"/>
+  <text x="46" y="56" font-size="10.5" font-weight="700" fill="#2f6f52">E1 vs B0 — selisih +0,176, CI 95% [+0,131, +0,223], p &lt; 0,001</text>
+  <line x1="300" y1="82" x2="300" y2="98" stroke="#a03434" stroke-width="1.6" stroke-dasharray="3 2"/>
+  <text x="300" y="76" font-size="9" fill="#a03434" text-anchor="middle">nol</text>
+  <line x1="60" y1="90" x2="740" y2="90" stroke="#cfcbc3" stroke-width="1"/>
+  <rect x="440" y="84" width="180" height="12" rx="6" fill="#2f6f52"/>
+  <circle cx="512" cy="90" r="5" fill="#1c1b19"/>
+  <text x="640" y="94" font-size="10" fill="#2f6f52" font-weight="640">seluruh selang di kanan nol → SIGNIFIKAN</text>
+
+  <rect x="30" y="114" width="740" height="66" rx="8" fill="#f4f2ee" stroke="#9b9b9b"/>
+  <text x="46" y="132" font-size="10.5" font-weight="700" fill="#6b6862">E3 vs E1 — selisih +0,007, CI 95% [−0,004, +0,019], p = 0,207</text>
+  <line x1="300" y1="158" x2="300" y2="174" stroke="#a03434" stroke-width="1.6" stroke-dasharray="3 2"/>
+  <text x="300" y="152" font-size="9" fill="#a03434" text-anchor="middle">nol</text>
+  <line x1="60" y1="166" x2="740" y2="166" stroke="#cfcbc3" stroke-width="1"/>
+  <rect x="278" y="160" width="52" height="12" rx="6" fill="#9b9b9b"/>
+  <circle cx="308" cy="166" r="5" fill="#1c1b19"/>
+  <text x="350" y="170" font-size="10" fill="#6b6862" font-weight="640">selang MELEWATI nol → TIDAK signifikan (selisihnya bisa saja kebetulan)</text>
+</svg>
+</div>
+
+<table>
+<tbody>
+<tr><td style="width:130px"><b>p &lt; 0,05</b></td><td>Selisihnya kecil kemungkinan cuma kebetulan. Boleh diklaim.</td></tr>
+<tr><td><b>p ≥ 0,05</b></td><td>Selisihnya bisa saja muncul dari keberuntungan sampel. <b>Tidak boleh diklaim sebagai perbaikan.</b> Inilah yang terjadi pada Weighted RRF (p = 0,207) — dan kami melaporkannya apa adanya, tidak menyembunyikannya.</td></tr>
+<tr><td><b>CI 95%</b></td><td>Rentang selisih yang masuk akal. Kalau rentangnya mencakup angka nol, artinya "tidak ada selisih" masih merupakan kemungkinan yang wajar.</td></tr>
+</tbody>
+</table>
+
+<p class="small">Aturan yang kami pegang: semua penyetelan parameter dilakukan di 100 query dev. Split test 180 query dijalankan <b>sekali</b>, di akhir, dan angkanya dilaporkan apa adanya. Selisih yang tidak signifikan dilaporkan sebagai tidak signifikan.</p>
+
+
+<h3>5.6 Kelemahan yang kami sadari</h3>
+<table>
+<thead><tr><th style="width:180px">Kelemahan</th><th>Penjelasan</th></tr></thead>
+<tbody>
+<tr><td><b>Baseline bukan yang asli</b></td><td>B0 adalah tiruan skema skor OpenMRS, bukan panggilan ke REST API produksi. Tiruan kami ternyata <em>lebih kuat</em> dari yang dilaporkan komunitas — jadi selisih yang kami laporkan konservatif, bukan dilebihkan.</td></tr>
+<tr><td><b>Query buatan program</b></td><td>Perlu konfirmasi dengan query manual dari klinisi.</td></tr>
+<tr><td><b>Ukuran tabel timpang ekstrem</b></td><td>4.249 konsep vs 6 provider. Pada instalasi nyata dengan puluhan ribu pasien, sebagian temuan bisa berbalik.</td></tr>
+<tr><td><b>Skala korpus</b></td><td>Kamus CIEL penuh ~50.000 konsep. Indeks kepingan berukuran 3–5× indeks kata — ini risiko rekayasa utama, belum diukur.</td></tr>
+<tr><td><b>P@k rendah artifisial</b></td><td>Mayoritas query cuma punya 1–3 dokumen relevan, jadi presisi maksimum pun sudah di bawah 1.</td></tr>
+</tbody>
+</table>
+
+<h2 id="b6"><span class="n">6</span>Hasil sementara</h2>
+
+<p>Rencana di atas sudah dijalankan sekali secara penuh, pada data asli.</p>
+
+<table>
+<thead><tr><th>Sistem</th><th class="num">P@1</th><th class="num">R@10</th><th class="num">MRR</th><th class="num">MAP</th><th class="num">nDCG@10</th><th class="num">0-hasil</th><th class="num">ms</th></tr></thead>
+<tbody>
+<tr><td>B0 heuristik OpenMRS</td><td class="num">0,689</td><td class="num">0,521</td><td class="num">0,743</td><td class="num">0,466</td><td class="num">0,628</td><td class="num">18,3%</td><td class="num">0,15</td></tr>
+<tr><td>B1 TF-IDF kata</td><td class="num">0,572</td><td class="num">0,666</td><td class="num">0,691</td><td class="num">0,523</td><td class="num">0,646</td><td class="num">11,1%</td><td class="num">0,14</td></tr>
+<tr><td>B2 BM25</td><td class="num">0,533</td><td class="num">0,658</td><td class="num">0,651</td><td class="num">0,485</td><td class="num">0,615</td><td class="num">11,1%</td><td class="num">0,21</td></tr>
+<tr class="hi"><td>E1 + kepingan karakter</td><td class="num">0,783</td><td class="num"><b>0,785</b></td><td class="num">0,877</td><td class="num"><b>0,672</b></td><td class="num">0,804</td><td class="num">0,6%</td><td class="num">0,74</td></tr>
+<tr><td>E2 + RRF polos</td><td class="num">0,306</td><td class="num">0,763</td><td class="num">0,576</td><td class="num">0,412</td><td class="num">0,580</td><td class="num">0,6%</td><td class="num">0,82</td></tr>
+<tr class="hi"><td>E3 + Weighted RRF</td><td class="num"><b>0,806</b></td><td class="num">0,781</td><td class="num"><b>0,888</b></td><td class="num">0,663</td><td class="num"><b>0,811</b></td><td class="num">0,6%</td><td class="num">1,28</td></tr>
+<tr><td>E4 + perluasan query</td><td class="num">0,456</td><td class="num">0,761</td><td class="num">0,596</td><td class="num">0,492</td><td class="num">0,589</td><td class="num">0,6%</td><td class="num">6,88</td></tr>
+</tbody>
+</table>
+
+<table>
+<thead><tr><th>Perbandingan</th><th class="num">selisih nDCG</th><th>CI 95%</th><th class="num">p</th><th>Bacaan</th></tr></thead>
+<tbody>
+<tr><td>E1 vs B0</td><td class="num">+0,176</td><td>[+0,131, +0,223]</td><td class="num">0,000</td><td><b>signifikan</b> — kepingan karakter menolong</td></tr>
+<tr><td>E3 vs B0</td><td class="num">+0,183</td><td>[+0,136, +0,232]</td><td class="num">0,000</td><td><b>signifikan</b></td></tr>
+<tr><td>B1 vs B0</td><td class="num">+0,018</td><td>[−0,037, +0,071]</td><td class="num">0,510</td><td>tidak signifikan</td></tr>
+<tr><td>B2 vs B0</td><td class="num">−0,013</td><td>[−0,072, +0,045]</td><td class="num">0,656</td><td>tidak signifikan</td></tr>
+<tr><td>E3 vs E1</td><td class="num">+0,007</td><td>[−0,004, +0,019]</td><td class="num">0,207</td><td>tidak signifikan — pembobotan tabel tidak menambah kualitas</td></tr>
+<tr><td>E2 vs B0</td><td class="num">−0,048</td><td>[−0,099, +0,005]</td><td class="num">0,069</td><td>RRF polos menghapus keuntungan E1</td></tr>
+</tbody>
+</table>
+
+<h3>Per jenis kesalahan ketik — tabel yang paling menjelaskan</h3>
+<table>
+<thead><tr><th>Sistem</th><th class="num">persis</th><th class="num">tipo</th><th class="num">trunkasi</th><th class="num">hilang kata</th><th class="num">urut balik</th></tr></thead>
+<tbody>
+<tr><td>B0 heuristik OpenMRS</td><td class="num">0,770</td><td class="num" style="color:#a03434;font-weight:700">0,081</td><td class="num">0,822</td><td class="num">0,709</td><td class="num">0,788</td></tr>
+<tr><td>B1 TF-IDF kata</td><td class="num">0,827</td><td class="num">0,464</td><td class="num" style="color:#b8622a;font-weight:700">0,353</td><td class="num">0,734</td><td class="num">0,848</td></tr>
+<tr><td>B2 BM25</td><td class="num">0,816</td><td class="num">0,449</td><td class="num" style="color:#b8622a;font-weight:700">0,312</td><td class="num">0,718</td><td class="num">0,774</td></tr>
+<tr class="hi"><td>E3 usulan</td><td class="num">0,849</td><td class="num"><b>0,789</b></td><td class="num"><b>0,789</b></td><td class="num">0,754</td><td class="num"><b>0,888</b></td></tr>
+</tbody>
+</table>
+<p>Heuristik OpenMRS <b>runtuh pada tipo</b> (0,081) tapi <b>menang pada trunkasi</b> (0,822 — lebih baik dari metode kami). TF-IDF kata kebalikannya. Metode kami menutup kedua lubang.</p>
+
+<div class="box warn">
+<p class="lbl">Catatan reproduksibilitas yang harus dibaca anggota kelompok</p>
+<p>Kami sempat menemukan hasilnya bergoyang ±0,02 antar-run tanpa ada yang diubah. Penyebabnya: RRF menghasilkan banyak skor yang <b>persis sama</b>, dan urutan akhirnya ditentukan urutan iterasi <span class="mono">set</span> Python — yang bergantung hash string dan diacak ulang tiap proses.</p>
+<p>Perbaikannya satu baris: urutkan dengan kunci <span class="mono">(-skor, id)</span>, bukan <span class="mono">-skor</span> saja. Setelah itu dua proses terpisah memberi angka identik sampai digit terakhir. <b>Kalau nanti ada yang menambah kode, jangan sampai sifat ini hilang lagi.</b></p>
+</div>
+<h2 id="b7"><span class="n">7</span>Pembagian kerja &amp; jadwal</h2>
+
+<h3>7.1 Siapa mengerjakan apa</h3>
+
+<table>
+<thead><tr><th style="width:230px">Anggota</th><th>Tanggung jawab</th><th style="width:190px">Luaran</th></tr></thead>
+<tbody>
+<tr><td><b>Stephen Prasetya C.</b><br><span class="small mono">25/563032/PPA/07093</span></td><td>Mesin pencarian (K1–K6) dan pipeline eksperimen. Ekspor korpus dari MariaDB. Menjaga sifat deterministik.</td><td><span class="mono">eksperimen.py</span>, berkas SQL ekspor, <span class="mono">data/*.jsonl</span></td></tr>
+<tr><td><b>M. Syarif Hidayatullah</b><br><span class="small mono">25/567018/PPA/07143</span></td><td>Modul OpenMRS sisi Java: pembangun indeks saat startup, dua endpoint REST, pemaketan OMOD.</td><td>Berkas <span class="mono">.omod</span> yang bisa dipasang</td></tr>
+<tr><td><b>Sampurno Aji</b><br><span class="small mono">25/568826/PPA/07155</span></td><td>Antarmuka: search box ala Algolia (mockup A), halaman menu terpadu (mockup B), panel evaluasi. Navigasi keyboard dan penyorotan huruf.</td><td>Halaman HTML/JS di dalam modul</td></tr>
+<tr><td><b>Reza Purwantara F.</b><br><span class="small mono">25/565168/PPA/07125</span></td><td>Data uji dan evaluasi: pembangkitan query, aturan penilaian relevansi, 30–50 query manual, uji statistik, analisis hasil.</td><td>Gold standard, <span class="mono">hasil.json</span>, tabel &amp; grafik laporan</td></tr>
+</tbody>
+</table>
+<p class="small">Laporan akhir dan presentasi dikerjakan bersama. Pembagian ini boleh digeser — yang penting tiap luaran ada penanggung jawabnya.</p>
+
+<h3>7.2 Urutan pengerjaan</h3>
+
+<div class="step"><div class="no">1</div><div class="tx"><b>Ekspor korpus dari MariaDB</b>
+Empat berkas SQL, hasilkan JSONL. <span class="small">Selesai kalau: jumlah baris cocok dengan <span class="mono">SELECT COUNT(*)</span> tiap tabel. — <b>sudah selesai</b></span></div></div>
+
+<div class="step"><div class="no">2</div><div class="tx"><b>Mesin pencarian</b>
+Fungsi <span class="mono">norm</span>, <span class="mono">kata</span>, <span class="mono">kepingan</span>, kelas <span class="mono">Indeks</span>, fungsi <span class="mono">cari</span>. <span class="small">Selesai kalau: query yang sama persis dengan sebuah judul menghasilkan skor ≈ 1,0. — <b>sudah selesai</b></span></div></div>
+
+<div class="step"><div class="no">3</div><div class="tx"><b>Baseline heuristik OpenMRS</b>
+<span class="small">Selesai kalau: query <span class="mono">diabete melitus</span> mengembalikan <b>0 hasil</b>. Kalau tidak, penyaringan awalannya salah. — <b>sudah selesai</b></span></div></div>
+
+<div class="step"><div class="no">4</div><div class="tx"><b>Query set &amp; penilaian relevansi</b>
+<span class="small">Selesai kalau: ± 280 query, tiap query punya minimal satu entri bernilai 2. — <b>sudah selesai</b></span></div></div>
+
+<div class="step"><div class="no">5</div><div class="tx"><b>Metrik &amp; uji bootstrap</b>
+<span class="small">Selesai kalau: dua proses terpisah memberi angka identik. — <b>sudah selesai</b></span></div></div>
+
+<div class="step"><div class="no">6</div><div class="tx"><b>Setel ulang α dan jalankan ulang</b>
+Sapuan menunjukkan optimum di 0,25, sementara eksperimen memakai 0,45. <span class="small">Selesai kalau: tabel metrik versi final keluar.</span></div></div>
+
+<div class="step"><div class="no">7</div><div class="tx"><b>Validasi baseline lewat REST API OpenMRS asli</b>
+<span class="mono">/ws/rest/v1/concept?q=</span> <span class="small">Selesai kalau: ada tabel perbandingan tiruan vs API asli. Ini titik yang paling mungkin ditanya penguji.</span></div></div>
+
+<div class="step"><div class="no">8</div><div class="tx"><b>30–50 query manual dari skenario klinis</b>
+Aturan relevansi ditulis <b>sebelum</b> sistem dijalankan, disimpan terpisah, tidak diubah setelah lihat hasil. <span class="small">Ini yang paling menentukan kredibilitas di sidang.</span></div></div>
+
+<div class="step"><div class="no">9</div><div class="tx"><b>Uji skala</b>
+Muat kamus CIEL penuh, naikkan jumlah pasien demo. <span class="small">Selesai kalau: ada kurva waktu indeks &amp; memori terhadap ukuran korpus.</span></div></div>
+
+<div class="step"><div class="no">10</div><div class="tx"><b>Modul OMOD tahap 1</b> — pencarian konsep (mockup A)</div></div>
+
+<div class="step"><div class="no">11</div><div class="tx"><b>Modul OMOD tahap 2</b> — menu terpadu + panel evaluasi (mockup B)</div></div>
+
+<div class="step"><div class="no">12</div><div class="tx"><b>Laporan dan reproduksi mandiri di instalasi bersih</b></div></div>
+
+<h3>7.3 Risiko</h3>
+<table>
+<thead><tr><th style="width:180px">Risiko</th><th>Rencana</th></tr></thead>
+<tbody>
+<tr><td><b>Ukuran indeks kepingan</b></td><td>3–5× indeks kata. Pada 100 pasien tidak terasa; pada 100.000 pasien harus diukur ulang. Risiko nomor satu — tahap 9 dirancang khusus untuk ini.</td></tr>
+<tr><td><b>Kesegaran indeks</b></td><td>Sekarang indeks dibangun saat startup. Pasien dibuat sepanjang hari. Pembaruan inkremental belum dirancang — cukup untuk penelitian, tidak cukup untuk penerapan nyata.</td></tr>
+<tr><td><b>Hak akses</b></td><td>Indeks terpadu yang mengembalikan pasien menembus batas privasi yang di OpenMRS dijaga per halaman. Harus diselesaikan sebelum mockup B dipakai di luar lingkungan uji.</td></tr>
+</tbody>
+</table>
+
+<h3>7.4 Yang kami klaim dan yang tidak</h3>
+
+<div class="box good">
+<p class="lbl">Kami klaim</p>
+<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian OpenMRS secara signifikan (+0,176 nDCG@10, p &lt; 0,001), terutama dengan menurunkan pencarian nol-hasil dari 18,3% ke 0,6%, dengan biaya yang cukup kecil untuk dipasang tanpa GPU. Kami juga menunjukkan bahwa RRF baku degeneratif pada tabel yang saling lepas, dan pembobotan IDF global memperbaikinya — sebagai temuan, bukan sebagai klaim peningkatan kualitas.</p>
+</div>
+
+<div class="box neu">
+<p class="lbl">Kami tidak klaim</p>
+<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil — tidak, selisihnya tidak signifikan. Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk. Bahwa TF-IDF lebih baik dari heuristik OpenMRS — tidak, selisihnya tidak signifikan, dan pada query terpotong heuristiknya justru menang. Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
+</div>
+
+<h3>7.5 Referensi</h3>
+<ol class="small" style="line-height:1.65">
+<li>Manning, C., Raghavan, P., Schütze, H. <b>Introduction to Information Retrieval.</b> Cambridge University Press, 2008.</li>
+<li>Järvelin, K., Kekäläinen, J. <b>Cumulated Gain-based Evaluation of IR Techniques.</b> ACM TOIS, 2002.</li>
+<li>Robertson, S., Zaragoza, H. <b>The Probabilistic Relevance Framework: BM25 and Beyond.</b> FnTIR, 2009.</li>
+<li>Cormack, G., Clarke, C., Buettcher, S. <b>Reciprocal Rank Fusion Outperforms Condorcet and Individual Rank Learning Methods.</b> SIGIR, 2009.</li>
+<li>Shokouhi, M., Si, L. <b>Federated Search.</b> FnTIR, 2011.</li>
+<li>Callan, J., Lu, Z., Croft, W.B. <b>Searching Distributed Collections with Inference Networks.</b> SIGIR, 1995.</li>
+<li>Sivarajkumar, S. dkk. <b>Clinical Information Retrieval: A Literature Review.</b> J Healthcare Informatics Research, 2024.</li>
+<li><b>Comparing Lexical and Semantic Vector Search Methods When Classifying Medical Documents.</b> arXiv:2505.11582, 2025.</li>
+<li>Heryawan, L. dkk. <b>Medical Record Document Search with TF-IDF and Vector Space Model.</b> IJASEIT 14(3), 2024.</li>
+<li>OpenMRS Talk — <b>Help optimizing search results in OCL.</b> talk.openmrs.org/t/22671</li>
+<li>GitHub — <b>openmrs/openmrs-module-chartsearchai.</b></li>
+</ol>
+
+<hr>
+<p class="small">Seluruh angka pada bagian 6 berasal dari eksperimen 20 Agustus 2026 terhadap demo data resmi OpenMRS Reference Application pada MariaDB dalam Docker: 4.748 dokumen, 280 query, 180 dipakai untuk pelaporan, paired bootstrap 5.000 iterasi. Mockup pada bagian 4 berjalan pada korpus contoh kecil dan berfungsi menunjukkan cara kerjanya, bukan membuktikan besarannya.</p>
+
+</div>
+<style>
+.mk{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:20px 0;background:#fff}
+.mk-bar{background:#00463f;padding:10px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.mk-logo{color:#fff;font-weight:680;font-size:.9rem}
+.mk-nav{color:#8fbdb7;font-size:.8rem}
+.mk-act{background:#0d6b60;color:#fff;font-size:.8rem;font-weight:640;padding:4px 12px;border-radius:5px}
+.mk-right{margin-left:auto;color:#7fb3ad;font-size:.76rem}
+.mk-body{padding:18px 20px 22px}
+.mk-form{font-size:.86rem;color:var(--mut);margin-bottom:14px}
+.mk-lab{display:block;font-size:.8rem;color:var(--mut);margin-bottom:5px}
+.mk-ta{height:52px;border:1px solid var(--line);border-radius:6px;background:#f8f7f4}
+.mk-try{margin-top:10px;font-size:.8rem;color:var(--mut);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chip{font:inherit;font-size:.78rem;font-family:var(--mono);background:#f0eee9;border:1px solid var(--line);
+ color:var(--ink);padding:3px 9px;border-radius:20px;cursor:pointer}
+.chip:hover{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
+.ac{position:relative;max-width:520px}
+.ac-wide{max-width:100%}
+.ac-in{width:100%;font:inherit;font-size:1rem;font-family:var(--mono);padding:10px 13px;
+ border:1.8px solid var(--blue);border-radius:7px;background:#fff;color:var(--ink)}
+.ac-in:focus{outline:2px solid #bcd8ec;outline-offset:1px}
+.ac-dd{margin-top:5px;border:1px solid var(--line);border-radius:8px;background:#fff;
+ box-shadow:0 6px 20px rgba(28,27,25,.09);overflow:hidden}
+.ac-g{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--mut);background:#f8f7f4;padding:5px 13px;border-bottom:1px solid var(--line)}
+.ac-r{display:flex;align-items:center;gap:10px;padding:7px 13px;border-bottom:1px solid #f4f2ee;cursor:pointer}
+.ac-r:last-child{border-bottom:0}
+.ac-r:hover,.ac-r.sel{background:var(--blue-bg)}
+.ac-r .t{flex:1;font-size:.9rem}
+.ac-r .t small{display:block;color:var(--mut);font-size:.74rem;margin-top:-1px}
+.ac-r .sc{font-family:var(--mono);font-size:.72rem;color:var(--mut);font-variant-numeric:tabular-nums}
+.ac-r mark{background:#ffe9a8;color:inherit;border-radius:2px;padding:0 .5px}
+.ac-e{padding:26px 13px;text-align:center;color:var(--red);font-weight:640;font-size:.9rem}
+.ac-f{padding:6px 13px;font-size:.72rem;color:var(--mut);background:#f8f7f4;border-top:1px solid var(--line);
+ display:flex;gap:14px;flex-wrap:wrap}
+.ac-f kbd{font-family:var(--mono);background:#fff;border:1px solid var(--line);border-radius:3px;padding:0 4px}
+.pill{font-size:.64rem;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.03em}
+.p-konsep{background:var(--blue-bg);color:var(--blue)}
+.p-obat{background:var(--org-bg);color:var(--org)}
+.p-pasien{background:var(--pur-bg);color:var(--pur)}
+.p-form{background:var(--grn-bg);color:var(--grn)}
+.p-lokasi{background:#f0eee9;color:var(--mut)}
+.p-provider{background:var(--red-bg);color:var(--red)}
+mark{background:#ffe9a8;color:inherit}
+.modebar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.modelbl{font-size:.78rem;color:var(--mut);font-weight:640;margin-right:2px}
+.mode{font:inherit;font-size:.78rem;background:#f0eee9;border:1px solid var(--line);color:var(--mut);
+ padding:5px 11px;border-radius:6px;cursor:pointer;font-weight:600;transition:none}
+.mode:hover{border-color:var(--blue);color:var(--blue)}
+.mode.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tagusul{font-size:.62rem;background:#2f6f52;color:#fff;padding:1px 6px;border-radius:20px;
+ margin-left:5px;font-weight:700;letter-spacing:.03em}
+.mode.on .tagusul{background:#7fd3a8;color:#0d3324}
+.modeinfo{border-left:3px solid var(--mut);background:#f4f2ee;padding:9px 14px;border-radius:0 7px 7px 0;
+ margin-bottom:12px;font-size:.85rem;line-height:1.5}
+.modeinfo b{display:block;font-size:.88rem;margin-bottom:1px}
+.modeinfo span{color:var(--mut)}
+.mi-bad{border-color:var(--red);background:var(--red-bg)}
+.mi-good{border-color:var(--grn);background:var(--grn-bg)}
+.mi-neu{border-color:var(--mut);background:#f4f2ee}
+</style>
+<script>
+(function(){
+"use strict";
+var ENT=["konsep","obat","pasien","form","lokasi","provider"];
+var LBL={konsep:"Konsep / Diagnosis",obat:"Obat",pasien:"Pasien",form:"Form",lokasi:"Lokasi",provider:"Tenaga medis"};
+var DATA={
+konsep:[["Pulmonary edema","Pulmonary oedema; Lung edema","ICD-10 J81.1"],
+ ["Acute pulmonary edema","Flash pulmonary oedema","ICD-10 J81.0"],
+ ["Pulmonary tuberculosis","Lung TB; Pulmonary TB","ICD-10 A15"],
+ ["Pulmonary embolism","PE","ICD-10 I26"],
+ ["Edema","Oedema; Swelling","ICD-10 R60"],
+ ["Diabetes mellitus, type 2","Type 2 diabetes; T2DM","ICD-10 E11"],
+ ["Diabetes mellitus, type 1","Type 1 diabetes; T1DM","ICD-10 E10"],
+ ["Gestational diabetes","Diabetes of pregnancy; GDM","ICD-10 O24"],
+ ["Diabetes insipidus","","ICD-10 E23.2"],
+ ["Diabetic ketoacidosis","DKA","ICD-10 E11.1"],
+ ["Hypertension","High blood pressure; HTN","ICD-10 I10"],
+ ["Pulmonary hypertension","PAH","ICD-10 I27"],
+ ["Malaria","Malaria unspecified","ICD-10 B54"],
+ ["Severe malaria","Cerebral malaria","ICD-10 B50.0"],
+ ["Anaemia","Anemia","ICD-10 D64"],
+ ["Congestive heart failure","CHF; Heart failure","ICD-10 I50"],
+ ["Asthma","Bronchial asthma","ICD-10 J45"],
+ ["Headache","Cephalgia","ICD-10 R51"],
+ ["Fever","Pyrexia","ICD-10 R50"],
+ ["Typhoid fever","Enteric fever","ICD-10 A01"],
+ ["Chronic obstructive pulmonary disease","COPD","ICD-10 J44"],
+ ["Acute renal failure","Acute kidney injury","ICD-10 N17"],
+ ["Tuberculosis of bone","Bone TB","ICD-10 A18.0"],
+ ["Pneumonia","Lung infection","ICD-10 J18"],
+ ["Dengue fever","Dengue","ICD-10 A90"],
+ ["Hypertensive heart disease","","ICD-10 I11"]],
+obat:[["Furosemide","Lasix","40 mg tablet"],["Metformin","Glucophage","500 mg tablet"],
+ ["Insulin glargine","Lantus","100 IU/ml"],["Amlodipine","Norvasc","5 mg tablet"],
+ ["Artemether-Lumefantrine","Coartem","20/120 mg"],["Salbutamol inhaler","Ventolin","100 mcg"],
+ ["Ferrous sulphate","Iron tablet","200 mg"],["Hydrochlorothiazide","HCTZ","25 mg tablet"]],
+pasien:[["Betty Williams","","MRN 100000Y · P · 42 th"],["Susan Lopez","","MRN 100001W · P · 54 th"],
+ ["Robert Pulman","","MRN 100233K · L · 55 th"],["Maria Diaz","","MRN 100310B · P · 29 th"],
+ ["James Malar","","MRN 100388C · L · 37 th"],["Peter Diabate","","MRN 100477X · L · 50 th"],
+ ["Grace Otieno","","MRN 100515F · P · 33 th"],["Alice Hyde","","MRN 100402D · P · 44 th"]],
+form:[["Visit Note","","form konsultasi"],["Diabetes Follow-up Form","","kontrol rutin"],
+ ["Malaria Case Report Form","","pelaporan kasus"],["Cardiology Intake Form","","poli jantung"],
+ ["Antenatal Care Form","","KIA"]],
+lokasi:[["Pulmonary Ward","","bangsal"],["Diabetes Clinic","","poliklinik"],
+ ["Outpatient Clinic","","rawat jalan"],["Amani Hospital","","fasilitas"]],
+provider:[["Dr. Jane Mwangi","","Penyakit Dalam"],["Dr. Ali Rahman","","Kardiologi"],
+ ["Dr. Linda Pulanco","","Pulmonologi"],["Ns. Dedi Kurniawan","","Farmasi"]]};
+
+function norm(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim();}
+function kata(s){var n=norm(s);return n?n.split(" "):[];}
+function kepingan(s,k){var t=norm(s).replace(/ /g,"_");if(!t)return [];
+ if(t.length<k)return [t];var o=[];for(var i=0;i+k<=t.length;i++)o.push(t.slice(i,i+k));return o;}
+function build(ts){var N=ts.length,df={};
+ ts.forEach(function(x){var s={};x.forEach(function(t){if(!s[t]){s[t]=1;df[t]=(df[t]||0)+1;}});});
+ var idf={};for(var t in df)idf[t]=Math.log(N/df[t])+1;
+ var v=ts.map(function(x){var tf={};x.forEach(function(t){tf[t]=(tf[t]||0)+1;});
+  var o={},n=0;for(var t2 in tf){var w=(1+Math.log(tf[t2]))*idf[t2];o[t2]=w;n+=w*w;}
+  n=Math.sqrt(n)||1;for(var t3 in o)o[t3]/=n;return o;});
+ return {idf:idf,vecs:v};}
+function qv(x,idf){var tf={};x.forEach(function(t){tf[t]=(tf[t]||0)+1;});
+ var o={},n=0;for(var t in tf){var w=(1+Math.log(tf[t]))*(idf[t]||0);if(w){o[t]=w;n+=w*w;}}
+ n=Math.sqrt(n)||1;for(var t2 in o)o[t2]/=n;return o;}
+function cos(a,b){var s=0;for(var t in a)if(b[t])s+=a[t]*b[t];return s;}
+
+var A=0.30,K=20,EPS=0.05,NG=4;
+var IDX={},GF=[],GO=[];
+ENT.forEach(function(e){
+ var f=[],own=[],utama=[];
+ DATA[e].forEach(function(r,i){
+  var names=[r[0]].concat(r[1]?r[1].split("; "):[]);
+  names.forEach(function(x,ki){
+   if(x){f.push(x);own.push(i);utama.push(ki===0);GF.push(x);GO.push(e);}});});
+ IDX[e]={f:f,own:own,utama:utama,
+         W:build(f.map(function(x){return kata(x);})),
+         G:build(f.map(function(x){return kepingan(x,NG);}))};});
+var GW=build(GF.map(function(x){return kata(x);})),
+    GG=build(GF.map(function(x){return kepingan(x,NG);}));
+
+/* ---------- B0: tiruan heuristik OpenMRS ---------- */
+function skorB0(f,utama,q){
+ var qw=kata(q),fw=kata(f);
+ if(!qw.length)return 0;
+ var semua=true,cocok=0;
+ qw.forEach(function(w){
+  var ada=fw.some(function(x){return x.indexOf(w)===0;});
+  if(ada)cocok++;else semua=false;});
+ if(!semua)return 0;                       /* tahap 1: disaring habis */
+ var s=100*cocok;                          /* tahap 2: skor bertingkat */
+ if(utama)s+=500;
+ if(norm(f)===norm(q))s+=1000;
+ return s/1700;
+}
+
+/* ---------- cari dalam satu entitas, menurut metode ---------- */
+function cariEnt(e,q,mode){
+ var X=IDX[e],best={};
+ if(mode==="b0"){
+  X.f.forEach(function(f,j){var s=skorB0(f,X.utama[j],q);var i=X.own[j];
+   if(best[i]===undefined||s>best[i])best[i]=s;});
+ }else{
+  var a=qv(kata(q),X.W.idf),b=qv(kepingan(q,NG),X.G.idf);
+  X.f.forEach(function(f,j){
+   var s=(mode==="b1")?cos(a,X.W.vecs[j])
+                      :A*cos(a,X.W.vecs[j])+(1-A)*cos(b,X.G.vecs[j]);
+   var i=X.own[j];if(best[i]===undefined||s>best[i])best[i]=s;});
+ }
+ var amb=(mode==="b0")?0.001:0.07,o=[];
+ for(var i in best)if(best[i]>amb)o.push({e:e,i:+i,s:best[i],
+   nama:DATA[e][i][0],sub:DATA[e][i][2]});
+ o.sort(function(x,y){return y.s-x.s||(x.nama<y.nama?-1:1);});
+ o.forEach(function(r,k){r.peringkat=k+1;});
+ return o;}
+
+function bobot(q){var a=qv(kata(q),GW.idf),b=qv(kepingan(q,NG),GG.idf),g={};
+ ENT.forEach(function(e){g[e]=0;});
+ GF.forEach(function(f,j){var s=A*cos(a,GW.vecs[j])+(1-A)*cos(b,GG.vecs[j]);
+  if(s>g[GO[j]])g[GO[j]]=s;});
+ var t=0;ENT.forEach(function(e){t+=g[e];});
+ var w={};ENT.forEach(function(e){w[e]=t>0?EPS+(1-EPS)*g[e]/t:1;});return w;}
+
+/* ---------- gabungkan 6 tabel ---------- */
+function gabung(q,mode){
+ var all=[];
+ if(mode==="e3"){
+  var w=bobot(q);
+  ENT.forEach(function(e){cariEnt(e,q,mode).forEach(function(r){
+    r.v=w[e]*1/(K+r.peringkat);r.w=w[e];all.push(r);});});
+ }else{
+  ENT.forEach(function(e){cariEnt(e,q,mode).forEach(function(r){
+    r.v=r.s;all.push(r);});});
+ }
+ all.sort(function(x,y){return y.v-x.v||(x.nama<y.nama?-1:1);});
+ return all;}
+
+/* ---------- penyorotan ---------- */
+function normPos(s){var o="";for(var i=0;i<s.length;i++){var c=s[i].toLowerCase();
+ o+=/[a-z0-9]/.test(c)?c:"_";}return o;}
+function esc(c){return c.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function bungkus(teks,mark){
+ var out="",on=false;
+ for(var i=0;i<teks.length;i++){
+  if(mark[i]&&!on){out+="<mark>";on=true;}
+  else if(!mark[i]&&on){out+="</mark>";on=false;}
+  out+=esc(teks[i]);}
+ if(on)out+="</mark>";return out;}
+function sorotNgram(teks,q){
+ var qg={},qq=normPos(q);
+ for(var i=0;i+NG<=qq.length;i++)qg[qq.slice(i,i+NG)]=1;
+ if(qq.length<NG&&qq)qg[qq]=1;
+ var tt=normPos(teks),mark=new Array(teks.length).fill(false);
+ for(var j=0;j+NG<=tt.length;j++)if(qg[tt.slice(j,j+NG)])
+  for(var k2=j;k2<j+NG;k2++)mark[k2]=true;
+ return bungkus(teks,mark);}
+function sorotKata(teks,q){
+ var qw=kata(q),tt=normPos(teks),mark=new Array(teks.length).fill(false);
+ var awal=0;
+ for(var i=0;i<=tt.length;i++){
+  var batas=(i===tt.length||tt[i]==="_");
+  if(batas){
+   if(i>awal){var tok=tt.slice(awal,i);
+    qw.forEach(function(w){if(w&&tok.indexOf(w)===0)
+      for(var k2=awal;k2<awal+w.length;k2++)mark[k2]=true;});}
+   awal=i+1;}}
+ return bungkus(teks,mark);}
+function sorot(teks,q,mode){
+ return (mode==="b0"||mode==="b1")?sorotKata(teks,q):sorotNgram(teks,q);}
+
+/* ---------- render ---------- */
+function baris(r,q,mode,extra){
+ return '<div class="ac-r"><span class="pill p-'+r.e+'">'+
+  (r.e==="konsep"?"Konsep":r.e.charAt(0).toUpperCase()+r.e.slice(1))+'</span>'+
+  '<span class="t">'+sorot(r.nama,q,mode)+
+  (r.sub?'<small>'+esc(r.sub)+(extra||'')+'</small>':(extra?'<small>'+extra+'</small>':''))+'</span>'+
+  '<span class="sc">'+(r.v!==undefined?r.v:r.s).toFixed(mode==="e3"?4:2).replace(".",",")+'</span></div>';}
+
+var MODEINFO={
+ b0:['B0 · Heuristik OpenMRS (keadaan sekarang)',
+     'Menyaring kandidat dengan aturan awalan kata dulu, baru memberi skor. Kepingan karakter TIDAK dipakai. Penggabungan antar tabel: skor mentah.',
+     'bad'],
+ b1:['B1 · TF-IDF kata saja',
+     'Hanya jalur kata (K3). Jalur kepingan karakter dimatikan. Penggabungan antar tabel: skor mentah. Tanpa penyaringan awalan, jadi lebih longgar dari B0 — tapi kata yang salah eja tetap tidak cocok.',
+     'neu'],
+ e1:['E1 · TF-IDF kata + kepingan karakter',
+     'Jalur kata dan jalur kepingan 4 huruf digabung dengan α = 0,30 (K4 + K5). Penggabungan antar tabel masih skor mentah. Inilah komponen yang membawa hampir seluruh perbaikan.',
+     'good'],
+ e3:['E3 · + Weighted RRF — metode usulan',
+     'Sama seperti E1, tetapi enam daftar disatukan memakai peringkat × bobot tabel (K6), bukan skor mentah. Skor yang tampil jadi angka RRF yang kecil — itu wajar, yang penting urutannya. Bedanya dengan E1 halus dan pada banyak query tidak terlihat: itu memang temuan kami (+0,007, p = 0,207).',
+     'good']};
+
+function setInfo(mode){
+ var el=document.getElementById("modeinfo");if(!el)return;
+ var m=MODEINFO[mode];
+ el.className="modeinfo mi-"+m[2];
+ el.innerHTML='<b>'+m[0]+'</b><span>'+m[1]+'</span>';}
+
+function renderKonsep(q,el,mode){
+ var r=cariEnt("konsep",q,mode).slice(0,6);
+ if(!q.trim()){el.innerHTML='';return;}
+ if(!r.length){el.innerHTML='<div class="ac-e">Tidak ada hasil<br><span style="font-weight:400;font-size:.8rem;color:#6b6862">metode '+mode.toUpperCase()+' tidak menemukan apa pun untuk ketikan ini</span></div>';return;}
+ el.innerHTML=r.map(function(x){return baris(x,q,mode);}).join("")+
+  '<div class="ac-f"><span><kbd>↑</kbd><kbd>↓</kbd> pilih</span><span><kbd>↵</kbd> masukkan</span>'+
+  '<span><kbd>esc</kbd> tutup</span><span style="margin-left:auto">'+r.length+' hasil · metode '+mode.toUpperCase()+'</span></div>';}
+
+function renderSemua(q,el,mode){
+ if(!q.trim()){el.innerHTML='';return;}
+ var all=gabung(q,mode).slice(0,10);
+ if(!all.length){el.innerHTML='<div class="ac-e">Tidak ada hasil<br><span style="font-weight:400;font-size:.8rem;color:#6b6862">metode '+mode.toUpperCase()+' tidak menemukan apa pun di keenam tabel</span></div>';return;}
+ var g={},urut=[];
+ all.forEach(function(x){if(!g[x.e]){g[x.e]=[];urut.push(x.e);}g[x.e].push(x);});
+ var html="";
+ urut.forEach(function(e){
+  var ket=(mode==="e3"&&g[e][0].w!==undefined)?' · bobot tabel '+g[e][0].w.toFixed(2).replace(".",","):'';
+  html+='<div class="ac-g">'+LBL[e]+' · '+g[e].length+ket+'</div>';
+  html+=g[e].map(function(x){
+    var ex=(mode==="e3")?' · peringkat '+x.peringkat+' di tabelnya, skor asli '+x.s.toFixed(2).replace(".",","):'';
+    return baris(x,q,mode,ex);}).join("");});
+ html+='<div class="ac-f"><span>'+urut.length+' jenis data</span><span>'+all.length+' hasil</span>'+
+  '<span>'+(mode==="e3"?'urut: bobot × 1/(20+peringkat)':'urut: skor mentah')+'</span>'+
+  '<span style="margin-left:auto">metode '+mode.toUpperCase()+'</span></div>';
+ el.innerHTML=html;}
+
+/* ---------- perkabelan ---------- */
+var MODE={1:"e3",2:"e3"},RUN={};
+function wire(id,fn,grup){
+ var i=document.getElementById(id),d=document.getElementById(id+"d");
+ if(!i||!d)return;
+ function go(){fn(i.value,d,MODE[grup]);}
+ RUN[grup]=go;
+ i.addEventListener("input",go);
+ i.addEventListener("keydown",function(ev){
+  var rows=d.querySelectorAll(".ac-r");if(!rows.length)return;
+  var cur=-1;rows.forEach(function(r,k){if(r.classList.contains("sel"))cur=k;});
+  if(ev.key==="ArrowDown"||ev.key==="ArrowUp"){ev.preventDefault();
+   var n=ev.key==="ArrowDown"?Math.min(cur+1,rows.length-1):Math.max(cur-1,0);
+   rows.forEach(function(r){r.classList.remove("sel");});rows[n].classList.add("sel");}
+  else if(ev.key==="Enter"&&cur>=0){ev.preventDefault();
+   i.value=rows[cur].querySelector(".t").childNodes[0].textContent;go();}});
+ d.addEventListener("click",function(ev){
+  var r=ev.target.closest(".ac-r");if(!r)return;
+  i.value=r.querySelector(".t").textContent.split("\n")[0].trim();go();});
+ go();}
+
+wire("ac1",renderKonsep,1);
+wire("ac2",renderSemua,2);
+setInfo("e3");
+
+Array.prototype.forEach.call(document.querySelectorAll(".mode"),function(b){
+ b.addEventListener("click",function(){
+  var grup=b.getAttribute("data-g")||"2",m=b.getAttribute("data-m");
+  MODE[grup]=m;
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.mode[data-g="'+grup+'"]'),
+    function(x){x.classList.toggle("on",x===b);});
+  if(grup==="2")setInfo(m);
+  if(RUN[grup])RUN[grup]();});});
+
+Array.prototype.forEach.call(document.querySelectorAll(".chip"),function(b){
+ b.addEventListener("click",function(){
+  var t=document.getElementById(b.getAttribute("data-t"));
+  if(!t)return;t.value=b.getAttribute("data-q");
+  t.dispatchEvent(new Event("input"));});});
+})();
+</script>
+</body></html>

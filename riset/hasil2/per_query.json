@@ -1,0 +1,9994 @@
+[
+ {
+  "q": "salm ente",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:1186",
+  "rel": {
+   "konsep:1186": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1186"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:1186",
+    "obat:37",
+    "obat:38",
+    "obat:39",
+    "obat:40"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1186",
+    "obat:37",
+    "form:3",
+    "konsep:1889"
+   ],
+   "E3": [
+    "konsep:1186",
+    "konsep:1889",
+    "konsep:112",
+    "konsep:2980",
+    "konsep:63"
+   ],
+   "E4": [
+    "konsep:2980",
+    "konsep:112",
+    "konsep:63",
+    "obat:37",
+    "konsep:1889"
+   ]
+  }
+ },
+ {
+  "q": "lisinopril 10 mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:198",
+  "rel": {
+   "obat:198": 2,
+   "konsep:64": 1,
+   "obat:201": 1,
+   "obat:202": 1,
+   "obat:203": 1,
+   "obat:197": 1,
+   "obat:199": 1,
+   "obat:200": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:198"
+   ],
+   "B1": [
+    "obat:198",
+    "lokasi:21",
+    "konsep:64",
+    "obat:203",
+    "obat:201"
+   ],
+   "B2": [
+    "obat:198",
+    "konsep:64",
+    "konsep:185",
+    "konsep:917",
+    "obat:200"
+   ],
+   "E1": [
+    "obat:198",
+    "konsep:64",
+    "obat:203",
+    "obat:201",
+    "obat:200"
+   ],
+   "E2": [
+    "konsep:64",
+    "lokasi:21",
+    "obat:198",
+    "konsep:185",
+    "obat:203"
+   ],
+   "E3": [
+    "obat:198",
+    "obat:203",
+    "obat:201",
+    "obat:200",
+    "obat:202"
+   ],
+   "E4": [
+    "obat:198",
+    "konsep:64",
+    "obat:197",
+    "konsep:103",
+    "obat:199"
+   ]
+  }
+ },
+ {
+  "q": "scott",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:41",
+  "rel": {
+   "pasien:41": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:41",
+    "pasien:91"
+   ],
+   "B1": [
+    "pasien:41",
+    "pasien:91"
+   ],
+   "B2": [
+    "pasien:41",
+    "pasien:91"
+   ],
+   "E1": [
+    "pasien:41",
+    "pasien:91",
+    "konsep:18",
+    "konsep:4065"
+   ],
+   "E2": [
+    "konsep:18",
+    "pasien:41",
+    "konsep:4065",
+    "pasien:91"
+   ],
+   "E3": [
+    "pasien:41",
+    "pasien:91",
+    "konsep:18",
+    "konsep:4065"
+   ],
+   "E4": [
+    "konsep:18",
+    "konsep:4065",
+    "konsep:1515",
+    "konsep:579",
+    "konsep:1829"
+   ]
+  }
+ },
+ {
+  "q": "barbara miller",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:59",
+  "rel": {
+   "pasien:59": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:59",
+    "pasien:9"
+   ],
+   "B1": [
+    "pasien:59",
+    "pasien:9"
+   ],
+   "B2": [
+    "pasien:59",
+    "pasien:9"
+   ],
+   "E1": [
+    "pasien:59",
+    "pasien:9",
+    "konsep:1576",
+    "konsep:727",
+    "konsep:103"
+   ],
+   "E2": [
+    "konsep:1576",
+    "pasien:59",
+    "konsep:727",
+    "pasien:9",
+    "konsep:103"
+   ],
+   "E3": [
+    "pasien:59",
+    "pasien:9",
+    "konsep:1576",
+    "konsep:727",
+    "konsep:103"
+   ],
+   "E4": [
+    "pasien:59",
+    "pasien:9",
+    "pasien:92",
+    "pasien:8",
+    "pasien:7"
+   ]
+  }
+ },
+ {
+  "q": "49 site",
+  "tipe": "urut_balik",
+  "ent": "lokasi",
+  "seed": "lokasi:60",
+  "rel": {
+   "lokasi:60": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:60"
+   ],
+   "B1": [
+    "lokasi:60",
+    "konsep:2048",
+    "konsep:4159",
+    "konsep:4165",
+    "konsep:3466"
+   ],
+   "B2": [
+    "konsep:2048",
+    "konsep:4159",
+    "lokasi:60",
+    "konsep:3257",
+    "konsep:3466"
+   ],
+   "E1": [
+    "lokasi:60",
+    "konsep:4159",
+    "konsep:2048",
+    "konsep:4165",
+    "konsep:3466"
+   ],
+   "E2": [
+    "konsep:4159",
+    "lokasi:60",
+    "obat:294",
+    "konsep:2048",
+    "lokasi:12"
+   ],
+   "E3": [
+    "lokasi:60",
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15"
+   ],
+   "E4": [
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15",
+    "lokasi:16"
+   ]
+  }
+ },
+ {
+  "q": "unknown proider",
+  "tipe": "typo",
+  "ent": "provider",
+  "seed": "provider:1",
+  "rel": {
+   "provider:1": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:656",
+    "provider:1",
+    "lokasi:1",
+    "konsep:2591",
+    "konsep:843"
+   ],
+   "B2": [
+    "konsep:656",
+    "konsep:2591",
+    "konsep:2752",
+    "konsep:3428",
+    "konsep:3948"
+   ],
+   "E1": [
+    "lokasi:1",
+    "provider:1",
+    "konsep:656",
+    "konsep:2591",
+    "konsep:843"
+   ],
+   "E2": [
+    "konsep:656",
+    "lokasi:1",
+    "obat:194",
+    "provider:1",
+    "konsep:2591"
+   ],
+   "E3": [
+    "provider:1",
+    "konsep:656",
+    "konsep:2591",
+    "konsep:843",
+    "konsep:1223"
+   ],
+   "E4": [
+    "konsep:2591",
+    "konsep:656",
+    "konsep:1223",
+    "konsep:843",
+    "provider:1"
+   ]
+  }
+ },
+ {
+  "q": "dent cari",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:3140",
+  "rel": {
+   "konsep:3140": 2,
+   "konsep:3249": 1,
+   "konsep:3630": 1,
+   "konsep:1298": 1,
+   "konsep:1355": 1,
+   "konsep:2268": 1,
+   "konsep:2634": 1,
+   "konsep:3005": 1,
+   "konsep:3571": 1,
+   "konsep:2978": 1,
+   "konsep:3063": 1,
+   "konsep:3338": 1,
+   "konsep:1224": 1,
+   "konsep:2991": 1,
+   "konsep:2587": 1,
+   "konsep:3686": 1,
+   "konsep:3202": 1,
+   "konsep:1299": 1,
+   "konsep:2638": 1,
+   "konsep:2640": 1,
+   "konsep:2642": 1,
+   "konsep:2641": 1,
+   "konsep:2639": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3140",
+    "konsep:3197",
+    "konsep:2638",
+    "konsep:2642",
+    "konsep:2639"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:3140",
+    "lokasi:5",
+    "pasien:48",
+    "pasien:98",
+    "konsep:3517"
+   ],
+   "E2": [
+    "form:5",
+    "konsep:3140",
+    "lokasi:5",
+    "obat:303",
+    "pasien:48"
+   ],
+   "E3": [
+    "konsep:3140",
+    "konsep:3517",
+    "konsep:3871",
+    "konsep:3516",
+    "konsep:2642"
+   ],
+   "E4": [
+    "konsep:3516",
+    "konsep:2638",
+    "konsep:2639",
+    "konsep:2640",
+    "konsep:2641"
+   ]
+  }
+ },
+ {
+  "q": "harris",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:69",
+  "rel": {
+   "pasien:69": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:102",
+    "pasien:52",
+    "pasien:19",
+    "pasien:69"
+   ],
+   "B1": [
+    "pasien:102",
+    "pasien:52",
+    "pasien:19",
+    "pasien:69"
+   ],
+   "B2": [
+    "pasien:102",
+    "pasien:19",
+    "pasien:52",
+    "pasien:69"
+   ],
+   "E1": [
+    "pasien:102",
+    "pasien:52",
+    "pasien:19",
+    "pasien:69",
+    "konsep:63"
+   ],
+   "E2": [
+    "konsep:63",
+    "pasien:102",
+    "konsep:2673",
+    "pasien:52",
+    "konsep:1986"
+   ],
+   "E3": [
+    "pasien:102",
+    "pasien:52",
+    "pasien:19",
+    "pasien:69",
+    "konsep:63"
+   ],
+   "E4": [
+    "konsep:63",
+    "konsep:12",
+    "konsep:648",
+    "konsep:4240",
+    "konsep:91"
+   ]
+  }
+ },
+ {
+  "q": "praz",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:37",
+  "rel": {
+   "konsep:37": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:37"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:83",
+    "obat:137",
+    "konsep:37",
+    "obat:247",
+    "obat:261"
+   ],
+   "E2": [
+    "konsep:83",
+    "obat:137",
+    "konsep:37",
+    "obat:247",
+    "konsep:1698"
+   ],
+   "E3": [
+    "konsep:83",
+    "obat:137",
+    "konsep:37",
+    "obat:247",
+    "konsep:1698"
+   ],
+   "E4": [
+    "konsep:83",
+    "obat:137",
+    "konsep:37",
+    "obat:247",
+    "konsep:1698"
+   ]
+  }
+ },
+ {
+  "q": "metformin",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:210",
+  "rel": {
+   "obat:210": 2,
+   "konsep:58": 1,
+   "obat:213": 1,
+   "obat:209": 1,
+   "obat:211": 1,
+   "obat:212": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:58",
+    "obat:209",
+    "obat:210",
+    "obat:211",
+    "obat:212"
+   ],
+   "B1": [
+    "konsep:58",
+    "obat:209",
+    "obat:210",
+    "obat:211",
+    "obat:212"
+   ],
+   "B2": [
+    "konsep:58",
+    "obat:209",
+    "obat:210",
+    "obat:211",
+    "obat:212"
+   ],
+   "E1": [
+    "konsep:58",
+    "obat:209",
+    "obat:210",
+    "obat:211",
+    "obat:212"
+   ],
+   "E2": [
+    "form:9",
+    "konsep:58",
+    "obat:209",
+    "form:2",
+    "konsep:60"
+   ],
+   "E3": [
+    "konsep:58",
+    "obat:209",
+    "konsep:60",
+    "obat:210",
+    "konsep:1802"
+   ],
+   "E4": [
+    "konsep:58",
+    "obat:209",
+    "konsep:60",
+    "obat:210",
+    "konsep:1802"
+   ]
+  }
+ },
+ {
+  "q": "covid",
+  "tipe": "hilang_kata",
+  "ent": "form",
+  "seed": "form:1",
+  "rel": {
+   "form:1": 2
+  },
+  "hasil": {
+   "B0": [
+    "form:1",
+    "konsep:1940",
+    "konsep:1934",
+    "konsep:1669",
+    "konsep:1622"
+   ],
+   "B1": [
+    "form:1",
+    "konsep:1940",
+    "konsep:4207",
+    "konsep:2374",
+    "konsep:818"
+   ],
+   "B2": [
+    "konsep:1940",
+    "konsep:2374",
+    "konsep:4207",
+    "konsep:1669",
+    "konsep:1934"
+   ],
+   "E1": [
+    "form:1",
+    "konsep:1940",
+    "konsep:4207",
+    "konsep:2374",
+    "konsep:837"
+   ],
+   "E2": [
+    "form:1",
+    "konsep:1940",
+    "provider:1",
+    "konsep:4207",
+    "konsep:2374"
+   ],
+   "E3": [
+    "form:1",
+    "konsep:1940",
+    "konsep:4207",
+    "konsep:2374",
+    "konsep:837"
+   ],
+   "E4": [
+    "konsep:2374",
+    "konsep:4207",
+    "konsep:817",
+    "konsep:837",
+    "konsep:818"
+   ]
+  }
+ },
+ {
+  "q": "acide folique co 5mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:4",
+  "rel": {
+   "obat:4": 2,
+   "konsep:77": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:4"
+   ],
+   "B1": [
+    "obat:4",
+    "konsep:1566",
+    "obat:258",
+    "obat:116",
+    "obat:204"
+   ],
+   "B2": [
+    "obat:4",
+    "konsep:1566",
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161"
+   ],
+   "E1": [
+    "obat:4",
+    "konsep:1566",
+    "obat:258",
+    "obat:161",
+    "obat:116"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1566",
+    "obat:4",
+    "form:3",
+    "konsep:2500"
+   ],
+   "E3": [
+    "obat:4",
+    "obat:258",
+    "obat:161",
+    "obat:116",
+    "obat:204"
+   ],
+   "E4": [
+    "obat:4",
+    "obat:161",
+    "obat:258",
+    "obat:116",
+    "obat:204"
+   ]
+  }
+ },
+ {
+  "q": "abac lami",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:169",
+  "rel": {
+   "konsep:169": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:169",
+    "konsep:144"
+   ],
+   "B1": [
+    "konsep:133"
+   ],
+   "B2": [
+    "konsep:133"
+   ],
+   "E1": [
+    "konsep:133",
+    "konsep:169",
+    "obat:219",
+    "obat:220",
+    "obat:69"
+   ],
+   "E2": [
+    "konsep:133",
+    "obat:219",
+    "konsep:169",
+    "obat:220",
+    "konsep:144"
+   ],
+   "E3": [
+    "konsep:133",
+    "konsep:169",
+    "konsep:144",
+    "konsep:56",
+    "konsep:42"
+   ],
+   "E4": [
+    "konsep:144",
+    "konsep:133",
+    "konsep:169",
+    "konsep:56",
+    "konsep:42"
+   ]
+  }
+ },
+ {
+  "q": "25mg co diphenhydramine",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:127",
+  "rel": {
+   "obat:127": 2,
+   "konsep:1535": 1,
+   "obat:128": 1,
+   "obat:58": 1,
+   "obat:57": 1,
+   "obat:59": 1,
+   "obat:129": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:127"
+   ],
+   "B1": [
+    "obat:127",
+    "konsep:1535",
+    "obat:73",
+    "obat:128",
+    "obat:129"
+   ],
+   "B2": [
+    "obat:127",
+    "konsep:1535",
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161"
+   ],
+   "E1": [
+    "obat:127",
+    "obat:128",
+    "obat:129",
+    "obat:57",
+    "obat:58"
+   ],
+   "E2": [
+    "konsep:1535",
+    "obat:127",
+    "konsep:1561",
+    "obat:128",
+    "konsep:1546"
+   ],
+   "E3": [
+    "obat:127",
+    "obat:128",
+    "obat:129",
+    "obat:57",
+    "obat:58"
+   ],
+   "E4": [
+    "konsep:1535",
+    "obat:127",
+    "konsep:1561",
+    "obat:128",
+    "konsep:1546"
+   ]
+  }
+ },
+ {
+  "q": "william",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:53",
+  "rel": {
+   "pasien:53": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:103",
+    "pasien:53",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "B1": [
+    "pasien:103",
+    "pasien:53"
+   ],
+   "B2": [
+    "pasien:103",
+    "pasien:53"
+   ],
+   "E1": [
+    "pasien:103",
+    "pasien:53",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "E2": [
+    "konsep:2645",
+    "obat:27",
+    "pasien:103",
+    "konsep:41",
+    "obat:28"
+   ],
+   "E3": [
+    "pasien:103",
+    "pasien:53",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "E4": [
+    "pasien:46",
+    "pasien:53",
+    "pasien:103",
+    "pasien:23",
+    "pasien:96"
+   ]
+  }
+ },
+ {
+  "q": "psychological problem",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:2744",
+  "rel": {
+   "konsep:2744": 2,
+   "konsep:2746": 1,
+   "konsep:3825": 1,
+   "konsep:2267": 1,
+   "konsep:1000": 1,
+   "konsep:2290": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2744"
+   ],
+   "B1": [
+    "konsep:2744",
+    "konsep:3929",
+    "konsep:2819",
+    "konsep:3801",
+    "konsep:2290"
+   ],
+   "B2": [
+    "konsep:2744",
+    "konsep:3929",
+    "konsep:1383",
+    "konsep:1863",
+    "konsep:1991"
+   ],
+   "E1": [
+    "konsep:2744",
+    "konsep:3929",
+    "konsep:2819",
+    "konsep:3801",
+    "konsep:3966"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:2744",
+    "lokasi:10",
+    "obat:107",
+    "provider:1"
+   ],
+   "E3": [
+    "konsep:2744",
+    "konsep:3929",
+    "konsep:2819",
+    "konsep:3801",
+    "konsep:3966"
+   ],
+   "E4": [
+    "konsep:2744",
+    "konsep:2819",
+    "konsep:3929",
+    "konsep:2267",
+    "konsep:3453"
+   ]
+  }
+ },
+ {
+  "q": "cementum",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:3063",
+  "rel": {
+   "konsep:3063": 2,
+   "konsep:3249": 1,
+   "konsep:3630": 1,
+   "konsep:1298": 1,
+   "konsep:1355": 1,
+   "konsep:2268": 1,
+   "konsep:2634": 1,
+   "konsep:3005": 1,
+   "konsep:3140": 1,
+   "konsep:3571": 1,
+   "konsep:2978": 1,
+   "konsep:3338": 1,
+   "konsep:1224": 1,
+   "konsep:2991": 1,
+   "konsep:2587": 1,
+   "konsep:3686": 1,
+   "konsep:3202": 1,
+   "konsep:1299": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3063"
+   ],
+   "B1": [
+    "konsep:3063"
+   ],
+   "B2": [
+    "konsep:3063"
+   ],
+   "E1": [
+    "konsep:3063",
+    "form:5",
+    "lokasi:5",
+    "obat:49",
+    "konsep:1162"
+   ],
+   "E2": [
+    "form:5",
+    "konsep:3063",
+    "lokasi:5",
+    "obat:49",
+    "konsep:1162"
+   ],
+   "E3": [
+    "konsep:3063",
+    "konsep:1162",
+    "konsep:2729",
+    "konsep:548",
+    "konsep:486"
+   ],
+   "E4": [
+    "konsep:486",
+    "konsep:2729",
+    "konsep:548",
+    "konsep:691",
+    "konsep:1162"
+   ]
+  }
+ },
+ {
+  "q": "snor",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:3978",
+  "rel": {
+   "konsep:3978": 2,
+   "konsep:4000": 1,
+   "konsep:4130": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3978"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:3978"
+   ],
+   "E2": [
+    "konsep:3978"
+   ],
+   "E3": [
+    "konsep:3978"
+   ],
+   "E4": [
+    "konsep:3978",
+    "konsep:3633",
+    "konsep:4130",
+    "konsep:4000",
+    "konsep:2967"
+   ]
+  }
+ },
+ {
+  "q": "acycloir creme 3",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:6",
+  "rel": {
+   "obat:6": 2,
+   "konsep:129": 1,
+   "obat:8": 1,
+   "obat:7": 1,
+   "obat:5": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "form:10",
+    "konsep:1001",
+    "konsep:383",
+    "lokasi:14",
+    "obat:6"
+   ],
+   "B2": [
+    "obat:6",
+    "konsep:1001",
+    "konsep:383",
+    "obat:1",
+    "obat:2"
+   ],
+   "E1": [
+    "obat:6",
+    "form:10",
+    "konsep:1001",
+    "konsep:383",
+    "lokasi:14"
+   ],
+   "E2": [
+    "form:10",
+    "konsep:1001",
+    "lokasi:14",
+    "obat:6",
+    "konsep:383"
+   ],
+   "E3": [
+    "obat:6",
+    "obat:172",
+    "obat:184",
+    "obat:234",
+    "obat:245"
+   ],
+   "E4": [
+    "obat:6",
+    "obat:172",
+    "obat:184",
+    "obat:5",
+    "obat:7"
+   ]
+  }
+ },
+ {
+  "q": "schistosomiasis",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:782",
+  "rel": {
+   "konsep:782": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:782"
+   ],
+   "B1": [
+    "konsep:782"
+   ],
+   "B2": [
+    "konsep:782"
+   ],
+   "E1": [
+    "konsep:782",
+    "konsep:630",
+    "konsep:780",
+    "obat:97",
+    "konsep:1367"
+   ],
+   "E2": [
+    "konsep:782",
+    "obat:97",
+    "pasien:26",
+    "konsep:630",
+    "pasien:76"
+   ],
+   "E3": [
+    "konsep:782",
+    "konsep:630",
+    "konsep:780",
+    "konsep:1367",
+    "konsep:1954"
+   ],
+   "E4": [
+    "konsep:782",
+    "konsep:1367",
+    "konsep:780",
+    "konsep:630",
+    "konsep:1954"
+   ]
+  }
+ },
+ {
+  "q": "clarithromycine 500mg",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:88",
+  "rel": {
+   "obat:88": 2,
+   "konsep:1500": 1,
+   "obat:62": 1,
+   "obat:63": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:88"
+   ],
+   "B1": [
+    "konsep:1500",
+    "obat:88",
+    "obat:62",
+    "obat:63",
+    "obat:31"
+   ],
+   "B2": [
+    "konsep:1500",
+    "obat:88",
+    "obat:62",
+    "obat:63",
+    "obat:144"
+   ],
+   "E1": [
+    "konsep:1500",
+    "obat:88",
+    "obat:62",
+    "obat:63",
+    "obat:295"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1500",
+    "lokasi:61",
+    "obat:88",
+    "form:3"
+   ],
+   "E3": [
+    "obat:88",
+    "obat:62",
+    "konsep:1500",
+    "obat:63",
+    "konsep:109"
+   ],
+   "E4": [
+    "konsep:1500",
+    "obat:62",
+    "konsep:109",
+    "obat:63",
+    "konsep:84"
+   ]
+  }
+ },
+ {
+  "q": "major neurocognitive disorder without behavior changes by traumatic brain injury",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:2135",
+  "rel": {
+   "konsep:2135": 2,
+   "konsep:2134": 1,
+   "konsep:2138": 1,
+   "konsep:2290": 1,
+   "konsep:2136": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2135"
+   ],
+   "B1": [
+    "konsep:2135",
+    "konsep:2134",
+    "konsep:2138",
+    "konsep:2136",
+    "konsep:2844"
+   ],
+   "B2": [
+    "konsep:2135",
+    "konsep:2134",
+    "konsep:2844",
+    "konsep:2138",
+    "konsep:2136"
+   ],
+   "E1": [
+    "konsep:2135",
+    "konsep:2134",
+    "konsep:2138",
+    "konsep:2136",
+    "konsep:2844"
+   ],
+   "E2": [
+    "konsep:2135",
+    "lokasi:3",
+    "obat:37",
+    "konsep:2134",
+    "lokasi:2"
+   ],
+   "E3": [
+    "konsep:2135",
+    "konsep:2134",
+    "konsep:2138",
+    "konsep:2136",
+    "konsep:2844"
+   ],
+   "E4": [
+    "konsep:2135",
+    "konsep:2134",
+    "konsep:2138",
+    "konsep:2136",
+    "konsep:2844"
+   ]
+  }
+ },
+ {
+  "q": "klepotmania",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:2190",
+  "rel": {
+   "konsep:2190": 2,
+   "konsep:1300": 1,
+   "konsep:3006": 1,
+   "konsep:2680": 1,
+   "konsep:3268": 1,
+   "konsep:1251": 1,
+   "konsep:3051": 1,
+   "konsep:3372": 1,
+   "konsep:3215": 1,
+   "konsep:2420": 1,
+   "konsep:3662": 1,
+   "konsep:3448": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:2190",
+    "konsep:2592",
+    "konsep:783",
+    "konsep:3587",
+    "konsep:772"
+   ],
+   "E2": [
+    "konsep:2190",
+    "konsep:2592",
+    "konsep:783",
+    "konsep:3587",
+    "konsep:772"
+   ],
+   "E3": [
+    "konsep:2190",
+    "konsep:2592",
+    "konsep:783",
+    "konsep:3587",
+    "konsep:772"
+   ],
+   "E4": [
+    "konsep:2592",
+    "konsep:783",
+    "konsep:772",
+    "konsep:2190",
+    "konsep:3587"
+   ]
+  }
+ },
+ {
+  "q": "esteem self of loss",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2488",
+  "rel": {
+   "konsep:2488": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2488"
+   ],
+   "B1": [
+    "konsep:2488",
+    "obat:1",
+    "obat:2",
+    "obat:254",
+    "obat:255"
+   ],
+   "B2": [
+    "konsep:2488",
+    "konsep:1929",
+    "konsep:1930",
+    "konsep:2216",
+    "konsep:2217"
+   ],
+   "E1": [
+    "konsep:2488",
+    "obat:1",
+    "obat:2",
+    "obat:254",
+    "obat:255"
+   ],
+   "E2": [
+    "konsep:2488",
+    "obat:1",
+    "konsep:3813",
+    "obat:2",
+    "konsep:3919"
+   ],
+   "E3": [
+    "konsep:2488",
+    "konsep:3813",
+    "konsep:3919",
+    "konsep:2490",
+    "konsep:4069"
+   ],
+   "E4": [
+    "konsep:2488",
+    "konsep:2490",
+    "konsep:3919",
+    "konsep:4069",
+    "konsep:746"
+   ]
+  }
+ },
+ {
+  "q": "edward odnga",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:44",
+  "rel": {
+   "pasien:44": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:29",
+    "pasien:44",
+    "pasien:79",
+    "pasien:94"
+   ],
+   "B2": [
+    "pasien:29",
+    "pasien:44",
+    "pasien:79",
+    "pasien:94"
+   ],
+   "E1": [
+    "pasien:44",
+    "pasien:94",
+    "pasien:29",
+    "pasien:79",
+    "lokasi:10"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:755",
+    "lokasi:10",
+    "pasien:44",
+    "konsep:4050"
+   ],
+   "E3": [
+    "pasien:44",
+    "pasien:94",
+    "pasien:29",
+    "pasien:79",
+    "pasien:45"
+   ],
+   "E4": [
+    "pasien:44",
+    "pasien:45",
+    "pasien:79",
+    "pasien:94",
+    "pasien:29"
+   ]
+  }
+ },
+ {
+  "q": "simplex herpes",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:1988",
+  "rel": {
+   "konsep:1988": 2,
+   "konsep:1179": 1,
+   "konsep:1189": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1988",
+    "konsep:1882"
+   ],
+   "B1": [
+    "konsep:1988",
+    "konsep:1882",
+    "konsep:4085",
+    "konsep:1171",
+    "konsep:2205"
+   ],
+   "B2": [
+    "konsep:1988",
+    "konsep:1882",
+    "konsep:1171",
+    "konsep:4085",
+    "konsep:2205"
+   ],
+   "E1": [
+    "konsep:1988",
+    "konsep:1882",
+    "konsep:4085",
+    "konsep:2205",
+    "konsep:1171"
+   ],
+   "E2": [
+    "konsep:1988",
+    "obat:313",
+    "pasien:32",
+    "konsep:1882",
+    "obat:314"
+   ],
+   "E3": [
+    "konsep:1988",
+    "konsep:1882",
+    "konsep:4085",
+    "konsep:2205",
+    "konsep:1171"
+   ],
+   "E4": [
+    "konsep:1988",
+    "konsep:1882",
+    "konsep:2205",
+    "konsep:4085",
+    "konsep:1171"
+   ]
+  }
+ },
+ {
+  "q": "donan roberts",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:50",
+  "rel": {
+   "pasien:50": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:100",
+    "pasien:47",
+    "pasien:50",
+    "pasien:97"
+   ],
+   "B2": [
+    "pasien:100",
+    "pasien:47",
+    "pasien:50",
+    "pasien:97"
+   ],
+   "E1": [
+    "pasien:47",
+    "pasien:97",
+    "pasien:100",
+    "pasien:50",
+    "obat:1"
+   ],
+   "E2": [
+    "konsep:4152",
+    "obat:1",
+    "pasien:47",
+    "konsep:132",
+    "obat:2"
+   ],
+   "E3": [
+    "pasien:47",
+    "pasien:97",
+    "pasien:100",
+    "pasien:50",
+    "pasien:39"
+   ],
+   "E4": [
+    "pasien:100",
+    "pasien:97",
+    "pasien:39",
+    "pasien:47",
+    "pasien:50"
+   ]
+  }
+ },
+ {
+  "q": "acute laryngotracheitis without mention of obstructoin",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:2982",
+  "rel": {
+   "konsep:2982": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:2982",
+    "obat:1",
+    "obat:2",
+    "obat:254",
+    "obat:255"
+   ],
+   "B2": [
+    "konsep:2982",
+    "konsep:3619",
+    "konsep:3417",
+    "konsep:2353",
+    "konsep:808"
+   ],
+   "E1": [
+    "konsep:2982",
+    "obat:294",
+    "obat:295",
+    "konsep:3619",
+    "konsep:3417"
+   ],
+   "E2": [
+    "form:7",
+    "konsep:2982",
+    "lokasi:5",
+    "obat:294",
+    "form:5"
+   ],
+   "E3": [
+    "konsep:2982",
+    "konsep:3619",
+    "konsep:3417",
+    "konsep:809",
+    "konsep:1140"
+   ],
+   "E4": [
+    "konsep:2982",
+    "konsep:3619",
+    "konsep:3417",
+    "konsep:809",
+    "konsep:1140"
+   ]
+  }
+ },
+ {
+  "q": "diazepam injection vial 5mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:117",
+  "rel": {
+   "obat:117": 2,
+   "konsep:90": 1,
+   "obat:116": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:117"
+   ],
+   "B1": [
+    "obat:117",
+    "obat:116",
+    "konsep:90",
+    "konsep:882",
+    "obat:173"
+   ],
+   "B2": [
+    "obat:117",
+    "konsep:90",
+    "konsep:882",
+    "konsep:5",
+    "obat:116"
+   ],
+   "E1": [
+    "obat:117",
+    "konsep:90",
+    "obat:116",
+    "obat:276",
+    "obat:151"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:90",
+    "lokasi:10",
+    "obat:117",
+    "konsep:882"
+   ],
+   "E3": [
+    "obat:117",
+    "obat:116",
+    "obat:276",
+    "obat:151",
+    "obat:300"
+   ],
+   "E4": [
+    "obat:117",
+    "obat:116",
+    "obat:276",
+    "obat:151",
+    "obat:300"
+   ]
+  }
+ },
+ {
+  "q": "malformation bony congenital to due scoliosis congenital",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:3161",
+  "rel": {
+   "konsep:3161": 2,
+   "konsep:1954": 1,
+   "konsep:1262": 1,
+   "konsep:2870": 1,
+   "konsep:2477": 1,
+   "konsep:2553": 1,
+   "konsep:3121": 1,
+   "konsep:3681": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3161"
+   ],
+   "B1": [
+    "konsep:3161",
+    "konsep:1261",
+    "konsep:2494",
+    "konsep:3116",
+    "konsep:3115"
+   ],
+   "B2": [
+    "konsep:3161",
+    "konsep:1261",
+    "konsep:2494",
+    "konsep:1256",
+    "konsep:1257"
+   ],
+   "E1": [
+    "konsep:3161",
+    "konsep:1261",
+    "konsep:2494",
+    "konsep:3116",
+    "konsep:3115"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:3161",
+    "lokasi:4",
+    "obat:37",
+    "pasien:41"
+   ],
+   "E3": [
+    "konsep:3161",
+    "konsep:1261",
+    "konsep:2494",
+    "konsep:3116",
+    "konsep:3115"
+   ],
+   "E4": [
+    "konsep:3161",
+    "konsep:2494",
+    "konsep:1261",
+    "konsep:3115",
+    "konsep:3116"
+   ]
+  }
+ },
+ {
+  "q": "failure to gain",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:1377",
+  "rel": {
+   "konsep:1377": 2,
+   "konsep:2034": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1377"
+   ],
+   "B1": [
+    "konsep:1377",
+    "konsep:4137",
+    "konsep:2034",
+    "konsep:2632",
+    "konsep:1876"
+   ],
+   "B2": [
+    "konsep:1377",
+    "konsep:2034",
+    "konsep:4137",
+    "konsep:1876",
+    "konsep:1972"
+   ],
+   "E1": [
+    "konsep:1377",
+    "konsep:2034",
+    "konsep:4137",
+    "konsep:3507",
+    "konsep:1876"
+   ],
+   "E2": [
+    "konsep:1377",
+    "obat:1",
+    "konsep:2034",
+    "obat:2",
+    "konsep:4137"
+   ],
+   "E3": [
+    "konsep:1377",
+    "konsep:2034",
+    "konsep:4137",
+    "konsep:3507",
+    "konsep:1876"
+   ],
+   "E4": [
+    "konsep:1377",
+    "konsep:1876",
+    "konsep:2034",
+    "konsep:4137",
+    "konsep:1972"
+   ]
+  }
+ },
+ {
+  "q": "lewis michelle",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:37",
+  "rel": {
+   "pasien:37": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:37",
+    "pasien:87"
+   ],
+   "B1": [
+    "pasien:37",
+    "pasien:87",
+    "pasien:24",
+    "pasien:74"
+   ],
+   "B2": [
+    "pasien:37",
+    "pasien:87",
+    "pasien:24",
+    "pasien:74"
+   ],
+   "E1": [
+    "pasien:37",
+    "pasien:87",
+    "pasien:24",
+    "pasien:74",
+    "obat:294"
+   ],
+   "E2": [
+    "konsep:29",
+    "obat:294",
+    "pasien:37",
+    "konsep:2412",
+    "obat:295"
+   ],
+   "E3": [
+    "pasien:37",
+    "pasien:87",
+    "pasien:24",
+    "pasien:74",
+    "pasien:13"
+   ],
+   "E4": [
+    "pasien:37",
+    "pasien:87",
+    "pasien:13",
+    "pasien:24",
+    "pasien:74"
+   ]
+  }
+ },
+ {
+  "q": "personal history of femur",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:2512",
+  "rel": {
+   "konsep:2512": 2,
+   "konsep:2068": 1,
+   "konsep:2519": 1,
+   "konsep:2522": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2512"
+   ],
+   "B1": [
+    "konsep:2512",
+    "konsep:3439",
+    "konsep:2495",
+    "konsep:3451",
+    "konsep:2046"
+   ],
+   "B2": [
+    "konsep:2512",
+    "konsep:1966",
+    "konsep:2046",
+    "konsep:2495",
+    "konsep:2575"
+   ],
+   "E1": [
+    "konsep:2512",
+    "konsep:3451",
+    "konsep:3439",
+    "konsep:2046",
+    "konsep:3342"
+   ],
+   "E2": [
+    "form:10",
+    "konsep:2512",
+    "lokasi:3",
+    "obat:1",
+    "pasien:17"
+   ],
+   "E3": [
+    "konsep:2512",
+    "konsep:3451",
+    "konsep:3439",
+    "konsep:2046",
+    "konsep:3342"
+   ],
+   "E4": [
+    "konsep:2512",
+    "konsep:3451",
+    "konsep:2046",
+    "konsep:2519",
+    "konsep:2522"
+   ]
+  }
+ },
+ {
+  "q": "hall",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:49",
+  "rel": {
+   "pasien:49": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:49",
+    "pasien:99",
+    "konsep:3255",
+    "konsep:1968",
+    "konsep:3555"
+   ],
+   "B1": [
+    "pasien:49",
+    "pasien:99"
+   ],
+   "B2": [
+    "pasien:49",
+    "pasien:99"
+   ],
+   "E1": [
+    "pasien:49",
+    "pasien:99",
+    "konsep:1968",
+    "konsep:3255",
+    "konsep:3555"
+   ],
+   "E2": [
+    "konsep:1968",
+    "pasien:49",
+    "konsep:3255",
+    "pasien:99",
+    "konsep:3555"
+   ],
+   "E3": [
+    "pasien:49",
+    "pasien:99",
+    "konsep:1968",
+    "konsep:3255",
+    "konsep:3555"
+   ],
+   "E4": [
+    "konsep:3555",
+    "konsep:3255",
+    "konsep:3700",
+    "konsep:1968",
+    "konsep:1883"
+   ]
+  }
+ },
+ {
+  "q": "nose saddle",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2664",
+  "rel": {
+   "konsep:2664": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2664"
+   ],
+   "B1": [
+    "konsep:2664",
+    "konsep:3894",
+    "konsep:4095",
+    "konsep:3418",
+    "konsep:745"
+   ],
+   "B2": [
+    "konsep:2664",
+    "konsep:3894",
+    "konsep:4095",
+    "konsep:3418",
+    "konsep:745"
+   ],
+   "E1": [
+    "konsep:2664",
+    "konsep:3894",
+    "konsep:4095",
+    "konsep:3418",
+    "konsep:745"
+   ],
+   "E2": [
+    "konsep:2664",
+    "obat:185",
+    "konsep:3894",
+    "obat:37",
+    "konsep:4095"
+   ],
+   "E3": [
+    "konsep:2664",
+    "konsep:3894",
+    "konsep:4095",
+    "konsep:3418",
+    "konsep:745"
+   ],
+   "E4": [
+    "konsep:3894",
+    "konsep:4095",
+    "konsep:2664",
+    "konsep:745",
+    "konsep:4120"
+   ]
+  }
+ },
+ {
+  "q": "thompson",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:34",
+  "rel": {
+   "pasien:34": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:34",
+    "pasien:42",
+    "pasien:84",
+    "pasien:92",
+    "pasien:35"
+   ],
+   "B1": [
+    "pasien:34",
+    "pasien:35",
+    "pasien:39",
+    "pasien:42",
+    "pasien:84"
+   ],
+   "B2": [
+    "pasien:20",
+    "pasien:34",
+    "pasien:35",
+    "pasien:39",
+    "pasien:42"
+   ],
+   "E1": [
+    "pasien:34",
+    "pasien:84",
+    "pasien:42",
+    "pasien:92",
+    "pasien:35"
+   ],
+   "E2": [
+    "konsep:95",
+    "pasien:34",
+    "pasien:84",
+    "pasien:42",
+    "pasien:92"
+   ],
+   "E3": [
+    "pasien:34",
+    "pasien:84",
+    "pasien:42",
+    "pasien:92",
+    "pasien:35"
+   ],
+   "E4": [
+    "pasien:34",
+    "pasien:35",
+    "pasien:84",
+    "pasien:92",
+    "pasien:42"
+   ]
+  }
+ },
+ {
+  "q": "atenolol 100mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:41",
+  "rel": {
+   "obat:41": 2,
+   "konsep:1802": 1,
+   "obat:44": 1,
+   "obat:43": 1,
+   "obat:42": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:41"
+   ],
+   "B1": [
+    "konsep:1444",
+    "obat:41",
+    "obat:45",
+    "konsep:1433",
+    "obat:43"
+   ],
+   "B2": [
+    "konsep:1444",
+    "obat:41",
+    "konsep:1433",
+    "obat:45",
+    "obat:42"
+   ],
+   "E1": [
+    "obat:41",
+    "konsep:1444",
+    "obat:45",
+    "obat:43",
+    "konsep:1433"
+   ],
+   "E2": [
+    "konsep:1444",
+    "obat:41",
+    "konsep:1433",
+    "obat:45",
+    "konsep:18"
+   ],
+   "E3": [
+    "obat:41",
+    "obat:45",
+    "obat:43",
+    "obat:42",
+    "obat:44"
+   ],
+   "E4": [
+    "konsep:1802",
+    "obat:41",
+    "konsep:1444",
+    "obat:42",
+    "konsep:1433"
+   ]
+  }
+ },
+ {
+  "q": "prop hydr",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:1749",
+  "rel": {
+   "konsep:1749": 2,
+   "obat:180": 1,
+   "obat:178": 1,
+   "obat:176": 1,
+   "obat:179": 1,
+   "obat:177": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1749",
+    "obat:176",
+    "obat:177",
+    "obat:178",
+    "obat:179"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:908",
+    "obat:176",
+    "obat:177",
+    "obat:178",
+    "obat:179"
+   ],
+   "E2": [
+    "konsep:908",
+    "obat:176",
+    "konsep:1749",
+    "obat:177",
+    "konsep:899"
+   ],
+   "E3": [
+    "konsep:908",
+    "obat:176",
+    "konsep:1749",
+    "obat:177",
+    "konsep:899"
+   ],
+   "E4": [
+    "konsep:1749",
+    "obat:176",
+    "konsep:1748",
+    "obat:177",
+    "konsep:899"
+   ]
+  }
+ },
+ {
+  "q": "john",
+  "tipe": "hilang_kata",
+  "ent": "provider",
+  "seed": "provider:3",
+  "rel": {
+   "provider:3": 2
+  },
+  "hasil": {
+   "B0": [
+    "provider:3",
+    "pasien:15",
+    "pasien:65",
+    "konsep:2734",
+    "konsep:1622"
+   ],
+   "B1": [
+    "provider:3"
+   ],
+   "B2": [
+    "provider:3"
+   ],
+   "E1": [
+    "provider:3",
+    "konsep:1622",
+    "pasien:15",
+    "pasien:65",
+    "konsep:2734"
+   ],
+   "E2": [
+    "konsep:1622",
+    "pasien:15",
+    "provider:3",
+    "konsep:2734",
+    "pasien:65"
+   ],
+   "E3": [
+    "provider:3",
+    "konsep:1622",
+    "konsep:2734",
+    "pasien:15",
+    "pasien:65"
+   ],
+   "E4": [
+    "provider:3",
+    "pasien:15",
+    "konsep:2734",
+    "pasien:65",
+    "konsep:2221"
+   ]
+  }
+ },
+ {
+  "q": "lewis patricia",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:74",
+  "rel": {
+   "pasien:74": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:24",
+    "pasien:74"
+   ],
+   "B1": [
+    "pasien:24",
+    "pasien:74",
+    "pasien:105",
+    "pasien:55",
+    "pasien:37"
+   ],
+   "B2": [
+    "pasien:24",
+    "pasien:74",
+    "pasien:105",
+    "pasien:37",
+    "pasien:55"
+   ],
+   "E1": [
+    "pasien:24",
+    "pasien:74",
+    "pasien:105",
+    "pasien:55",
+    "pasien:37"
+   ],
+   "E2": [
+    "konsep:2673",
+    "obat:37",
+    "pasien:24",
+    "provider:4",
+    "konsep:3035"
+   ],
+   "E3": [
+    "pasien:24",
+    "pasien:74",
+    "pasien:105",
+    "pasien:55",
+    "pasien:37"
+   ],
+   "E4": [
+    "pasien:24",
+    "pasien:74",
+    "pasien:37",
+    "pasien:55",
+    "pasien:105"
+   ]
+  }
+ },
+ {
+  "q": "christopher evans",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:26",
+  "rel": {
+   "pasien:26": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:26",
+    "pasien:76"
+   ],
+   "B1": [
+    "pasien:26",
+    "pasien:76"
+   ],
+   "B2": [
+    "pasien:26",
+    "pasien:76"
+   ],
+   "E1": [
+    "pasien:26",
+    "pasien:76",
+    "obat:1",
+    "obat:2",
+    "obat:254"
+   ],
+   "E2": [
+    "konsep:2625",
+    "obat:1",
+    "pasien:26",
+    "konsep:46",
+    "obat:2"
+   ],
+   "E3": [
+    "pasien:26",
+    "pasien:76",
+    "konsep:2625",
+    "konsep:46",
+    "konsep:1815"
+   ],
+   "E4": [
+    "konsep:2625",
+    "konsep:46",
+    "pasien:26",
+    "konsep:1102",
+    "pasien:76"
+   ]
+  }
+ },
+ {
+  "q": "dorot oding",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:104",
+  "rel": {
+   "pasien:104": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:104",
+    "pasien:54"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94",
+    "obat:25"
+   ],
+   "E2": [
+    "konsep:119",
+    "obat:25",
+    "pasien:104",
+    "konsep:1127",
+    "obat:26"
+   ],
+   "E3": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94",
+    "konsep:119"
+   ],
+   "E4": [
+    "konsep:119",
+    "obat:25",
+    "pasien:44",
+    "konsep:3270",
+    "obat:26"
+   ]
+  }
+ },
+ {
+  "q": "lopez",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:18",
+  "rel": {
+   "pasien:18": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:18",
+    "pasien:58",
+    "pasien:68",
+    "pasien:8"
+   ],
+   "B1": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68"
+   ],
+   "B2": [
+    "pasien:18",
+    "pasien:58",
+    "pasien:68",
+    "pasien:8"
+   ],
+   "E1": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68",
+    "konsep:63"
+   ],
+   "E2": [
+    "konsep:63",
+    "pasien:58",
+    "konsep:40",
+    "pasien:8",
+    "konsep:75"
+   ],
+   "E3": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68",
+    "konsep:63"
+   ],
+   "E4": [
+    "konsep:63",
+    "konsep:12",
+    "konsep:648",
+    "konsep:91",
+    "konsep:4240"
+   ]
+  }
+ },
+ {
+  "q": "400mg co ibuprofen",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:175",
+  "rel": {
+   "obat:175": 2,
+   "konsep:73": 1,
+   "obat:12": 1,
+   "obat:229": 1,
+   "obat:14": 1,
+   "obat:228": 1,
+   "obat:13": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:175"
+   ],
+   "B1": [
+    "obat:175",
+    "konsep:73",
+    "obat:12",
+    "obat:13",
+    "obat:14"
+   ],
+   "B2": [
+    "obat:175",
+    "konsep:73",
+    "konsep:1610",
+    "konsep:1512",
+    "konsep:1513"
+   ],
+   "E1": [
+    "obat:175",
+    "konsep:73",
+    "obat:12",
+    "obat:13",
+    "obat:14"
+   ],
+   "E2": [
+    "konsep:73",
+    "obat:175",
+    "konsep:1610",
+    "obat:12",
+    "konsep:2500"
+   ],
+   "E3": [
+    "obat:175",
+    "obat:12",
+    "obat:13",
+    "obat:14",
+    "obat:228"
+   ],
+   "E4": [
+    "konsep:73",
+    "obat:12",
+    "konsep:1610",
+    "obat:13",
+    "konsep:2500"
+   ]
+  }
+ },
+ {
+  "q": "skin temperature",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:3925",
+  "rel": {
+   "konsep:3925": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3925"
+   ],
+   "B1": [
+    "konsep:3925",
+    "konsep:1842",
+    "konsep:4158",
+    "konsep:3174",
+    "konsep:2066"
+   ],
+   "B2": [
+    "konsep:3925",
+    "konsep:1842",
+    "konsep:4158",
+    "konsep:2066",
+    "konsep:2708"
+   ],
+   "E1": [
+    "konsep:3925",
+    "konsep:1842",
+    "konsep:4158",
+    "konsep:230",
+    "konsep:3174"
+   ],
+   "E2": [
+    "form:6",
+    "konsep:3925",
+    "obat:1",
+    "form:8",
+    "konsep:1842"
+   ],
+   "E3": [
+    "konsep:3925",
+    "konsep:1842",
+    "konsep:4158",
+    "konsep:230",
+    "konsep:3174"
+   ],
+   "E4": [
+    "konsep:230",
+    "konsep:3925",
+    "konsep:1842",
+    "konsep:3174",
+    "konsep:4158"
+   ]
+  }
+ },
+ {
+  "q": "neur 600mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:238",
+  "rel": {
+   "obat:238": 2,
+   "konsep:1583": 1,
+   "obat:239": 1,
+   "obat:240": 1,
+   "obat:237": 1,
+   "obat:236": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:238"
+   ],
+   "B1": [
+    "obat:238",
+    "obat:14",
+    "obat:47",
+    "obat:48"
+   ],
+   "B2": [
+    "obat:14",
+    "obat:238",
+    "obat:47",
+    "obat:48"
+   ],
+   "E1": [
+    "obat:238",
+    "obat:14",
+    "obat:47",
+    "obat:48",
+    "konsep:3386"
+   ],
+   "E2": [
+    "konsep:3386",
+    "obat:238",
+    "konsep:3387",
+    "obat:14",
+    "konsep:103"
+   ],
+   "E3": [
+    "obat:238",
+    "obat:14",
+    "obat:47",
+    "obat:48",
+    "obat:236"
+   ],
+   "E4": [
+    "konsep:1434",
+    "obat:46",
+    "konsep:1583",
+    "obat:47",
+    "konsep:118"
+   ]
+  }
+ },
+ {
+  "q": "karen sanc",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:75",
+  "rel": {
+   "pasien:75": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:25",
+    "pasien:75"
+   ],
+   "B1": [
+    "pasien:34",
+    "pasien:84",
+    "pasien:25",
+    "pasien:75"
+   ],
+   "B2": [
+    "pasien:25",
+    "pasien:34",
+    "pasien:75",
+    "pasien:84"
+   ],
+   "E1": [
+    "pasien:25",
+    "pasien:75",
+    "pasien:34",
+    "pasien:84",
+    "obat:315"
+   ],
+   "E2": [
+    "konsep:10",
+    "obat:315",
+    "pasien:25",
+    "konsep:203",
+    "obat:1"
+   ],
+   "E3": [
+    "pasien:25",
+    "pasien:75",
+    "pasien:34",
+    "pasien:84",
+    "obat:315"
+   ],
+   "E4": [
+    "konsep:1833",
+    "obat:315",
+    "pasien:25",
+    "konsep:3173",
+    "obat:246"
+   ]
+  }
+ },
+ {
+  "q": "main stoe",
+  "tipe": "typo",
+  "ent": "lokasi",
+  "seed": "lokasi:3",
+  "rel": {
+   "lokasi:3": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "lokasi:2",
+    "lokasi:3"
+   ],
+   "B2": [
+    "lokasi:2",
+    "lokasi:3"
+   ],
+   "E1": [
+    "lokasi:3",
+    "lokasi:2",
+    "konsep:3258",
+    "konsep:458",
+    "konsep:2953"
+   ],
+   "E2": [
+    "konsep:3258",
+    "lokasi:3",
+    "obat:246",
+    "konsep:458",
+    "lokasi:2"
+   ],
+   "E3": [
+    "lokasi:3",
+    "lokasi:2",
+    "konsep:3258",
+    "konsep:458",
+    "konsep:2953"
+   ],
+   "E4": [
+    "konsep:3258",
+    "konsep:220",
+    "konsep:475",
+    "konsep:704",
+    "lokasi:3"
+   ]
+  }
+ },
+ {
+  "q": "fracture spinal of history personal",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2519",
+  "rel": {
+   "konsep:2519": 2,
+   "konsep:2068": 1,
+   "konsep:2512": 1,
+   "konsep:2522": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2519"
+   ],
+   "B1": [
+    "konsep:2519",
+    "konsep:3242",
+    "konsep:2522",
+    "konsep:2512",
+    "konsep:3439"
+   ],
+   "B2": [
+    "konsep:2519",
+    "konsep:3242",
+    "konsep:2512",
+    "konsep:2522",
+    "konsep:1966"
+   ],
+   "E1": [
+    "konsep:2519",
+    "konsep:2522",
+    "konsep:2512",
+    "konsep:3242",
+    "konsep:3451"
+   ],
+   "E2": [
+    "form:7",
+    "konsep:2519",
+    "lokasi:3",
+    "obat:1",
+    "pasien:17"
+   ],
+   "E3": [
+    "konsep:2519",
+    "konsep:2522",
+    "konsep:2512",
+    "konsep:3242",
+    "konsep:3451"
+   ],
+   "E4": [
+    "konsep:2519",
+    "konsep:2512",
+    "konsep:2522",
+    "konsep:3451",
+    "konsep:3242"
+   ]
+  }
+ },
+ {
+  "q": "meoclopramide co 10mg",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:214",
+  "rel": {
+   "obat:214": 2,
+   "konsep:1656": 1,
+   "obat:216": 1,
+   "obat:215": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "obat:214",
+    "obat:131",
+    "konsep:1513",
+    "konsep:161",
+    "konsep:1512"
+   ],
+   "B2": [
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "obat:131",
+    "obat:214"
+   ],
+   "E1": [
+    "obat:214",
+    "obat:215",
+    "obat:131",
+    "konsep:1656",
+    "konsep:2500"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1656",
+    "obat:214",
+    "form:3",
+    "konsep:2500"
+   ],
+   "E3": [
+    "obat:214",
+    "obat:215",
+    "obat:131",
+    "obat:216",
+    "obat:187"
+   ],
+   "E4": [
+    "obat:214",
+    "obat:215",
+    "konsep:1656",
+    "obat:216",
+    "konsep:1580"
+   ]
+  }
+ },
+ {
+  "q": "ebola l gene cycle threshold value",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:445",
+  "rel": {
+   "konsep:445": 2,
+   "konsep:610": 1,
+   "konsep:364": 1,
+   "konsep:369": 1,
+   "konsep:366": 1,
+   "konsep:368": 1,
+   "konsep:455": 1,
+   "konsep:367": 1,
+   "konsep:365": 1,
+   "konsep:448": 1,
+   "konsep:346": 1,
+   "konsep:370": 1,
+   "konsep:446": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:445"
+   ],
+   "B1": [
+    "konsep:445",
+    "konsep:446",
+    "konsep:915",
+    "konsep:360",
+    "konsep:448"
+   ],
+   "B2": [
+    "konsep:445",
+    "konsep:446",
+    "konsep:915",
+    "konsep:360",
+    "konsep:3305"
+   ],
+   "E1": [
+    "konsep:445",
+    "konsep:446",
+    "konsep:360",
+    "konsep:448",
+    "konsep:3305"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:445",
+    "obat:1",
+    "form:3",
+    "konsep:446"
+   ],
+   "E3": [
+    "konsep:445",
+    "konsep:446",
+    "konsep:360",
+    "konsep:448",
+    "konsep:3305"
+   ],
+   "E4": [
+    "konsep:445",
+    "konsep:446",
+    "konsep:448",
+    "konsep:346",
+    "konsep:364"
+   ]
+  }
+ },
+ {
+  "q": "geor ande",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:17",
+  "rel": {
+   "pasien:17": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:17",
+    "pasien:67"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "pasien:17",
+    "pasien:67",
+    "konsep:933",
+    "obat:143",
+    "obat:144"
+   ],
+   "E2": [
+    "konsep:933",
+    "obat:143",
+    "pasien:17",
+    "konsep:2700",
+    "obat:144"
+   ],
+   "E3": [
+    "pasien:17",
+    "pasien:67",
+    "pasien:40",
+    "pasien:90",
+    "pasien:32"
+   ],
+   "E4": [
+    "pasien:17",
+    "pasien:32",
+    "pasien:67",
+    "pasien:90",
+    "pasien:40"
+   ]
+  }
+ },
+ {
+  "q": "ketoconazole co 200mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:183",
+  "rel": {
+   "obat:183": 2,
+   "konsep:1624": 1,
+   "obat:186": 1,
+   "obat:185": 1,
+   "obat:184": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:183"
+   ],
+   "B1": [
+    "obat:183",
+    "konsep:1624",
+    "obat:184",
+    "obat:185",
+    "obat:186"
+   ],
+   "B2": [
+    "obat:183",
+    "konsep:1624",
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161"
+   ],
+   "E1": [
+    "obat:183",
+    "konsep:1624",
+    "obat:184",
+    "obat:185",
+    "obat:186"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1624",
+    "lokasi:7",
+    "obat:183",
+    "form:3"
+   ],
+   "E3": [
+    "obat:183",
+    "obat:184",
+    "obat:185",
+    "obat:186",
+    "obat:123"
+   ],
+   "E4": [
+    "obat:183",
+    "konsep:1624",
+    "obat:184",
+    "konsep:1571",
+    "obat:185"
+   ]
+  }
+ },
+ {
+  "q": "pale conjunctiva",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:3885",
+  "rel": {
+   "konsep:3885": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3885"
+   ],
+   "B1": [
+    "konsep:3885"
+   ],
+   "B2": [
+    "konsep:3885"
+   ],
+   "E1": [
+    "konsep:3885",
+    "konsep:3122",
+    "konsep:1141",
+    "konsep:2311",
+    "konsep:3665"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:3885",
+    "lokasi:7",
+    "obat:247",
+    "form:3"
+   ],
+   "E3": [
+    "konsep:3885",
+    "konsep:3122",
+    "konsep:1141",
+    "konsep:2311",
+    "konsep:3665"
+   ],
+   "E4": [
+    "konsep:3885",
+    "konsep:3665",
+    "konsep:3122",
+    "konsep:2311",
+    "konsep:1141"
+   ]
+  }
+ },
+ {
+  "q": "parac 300mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:255",
+  "rel": {
+   "obat:255": 2,
+   "konsep:132": 1,
+   "obat:254": 1,
+   "obat:2": 1,
+   "obat:256": 1,
+   "obat:1": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:255"
+   ],
+   "B1": [
+    "obat:255",
+    "obat:237",
+    "obat:93",
+    "obat:64"
+   ],
+   "B2": [
+    "obat:237",
+    "obat:255",
+    "obat:93",
+    "obat:64"
+   ],
+   "E1": [
+    "obat:255",
+    "obat:93",
+    "obat:237",
+    "obat:64",
+    "konsep:132"
+   ],
+   "E2": [
+    "konsep:132",
+    "obat:255",
+    "konsep:1708",
+    "obat:93",
+    "konsep:64"
+   ],
+   "E3": [
+    "obat:255",
+    "obat:93",
+    "obat:237",
+    "obat:64",
+    "obat:1"
+   ],
+   "E4": [
+    "konsep:132",
+    "obat:64",
+    "konsep:106",
+    "obat:1",
+    "konsep:112"
+   ]
+  }
+ },
+ {
+  "q": "micha turn",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:13",
+  "rel": {
+   "pasien:13": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:13",
+    "pasien:63"
+   ],
+   "B1": [
+    "konsep:589"
+   ],
+   "B2": [
+    "konsep:589"
+   ],
+   "E1": [
+    "pasien:13",
+    "pasien:63",
+    "konsep:589",
+    "konsep:2055",
+    "konsep:464"
+   ],
+   "E2": [
+    "konsep:589",
+    "pasien:13",
+    "konsep:2055",
+    "pasien:63",
+    "konsep:464"
+   ],
+   "E3": [
+    "konsep:589",
+    "pasien:13",
+    "konsep:2055",
+    "pasien:63",
+    "konsep:464"
+   ],
+   "E4": [
+    "konsep:2055",
+    "konsep:2036",
+    "konsep:574",
+    "konsep:3497",
+    "konsep:579"
+   ]
+  }
+ },
+ {
+  "q": "nifedepine",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:1684",
+  "rel": {
+   "konsep:1684": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1684"
+   ],
+   "B1": [
+    "konsep:1684"
+   ],
+   "B2": [
+    "konsep:1684"
+   ],
+   "E1": [
+    "konsep:1684",
+    "obat:241",
+    "konsep:1685",
+    "konsep:103",
+    "obat:25"
+   ],
+   "E2": [
+    "konsep:1684",
+    "obat:241",
+    "konsep:1685",
+    "obat:25",
+    "konsep:103"
+   ],
+   "E3": [
+    "konsep:1684",
+    "konsep:1685",
+    "konsep:103",
+    "konsep:162",
+    "konsep:1637"
+   ],
+   "E4": [
+    "konsep:162",
+    "konsep:1637",
+    "konsep:1638",
+    "konsep:1684",
+    "konsep:1640"
+   ]
+  }
+ },
+ {
+  "q": "pitting edema",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:3920",
+  "rel": {
+   "konsep:3920": 2,
+   "konsep:3892": 1,
+   "konsep:2439": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3920"
+   ],
+   "B1": [
+    "konsep:3920",
+    "konsep:3892",
+    "konsep:3495",
+    "konsep:3862",
+    "konsep:2439"
+   ],
+   "B2": [
+    "konsep:3920",
+    "konsep:3892",
+    "konsep:1028",
+    "konsep:1351",
+    "konsep:2439"
+   ],
+   "E1": [
+    "konsep:3920",
+    "konsep:3892",
+    "konsep:3862",
+    "konsep:3495",
+    "konsep:3065"
+   ],
+   "E2": [
+    "konsep:3920",
+    "obat:108",
+    "konsep:3892",
+    "obat:186",
+    "konsep:3862"
+   ],
+   "E3": [
+    "konsep:3920",
+    "konsep:3892",
+    "konsep:3862",
+    "konsep:3495",
+    "konsep:3065"
+   ],
+   "E4": [
+    "konsep:3920",
+    "konsep:3862",
+    "konsep:3065",
+    "konsep:3892",
+    "konsep:3495"
+   ]
+  }
+ },
+ {
+  "q": "tolnoftate 1",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:299",
+  "rel": {
+   "obat:299": 2,
+   "konsep:1816": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:299"
+   ],
+   "B1": [
+    "obat:299",
+    "form:1",
+    "form:2",
+    "form:3",
+    "form:5"
+   ],
+   "B2": [
+    "konsep:1816",
+    "obat:299",
+    "konsep:3716",
+    "konsep:438",
+    "obat:1"
+   ],
+   "E1": [
+    "obat:299",
+    "konsep:1816",
+    "lokasi:12",
+    "form:1",
+    "form:2"
+   ],
+   "E2": [
+    "form:1",
+    "konsep:1816",
+    "lokasi:12",
+    "obat:299",
+    "form:2"
+   ],
+   "E3": [
+    "obat:299",
+    "obat:1",
+    "konsep:1816",
+    "obat:2",
+    "konsep:63"
+   ],
+   "E4": [
+    "konsep:132",
+    "obat:299",
+    "konsep:1816",
+    "obat:1",
+    "konsep:63"
+   ]
+  }
+ },
+ {
+  "q": "allergy to mropenem",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:990",
+  "rel": {
+   "konsep:990": 2,
+   "konsep:991": 1,
+   "konsep:1004": 1,
+   "konsep:992": 1,
+   "konsep:984": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:997",
+    "konsep:1022",
+    "konsep:1012",
+    "konsep:1020",
+    "konsep:1024"
+   ],
+   "B2": [
+    "konsep:1003",
+    "konsep:1007",
+    "konsep:1012",
+    "konsep:1018",
+    "konsep:1019"
+   ],
+   "E1": [
+    "konsep:990",
+    "konsep:997",
+    "konsep:991",
+    "konsep:992",
+    "konsep:1020"
+   ],
+   "E2": [
+    "konsep:990",
+    "obat:316",
+    "pasien:59",
+    "konsep:997",
+    "obat:22"
+   ],
+   "E3": [
+    "konsep:990",
+    "konsep:997",
+    "konsep:991",
+    "konsep:992",
+    "konsep:1020"
+   ],
+   "E4": [
+    "konsep:1006",
+    "konsep:1010",
+    "konsep:1011",
+    "konsep:1027",
+    "konsep:1031"
+   ]
+  }
+ },
+ {
+  "q": "exertion on dyspnea",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:1344",
+  "rel": {
+   "konsep:1344": 2,
+   "konsep:2485": 1,
+   "konsep:2967": 1,
+   "konsep:3605": 1,
+   "konsep:1343": 1,
+   "konsep:3857": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1344"
+   ],
+   "B1": [
+    "konsep:1344",
+    "konsep:2967",
+    "konsep:2485",
+    "konsep:3857",
+    "konsep:1850"
+   ],
+   "B2": [
+    "konsep:1344",
+    "konsep:2967",
+    "konsep:2485",
+    "konsep:3857",
+    "konsep:1850"
+   ],
+   "E1": [
+    "konsep:1344",
+    "konsep:2967",
+    "konsep:2485",
+    "konsep:3857",
+    "konsep:3195"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:1344",
+    "lokasi:10",
+    "obat:146",
+    "konsep:2967"
+   ],
+   "E3": [
+    "konsep:1344",
+    "konsep:2967",
+    "konsep:2485",
+    "konsep:3857",
+    "konsep:3195"
+   ],
+   "E4": [
+    "konsep:3857",
+    "konsep:1344",
+    "konsep:2967",
+    "konsep:3195",
+    "konsep:1343"
+   ]
+  }
+ },
+ {
+  "q": "susan hall",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:99",
+  "rel": {
+   "pasien:99": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:49",
+    "pasien:99"
+   ],
+   "B1": [
+    "pasien:49",
+    "pasien:99",
+    "pasien:102",
+    "pasien:52",
+    "pasien:58"
+   ],
+   "B2": [
+    "pasien:49",
+    "pasien:99",
+    "pasien:102",
+    "pasien:28",
+    "pasien:52"
+   ],
+   "E1": [
+    "pasien:49",
+    "pasien:99",
+    "pasien:102",
+    "pasien:52",
+    "pasien:58"
+   ],
+   "E2": [
+    "konsep:1045",
+    "obat:37",
+    "pasien:49",
+    "konsep:3555",
+    "obat:38"
+   ],
+   "E3": [
+    "pasien:49",
+    "pasien:99",
+    "pasien:102",
+    "pasien:52",
+    "pasien:58"
+   ],
+   "E4": [
+    "pasien:49",
+    "pasien:99",
+    "pasien:102",
+    "pasien:52",
+    "pasien:58"
+   ]
+  }
+ },
+ {
+  "q": "acute peptic ulcer with perforation",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:810",
+  "rel": {
+   "konsep:810": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:810"
+   ],
+   "B1": [
+    "konsep:810",
+    "konsep:801",
+    "konsep:825",
+    "obat:64",
+    "konsep:809"
+   ],
+   "B2": [
+    "konsep:810",
+    "konsep:801",
+    "konsep:825",
+    "konsep:809",
+    "konsep:800"
+   ],
+   "E1": [
+    "konsep:810",
+    "konsep:801",
+    "konsep:825",
+    "obat:64",
+    "konsep:809"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:810",
+    "lokasi:10",
+    "obat:64",
+    "form:10"
+   ],
+   "E3": [
+    "konsep:810",
+    "konsep:801",
+    "konsep:825",
+    "konsep:809",
+    "konsep:808"
+   ],
+   "E4": [
+    "konsep:810",
+    "konsep:801",
+    "konsep:825",
+    "konsep:800",
+    "konsep:809"
+   ]
+  }
+ },
+ {
+  "q": "celberex 200mg",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:79",
+  "rel": {
+   "obat:79": 2,
+   "konsep:1490": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "obat:12",
+    "obat:123",
+    "obat:17",
+    "obat:183",
+    "obat:8"
+   ],
+   "B2": [
+    "obat:12",
+    "obat:123",
+    "obat:17",
+    "obat:79",
+    "obat:183"
+   ],
+   "E1": [
+    "obat:79",
+    "obat:12",
+    "obat:17",
+    "obat:123",
+    "obat:183"
+   ],
+   "E2": [
+    "konsep:2129",
+    "obat:79",
+    "konsep:132",
+    "obat:12",
+    "konsep:106"
+   ],
+   "E3": [
+    "obat:79",
+    "obat:12",
+    "obat:17",
+    "obat:123",
+    "obat:183"
+   ],
+   "E4": [
+    "obat:183",
+    "obat:79",
+    "konsep:1624",
+    "obat:121",
+    "konsep:1571"
+   ]
+  }
+ },
+ {
+  "q": "hernandez kenneth",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:32",
+  "rel": {
+   "pasien:32": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:32",
+    "pasien:82"
+   ],
+   "B1": [
+    "pasien:32",
+    "pasien:82",
+    "pasien:48",
+    "pasien:98"
+   ],
+   "B2": [
+    "pasien:32",
+    "pasien:82",
+    "pasien:48",
+    "pasien:98"
+   ],
+   "E1": [
+    "pasien:32",
+    "pasien:82",
+    "pasien:48",
+    "pasien:98",
+    "obat:248"
+   ],
+   "E2": [
+    "konsep:47",
+    "obat:248",
+    "pasien:32",
+    "konsep:3267",
+    "pasien:82"
+   ],
+   "E3": [
+    "pasien:32",
+    "pasien:82",
+    "pasien:48",
+    "pasien:98",
+    "pasien:17"
+   ],
+   "E4": [
+    "pasien:32",
+    "pasien:82",
+    "pasien:17",
+    "pasien:98",
+    "pasien:48"
+   ]
+  }
+ },
+ {
+  "q": "625mg co augmentin",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:49",
+  "rel": {
+   "obat:49": 2,
+   "konsep:1512": 1,
+   "obat:54": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:49"
+   ],
+   "B1": [
+    "obat:49",
+    "konsep:1513",
+    "konsep:161",
+    "konsep:1512",
+    "konsep:2500"
+   ],
+   "B2": [
+    "obat:49",
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "konsep:2500"
+   ],
+   "E1": [
+    "obat:49",
+    "konsep:1512",
+    "obat:46",
+    "konsep:2500",
+    "konsep:1513"
+   ],
+   "E2": [
+    "form:5",
+    "konsep:1512",
+    "lokasi:5",
+    "obat:49",
+    "konsep:2500"
+   ],
+   "E3": [
+    "obat:49",
+    "obat:46",
+    "obat:47",
+    "obat:48",
+    "obat:54"
+   ],
+   "E4": [
+    "konsep:1434",
+    "obat:46",
+    "konsep:1512",
+    "obat:47",
+    "konsep:118"
+   ]
+  }
+ },
+ {
+  "q": "pulmonary artery stenosis",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:2573",
+  "rel": {
+   "konsep:2573": 2,
+   "konsep:2425": 1,
+   "konsep:2795": 1,
+   "konsep:1349": 1,
+   "konsep:3658": 1,
+   "konsep:1333": 1,
+   "konsep:2426": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2573"
+   ],
+   "B1": [
+    "konsep:2573",
+    "konsep:3124",
+    "konsep:2273",
+    "konsep:2055",
+    "konsep:2089"
+   ],
+   "B2": [
+    "konsep:2573",
+    "konsep:2273",
+    "konsep:3124",
+    "konsep:2055",
+    "konsep:2961"
+   ],
+   "E1": [
+    "konsep:2573",
+    "konsep:3124",
+    "konsep:2055",
+    "konsep:2273",
+    "konsep:3495"
+   ],
+   "E2": [
+    "konsep:2573",
+    "obat:272",
+    "pasien:21",
+    "konsep:3124",
+    "obat:1"
+   ],
+   "E3": [
+    "konsep:2573",
+    "konsep:3124",
+    "konsep:2055",
+    "konsep:2273",
+    "konsep:3495"
+   ],
+   "E4": [
+    "konsep:2573",
+    "konsep:2055",
+    "konsep:3124",
+    "konsep:2036",
+    "konsep:3495"
+   ]
+  }
+ },
+ {
+  "q": "mlissa wright",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:80",
+  "rel": {
+   "pasien:80": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:30",
+    "pasien:80"
+   ],
+   "B2": [
+    "pasien:30",
+    "pasien:80"
+   ],
+   "E1": [
+    "pasien:30",
+    "pasien:80",
+    "konsep:875",
+    "konsep:878",
+    "obat:37"
+   ],
+   "E2": [
+    "konsep:875",
+    "obat:37",
+    "pasien:30",
+    "konsep:878",
+    "obat:38"
+   ],
+   "E3": [
+    "pasien:30",
+    "pasien:80",
+    "konsep:875",
+    "konsep:878",
+    "konsep:2654"
+   ],
+   "E4": [
+    "konsep:878",
+    "konsep:875",
+    "konsep:879",
+    "konsep:877",
+    "konsep:876"
+   ]
+  }
+ },
+ {
+  "q": "cerebrospinal fluid bacterial culture",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:622",
+  "rel": {
+   "konsep:622": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:622"
+   ],
+   "B1": [
+    "konsep:622",
+    "konsep:585",
+    "konsep:192",
+    "konsep:407",
+    "konsep:437"
+   ],
+   "B2": [
+    "konsep:622",
+    "konsep:585",
+    "konsep:407",
+    "konsep:437",
+    "konsep:171"
+   ],
+   "E1": [
+    "konsep:622",
+    "konsep:585",
+    "konsep:171",
+    "konsep:192",
+    "konsep:407"
+   ],
+   "E2": [
+    "form:7",
+    "konsep:622",
+    "lokasi:4",
+    "obat:149",
+    "konsep:585"
+   ],
+   "E3": [
+    "konsep:622",
+    "konsep:585",
+    "konsep:171",
+    "konsep:192",
+    "konsep:407"
+   ],
+   "E4": [
+    "konsep:622",
+    "konsep:585",
+    "konsep:192",
+    "konsep:171",
+    "konsep:407"
+   ]
+  }
+ },
+ {
+  "q": "asthma exaerbation",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:2056",
+  "rel": {
+   "konsep:2056": 2,
+   "konsep:850": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:850",
+    "konsep:2056",
+    "konsep:3020",
+    "konsep:1373",
+    "konsep:1966"
+   ],
+   "B2": [
+    "konsep:850",
+    "konsep:2056",
+    "konsep:1373",
+    "konsep:1873",
+    "konsep:3020"
+   ],
+   "E1": [
+    "konsep:2056",
+    "konsep:850",
+    "konsep:3020",
+    "konsep:1373",
+    "konsep:1873"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:2056",
+    "lokasi:10",
+    "obat:1",
+    "konsep:850"
+   ],
+   "E3": [
+    "konsep:2056",
+    "konsep:850",
+    "konsep:3020",
+    "konsep:1373",
+    "konsep:1873"
+   ],
+   "E4": [
+    "konsep:1873",
+    "konsep:2056",
+    "konsep:3020",
+    "konsep:850",
+    "konsep:1373"
+   ]
+  }
+ },
+ {
+  "q": "adre inje 1mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:9",
+  "rel": {
+   "obat:9": 2,
+   "konsep:1425": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:9"
+   ],
+   "B1": [
+    "obat:264",
+    "obat:9",
+    "obat:322"
+   ],
+   "B2": [
+    "obat:264",
+    "obat:322",
+    "obat:9"
+   ],
+   "E1": [
+    "obat:9",
+    "obat:264",
+    "obat:322",
+    "obat:132",
+    "konsep:5"
+   ],
+   "E2": [
+    "konsep:5",
+    "obat:9",
+    "konsep:3383",
+    "obat:264",
+    "konsep:1425"
+   ],
+   "E3": [
+    "obat:9",
+    "obat:264",
+    "obat:322",
+    "obat:132",
+    "obat:151"
+   ],
+   "E4": [
+    "obat:9",
+    "konsep:1491",
+    "obat:264",
+    "konsep:1553",
+    "obat:265"
+   ]
+  }
+ },
+ {
+  "q": "famvir 250mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:140",
+  "rel": {
+   "obat:140": 2,
+   "konsep:1564": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:140"
+   ],
+   "B1": [
+    "obat:140",
+    "obat:28",
+    "obat:220",
+    "obat:143",
+    "obat:80"
+   ],
+   "B2": [
+    "obat:140",
+    "obat:143",
+    "obat:192",
+    "obat:220",
+    "obat:28"
+   ],
+   "E1": [
+    "obat:140",
+    "obat:10",
+    "obat:143",
+    "obat:75",
+    "obat:28"
+   ],
+   "E2": [
+    "konsep:12",
+    "obat:140",
+    "konsep:146",
+    "obat:10",
+    "konsep:134"
+   ],
+   "E3": [
+    "obat:140",
+    "obat:10",
+    "obat:143",
+    "obat:75",
+    "obat:28"
+   ],
+   "E4": [
+    "konsep:1660",
+    "obat:10",
+    "konsep:1573",
+    "obat:11",
+    "konsep:1564"
+   ]
+  }
+ },
+ {
+  "q": "c hepatitis viral",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2060",
+  "rel": {
+   "konsep:2060": 2,
+   "konsep:1168": 1,
+   "konsep:1986": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2060",
+    "konsep:1168",
+    "konsep:1146"
+   ],
+   "B1": [
+    "konsep:2060",
+    "konsep:1168",
+    "konsep:3610",
+    "konsep:1146",
+    "obat:310"
+   ],
+   "B2": [
+    "konsep:2060",
+    "konsep:1168",
+    "konsep:3610",
+    "konsep:1146",
+    "konsep:3609"
+   ],
+   "E1": [
+    "konsep:2060",
+    "konsep:3610",
+    "konsep:1168",
+    "konsep:1146",
+    "konsep:3609"
+   ],
+   "E2": [
+    "konsep:2060",
+    "lokasi:6",
+    "obat:310",
+    "konsep:3610",
+    "lokasi:5"
+   ],
+   "E3": [
+    "konsep:2060",
+    "konsep:3610",
+    "konsep:1168",
+    "konsep:1146",
+    "konsep:3609"
+   ],
+   "E4": [
+    "konsep:1146",
+    "konsep:1168",
+    "konsep:2060",
+    "konsep:3610",
+    "konsep:3611"
+   ]
+  }
+ },
+ {
+  "q": "kenne hern",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:82",
+  "rel": {
+   "pasien:82": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:32",
+    "pasien:82"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "pasien:32",
+    "pasien:82",
+    "konsep:469",
+    "konsep:3267",
+    "konsep:3220"
+   ],
+   "E2": [
+    "konsep:469",
+    "pasien:32",
+    "konsep:3267",
+    "pasien:82",
+    "konsep:3220"
+   ],
+   "E3": [
+    "pasien:32",
+    "pasien:82",
+    "pasien:48",
+    "pasien:98",
+    "konsep:469"
+   ],
+   "E4": [
+    "konsep:469",
+    "konsep:586",
+    "konsep:206",
+    "konsep:402",
+    "pasien:98"
+   ]
+  }
+ },
+ {
+  "q": "albendazloe",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:127",
+  "rel": {
+   "konsep:127": 2,
+   "obat:16": 1,
+   "obat:17": 1,
+   "obat:15": 1,
+   "obat:18": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "obat:15",
+    "obat:16",
+    "obat:17",
+    "obat:18",
+    "konsep:127"
+   ],
+   "E2": [
+    "konsep:127",
+    "obat:15",
+    "konsep:60",
+    "obat:16",
+    "konsep:150"
+   ],
+   "E3": [
+    "konsep:127",
+    "obat:15",
+    "konsep:60",
+    "obat:16",
+    "konsep:150"
+   ],
+   "E4": [
+    "konsep:127",
+    "obat:15",
+    "konsep:60",
+    "obat:16",
+    "konsep:150"
+   ]
+  }
+ },
+ {
+  "q": "peptic ulcer",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:825",
+  "rel": {
+   "konsep:825": 2,
+   "konsep:2739": 1,
+   "konsep:801": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:825",
+    "konsep:800",
+    "konsep:801",
+    "konsep:810",
+    "konsep:809"
+   ],
+   "B1": [
+    "konsep:825",
+    "obat:64",
+    "konsep:800",
+    "konsep:801",
+    "konsep:810"
+   ],
+   "B2": [
+    "konsep:825",
+    "konsep:800",
+    "konsep:801",
+    "konsep:810",
+    "konsep:802"
+   ],
+   "E1": [
+    "konsep:825",
+    "konsep:800",
+    "obat:64",
+    "konsep:801",
+    "konsep:810"
+   ],
+   "E2": [
+    "konsep:825",
+    "obat:64",
+    "konsep:800",
+    "obat:97",
+    "konsep:801"
+   ],
+   "E3": [
+    "konsep:825",
+    "konsep:800",
+    "konsep:801",
+    "konsep:810",
+    "konsep:802"
+   ],
+   "E4": [
+    "konsep:825",
+    "konsep:800",
+    "konsep:802",
+    "konsep:801",
+    "konsep:810"
+   ]
+  }
+ },
+ {
+  "q": "swelling",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:3874",
+  "rel": {
+   "konsep:3874": 2,
+   "konsep:3200": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3939",
+    "konsep:3874",
+    "konsep:2423",
+    "konsep:3997",
+    "konsep:3849"
+   ],
+   "B1": [
+    "konsep:3939",
+    "konsep:3874",
+    "konsep:3849",
+    "konsep:3997",
+    "konsep:2423"
+   ],
+   "B2": [
+    "konsep:3939",
+    "konsep:2423",
+    "konsep:3849",
+    "konsep:3874",
+    "konsep:2778"
+   ],
+   "E1": [
+    "konsep:3939",
+    "konsep:3874",
+    "konsep:3997",
+    "konsep:3849",
+    "konsep:2423"
+   ],
+   "E2": [
+    "konsep:3939",
+    "obat:27",
+    "konsep:3874",
+    "obat:28",
+    "konsep:3997"
+   ],
+   "E3": [
+    "konsep:3939",
+    "konsep:3874",
+    "konsep:3997",
+    "konsep:3849",
+    "konsep:2423"
+   ],
+   "E4": [
+    "konsep:2423",
+    "konsep:3939",
+    "konsep:3997",
+    "konsep:3849",
+    "konsep:3874"
+   ]
+  }
+ },
+ {
+  "q": "james thomp",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:42",
+  "rel": {
+   "pasien:42": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:42",
+    "pasien:92"
+   ],
+   "B1": [
+    "pasien:42",
+    "pasien:92",
+    "pasien:12",
+    "pasien:62"
+   ],
+   "B2": [
+    "pasien:12",
+    "pasien:42",
+    "pasien:62",
+    "pasien:92"
+   ],
+   "E1": [
+    "pasien:42",
+    "pasien:92",
+    "pasien:12",
+    "pasien:62",
+    "pasien:34"
+   ],
+   "E2": [
+    "konsep:2754",
+    "pasien:42",
+    "konsep:2809",
+    "pasien:92",
+    "konsep:2285"
+   ],
+   "E3": [
+    "pasien:42",
+    "pasien:92",
+    "pasien:12",
+    "pasien:62",
+    "pasien:34"
+   ],
+   "E4": [
+    "pasien:42",
+    "pasien:92",
+    "pasien:12",
+    "pasien:34",
+    "pasien:62"
+   ]
+  }
+ },
+ {
+  "q": "cure outcome",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:2773",
+  "rel": {
+   "konsep:2773": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2773"
+   ],
+   "B1": [
+    "konsep:2773",
+    "konsep:4169",
+    "konsep:3972",
+    "konsep:3964",
+    "konsep:2704"
+   ],
+   "B2": [
+    "konsep:2773",
+    "konsep:4169",
+    "konsep:3972",
+    "konsep:3964",
+    "konsep:2704"
+   ],
+   "E1": [
+    "konsep:2773",
+    "konsep:4169",
+    "konsep:3972",
+    "konsep:4173",
+    "konsep:4171"
+   ],
+   "E2": [
+    "konsep:2773",
+    "lokasi:8",
+    "obat:50",
+    "konsep:4169",
+    "obat:1"
+   ],
+   "E3": [
+    "konsep:2773",
+    "konsep:4169",
+    "konsep:3972",
+    "konsep:4173",
+    "konsep:4171"
+   ],
+   "E4": [
+    "konsep:2773",
+    "konsep:4173",
+    "konsep:4171",
+    "konsep:4169",
+    "konsep:4174"
+   ]
+  }
+ },
+ {
+  "q": "roberts donna",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:100",
+  "rel": {
+   "pasien:100": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:100",
+    "pasien:50"
+   ],
+   "B1": [
+    "pasien:100",
+    "pasien:50",
+    "pasien:47",
+    "pasien:97"
+   ],
+   "B2": [
+    "pasien:100",
+    "pasien:50",
+    "pasien:47",
+    "pasien:97"
+   ],
+   "E1": [
+    "pasien:100",
+    "pasien:50",
+    "pasien:47",
+    "pasien:97",
+    "obat:1"
+   ],
+   "E2": [
+    "konsep:132",
+    "obat:1",
+    "pasien:100",
+    "konsep:651",
+    "obat:2"
+   ],
+   "E3": [
+    "pasien:100",
+    "pasien:50",
+    "pasien:47",
+    "pasien:97",
+    "konsep:132"
+   ],
+   "E4": [
+    "konsep:132",
+    "obat:1",
+    "pasien:100",
+    "konsep:18",
+    "obat:2"
+   ]
+  }
+ },
+ {
+  "q": "glyburide 6mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:164",
+  "rel": {
+   "obat:164": 2,
+   "konsep:1595": 1,
+   "obat:163": 1,
+   "obat:162": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:164"
+   ],
+   "B1": [
+    "konsep:1595",
+    "obat:164",
+    "obat:162",
+    "obat:163",
+    "obat:157"
+   ],
+   "B2": [
+    "obat:164",
+    "konsep:1595",
+    "obat:162",
+    "obat:163",
+    "obat:157"
+   ],
+   "E1": [
+    "obat:164",
+    "konsep:1595",
+    "obat:162",
+    "obat:163",
+    "obat:157"
+   ],
+   "E2": [
+    "konsep:1595",
+    "obat:164",
+    "konsep:132",
+    "obat:162",
+    "konsep:647"
+   ],
+   "E3": [
+    "obat:164",
+    "obat:162",
+    "obat:163",
+    "obat:157",
+    "obat:161"
+   ],
+   "E4": [
+    "obat:164",
+    "konsep:1595",
+    "obat:162",
+    "konsep:1593",
+    "obat:163"
+   ]
+  }
+ },
+ {
+  "q": "food supp",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:3991",
+  "rel": {
+   "konsep:3991": 2,
+   "konsep:3990": 1,
+   "konsep:3872": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3991",
+    "konsep:1761"
+   ],
+   "B1": [
+    "konsep:925",
+    "konsep:938",
+    "konsep:955",
+    "konsep:3991",
+    "konsep:939"
+   ],
+   "B2": [
+    "konsep:925",
+    "konsep:3991",
+    "konsep:938",
+    "konsep:955",
+    "konsep:3143"
+   ],
+   "E1": [
+    "konsep:3991",
+    "konsep:925",
+    "konsep:938",
+    "konsep:955",
+    "konsep:939"
+   ],
+   "E2": [
+    "konsep:3991",
+    "obat:1",
+    "konsep:925",
+    "obat:2",
+    "konsep:938"
+   ],
+   "E3": [
+    "konsep:3991",
+    "konsep:925",
+    "konsep:938",
+    "konsep:955",
+    "konsep:939"
+   ],
+   "E4": [
+    "konsep:955",
+    "konsep:3991",
+    "konsep:994",
+    "konsep:925",
+    "konsep:891"
+   ]
+  }
+ },
+ {
+  "q": "dorothy odinga",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:54",
+  "rel": {
+   "pasien:54": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:104",
+    "pasien:54"
+   ],
+   "B1": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94"
+   ],
+   "B2": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94"
+   ],
+   "E1": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94",
+    "obat:168"
+   ],
+   "E2": [
+    "konsep:74",
+    "obat:168",
+    "pasien:104",
+    "konsep:119",
+    "obat:25"
+   ],
+   "E3": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94",
+    "konsep:74"
+   ],
+   "E4": [
+    "pasien:104",
+    "pasien:54",
+    "pasien:44",
+    "pasien:94",
+    "pasien:8"
+   ]
+  }
+ },
+ {
+  "q": "williams betty",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:57",
+  "rel": {
+   "pasien:57": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:57",
+    "pasien:7"
+   ],
+   "B1": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "B2": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:23",
+    "pasien:46",
+    "pasien:73"
+   ],
+   "E1": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "E2": [
+    "konsep:54",
+    "obat:27",
+    "pasien:57",
+    "konsep:2645",
+    "obat:28"
+   ],
+   "E3": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "E4": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:23",
+    "pasien:46",
+    "pasien:96"
+   ]
+  }
+ },
+ {
+  "q": "bismuth 300mg",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:64",
+  "rel": {
+   "obat:64": 2,
+   "konsep:106": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:64"
+   ],
+   "B1": [
+    "obat:64",
+    "konsep:106",
+    "obat:255",
+    "obat:237",
+    "obat:93"
+   ],
+   "B2": [
+    "obat:64",
+    "konsep:106",
+    "obat:237",
+    "obat:255",
+    "obat:93"
+   ],
+   "E1": [
+    "obat:64",
+    "konsep:106",
+    "obat:255",
+    "obat:93",
+    "obat:237"
+   ],
+   "E2": [
+    "konsep:106",
+    "obat:64",
+    "konsep:3597",
+    "obat:255",
+    "konsep:2195"
+   ],
+   "E3": [
+    "obat:64",
+    "obat:255",
+    "obat:93",
+    "obat:237",
+    "obat:85"
+   ],
+   "E4": [
+    "konsep:106",
+    "obat:64",
+    "konsep:132",
+    "obat:1",
+    "konsep:101"
+   ]
+  }
+ },
+ {
+  "q": "phobia needle",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2927",
+  "rel": {
+   "konsep:2927": 2,
+   "konsep:2183": 1,
+   "konsep:2181": 1,
+   "konsep:2179": 1,
+   "konsep:2182": 1,
+   "konsep:2180": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2927"
+   ],
+   "B1": [
+    "konsep:2927",
+    "konsep:3454",
+    "konsep:2182",
+    "konsep:2181",
+    "konsep:2712"
+   ],
+   "B2": [
+    "konsep:2927",
+    "konsep:3454",
+    "konsep:2180",
+    "konsep:2181",
+    "konsep:2712"
+   ],
+   "E1": [
+    "konsep:2927",
+    "konsep:3454",
+    "konsep:2182",
+    "konsep:2712",
+    "konsep:2181"
+   ],
+   "E2": [
+    "konsep:2927",
+    "konsep:3454",
+    "konsep:2182",
+    "konsep:2712",
+    "konsep:2181"
+   ],
+   "E3": [
+    "konsep:2927",
+    "konsep:3454",
+    "konsep:2182",
+    "konsep:2712",
+    "konsep:2181"
+   ],
+   "E4": [
+    "konsep:2712",
+    "konsep:2927",
+    "konsep:2182",
+    "konsep:3454",
+    "konsep:1960"
+   ]
+  }
+ },
+ {
+  "q": "helen",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:47",
+  "rel": {
+   "pasien:47": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:47",
+    "pasien:97"
+   ],
+   "B1": [
+    "pasien:47",
+    "pasien:97"
+   ],
+   "B2": [
+    "pasien:47",
+    "pasien:97"
+   ],
+   "E1": [
+    "pasien:47",
+    "pasien:97",
+    "konsep:2262",
+    "konsep:155",
+    "konsep:1976"
+   ],
+   "E2": [
+    "konsep:2262",
+    "pasien:47",
+    "konsep:155",
+    "pasien:97",
+    "konsep:1976"
+   ],
+   "E3": [
+    "pasien:47",
+    "pasien:97",
+    "konsep:2262",
+    "konsep:155",
+    "konsep:1976"
+   ],
+   "E4": [
+    "konsep:2262",
+    "konsep:1976",
+    "konsep:155",
+    "konsep:1975",
+    "konsep:2922"
+   ]
+  }
+ },
+ {
+  "q": "sputum stain",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:378",
+  "rel": {
+   "konsep:378": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:378"
+   ],
+   "B1": [
+    "konsep:378",
+    "konsep:684",
+    "konsep:509",
+    "konsep:235",
+    "konsep:408"
+   ],
+   "B2": [
+    "konsep:378",
+    "konsep:684",
+    "konsep:509",
+    "konsep:235",
+    "konsep:408"
+   ],
+   "E1": [
+    "konsep:378",
+    "konsep:684",
+    "konsep:509",
+    "konsep:235",
+    "konsep:602"
+   ],
+   "E2": [
+    "konsep:378",
+    "obat:37",
+    "konsep:684",
+    "obat:38",
+    "konsep:509"
+   ],
+   "E3": [
+    "konsep:378",
+    "konsep:684",
+    "konsep:509",
+    "konsep:235",
+    "konsep:602"
+   ],
+   "E4": [
+    "konsep:378",
+    "konsep:235",
+    "konsep:509",
+    "konsep:505",
+    "konsep:684"
+   ]
+  }
+ },
+ {
+  "q": "amoxicillin 5ml",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:30",
+  "rel": {
+   "obat:30": 2,
+   "konsep:118": 1,
+   "obat:32": 1,
+   "obat:33": 1,
+   "obat:27": 1,
+   "obat:28": 1,
+   "obat:31": 1,
+   "obat:29": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:27",
+    "obat:29",
+    "obat:30"
+   ],
+   "B1": [
+    "konsep:118",
+    "obat:29",
+    "obat:27",
+    "obat:30",
+    "obat:28"
+   ],
+   "B2": [
+    "konsep:118",
+    "konsep:1434",
+    "konsep:1435",
+    "obat:27",
+    "obat:29"
+   ],
+   "E1": [
+    "konsep:118",
+    "obat:29",
+    "obat:27",
+    "obat:30",
+    "obat:28"
+   ],
+   "E2": [
+    "konsep:118",
+    "obat:29",
+    "pasien:46",
+    "konsep:1435",
+    "obat:27"
+   ],
+   "E3": [
+    "obat:29",
+    "obat:27",
+    "konsep:118",
+    "obat:30",
+    "konsep:1435"
+   ],
+   "E4": [
+    "konsep:118",
+    "obat:27",
+    "konsep:1435",
+    "obat:28",
+    "konsep:1434"
+   ]
+  }
+ },
+ {
+  "q": "co 500mg",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:221",
+  "rel": {
+   "obat:221": 2,
+   "konsep:1660": 1,
+   "obat:223": 1,
+   "obat:143": 1,
+   "obat:222": 1,
+   "obat:218": 1,
+   "obat:144": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:213",
+    "obat:310",
+    "obat:32",
+    "obat:95",
+    "obat:133"
+   ],
+   "B1": [
+    "obat:213",
+    "obat:221",
+    "obat:87",
+    "obat:88",
+    "obat:133"
+   ],
+   "B2": [
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "obat:133",
+    "obat:213"
+   ],
+   "E1": [
+    "obat:213",
+    "obat:221",
+    "obat:87",
+    "obat:95",
+    "obat:310"
+   ],
+   "E2": [
+    "konsep:18",
+    "obat:213",
+    "konsep:1513",
+    "obat:221",
+    "konsep:161"
+   ],
+   "E3": [
+    "obat:213",
+    "obat:221",
+    "obat:87",
+    "obat:95",
+    "obat:310"
+   ],
+   "E4": [
+    "obat:143",
+    "obat:144",
+    "konsep:1660",
+    "obat:218",
+    "konsep:58"
+   ]
+  }
+ },
+ {
+  "q": "betty will",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:7",
+  "rel": {
+   "pasien:7": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:57",
+    "pasien:7"
+   ],
+   "B1": [
+    "pasien:57",
+    "pasien:7"
+   ],
+   "B2": [
+    "pasien:57",
+    "pasien:7"
+   ],
+   "E1": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "E2": [
+    "konsep:2948",
+    "pasien:57",
+    "konsep:397",
+    "pasien:7",
+    "konsep:1076"
+   ],
+   "E3": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:46",
+    "pasien:96",
+    "pasien:23"
+   ],
+   "E4": [
+    "pasien:57",
+    "pasien:7",
+    "pasien:23",
+    "pasien:46",
+    "pasien:96"
+   ]
+  }
+ },
+ {
+  "q": "solu medr 125mg 5ml",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:288",
+  "rel": {
+   "obat:288": 2,
+   "konsep:1655": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:288"
+   ],
+   "B1": [
+    "obat:288",
+    "obat:27",
+    "obat:135",
+    "obat:74",
+    "obat:76"
+   ],
+   "B2": [
+    "obat:288",
+    "obat:135",
+    "obat:27",
+    "obat:74",
+    "obat:76"
+   ],
+   "E1": [
+    "obat:288",
+    "obat:74",
+    "obat:27",
+    "obat:76",
+    "obat:135"
+   ],
+   "E2": [
+    "konsep:1647",
+    "obat:288",
+    "konsep:1701",
+    "obat:74",
+    "konsep:2412"
+   ],
+   "E3": [
+    "obat:288",
+    "obat:74",
+    "obat:27",
+    "obat:76",
+    "obat:135"
+   ],
+   "E4": [
+    "obat:135",
+    "obat:288",
+    "konsep:1554",
+    "obat:133",
+    "konsep:1655"
+   ]
+  }
+ },
+ {
+  "q": "main pharm",
+  "tipe": "trunkasi",
+  "ent": "lokasi",
+  "seed": "lokasi:2",
+  "rel": {
+   "lokasi:2": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:2"
+   ],
+   "B1": [
+    "lokasi:2",
+    "lokasi:3"
+   ],
+   "B2": [
+    "lokasi:2",
+    "lokasi:3"
+   ],
+   "E1": [
+    "lokasi:2",
+    "lokasi:3",
+    "konsep:704",
+    "obat:1",
+    "obat:2"
+   ],
+   "E2": [
+    "konsep:704",
+    "lokasi:2",
+    "obat:1",
+    "konsep:4033",
+    "lokasi:3"
+   ],
+   "E3": [
+    "lokasi:2",
+    "lokasi:3",
+    "konsep:704",
+    "konsep:4033",
+    "konsep:54"
+   ],
+   "E4": [
+    "lokasi:2",
+    "lokasi:3",
+    "lokasi:28",
+    "konsep:54",
+    "konsep:704"
+   ]
+  }
+ },
+ {
+  "q": "robinson edward",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:79",
+  "rel": {
+   "pasien:79": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:29",
+    "pasien:79"
+   ],
+   "B1": [
+    "pasien:29",
+    "pasien:79",
+    "pasien:44",
+    "pasien:94",
+    "pasien:103"
+   ],
+   "B2": [
+    "pasien:29",
+    "pasien:79",
+    "pasien:103",
+    "pasien:44",
+    "pasien:53"
+   ],
+   "E1": [
+    "pasien:29",
+    "pasien:79",
+    "pasien:103",
+    "pasien:53",
+    "pasien:44"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:1622",
+    "lokasi:10",
+    "obat:37",
+    "pasien:29"
+   ],
+   "E3": [
+    "pasien:29",
+    "pasien:79",
+    "pasien:103",
+    "pasien:53",
+    "pasien:44"
+   ],
+   "E4": [
+    "pasien:29",
+    "pasien:79",
+    "pasien:44",
+    "pasien:53",
+    "pasien:103"
+   ]
+  }
+ },
+ {
+  "q": "personal history of allergy to shellfish",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:1016",
+  "rel": {
+   "konsep:1016": 2,
+   "konsep:1023": 1,
+   "konsep:941": 1,
+   "konsep:994": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1016"
+   ],
+   "B1": [
+    "konsep:1016",
+    "konsep:1024",
+    "konsep:1031",
+    "konsep:1027",
+    "konsep:974"
+   ],
+   "B2": [
+    "konsep:1016",
+    "konsep:1024",
+    "konsep:1027",
+    "konsep:1031",
+    "konsep:1010"
+   ],
+   "E1": [
+    "konsep:1016",
+    "konsep:1024",
+    "konsep:1031",
+    "konsep:1027",
+    "konsep:998"
+   ],
+   "E2": [
+    "form:10",
+    "konsep:1016",
+    "lokasi:3",
+    "obat:1",
+    "pasien:17"
+   ],
+   "E3": [
+    "konsep:1016",
+    "konsep:1024",
+    "konsep:1031",
+    "konsep:1027",
+    "konsep:998"
+   ],
+   "E4": [
+    "konsep:1024",
+    "konsep:1016",
+    "konsep:1031",
+    "konsep:1027",
+    "konsep:998"
+   ]
+  }
+ },
+ {
+  "q": "acetasol 2",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:3",
+  "rel": {
+   "obat:3": 2,
+   "konsep:1607": 1,
+   "obat:169": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:3"
+   ],
+   "B1": [
+    "konsep:2063",
+    "konsep:422",
+    "lokasi:13",
+    "obat:3",
+    "lokasi:10"
+   ],
+   "B2": [
+    "obat:3",
+    "konsep:2063",
+    "konsep:422",
+    "obat:1",
+    "obat:2"
+   ],
+   "E1": [
+    "obat:3",
+    "konsep:132",
+    "konsep:2063",
+    "konsep:422",
+    "lokasi:13"
+   ],
+   "E2": [
+    "konsep:132",
+    "lokasi:13",
+    "obat:3",
+    "konsep:2063",
+    "lokasi:10"
+   ],
+   "E3": [
+    "obat:3",
+    "obat:1",
+    "obat:2",
+    "obat:254",
+    "obat:255"
+   ],
+   "E4": [
+    "konsep:132",
+    "obat:1",
+    "konsep:1607",
+    "obat:2",
+    "konsep:1606"
+   ]
+  }
+ },
+ {
+  "q": "mark smih",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:61",
+  "rel": {
+   "pasien:61": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:46",
+    "pasien:96",
+    "pasien:11",
+    "pasien:61"
+   ],
+   "B2": [
+    "pasien:11",
+    "pasien:46",
+    "pasien:61",
+    "pasien:96"
+   ],
+   "E1": [
+    "pasien:11",
+    "pasien:61",
+    "pasien:46",
+    "pasien:96",
+    "obat:25"
+   ],
+   "E2": [
+    "konsep:119",
+    "obat:25",
+    "pasien:11",
+    "konsep:2885",
+    "obat:26"
+   ],
+   "E3": [
+    "pasien:11",
+    "pasien:61",
+    "pasien:46",
+    "pasien:96",
+    "pasien:21"
+   ],
+   "E4": [
+    "pasien:11",
+    "pasien:21",
+    "pasien:46",
+    "pasien:61",
+    "pasien:96"
+   ]
+  }
+ },
+ {
+  "q": "sarah taylo",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:81",
+  "rel": {
+   "pasien:81": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:31",
+    "pasien:81"
+   ],
+   "B1": [
+    "pasien:31",
+    "pasien:81"
+   ],
+   "B2": [
+    "pasien:31",
+    "pasien:81"
+   ],
+   "E1": [
+    "pasien:31",
+    "pasien:81"
+   ],
+   "E2": [
+    "pasien:31",
+    "pasien:81"
+   ],
+   "E3": [
+    "pasien:31",
+    "pasien:81"
+   ],
+   "E4": [
+    "pasien:31",
+    "pasien:81",
+    "pasien:9",
+    "pasien:7",
+    "pasien:8"
+   ]
+  }
+ },
+ {
+  "q": "kenneth",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:98",
+  "rel": {
+   "pasien:98": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:48",
+    "pasien:98",
+    "pasien:32",
+    "pasien:82"
+   ],
+   "B1": [
+    "pasien:32",
+    "pasien:48",
+    "pasien:82",
+    "pasien:98"
+   ],
+   "B2": [
+    "pasien:32",
+    "pasien:48",
+    "pasien:82",
+    "pasien:98"
+   ],
+   "E1": [
+    "pasien:48",
+    "pasien:98",
+    "pasien:32",
+    "pasien:82"
+   ],
+   "E2": [
+    "pasien:48",
+    "pasien:98",
+    "pasien:32",
+    "pasien:82"
+   ],
+   "E3": [
+    "pasien:48",
+    "pasien:98",
+    "pasien:32",
+    "pasien:82"
+   ],
+   "E4": [
+    "pasien:98",
+    "pasien:32",
+    "pasien:48",
+    "pasien:82",
+    "pasien:10"
+   ]
+  }
+ },
+ {
+  "q": "rhinitis",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:3513",
+  "rel": {
+   "konsep:3513": 2,
+   "konsep:4129": 1,
+   "konsep:3001": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3513",
+    "konsep:3001",
+    "konsep:3523"
+   ],
+   "B1": [
+    "konsep:3513",
+    "konsep:3001",
+    "konsep:3523"
+   ],
+   "B2": [
+    "konsep:3513",
+    "konsep:3001",
+    "konsep:3523"
+   ],
+   "E1": [
+    "konsep:3513",
+    "konsep:3001",
+    "konsep:3523",
+    "konsep:2894",
+    "konsep:2995"
+   ],
+   "E2": [
+    "konsep:3513",
+    "obat:37",
+    "konsep:3001",
+    "obat:38",
+    "konsep:3523"
+   ],
+   "E3": [
+    "konsep:3513",
+    "konsep:3001",
+    "konsep:3523",
+    "konsep:2894",
+    "konsep:2995"
+   ],
+   "E4": [
+    "konsep:3001",
+    "konsep:3513",
+    "konsep:3523",
+    "konsep:2894",
+    "konsep:2995"
+   ]
+  }
+ },
+ {
+  "q": "strip test by urine in presence total bilirubin",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:406",
+  "rel": {
+   "konsep:406": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:406"
+   ],
+   "B1": [
+    "konsep:406",
+    "form:9",
+    "konsep:224",
+    "konsep:521",
+    "konsep:519"
+   ],
+   "B2": [
+    "konsep:406",
+    "konsep:224",
+    "konsep:519",
+    "konsep:521",
+    "konsep:400"
+   ],
+   "E1": [
+    "konsep:406",
+    "konsep:224",
+    "form:9",
+    "konsep:405",
+    "konsep:519"
+   ],
+   "E2": [
+    "form:9",
+    "konsep:406",
+    "lokasi:2",
+    "obat:64",
+    "provider:1"
+   ],
+   "E3": [
+    "konsep:406",
+    "konsep:224",
+    "konsep:405",
+    "konsep:519",
+    "konsep:521"
+   ],
+   "E4": [
+    "konsep:406",
+    "konsep:405",
+    "konsep:521",
+    "konsep:519",
+    "konsep:469"
+   ]
+  }
+ },
+ {
+  "q": "unkno locat",
+  "tipe": "trunkasi",
+  "ent": "lokasi",
+  "seed": "lokasi:1",
+  "rel": {
+   "lokasi:1": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:1"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "provider:1",
+    "lokasi:1",
+    "obat:25",
+    "obat:26",
+    "konsep:656"
+   ],
+   "E2": [
+    "konsep:656",
+    "lokasi:1",
+    "obat:25",
+    "provider:1",
+    "konsep:3771"
+   ],
+   "E3": [
+    "lokasi:1",
+    "lokasi:10",
+    "lokasi:11",
+    "konsep:656",
+    "provider:1"
+   ],
+   "E4": [
+    "lokasi:10",
+    "konsep:3771",
+    "lokasi:11",
+    "konsep:3770",
+    "lokasi:6"
+   ]
+  }
+ },
+ {
+  "q": "anorexia",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:3644",
+  "rel": {
+   "konsep:3644": 2,
+   "konsep:3698": 1,
+   "konsep:3645": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645"
+   ],
+   "B1": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645"
+   ],
+   "B2": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645"
+   ],
+   "E1": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645",
+    "konsep:3642",
+    "konsep:3643"
+   ],
+   "E2": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645",
+    "konsep:3642",
+    "konsep:3643"
+   ],
+   "E3": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645",
+    "konsep:3642",
+    "konsep:3643"
+   ],
+   "E4": [
+    "konsep:2216",
+    "konsep:3644",
+    "konsep:3645",
+    "konsep:3643",
+    "konsep:3642"
+   ]
+  }
+ },
+ {
+  "q": "george anderson",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:67",
+  "rel": {
+   "pasien:67": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:17",
+    "pasien:67"
+   ],
+   "B1": [
+    "pasien:17",
+    "pasien:67",
+    "pasien:40",
+    "pasien:90"
+   ],
+   "B2": [
+    "pasien:17",
+    "pasien:67",
+    "pasien:40",
+    "pasien:90"
+   ],
+   "E1": [
+    "pasien:17",
+    "pasien:67",
+    "pasien:40",
+    "pasien:90",
+    "obat:108"
+   ],
+   "E2": [
+    "konsep:6",
+    "obat:108",
+    "pasien:17",
+    "konsep:933",
+    "obat:143"
+   ],
+   "E3": [
+    "pasien:17",
+    "pasien:67",
+    "pasien:40",
+    "pasien:90",
+    "pasien:32"
+   ],
+   "E4": [
+    "pasien:17",
+    "pasien:67",
+    "pasien:32",
+    "pasien:90",
+    "pasien:40"
+   ]
+  }
+ },
+ {
+  "q": "injur of ulnar nerve",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:2093",
+  "rel": {
+   "konsep:2093": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2093"
+   ],
+   "B1": [
+    "konsep:2093",
+    "konsep:2092",
+    "obat:1",
+    "obat:2",
+    "obat:254"
+   ],
+   "B2": [
+    "konsep:2093",
+    "konsep:2092",
+    "konsep:3383",
+    "konsep:2080",
+    "konsep:2087"
+   ],
+   "E1": [
+    "konsep:2093",
+    "konsep:2092",
+    "konsep:3383",
+    "konsep:2090",
+    "obat:1"
+   ],
+   "E2": [
+    "konsep:2093",
+    "obat:1",
+    "konsep:2092",
+    "obat:2",
+    "konsep:3383"
+   ],
+   "E3": [
+    "konsep:2093",
+    "konsep:2092",
+    "konsep:3383",
+    "konsep:2090",
+    "konsep:2080"
+   ],
+   "E4": [
+    "konsep:2093",
+    "konsep:3383",
+    "konsep:2090",
+    "konsep:2564",
+    "konsep:2092"
+   ]
+  }
+ },
+ {
+  "q": "parasomnia",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:3436",
+  "rel": {
+   "konsep:3436": 2,
+   "konsep:3373": 1,
+   "konsep:3617": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3436"
+   ],
+   "B1": [
+    "konsep:3436"
+   ],
+   "B2": [
+    "konsep:3436"
+   ],
+   "E1": [
+    "konsep:3436",
+    "konsep:3300",
+    "obat:25",
+    "obat:26",
+    "konsep:3273"
+   ],
+   "E2": [
+    "konsep:3436",
+    "obat:25",
+    "konsep:3300",
+    "obat:26",
+    "konsep:3273"
+   ],
+   "E3": [
+    "konsep:3436",
+    "konsep:3300",
+    "konsep:3273",
+    "konsep:1345",
+    "konsep:119"
+   ],
+   "E4": [
+    "konsep:1345",
+    "konsep:119",
+    "konsep:3436",
+    "konsep:3617",
+    "konsep:3273"
+   ]
+  }
+ },
+ {
+  "q": "garcia grace",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:10",
+  "rel": {
+   "pasien:10": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:10",
+    "pasien:60"
+   ],
+   "B1": [
+    "pasien:10",
+    "pasien:60",
+    "pasien:105",
+    "pasien:55"
+   ],
+   "B2": [
+    "pasien:10",
+    "pasien:60",
+    "pasien:105",
+    "pasien:55"
+   ],
+   "E1": [
+    "pasien:10",
+    "pasien:60",
+    "pasien:105",
+    "pasien:55",
+    "obat:197"
+   ],
+   "E2": [
+    "konsep:245",
+    "obat:197",
+    "pasien:10",
+    "konsep:1210",
+    "obat:198"
+   ],
+   "E3": [
+    "pasien:10",
+    "pasien:60",
+    "pasien:105",
+    "pasien:55",
+    "pasien:24"
+   ],
+   "E4": [
+    "pasien:10",
+    "pasien:60",
+    "pasien:105",
+    "pasien:24",
+    "pasien:55"
+   ]
+  }
+ },
+ {
+  "q": "alco abuse",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:2998",
+  "rel": {
+   "konsep:2998": 2,
+   "konsep:2167": 1,
+   "konsep:3000": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2998"
+   ],
+   "B1": [
+    "konsep:3362",
+    "konsep:2998",
+    "konsep:3558",
+    "konsep:3712",
+    "konsep:1244"
+   ],
+   "B2": [
+    "konsep:1244",
+    "konsep:2777",
+    "konsep:2998",
+    "konsep:3033",
+    "konsep:3289"
+   ],
+   "E1": [
+    "konsep:2998",
+    "konsep:3362",
+    "konsep:3558",
+    "konsep:1244",
+    "konsep:3421"
+   ],
+   "E2": [
+    "konsep:2998",
+    "obat:49",
+    "konsep:3362",
+    "obat:54",
+    "konsep:3558"
+   ],
+   "E3": [
+    "konsep:2998",
+    "konsep:3362",
+    "konsep:3558",
+    "konsep:1244",
+    "konsep:3421"
+   ],
+   "E4": [
+    "konsep:1244",
+    "konsep:3421",
+    "konsep:2998",
+    "konsep:3362",
+    "konsep:3558"
+   ]
+  }
+ },
+ {
+  "q": "nife co 20mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:241",
+  "rel": {
+   "obat:241": 2,
+   "konsep:1685": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:241"
+   ],
+   "B1": [
+    "obat:247",
+    "obat:241",
+    "obat:287",
+    "konsep:1513",
+    "konsep:161"
+   ],
+   "B2": [
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "obat:241",
+    "obat:247"
+   ],
+   "E1": [
+    "obat:241",
+    "obat:247",
+    "obat:287",
+    "konsep:2500",
+    "obat:188"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:2500",
+    "obat:241",
+    "form:3",
+    "konsep:1513"
+   ],
+   "E3": [
+    "obat:241",
+    "obat:247",
+    "obat:287",
+    "obat:188",
+    "obat:104"
+   ],
+   "E4": [
+    "obat:241",
+    "obat:287",
+    "obat:247",
+    "obat:261",
+    "obat:258"
+   ]
+  }
+ },
+ {
+  "q": "delivery by cesarean section",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:3137",
+  "rel": {
+   "konsep:3137": 2,
+   "konsep:1214": 1,
+   "konsep:3443": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3137"
+   ],
+   "B1": [
+    "konsep:3137",
+    "konsep:1214",
+    "konsep:2700",
+    "konsep:2549",
+    "konsep:3980"
+   ],
+   "B2": [
+    "konsep:3137",
+    "konsep:1214",
+    "konsep:2700",
+    "konsep:3865",
+    "konsep:924"
+   ],
+   "E1": [
+    "konsep:3137",
+    "konsep:1214",
+    "konsep:3865",
+    "konsep:2700",
+    "konsep:2549"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:3137",
+    "lokasi:10",
+    "obat:132",
+    "konsep:1214"
+   ],
+   "E3": [
+    "konsep:3137",
+    "konsep:1214",
+    "konsep:3865",
+    "konsep:2700",
+    "konsep:2549"
+   ],
+   "E4": [
+    "konsep:3865",
+    "konsep:2700",
+    "konsep:2549",
+    "konsep:3137",
+    "konsep:1893"
+   ]
+  }
+ },
+ {
+  "q": "800mg 160mg bactrim",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:55",
+  "rel": {
+   "obat:55": 2,
+   "konsep:1799": 1,
+   "obat:101": 1,
+   "obat:100": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:55"
+   ],
+   "B1": [
+    "konsep:161",
+    "obat:55",
+    "obat:239"
+   ],
+   "B2": [
+    "obat:55",
+    "konsep:161",
+    "obat:239"
+   ],
+   "E1": [
+    "konsep:161",
+    "obat:55",
+    "obat:239",
+    "konsep:4210",
+    "obat:53"
+   ],
+   "E2": [
+    "konsep:161",
+    "obat:55",
+    "konsep:4210",
+    "obat:239",
+    "konsep:4076"
+   ],
+   "E3": [
+    "obat:55",
+    "obat:239",
+    "obat:53",
+    "obat:208",
+    "obat:16"
+   ],
+   "E4": [
+    "obat:55",
+    "obat:207",
+    "konsep:1447",
+    "obat:208",
+    "konsep:161"
+   ]
+  }
+ },
+ {
+  "q": "joshu johns",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:65",
+  "rel": {
+   "pasien:65": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:15",
+    "pasien:65"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "pasien:15",
+    "pasien:65",
+    "konsep:1622",
+    "konsep:2734",
+    "provider:3"
+   ],
+   "E2": [
+    "konsep:1622",
+    "pasien:15",
+    "provider:3",
+    "konsep:2734",
+    "pasien:65"
+   ],
+   "E3": [
+    "pasien:15",
+    "pasien:65",
+    "konsep:1622",
+    "konsep:2734",
+    "provider:3"
+   ],
+   "E4": [
+    "pasien:15",
+    "konsep:2734",
+    "pasien:65",
+    "konsep:2221",
+    "pasien:8"
+   ]
+  }
+ },
+ {
+  "q": "daniel scott",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:91",
+  "rel": {
+   "pasien:91": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:41",
+    "pasien:91"
+   ],
+   "B1": [
+    "pasien:41",
+    "pasien:91"
+   ],
+   "B2": [
+    "pasien:41",
+    "pasien:91"
+   ],
+   "E1": [
+    "pasien:41",
+    "pasien:91",
+    "obat:152",
+    "konsep:18",
+    "konsep:87"
+   ],
+   "E2": [
+    "konsep:18",
+    "obat:152",
+    "pasien:41",
+    "konsep:87",
+    "pasien:91"
+   ],
+   "E3": [
+    "pasien:41",
+    "pasien:91",
+    "konsep:18",
+    "konsep:87",
+    "konsep:4065"
+   ],
+   "E4": [
+    "konsep:18",
+    "pasien:41",
+    "konsep:87",
+    "pasien:91",
+    "konsep:4065"
+   ]
+  }
+ },
+ {
+  "q": "dextrose saline 0 45",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:111",
+  "rel": {
+   "obat:111": 2,
+   "konsep:1526": 1,
+   "obat:112": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:111"
+   ],
+   "B1": [
+    "form:4",
+    "lokasi:56",
+    "obat:111",
+    "obat:242",
+    "obat:112"
+   ],
+   "B2": [
+    "obat:111",
+    "obat:242",
+    "konsep:1526",
+    "konsep:1525",
+    "konsep:1774"
+   ],
+   "E1": [
+    "obat:111",
+    "obat:242",
+    "konsep:1525",
+    "obat:112",
+    "konsep:1526"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:1525",
+    "lokasi:56",
+    "obat:111",
+    "form:2"
+   ],
+   "E3": [
+    "obat:111",
+    "obat:242",
+    "obat:112",
+    "obat:110",
+    "obat:113"
+   ],
+   "E4": [
+    "konsep:1526",
+    "obat:111",
+    "konsep:1693",
+    "obat:112",
+    "konsep:1525"
+   ]
+  }
+ },
+ {
+  "q": "inpatient ward",
+  "tipe": "persis",
+  "ent": "lokasi",
+  "seed": "lokasi:6",
+  "rel": {
+   "lokasi:6": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:6"
+   ],
+   "B1": [
+    "lokasi:6",
+    "form:4",
+    "konsep:3718",
+    "konsep:755",
+    "konsep:742"
+   ],
+   "B2": [
+    "konsep:3718",
+    "konsep:755",
+    "lokasi:6",
+    "konsep:742",
+    "konsep:3769"
+   ],
+   "E1": [
+    "lokasi:6",
+    "konsep:3718",
+    "konsep:742",
+    "konsep:3772",
+    "form:4"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:3718",
+    "lokasi:6",
+    "obat:138",
+    "pasien:44"
+   ],
+   "E3": [
+    "lokasi:6",
+    "lokasi:10",
+    "lokasi:11",
+    "lokasi:9",
+    "lokasi:5"
+   ],
+   "E4": [
+    "lokasi:10",
+    "konsep:3771",
+    "lokasi:11",
+    "konsep:3770",
+    "lokasi:6"
+   ]
+  }
+ },
+ {
+  "q": "james martinz",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:62",
+  "rel": {
+   "pasien:62": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:42",
+    "pasien:92",
+    "pasien:12",
+    "pasien:62"
+   ],
+   "B2": [
+    "pasien:12",
+    "pasien:42",
+    "pasien:62",
+    "pasien:92"
+   ],
+   "E1": [
+    "pasien:12",
+    "pasien:62",
+    "pasien:42",
+    "pasien:92",
+    "obat:64"
+   ],
+   "E2": [
+    "konsep:3257",
+    "obat:64",
+    "pasien:12",
+    "konsep:2708",
+    "pasien:62"
+   ],
+   "E3": [
+    "pasien:12",
+    "pasien:62",
+    "pasien:42",
+    "pasien:92",
+    "konsep:3257"
+   ],
+   "E4": [
+    "konsep:3257",
+    "konsep:2589",
+    "konsep:2975",
+    "konsep:2280",
+    "konsep:3167"
+   ]
+  }
+ },
+ {
+  "q": "uuntu hospital",
+  "tipe": "typo",
+  "ent": "lokasi",
+  "seed": "lokasi:4",
+  "rel": {
+   "lokasi:4": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:4066",
+    "lokasi:4",
+    "konsep:699",
+    "konsep:3773",
+    "konsep:3774"
+   ],
+   "B2": [
+    "konsep:4066",
+    "konsep:699",
+    "konsep:3773",
+    "konsep:3774",
+    "konsep:3944"
+   ],
+   "E1": [
+    "konsep:4066",
+    "lokasi:4",
+    "konsep:3774",
+    "konsep:3718",
+    "konsep:699"
+   ],
+   "E2": [
+    "konsep:4066",
+    "lokasi:4",
+    "obat:80",
+    "konsep:3774",
+    "obat:81"
+   ],
+   "E3": [
+    "konsep:4066",
+    "lokasi:4",
+    "konsep:3774",
+    "konsep:3718",
+    "konsep:699"
+   ],
+   "E4": [
+    "konsep:3718",
+    "konsep:699",
+    "konsep:4066",
+    "konsep:742",
+    "konsep:3774"
+   ]
+  }
+ },
+ {
+  "q": "75 0 gel metro",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:218",
+  "rel": {
+   "obat:218": 2,
+   "konsep:1660": 1,
+   "obat:223": 1,
+   "obat:143": 1,
+   "obat:222": 1,
+   "obat:144": 1,
+   "obat:221": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:218"
+   ],
+   "B1": [
+    "obat:218",
+    "form:4",
+    "konsep:4153",
+    "konsep:3381",
+    "konsep:56"
+   ],
+   "B2": [
+    "obat:218",
+    "konsep:4153",
+    "konsep:3381",
+    "konsep:56",
+    "konsep:34"
+   ],
+   "E1": [
+    "obat:218",
+    "form:4",
+    "konsep:56",
+    "obat:219",
+    "obat:220"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:56",
+    "obat:218",
+    "konsep:4153",
+    "obat:219"
+   ],
+   "E3": [
+    "obat:218",
+    "obat:219",
+    "obat:220",
+    "obat:195",
+    "obat:298"
+   ],
+   "E4": [
+    "obat:218",
+    "obat:143",
+    "obat:144",
+    "konsep:1660",
+    "obat:221"
+   ]
+  }
+ },
+ {
+  "q": "strcutured soap note",
+  "tipe": "typo",
+  "ent": "form",
+  "seed": "form:7",
+  "rel": {
+   "form:7": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "form:6",
+    "form:7",
+    "konsep:3903",
+    "konsep:3904",
+    "konsep:1860"
+   ],
+   "B2": [
+    "konsep:3903",
+    "konsep:3904",
+    "konsep:1860",
+    "konsep:1861",
+    "form:6"
+   ],
+   "E1": [
+    "form:7",
+    "form:6",
+    "konsep:3903",
+    "konsep:3904",
+    "konsep:1860"
+   ],
+   "E2": [
+    "form:7",
+    "konsep:3903",
+    "obat:37",
+    "form:6",
+    "konsep:3904"
+   ],
+   "E3": [
+    "form:7",
+    "form:6",
+    "konsep:3903",
+    "konsep:3904",
+    "konsep:1860"
+   ],
+   "E4": [
+    "konsep:3904",
+    "konsep:3903",
+    "konsep:1860",
+    "konsep:3778",
+    "konsep:3777"
+   ]
+  }
+ },
+ {
+  "q": "cortef",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:99",
+  "rel": {
+   "obat:99": 2,
+   "konsep:1606": 1,
+   "obat:173": 1,
+   "obat:170": 1,
+   "obat:171": 1,
+   "obat:172": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:99"
+   ],
+   "B1": [
+    "obat:99"
+   ],
+   "B2": [
+    "obat:99"
+   ],
+   "E1": [
+    "obat:99",
+    "konsep:112",
+    "konsep:3984",
+    "konsep:1606",
+    "konsep:1517"
+   ],
+   "E2": [
+    "konsep:112",
+    "obat:99",
+    "konsep:3984",
+    "obat:37",
+    "konsep:1606"
+   ],
+   "E3": [
+    "obat:99",
+    "obat:37",
+    "obat:38",
+    "obat:39",
+    "obat:40"
+   ],
+   "E4": [
+    "konsep:112",
+    "obat:37",
+    "konsep:1606",
+    "obat:38",
+    "konsep:132"
+   ]
+  }
+ },
+ {
+  "q": "problem behaviour adult",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2289",
+  "rel": {
+   "konsep:2289": 2,
+   "konsep:1300": 1,
+   "konsep:3006": 1,
+   "konsep:2680": 1,
+   "konsep:3268": 1,
+   "konsep:3051": 1,
+   "konsep:2354": 1,
+   "konsep:3372": 1,
+   "konsep:2420": 1,
+   "konsep:3662": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2289"
+   ],
+   "B1": [
+    "konsep:2289",
+    "konsep:2288",
+    "obat:230",
+    "obat:37",
+    "obat:38"
+   ],
+   "B2": [
+    "konsep:2289",
+    "konsep:2288",
+    "konsep:3929",
+    "konsep:1990",
+    "konsep:1383"
+   ],
+   "E1": [
+    "konsep:2289",
+    "konsep:2288",
+    "konsep:3929",
+    "obat:230",
+    "konsep:1990"
+   ],
+   "E2": [
+    "konsep:2289",
+    "obat:230",
+    "konsep:2288",
+    "obat:37",
+    "konsep:3929"
+   ],
+   "E3": [
+    "konsep:2289",
+    "konsep:2288",
+    "konsep:3929",
+    "konsep:1990",
+    "konsep:1863"
+   ],
+   "E4": [
+    "konsep:2289",
+    "konsep:1863",
+    "konsep:2288",
+    "konsep:1990",
+    "konsep:2665"
+   ]
+  }
+ },
+ {
+  "q": "mesiodens",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:2268",
+  "rel": {
+   "konsep:2268": 2,
+   "konsep:3249": 1,
+   "konsep:3630": 1,
+   "konsep:1298": 1,
+   "konsep:1355": 1,
+   "konsep:2634": 1,
+   "konsep:3005": 1,
+   "konsep:3140": 1,
+   "konsep:3571": 1,
+   "konsep:2978": 1,
+   "konsep:3063": 1,
+   "konsep:3338": 1,
+   "konsep:1224": 1,
+   "konsep:2991": 1,
+   "konsep:2587": 1,
+   "konsep:3686": 1,
+   "konsep:3202": 1,
+   "konsep:1299": 1,
+   "konsep:2771": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2268"
+   ],
+   "B1": [
+    "konsep:2268"
+   ],
+   "B2": [
+    "konsep:2268"
+   ],
+   "E1": [
+    "konsep:2268",
+    "konsep:82",
+    "konsep:3501",
+    "konsep:1337",
+    "konsep:1975"
+   ],
+   "E2": [
+    "konsep:2268",
+    "konsep:82",
+    "konsep:3501",
+    "konsep:1337",
+    "konsep:1975"
+   ],
+   "E3": [
+    "konsep:2268",
+    "konsep:82",
+    "konsep:3501",
+    "konsep:1337",
+    "konsep:1975"
+   ],
+   "E4": [
+    "konsep:1975",
+    "konsep:2268",
+    "konsep:3501",
+    "konsep:82",
+    "konsep:1337"
+   ]
+  }
+ },
+ {
+  "q": "tramadol acetaimnophen",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:1817",
+  "rel": {
+   "konsep:1817": 2,
+   "obat:304": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:28",
+    "obat:300",
+    "obat:305",
+    "obat:304",
+    "konsep:1817"
+   ],
+   "B2": [
+    "konsep:28",
+    "konsep:1817",
+    "obat:300",
+    "obat:305",
+    "obat:304"
+   ],
+   "E1": [
+    "obat:304",
+    "konsep:1817",
+    "obat:300",
+    "obat:305",
+    "konsep:28"
+   ],
+   "E2": [
+    "konsep:1817",
+    "obat:304",
+    "pasien:26",
+    "konsep:28",
+    "obat:300"
+   ],
+   "E3": [
+    "konsep:1817",
+    "obat:304",
+    "konsep:28",
+    "obat:300",
+    "konsep:132"
+   ],
+   "E4": [
+    "konsep:1817",
+    "obat:304",
+    "konsep:28",
+    "obat:300",
+    "konsep:132"
+   ]
+  }
+ },
+ {
+  "q": "alben 400mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:18",
+  "rel": {
+   "obat:18": 2,
+   "konsep:127": 1,
+   "obat:16": 1,
+   "obat:17": 1,
+   "obat:15": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:18",
+    "obat:15",
+    "obat:16"
+   ],
+   "B1": [
+    "obat:13",
+    "obat:18",
+    "obat:30",
+    "obat:175",
+    "obat:5"
+   ],
+   "B2": [
+    "obat:13",
+    "obat:18",
+    "obat:15",
+    "obat:175",
+    "obat:207"
+   ],
+   "E1": [
+    "obat:18",
+    "obat:15",
+    "obat:30",
+    "obat:13",
+    "obat:175"
+   ],
+   "E2": [
+    "konsep:127",
+    "obat:18",
+    "obat:15",
+    "obat:30",
+    "obat:13"
+   ],
+   "E3": [
+    "obat:18",
+    "obat:15",
+    "obat:30",
+    "obat:13",
+    "obat:175"
+   ],
+   "E4": [
+    "konsep:127",
+    "obat:15",
+    "konsep:73",
+    "obat:16",
+    "konsep:1610"
+   ]
+  }
+ },
+ {
+  "q": "lopez susan",
+  "tipe": "urut_balik",
+  "ent": "pasien",
+  "seed": "pasien:8",
+  "rel": {
+   "pasien:8": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:58",
+    "pasien:8"
+   ],
+   "B1": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68",
+    "pasien:102"
+   ],
+   "B2": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68",
+    "pasien:102"
+   ],
+   "E1": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68",
+    "pasien:49"
+   ],
+   "E2": [
+    "konsep:63",
+    "pasien:58",
+    "konsep:40",
+    "pasien:8",
+    "konsep:1316"
+   ],
+   "E3": [
+    "pasien:58",
+    "pasien:8",
+    "pasien:18",
+    "pasien:68",
+    "pasien:49"
+   ],
+   "E4": [
+    "pasien:58",
+    "pasien:49",
+    "pasien:18",
+    "pasien:8",
+    "pasien:68"
+   ]
+  }
+ },
+ {
+  "q": "aminovit",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:24",
+  "rel": {
+   "obat:24": 2,
+   "konsep:1431": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:24"
+   ],
+   "B1": [
+    "obat:24"
+   ],
+   "B2": [
+    "obat:24"
+   ],
+   "E1": [
+    "obat:24",
+    "konsep:3564",
+    "konsep:132",
+    "konsep:1432",
+    "konsep:91"
+   ],
+   "E2": [
+    "konsep:3564",
+    "obat:24",
+    "konsep:132",
+    "obat:1",
+    "konsep:1432"
+   ],
+   "E3": [
+    "obat:24",
+    "obat:1",
+    "obat:2",
+    "obat:254",
+    "obat:255"
+   ],
+   "E4": [
+    "konsep:132",
+    "obat:1",
+    "konsep:1431",
+    "obat:2",
+    "konsep:18"
+   ]
+  }
+ },
+ {
+  "q": "david williams",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:73",
+  "rel": {
+   "pasien:73": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:23",
+    "pasien:73"
+   ],
+   "B1": [
+    "pasien:23",
+    "pasien:73",
+    "pasien:46",
+    "pasien:96",
+    "pasien:57"
+   ],
+   "B2": [
+    "pasien:23",
+    "pasien:73",
+    "pasien:46",
+    "pasien:57",
+    "pasien:7"
+   ],
+   "E1": [
+    "pasien:23",
+    "pasien:73",
+    "pasien:46",
+    "pasien:96",
+    "pasien:57"
+   ],
+   "E2": [
+    "form:1",
+    "konsep:814",
+    "obat:27",
+    "pasien:23",
+    "konsep:2047"
+   ],
+   "E3": [
+    "pasien:23",
+    "pasien:73",
+    "pasien:46",
+    "pasien:96",
+    "pasien:57"
+   ],
+   "E4": [
+    "pasien:23",
+    "pasien:73",
+    "pasien:46",
+    "pasien:57",
+    "pasien:96"
+   ]
+  }
+ },
+ {
+  "q": "urine",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:2885",
+  "rel": {
+   "konsep:2885": 2,
+   "konsep:633": 1,
+   "konsep:632": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:586",
+    "konsep:524",
+    "konsep:2885",
+    "konsep:459",
+    "konsep:462"
+   ],
+   "B1": [
+    "konsep:586",
+    "konsep:616",
+    "konsep:228",
+    "konsep:459",
+    "konsep:206"
+   ],
+   "B2": [
+    "konsep:586",
+    "konsep:206",
+    "konsep:228",
+    "konsep:238",
+    "konsep:287"
+   ],
+   "E1": [
+    "konsep:586",
+    "konsep:524",
+    "konsep:520",
+    "konsep:459",
+    "konsep:616"
+   ],
+   "E2": [
+    "konsep:586",
+    "obat:250",
+    "konsep:524",
+    "obat:40",
+    "konsep:520"
+   ],
+   "E3": [
+    "konsep:586",
+    "konsep:524",
+    "konsep:520",
+    "konsep:459",
+    "konsep:616"
+   ],
+   "E4": [
+    "konsep:520",
+    "konsep:615",
+    "konsep:469",
+    "konsep:616",
+    "konsep:244"
+   ]
+  }
+ },
+ {
+  "q": "george phillips",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:90",
+  "rel": {
+   "pasien:90": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:40",
+    "pasien:90"
+   ],
+   "B1": [
+    "pasien:40",
+    "pasien:90",
+    "konsep:12",
+    "obat:97",
+    "pasien:17"
+   ],
+   "B2": [
+    "konsep:12",
+    "pasien:40",
+    "pasien:90",
+    "obat:97",
+    "pasien:17"
+   ],
+   "E1": [
+    "pasien:40",
+    "pasien:90",
+    "obat:97",
+    "konsep:12",
+    "pasien:17"
+   ],
+   "E2": [
+    "konsep:12",
+    "obat:97",
+    "pasien:40",
+    "konsep:1733",
+    "obat:108"
+   ],
+   "E3": [
+    "pasien:40",
+    "pasien:90",
+    "pasien:17",
+    "pasien:67",
+    "pasien:16"
+   ],
+   "E4": [
+    "pasien:40",
+    "pasien:90",
+    "pasien:16",
+    "pasien:17",
+    "pasien:67"
+   ]
+  }
+ },
+ {
+  "q": "community",
+  "tipe": "hilang_kata",
+  "ent": "lokasi",
+  "seed": "lokasi:8",
+  "rel": {
+   "lokasi:8": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:8"
+   ],
+   "B1": [
+    "lokasi:8"
+   ],
+   "B2": [
+    "lokasi:8"
+   ],
+   "E1": [
+    "lokasi:8",
+    "konsep:1248",
+    "konsep:883",
+    "konsep:2186",
+    "konsep:4248"
+   ],
+   "E2": [
+    "konsep:1248",
+    "lokasi:8",
+    "konsep:883",
+    "konsep:2186",
+    "konsep:4248"
+   ],
+   "E3": [
+    "lokasi:8",
+    "konsep:1248",
+    "konsep:883",
+    "konsep:2186",
+    "konsep:4248"
+   ],
+   "E4": [
+    "konsep:2186",
+    "konsep:1248",
+    "konsep:3149",
+    "lokasi:8",
+    "konsep:883"
+   ]
+  }
+ },
+ {
+  "q": "ml 100mg gouttes c vitamin",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:311",
+  "rel": {
+   "obat:311": 2,
+   "konsep:1830": 1,
+   "obat:310": 1,
+   "obat:312": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:311"
+   ],
+   "B1": [
+    "obat:311",
+    "konsep:1830",
+    "konsep:1114",
+    "konsep:914",
+    "obat:310"
+   ],
+   "B2": [
+    "obat:311",
+    "konsep:1830",
+    "obat:310",
+    "obat:312",
+    "konsep:1114"
+   ],
+   "E1": [
+    "obat:311",
+    "konsep:1830",
+    "obat:310",
+    "obat:312",
+    "konsep:18"
+   ],
+   "E2": [
+    "konsep:1830",
+    "obat:311",
+    "konsep:18",
+    "obat:310",
+    "konsep:4223"
+   ],
+   "E3": [
+    "obat:311",
+    "obat:310",
+    "obat:312",
+    "obat:251",
+    "obat:249"
+   ],
+   "E4": [
+    "obat:311",
+    "konsep:1830",
+    "obat:310",
+    "konsep:18",
+    "obat:312"
+   ]
+  }
+ },
+ {
+  "q": "left arial dilatation",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:2974",
+  "rel": {
+   "konsep:2974": 2,
+   "konsep:2655": 1,
+   "konsep:2197": 1,
+   "konsep:2198": 1,
+   "konsep:2860": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:2197",
+    "konsep:2974",
+    "konsep:2860",
+    "konsep:876",
+    "konsep:879"
+   ],
+   "B2": [
+    "konsep:2197",
+    "konsep:2974",
+    "konsep:2860",
+    "konsep:2198",
+    "konsep:2973"
+   ],
+   "E1": [
+    "konsep:2974",
+    "konsep:2197",
+    "konsep:2860",
+    "konsep:876",
+    "konsep:879"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:2974",
+    "lokasi:10",
+    "obat:244",
+    "konsep:2197"
+   ],
+   "E3": [
+    "konsep:2974",
+    "konsep:2197",
+    "konsep:2860",
+    "konsep:876",
+    "konsep:879"
+   ],
+   "E4": [
+    "konsep:879",
+    "konsep:876",
+    "konsep:2974",
+    "konsep:878",
+    "konsep:2197"
+   ]
+  }
+ },
+ {
+  "q": "bcitracin",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:51",
+  "rel": {
+   "obat:51": 2,
+   "konsep:1449": 1,
+   "obat:52": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:1449",
+    "obat:51",
+    "obat:52",
+    "konsep:1679",
+    "konsep:1680"
+   ],
+   "E2": [
+    "konsep:1449",
+    "obat:51",
+    "konsep:1679",
+    "obat:52",
+    "konsep:1680"
+   ],
+   "E3": [
+    "konsep:1449",
+    "obat:51",
+    "konsep:1679",
+    "obat:52",
+    "konsep:1680"
+   ],
+   "E4": [
+    "konsep:1449",
+    "obat:51",
+    "konsep:1679",
+    "obat:52",
+    "konsep:1680"
+   ]
+  }
+ },
+ {
+  "q": "site",
+  "tipe": "hilang_kata",
+  "ent": "lokasi",
+  "seed": "lokasi:26",
+  "rel": {
+   "lokasi:26": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15",
+    "lokasi:16"
+   ],
+   "B1": [
+    "konsep:4159",
+    "konsep:4165",
+    "konsep:3466",
+    "konsep:3257",
+    "konsep:2280"
+   ],
+   "B2": [
+    "konsep:4159",
+    "konsep:3257",
+    "konsep:3466",
+    "konsep:4165",
+    "konsep:2280"
+   ],
+   "E1": [
+    "konsep:4159",
+    "konsep:4165",
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14"
+   ],
+   "E2": [
+    "konsep:4159",
+    "lokasi:12",
+    "obat:294",
+    "konsep:4165",
+    "lokasi:13"
+   ],
+   "E3": [
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15",
+    "lokasi:16"
+   ],
+   "E4": [
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15",
+    "lokasi:16"
+   ]
+  }
+ },
+ {
+  "q": "dexrose d50",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:110",
+  "rel": {
+   "obat:110": 2,
+   "konsep:1525": 1,
+   "obat:113": 1,
+   "obat:114": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:2963",
+    "konsep:3716",
+    "obat:110"
+   ],
+   "B2": [
+    "konsep:2963",
+    "konsep:3716",
+    "obat:110"
+   ],
+   "E1": [
+    "obat:110",
+    "konsep:2963",
+    "konsep:3716",
+    "konsep:18",
+    "konsep:1525"
+   ],
+   "E2": [
+    "konsep:2963",
+    "obat:110",
+    "konsep:3716",
+    "obat:114",
+    "konsep:18"
+   ],
+   "E3": [
+    "obat:110",
+    "obat:114",
+    "obat:113",
+    "obat:112",
+    "obat:111"
+   ],
+   "E4": [
+    "konsep:1526",
+    "obat:111",
+    "konsep:1525",
+    "obat:112",
+    "konsep:1693"
+   ]
+  }
+ },
+ {
+  "q": "steven thompson",
+  "tipe": "persis",
+  "ent": "pasien",
+  "seed": "pasien:35",
+  "rel": {
+   "pasien:35": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:35",
+    "pasien:85"
+   ],
+   "B1": [
+    "pasien:35",
+    "pasien:85",
+    "pasien:33",
+    "pasien:83",
+    "pasien:34"
+   ],
+   "B2": [
+    "pasien:35",
+    "pasien:85",
+    "pasien:33",
+    "pasien:83",
+    "pasien:20"
+   ],
+   "E1": [
+    "pasien:35",
+    "pasien:85",
+    "pasien:34",
+    "pasien:84",
+    "pasien:33"
+   ],
+   "E2": [
+    "konsep:2734",
+    "obat:153",
+    "pasien:35",
+    "konsep:784",
+    "pasien:85"
+   ],
+   "E3": [
+    "pasien:35",
+    "pasien:85",
+    "pasien:34",
+    "pasien:84",
+    "pasien:33"
+   ],
+   "E4": [
+    "pasien:35",
+    "pasien:85",
+    "pasien:33",
+    "pasien:34",
+    "pasien:84"
+   ]
+  }
+ },
+ {
+  "q": "20 site",
+  "tipe": "urut_balik",
+  "ent": "lokasi",
+  "seed": "lokasi:31",
+  "rel": {
+   "lokasi:31": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:31"
+   ],
+   "B1": [
+    "lokasi:31",
+    "konsep:4208",
+    "konsep:4216",
+    "konsep:4249",
+    "obat:200"
+   ],
+   "B2": [
+    "konsep:4208",
+    "konsep:4216",
+    "konsep:4249",
+    "konsep:1238",
+    "konsep:130"
+   ],
+   "E1": [
+    "lokasi:31",
+    "konsep:4159",
+    "konsep:4165",
+    "konsep:3466",
+    "konsep:2280"
+   ],
+   "E2": [
+    "konsep:4159",
+    "lokasi:31",
+    "obat:200",
+    "konsep:4165",
+    "lokasi:12"
+   ],
+   "E3": [
+    "lokasi:31",
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15"
+   ],
+   "E4": [
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15",
+    "lokasi:16"
+   ]
+  }
+ },
+ {
+  "q": "ultrma 50mg",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:305",
+  "rel": {
+   "obat:305": 2,
+   "konsep:28": 1,
+   "obat:300": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "obat:72",
+    "obat:118",
+    "obat:43",
+    "obat:59",
+    "obat:168"
+   ],
+   "B2": [
+    "obat:118",
+    "obat:168",
+    "obat:305",
+    "obat:43",
+    "obat:59"
+   ],
+   "E1": [
+    "obat:305",
+    "obat:43",
+    "obat:72",
+    "obat:118",
+    "obat:59"
+   ],
+   "E2": [
+    "konsep:29",
+    "obat:305",
+    "konsep:63",
+    "obat:43",
+    "konsep:4186"
+   ],
+   "E3": [
+    "obat:305",
+    "obat:43",
+    "obat:72",
+    "obat:118",
+    "obat:59"
+   ],
+   "E4": [
+    "obat:118",
+    "obat:72",
+    "obat:119",
+    "konsep:1535",
+    "obat:127"
+   ]
+  }
+ },
+ {
+  "q": "glyburide 3mg",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:162",
+  "rel": {
+   "obat:162": 2,
+   "konsep:1595": 1,
+   "obat:164": 1,
+   "obat:163": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:162"
+   ],
+   "B1": [
+    "konsep:1595",
+    "obat:162",
+    "obat:163",
+    "obat:164",
+    "obat:156"
+   ],
+   "B2": [
+    "obat:162",
+    "konsep:1595",
+    "obat:163",
+    "obat:164",
+    "obat:156"
+   ],
+   "E1": [
+    "obat:162",
+    "konsep:1595",
+    "obat:163",
+    "obat:164",
+    "obat:156"
+   ],
+   "E2": [
+    "konsep:1595",
+    "obat:162",
+    "konsep:132",
+    "obat:163",
+    "konsep:647"
+   ],
+   "E3": [
+    "obat:162",
+    "obat:163",
+    "obat:164",
+    "obat:156",
+    "obat:161"
+   ],
+   "E4": [
+    "obat:162",
+    "konsep:1595",
+    "obat:163",
+    "konsep:1593",
+    "obat:164"
+   ]
+  }
+ },
+ {
+  "q": "allergy to inect bites",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:1017",
+  "rel": {
+   "konsep:1017": 2,
+   "konsep:1018": 1,
+   "konsep:1012": 1,
+   "konsep:986": 1,
+   "konsep:938": 1,
+   "konsep:1008": 1,
+   "konsep:1019": 1,
+   "konsep:3320": 1,
+   "konsep:994": 1,
+   "konsep:993": 1,
+   "konsep:1023": 1,
+   "konsep:941": 1,
+   "konsep:1020": 1,
+   "konsep:1029": 1,
+   "konsep:982": 1,
+   "konsep:996": 1,
+   "konsep:1031": 1,
+   "konsep:1021": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:1017",
+    "konsep:997",
+    "konsep:1022",
+    "konsep:1012",
+    "konsep:1020"
+   ],
+   "B2": [
+    "konsep:1017",
+    "konsep:1003",
+    "konsep:1007",
+    "konsep:1012",
+    "konsep:1018"
+   ],
+   "E1": [
+    "konsep:1017",
+    "konsep:1018",
+    "konsep:997",
+    "konsep:1020",
+    "konsep:1032"
+   ],
+   "E2": [
+    "konsep:1017",
+    "obat:294",
+    "pasien:59",
+    "konsep:1018",
+    "obat:295"
+   ],
+   "E3": [
+    "konsep:1017",
+    "konsep:1018",
+    "konsep:997",
+    "konsep:1020",
+    "konsep:1032"
+   ],
+   "E4": [
+    "konsep:1017",
+    "konsep:997",
+    "konsep:1012",
+    "konsep:1018",
+    "konsep:1016"
+   ]
+  }
+ },
+ {
+  "q": "furos co 40mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:150",
+  "rel": {
+   "obat:150": 2,
+   "konsep:1580": 1,
+   "obat:191": 1,
+   "obat:190": 1,
+   "obat:189": 1,
+   "obat:151": 1,
+   "obat:188": 1,
+   "obat:187": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:150"
+   ],
+   "B1": [
+    "obat:150",
+    "konsep:1513",
+    "konsep:161",
+    "konsep:1512",
+    "konsep:2500"
+   ],
+   "B2": [
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "obat:150",
+    "obat:105"
+   ],
+   "E1": [
+    "obat:150",
+    "obat:189",
+    "obat:105",
+    "konsep:2500",
+    "obat:267"
+   ],
+   "E2": [
+    "konsep:2500",
+    "obat:150",
+    "konsep:1513",
+    "obat:189",
+    "konsep:161"
+   ],
+   "E3": [
+    "obat:150",
+    "obat:189",
+    "obat:105",
+    "obat:267",
+    "obat:179"
+   ],
+   "E4": [
+    "obat:150",
+    "obat:151",
+    "obat:187",
+    "konsep:1580",
+    "obat:188"
+   ]
+  }
+ },
+ {
+  "q": "ondansetron",
+  "tipe": "persis",
+  "ent": "obat",
+  "seed": "obat:248",
+  "rel": {
+   "obat:248": 2,
+   "konsep:47": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:47",
+    "obat:248",
+    "konsep:1696",
+    "obat:320"
+   ],
+   "B1": [
+    "konsep:47",
+    "obat:248",
+    "konsep:1696",
+    "obat:320"
+   ],
+   "B2": [
+    "konsep:47",
+    "konsep:1696",
+    "obat:248",
+    "obat:320"
+   ],
+   "E1": [
+    "konsep:47",
+    "obat:248",
+    "konsep:1696",
+    "obat:320",
+    "konsep:56"
+   ],
+   "E2": [
+    "konsep:47",
+    "obat:248",
+    "konsep:1696",
+    "obat:320",
+    "konsep:56"
+   ],
+   "E3": [
+    "konsep:47",
+    "obat:248",
+    "konsep:1696",
+    "obat:320",
+    "konsep:56"
+   ],
+   "E4": [
+    "konsep:1696",
+    "obat:320",
+    "konsep:47",
+    "obat:248",
+    "konsep:56"
+   ]
+  }
+ },
+ {
+  "q": "frac of proxi end of ulna",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:2566",
+  "rel": {
+   "konsep:2566": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2566"
+   ],
+   "B1": [
+    "konsep:2566",
+    "konsep:1412",
+    "konsep:3095",
+    "obat:1",
+    "obat:2"
+   ],
+   "B2": [
+    "konsep:2566",
+    "konsep:1412",
+    "konsep:3095",
+    "konsep:1419",
+    "konsep:2572"
+   ],
+   "E1": [
+    "konsep:2566",
+    "konsep:1412",
+    "konsep:1419",
+    "konsep:3095",
+    "konsep:3241"
+   ],
+   "E2": [
+    "konsep:2566",
+    "obat:1",
+    "provider:1",
+    "konsep:1412",
+    "obat:2"
+   ],
+   "E3": [
+    "konsep:2566",
+    "konsep:1412",
+    "konsep:1419",
+    "konsep:3095",
+    "konsep:3241"
+   ],
+   "E4": [
+    "konsep:2566",
+    "konsep:3241",
+    "konsep:1419",
+    "konsep:3101",
+    "konsep:2572"
+   ]
+  }
+ },
+ {
+  "q": "disorder",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:1302",
+  "rel": {
+   "konsep:1302": 2,
+   "konsep:3142": 1,
+   "konsep:2339": 1,
+   "konsep:3194": 1,
+   "konsep:2498": 1,
+   "konsep:2274": 1,
+   "konsep:1384": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3174",
+    "konsep:3537",
+    "konsep:2267",
+    "konsep:2447",
+    "konsep:2697"
+   ],
+   "B1": [
+    "konsep:3174",
+    "konsep:2267",
+    "konsep:2697",
+    "konsep:1302",
+    "konsep:3845"
+   ],
+   "B2": [
+    "konsep:1248",
+    "konsep:1301",
+    "konsep:1302",
+    "konsep:1326",
+    "konsep:1865"
+   ],
+   "E1": [
+    "konsep:3174",
+    "konsep:2267",
+    "konsep:3845",
+    "konsep:2697",
+    "konsep:3171"
+   ],
+   "E2": [
+    "konsep:3174",
+    "obat:37",
+    "konsep:2267",
+    "obat:38",
+    "konsep:3845"
+   ],
+   "E3": [
+    "konsep:3174",
+    "konsep:2267",
+    "konsep:3845",
+    "konsep:2697",
+    "konsep:3171"
+   ],
+   "E4": [
+    "konsep:3845",
+    "konsep:2267",
+    "konsep:3171",
+    "konsep:3174",
+    "konsep:980"
+   ]
+  }
+ },
+ {
+  "q": "sanchez",
+  "tipe": "hilang_kata",
+  "ent": "pasien",
+  "seed": "pasien:25",
+  "rel": {
+   "pasien:25": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:25",
+    "pasien:75"
+   ],
+   "B1": [
+    "pasien:25",
+    "pasien:75"
+   ],
+   "B2": [
+    "pasien:25",
+    "pasien:75"
+   ],
+   "E1": [
+    "pasien:25",
+    "pasien:75",
+    "konsep:3258"
+   ],
+   "E2": [
+    "konsep:3258",
+    "pasien:25",
+    "pasien:75"
+   ],
+   "E3": [
+    "pasien:25",
+    "pasien:75",
+    "konsep:3258"
+   ],
+   "E4": [
+    "konsep:3258",
+    "konsep:220",
+    "konsep:475",
+    "konsep:529",
+    "konsep:173"
+   ]
+  }
+ },
+ {
+  "q": "furosemde injection vial 20mg",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:151",
+  "rel": {
+   "obat:151": 2,
+   "konsep:1580": 1,
+   "obat:191": 1,
+   "obat:190": 1,
+   "obat:189": 1,
+   "obat:188": 1,
+   "obat:187": 1,
+   "obat:150": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "obat:128",
+    "obat:151",
+    "obat:36",
+    "konsep:882",
+    "obat:174"
+   ],
+   "B2": [
+    "konsep:882",
+    "obat:128",
+    "obat:151",
+    "obat:36",
+    "konsep:5"
+   ],
+   "E1": [
+    "obat:151",
+    "obat:128",
+    "obat:36",
+    "obat:174",
+    "obat:215"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:882",
+    "lokasi:10",
+    "obat:151",
+    "konsep:5"
+   ],
+   "E3": [
+    "obat:151",
+    "obat:128",
+    "obat:36",
+    "obat:174",
+    "obat:215"
+   ],
+   "E4": [
+    "obat:174",
+    "obat:151",
+    "obat:36",
+    "obat:128",
+    "obat:215"
+   ]
+  }
+ },
+ {
+  "q": "cloxacilline co 500mg",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:95",
+  "rel": {
+   "obat:95": 2,
+   "konsep:1511": 1,
+   "obat:96": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:95"
+   ],
+   "B1": [
+    "obat:95",
+    "konsep:1513",
+    "konsep:161",
+    "konsep:1512",
+    "konsep:2500"
+   ],
+   "B2": [
+    "obat:95",
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "obat:133"
+   ],
+   "E1": [
+    "obat:95",
+    "obat:96",
+    "obat:32",
+    "obat:87",
+    "obat:88"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1511",
+    "lokasi:5",
+    "obat:95",
+    "pasien:46"
+   ],
+   "E3": [
+    "obat:95",
+    "obat:96",
+    "obat:32",
+    "obat:87",
+    "obat:88"
+   ],
+   "E4": [
+    "konsep:1435",
+    "konsep:1511",
+    "konsep:1436",
+    "obat:95",
+    "konsep:101"
+   ]
+  }
+ },
+ {
+  "q": "1 hydrocortisone",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:170",
+  "rel": {
+   "obat:170": 2,
+   "konsep:1606": 1,
+   "obat:173": 1,
+   "obat:171": 1,
+   "obat:172": 1,
+   "obat:99": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:170",
+    "obat:172",
+    "obat:173"
+   ],
+   "B1": [
+    "form:1",
+    "form:2",
+    "form:3",
+    "form:5",
+    "form:6"
+   ],
+   "B2": [
+    "konsep:1606",
+    "obat:170",
+    "konsep:1608",
+    "obat:172",
+    "konsep:1607"
+   ],
+   "E1": [
+    "obat:170",
+    "konsep:1606",
+    "obat:172",
+    "obat:171",
+    "obat:173"
+   ],
+   "E2": [
+    "form:1",
+    "konsep:1606",
+    "lokasi:12",
+    "obat:170",
+    "form:2"
+   ],
+   "E3": [
+    "obat:170",
+    "obat:172",
+    "konsep:1606",
+    "obat:171",
+    "konsep:1608"
+   ],
+   "E4": [
+    "konsep:1606",
+    "obat:170",
+    "konsep:1608",
+    "obat:171",
+    "konsep:1607"
+   ]
+  }
+ },
+ {
+  "q": "increta placenta",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:2455",
+  "rel": {
+   "konsep:2455": 2,
+   "konsep:2456": 1,
+   "konsep:2454": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2455"
+   ],
+   "B1": [
+    "konsep:2455",
+    "konsep:3462",
+    "konsep:2636",
+    "konsep:2454",
+    "konsep:2456"
+   ],
+   "B2": [
+    "konsep:2455",
+    "konsep:2454",
+    "konsep:2456",
+    "konsep:2636",
+    "konsep:3462"
+   ],
+   "E1": [
+    "konsep:2455",
+    "konsep:2456",
+    "konsep:3462",
+    "konsep:2636",
+    "konsep:2454"
+   ],
+   "E2": [
+    "form:5",
+    "konsep:2455",
+    "obat:97",
+    "konsep:2456",
+    "obat:1"
+   ],
+   "E3": [
+    "konsep:2455",
+    "konsep:2456",
+    "konsep:3462",
+    "konsep:2636",
+    "konsep:2454"
+   ],
+   "E4": [
+    "konsep:2454",
+    "konsep:2455",
+    "konsep:2456",
+    "konsep:3462",
+    "konsep:2458"
+   ]
+  }
+ },
+ {
+  "q": "fluconazole co",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:148",
+  "rel": {
+   "obat:148": 2,
+   "konsep:1571": 1,
+   "obat:121": 1,
+   "obat:122": 1,
+   "obat:123": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:148"
+   ],
+   "B1": [
+    "obat:121",
+    "obat:122",
+    "obat:123",
+    "obat:148",
+    "konsep:1571"
+   ],
+   "B2": [
+    "konsep:1571",
+    "obat:148",
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161"
+   ],
+   "E1": [
+    "obat:121",
+    "obat:122",
+    "obat:123",
+    "obat:148",
+    "konsep:1571"
+   ],
+   "E2": [
+    "form:2",
+    "konsep:1571",
+    "lokasi:7",
+    "obat:121",
+    "form:3"
+   ],
+   "E3": [
+    "konsep:1571",
+    "obat:121",
+    "konsep:1662",
+    "obat:122",
+    "konsep:161"
+   ],
+   "E4": [
+    "konsep:1571",
+    "obat:121",
+    "konsep:161",
+    "obat:122",
+    "konsep:1662"
+   ]
+  }
+ },
+ {
+  "q": "knee of ligament cruciate posterior of sprain",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:3290",
+  "rel": {
+   "konsep:3290": 2,
+   "konsep:2722": 1,
+   "konsep:2723": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3290"
+   ],
+   "B1": [
+    "konsep:3290",
+    "konsep:2723",
+    "konsep:2722",
+    "obat:1",
+    "obat:2"
+   ],
+   "B2": [
+    "konsep:3290",
+    "konsep:2723",
+    "konsep:2722",
+    "konsep:3167",
+    "konsep:2724"
+   ],
+   "E1": [
+    "konsep:3290",
+    "konsep:2723",
+    "konsep:2722",
+    "konsep:3167",
+    "konsep:3552"
+   ],
+   "E2": [
+    "form:5",
+    "konsep:3290",
+    "lokasi:5",
+    "obat:1",
+    "konsep:2723"
+   ],
+   "E3": [
+    "konsep:3290",
+    "konsep:2723",
+    "konsep:2722",
+    "konsep:3167",
+    "konsep:3552"
+   ],
+   "E4": [
+    "konsep:3290",
+    "konsep:3167",
+    "konsep:2723",
+    "konsep:2722",
+    "konsep:3411"
+   ]
+  }
+ },
+ {
+  "q": "chlorzoxasone",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:1709",
+  "rel": {
+   "konsep:1709": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1709"
+   ],
+   "B1": [
+    "konsep:1709"
+   ],
+   "B2": [
+    "konsep:1709"
+   ],
+   "E1": [
+    "konsep:1709",
+    "obat:219",
+    "obat:220",
+    "obat:102",
+    "obat:82"
+   ],
+   "E2": [
+    "konsep:1709",
+    "obat:219",
+    "konsep:647",
+    "obat:220",
+    "konsep:56"
+   ],
+   "E3": [
+    "konsep:1709",
+    "konsep:647",
+    "konsep:56",
+    "konsep:92",
+    "konsep:1460"
+   ],
+   "E4": [
+    "konsep:647",
+    "konsep:1709",
+    "konsep:56",
+    "konsep:1786",
+    "konsep:1477"
+   ]
+  }
+ },
+ {
+  "q": "feeli desp",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:1384",
+  "rel": {
+   "konsep:1384": 2,
+   "konsep:3142": 1,
+   "konsep:1302": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:1384"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:1384",
+    "konsep:3107",
+    "konsep:34",
+    "konsep:2302",
+    "konsep:1042"
+   ],
+   "E2": [
+    "konsep:1384",
+    "konsep:3107",
+    "konsep:34",
+    "konsep:2302",
+    "konsep:1042"
+   ],
+   "E3": [
+    "konsep:1384",
+    "konsep:3107",
+    "konsep:34",
+    "konsep:2302",
+    "konsep:1042"
+   ],
+   "E4": [
+    "konsep:2302",
+    "konsep:34",
+    "konsep:1042",
+    "konsep:1384",
+    "konsep:3957"
+   ]
+  }
+ },
+ {
+  "q": "stev white",
+  "tipe": "trunkasi",
+  "ent": "pasien",
+  "seed": "pasien:33",
+  "rel": {
+   "pasien:33": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:33",
+    "pasien:83"
+   ],
+   "B1": [
+    "konsep:221",
+    "pasien:33",
+    "pasien:83",
+    "konsep:403",
+    "konsep:174"
+   ],
+   "B2": [
+    "konsep:221",
+    "konsep:174",
+    "konsep:403",
+    "pasien:33",
+    "pasien:83"
+   ],
+   "E1": [
+    "pasien:33",
+    "pasien:83",
+    "konsep:221",
+    "konsep:174",
+    "konsep:403"
+   ],
+   "E2": [
+    "konsep:221",
+    "pasien:33",
+    "konsep:174",
+    "pasien:83",
+    "konsep:403"
+   ],
+   "E3": [
+    "pasien:33",
+    "pasien:83",
+    "pasien:35",
+    "pasien:85",
+    "konsep:221"
+   ],
+   "E4": [
+    "konsep:221",
+    "konsep:403",
+    "konsep:174",
+    "konsep:395",
+    "konsep:520"
+   ]
+  }
+ },
+ {
+  "q": "oteophyte",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:2236",
+  "rel": {
+   "konsep:2236": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:2236",
+    "konsep:3147",
+    "konsep:1560",
+    "konsep:2817",
+    "konsep:1129"
+   ],
+   "E2": [
+    "konsep:2236",
+    "konsep:3147",
+    "konsep:1560",
+    "konsep:2817",
+    "konsep:1129"
+   ],
+   "E3": [
+    "konsep:2236",
+    "konsep:3147",
+    "konsep:1560",
+    "konsep:2817",
+    "konsep:1129"
+   ],
+   "E4": [
+    "konsep:2817",
+    "konsep:1129",
+    "konsep:3147",
+    "konsep:2066",
+    "konsep:2236"
+   ]
+  }
+ },
+ {
+  "q": "claritn 5mg 5ml",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:91",
+  "rel": {
+   "obat:91": 2,
+   "konsep:1642": 1,
+   "obat:89": 1,
+   "obat:90": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "obat:91",
+    "obat:216",
+    "obat:129",
+    "obat:46",
+    "obat:163"
+   ],
+   "B2": [
+    "obat:91",
+    "obat:216",
+    "obat:129",
+    "obat:46",
+    "obat:106"
+   ],
+   "E1": [
+    "obat:91",
+    "obat:216",
+    "obat:129",
+    "obat:46",
+    "obat:27"
+   ],
+   "E2": [
+    "konsep:3728",
+    "obat:91",
+    "konsep:1500",
+    "obat:216",
+    "konsep:112"
+   ],
+   "E3": [
+    "obat:91",
+    "obat:216",
+    "obat:129",
+    "obat:46",
+    "obat:27"
+   ],
+   "E4": [
+    "konsep:1434",
+    "obat:46",
+    "konsep:118",
+    "obat:47",
+    "konsep:1656"
+   ]
+  }
+ },
+ {
+  "q": "35 site",
+  "tipe": "urut_balik",
+  "ent": "lokasi",
+  "seed": "lokasi:46",
+  "rel": {
+   "lokasi:46": 2
+  },
+  "hasil": {
+   "B0": [
+    "lokasi:46"
+   ],
+   "B1": [
+    "lokasi:46",
+    "konsep:3076",
+    "konsep:4159",
+    "konsep:4165",
+    "konsep:3466"
+   ],
+   "B2": [
+    "konsep:4159",
+    "konsep:3076",
+    "lokasi:46",
+    "konsep:3257",
+    "konsep:3466"
+   ],
+   "E1": [
+    "lokasi:46",
+    "konsep:4159",
+    "konsep:4165",
+    "konsep:3466",
+    "konsep:2280"
+   ],
+   "E2": [
+    "konsep:4159",
+    "lokasi:46",
+    "obat:294",
+    "konsep:4165",
+    "lokasi:12"
+   ],
+   "E3": [
+    "lokasi:46",
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15"
+   ],
+   "E4": [
+    "lokasi:12",
+    "lokasi:13",
+    "lokasi:14",
+    "lokasi:15",
+    "lokasi:16"
+   ]
+  }
+ },
+ {
+  "q": "major neurocognitive disorder with behavior changes caused by s disease",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:2136",
+  "rel": {
+   "konsep:2136": 2,
+   "konsep:2138": 1,
+   "konsep:1999": 1,
+   "konsep:2290": 1,
+   "konsep:2135": 1,
+   "konsep:2134": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2136",
+    "konsep:2138"
+   ],
+   "B1": [
+    "konsep:2136",
+    "konsep:2138",
+    "konsep:2134",
+    "konsep:2135",
+    "obat:97"
+   ],
+   "B2": [
+    "konsep:2136",
+    "konsep:2138",
+    "konsep:2134",
+    "konsep:2135",
+    "konsep:2290"
+   ],
+   "E1": [
+    "konsep:2136",
+    "konsep:2138",
+    "konsep:2134",
+    "konsep:2135",
+    "konsep:2290"
+   ],
+   "E2": [
+    "konsep:2136",
+    "obat:37",
+    "konsep:2138",
+    "obat:38",
+    "konsep:2134"
+   ],
+   "E3": [
+    "konsep:2136",
+    "konsep:2138",
+    "konsep:2134",
+    "konsep:2135",
+    "konsep:2290"
+   ],
+   "E4": [
+    "konsep:2136",
+    "konsep:2138",
+    "konsep:2134",
+    "konsep:2135",
+    "konsep:2290"
+   ]
+  }
+ },
+ {
+  "q": "acetylcystenie",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:130",
+  "rel": {
+   "konsep:130": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:130",
+    "obat:37",
+    "obat:38",
+    "obat:39",
+    "obat:40"
+   ],
+   "E2": [
+    "konsep:130",
+    "obat:37",
+    "konsep:112",
+    "obat:38",
+    "konsep:132"
+   ],
+   "E3": [
+    "konsep:130",
+    "konsep:112",
+    "konsep:132",
+    "konsep:4215",
+    "konsep:3768"
+   ],
+   "E4": [
+    "konsep:4215",
+    "konsep:112",
+    "konsep:4216",
+    "konsep:132",
+    "obat:37"
+   ]
+  }
+ },
+ {
+  "q": "minocin",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:226",
+  "rel": {
+   "obat:226": 2,
+   "konsep:1666": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:226"
+   ],
+   "B1": [
+    "obat:226"
+   ],
+   "B2": [
+    "obat:226"
+   ],
+   "E1": [
+    "obat:226",
+    "konsep:1666",
+    "konsep:40",
+    "konsep:112",
+    "obat:37"
+   ],
+   "E2": [
+    "konsep:1666",
+    "obat:226",
+    "konsep:40",
+    "obat:37",
+    "konsep:112"
+   ],
+   "E3": [
+    "obat:226",
+    "obat:37",
+    "obat:38",
+    "obat:39",
+    "obat:40"
+   ],
+   "E4": [
+    "konsep:112",
+    "obat:37",
+    "konsep:1666",
+    "obat:38",
+    "konsep:132"
+   ]
+  }
+ },
+ {
+  "q": "kenneth catrer",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:48",
+  "rel": {
+   "pasien:48": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:32",
+    "pasien:48",
+    "pasien:82",
+    "pasien:98"
+   ],
+   "B2": [
+    "pasien:32",
+    "pasien:48",
+    "pasien:82",
+    "pasien:98"
+   ],
+   "E1": [
+    "pasien:48",
+    "pasien:98",
+    "pasien:32",
+    "pasien:82",
+    "obat:37"
+   ],
+   "E2": [
+    "konsep:45",
+    "obat:37",
+    "pasien:48",
+    "konsep:112",
+    "obat:38"
+   ],
+   "E3": [
+    "pasien:48",
+    "pasien:98",
+    "pasien:32",
+    "pasien:82",
+    "konsep:45"
+   ],
+   "E4": [
+    "konsep:45",
+    "obat:252",
+    "konsep:3051",
+    "obat:244",
+    "pasien:48"
+   ]
+  }
+ },
+ {
+  "q": "perforation or hemorrhage without ulcer gastric acute",
+  "tipe": "urut_balik",
+  "ent": "konsep",
+  "seed": "konsep:808",
+  "rel": {
+   "konsep:808": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:808"
+   ],
+   "B1": [
+    "konsep:808",
+    "konsep:805",
+    "konsep:810",
+    "konsep:801",
+    "konsep:802"
+   ],
+   "B2": [
+    "konsep:808",
+    "konsep:805",
+    "konsep:810",
+    "konsep:801",
+    "konsep:802"
+   ],
+   "E1": [
+    "konsep:808",
+    "konsep:805",
+    "konsep:810",
+    "konsep:801",
+    "konsep:3684"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:808",
+    "lokasi:10",
+    "obat:1",
+    "pasien:24"
+   ],
+   "E3": [
+    "konsep:808",
+    "konsep:805",
+    "konsep:810",
+    "konsep:801",
+    "konsep:3684"
+   ],
+   "E4": [
+    "konsep:808",
+    "konsep:3684",
+    "konsep:1953",
+    "konsep:805",
+    "konsep:810"
+   ]
+  }
+ },
+ {
+  "q": "erythromycin 250mg",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:136",
+  "rel": {
+   "obat:136": 2,
+   "konsep:1554": 1,
+   "obat:135": 1,
+   "obat:134": 1,
+   "obat:133": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:136"
+   ],
+   "B1": [
+    "konsep:84",
+    "obat:136",
+    "konsep:984",
+    "konsep:1554",
+    "obat:133"
+   ],
+   "B2": [
+    "konsep:84",
+    "obat:136",
+    "konsep:1554",
+    "konsep:984",
+    "obat:133"
+   ],
+   "E1": [
+    "konsep:84",
+    "obat:136",
+    "konsep:984",
+    "konsep:1554",
+    "obat:135"
+   ],
+   "E2": [
+    "konsep:84",
+    "obat:136",
+    "konsep:984",
+    "obat:135",
+    "konsep:1554"
+   ],
+   "E3": [
+    "obat:136",
+    "obat:135",
+    "obat:133",
+    "konsep:84",
+    "obat:134"
+   ],
+   "E4": [
+    "konsep:1554",
+    "obat:133",
+    "konsep:84",
+    "obat:134",
+    "konsep:984"
+   ]
+  }
+ },
+ {
+  "q": "diarrhea for more than two weeks",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:2473",
+  "rel": {
+   "konsep:2473": 2,
+   "konsep:2491": 1,
+   "konsep:3579": 1,
+   "konsep:2373": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2473"
+   ],
+   "B1": [
+    "konsep:2473",
+    "konsep:2491",
+    "konsep:3614",
+    "konsep:3702",
+    "konsep:3579"
+   ],
+   "B2": [
+    "konsep:2473",
+    "konsep:2491",
+    "konsep:3614",
+    "konsep:3702",
+    "konsep:1045"
+   ],
+   "E1": [
+    "konsep:2473",
+    "konsep:2491",
+    "konsep:3614",
+    "konsep:3702",
+    "konsep:3579"
+   ],
+   "E2": [
+    "form:9",
+    "konsep:2473",
+    "obat:1",
+    "form:5",
+    "konsep:2491"
+   ],
+   "E3": [
+    "konsep:2473",
+    "konsep:2491",
+    "konsep:3614",
+    "konsep:3702",
+    "konsep:3579"
+   ],
+   "E4": [
+    "konsep:2473",
+    "konsep:2491",
+    "konsep:3614",
+    "konsep:3579",
+    "konsep:3702"
+   ]
+  }
+ },
+ {
+  "q": "fatgiue",
+  "tipe": "typo",
+  "ent": "konsep",
+  "seed": "konsep:1380",
+  "rel": {
+   "konsep:1380": 2,
+   "konsep:3074": 1,
+   "konsep:3318": 1,
+   "konsep:2228": 1,
+   "konsep:3325": 1,
+   "konsep:3019": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [],
+   "B2": [],
+   "E1": [],
+   "E2": [],
+   "E3": [],
+   "E4": []
+  }
+ },
+ {
+  "q": "admission ward",
+  "tipe": "urut_balik",
+  "ent": "form",
+  "seed": "form:4",
+  "rel": {
+   "form:4": 2
+  },
+  "hasil": {
+   "B0": [
+    "form:4"
+   ],
+   "B1": [
+    "form:4",
+    "lokasi:10",
+    "lokasi:11",
+    "lokasi:6",
+    "lokasi:9"
+   ],
+   "B2": [
+    "konsep:755",
+    "konsep:3766",
+    "konsep:3768",
+    "konsep:3771",
+    "konsep:2650"
+   ],
+   "E1": [
+    "form:4",
+    "lokasi:10",
+    "lokasi:11",
+    "lokasi:6",
+    "lokasi:9"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:755",
+    "lokasi:10",
+    "obat:1",
+    "pasien:44"
+   ],
+   "E3": [
+    "form:4",
+    "lokasi:10",
+    "lokasi:11",
+    "konsep:755",
+    "lokasi:6"
+   ],
+   "E4": [
+    "konsep:3771",
+    "lokasi:10",
+    "konsep:3770",
+    "lokasi:11",
+    "konsep:755"
+   ]
+  }
+ },
+ {
+  "q": "co 100mg",
+  "tipe": "hilang_kata",
+  "ent": "obat",
+  "seed": "obat:125",
+  "rel": {
+   "obat:125": 2,
+   "konsep:1545": 1,
+   "obat:126": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:125",
+    "obat:97"
+   ],
+   "B1": [
+    "obat:125",
+    "konsep:1513",
+    "konsep:161",
+    "konsep:1512",
+    "konsep:2500"
+   ],
+   "B2": [
+    "konsep:1512",
+    "konsep:1513",
+    "konsep:161",
+    "obat:125",
+    "konsep:2500"
+   ],
+   "E1": [
+    "obat:125",
+    "obat:41",
+    "obat:254",
+    "obat:97",
+    "obat:236"
+   ],
+   "E2": [
+    "konsep:1513",
+    "obat:125",
+    "konsep:161",
+    "obat:41",
+    "konsep:1512"
+   ],
+   "E3": [
+    "obat:125",
+    "obat:41",
+    "obat:254",
+    "obat:97",
+    "obat:236"
+   ],
+   "E4": [
+    "obat:97",
+    "konsep:132",
+    "obat:126",
+    "konsep:12",
+    "obat:1"
+   ]
+  }
+ },
+ {
+  "q": "operation surgical",
+  "tipe": "urut_balik",
+  "ent": "form",
+  "seed": "form:8",
+  "rel": {
+   "form:8": 2
+  },
+  "hasil": {
+   "B0": [
+    "form:8"
+   ],
+   "B1": [
+    "form:8",
+    "konsep:2105",
+    "konsep:761",
+    "konsep:3419",
+    "konsep:4175"
+   ],
+   "B2": [
+    "konsep:761",
+    "konsep:2105",
+    "konsep:3466",
+    "konsep:3563",
+    "konsep:3722"
+   ],
+   "E1": [
+    "form:8",
+    "konsep:3563",
+    "konsep:761",
+    "konsep:4175",
+    "konsep:3466"
+   ],
+   "E2": [
+    "form:8",
+    "konsep:3563",
+    "lokasi:10",
+    "obat:153",
+    "konsep:761"
+   ],
+   "E3": [
+    "form:8",
+    "konsep:3563",
+    "konsep:761",
+    "konsep:4175",
+    "konsep:3466"
+   ],
+   "E4": [
+    "konsep:4175",
+    "konsep:3563",
+    "konsep:3466",
+    "konsep:2226",
+    "konsep:761"
+   ]
+  }
+ },
+ {
+  "q": "torbadex 0 3 0 1",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:298",
+  "rel": {
+   "obat:298": 2,
+   "konsep:1814": 1,
+   "obat:301": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "form:4",
+    "obat:298",
+    "lokasi:12",
+    "lokasi:14",
+    "obat:154"
+   ],
+   "B2": [
+    "obat:298",
+    "obat:154",
+    "obat:292",
+    "obat:20",
+    "obat:308"
+   ],
+   "E1": [
+    "obat:298",
+    "form:4",
+    "obat:154",
+    "obat:292",
+    "lokasi:12"
+   ],
+   "E2": [
+    "form:4",
+    "konsep:2984",
+    "lokasi:12",
+    "obat:298",
+    "form:10"
+   ],
+   "E3": [
+    "obat:298",
+    "obat:154",
+    "obat:292",
+    "obat:20",
+    "obat:308"
+   ],
+   "E4": [
+    "konsep:1814",
+    "obat:298",
+    "konsep:1806",
+    "obat:301",
+    "konsep:1517"
+   ]
+  }
+ },
+ {
+  "q": "globugne sirop",
+  "tipe": "typo",
+  "ent": "obat",
+  "seed": "obat:158",
+  "rel": {
+   "obat:158": 2,
+   "konsep:1567": 1,
+   "obat:141": 1
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:1451",
+    "obat:263",
+    "obat:35",
+    "obat:56",
+    "obat:223"
+   ],
+   "B2": [
+    "konsep:1451",
+    "obat:152",
+    "obat:158",
+    "obat:263",
+    "obat:297"
+   ],
+   "E1": [
+    "konsep:1451",
+    "obat:158",
+    "obat:35",
+    "obat:263",
+    "obat:56"
+   ],
+   "E2": [
+    "konsep:1451",
+    "obat:158",
+    "konsep:1804",
+    "obat:35",
+    "konsep:1759"
+   ],
+   "E3": [
+    "obat:158",
+    "obat:35",
+    "obat:263",
+    "obat:56",
+    "konsep:1451"
+   ],
+   "E4": [
+    "obat:263",
+    "obat:35",
+    "konsep:1451",
+    "obat:56",
+    "konsep:1567"
+   ]
+  }
+ },
+ {
+  "q": "tudo pres 400mc",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:302",
+  "rel": {
+   "obat:302": 2,
+   "konsep:1423": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:302"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "obat:302",
+    "obat:271",
+    "obat:13",
+    "konsep:2898",
+    "konsep:4019"
+   ],
+   "E2": [
+    "konsep:2898",
+    "obat:302",
+    "konsep:4019",
+    "obat:271",
+    "konsep:380"
+   ],
+   "E3": [
+    "obat:302",
+    "obat:271",
+    "obat:13",
+    "obat:18",
+    "obat:175"
+   ],
+   "E4": [
+    "konsep:73",
+    "obat:302",
+    "konsep:1423",
+    "obat:12",
+    "konsep:1610"
+   ]
+  }
+ },
+ {
+  "q": "pyode gangr",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:2588",
+  "rel": {
+   "konsep:2588": 2,
+   "konsep:2709": 1,
+   "konsep:1303": 1,
+   "konsep:3023": 1,
+   "konsep:1364": 1,
+   "konsep:3655": 1,
+   "konsep:2194": 1,
+   "konsep:2007": 1,
+   "konsep:2002": 1,
+   "konsep:2453": 1,
+   "konsep:3707": 1,
+   "konsep:2554": 1,
+   "konsep:2307": 1,
+   "konsep:1887": 1,
+   "konsep:3699": 1,
+   "konsep:2430": 1,
+   "konsep:3561": 1,
+   "konsep:3621": 1,
+   "konsep:2287": 1,
+   "konsep:2438": 1,
+   "konsep:2741": 1,
+   "konsep:3105": 1,
+   "konsep:2170": 1,
+   "konsep:1363": 1,
+   "konsep:2207": 1,
+   "konsep:1315": 1,
+   "konsep:3145": 1,
+   "konsep:3556": 1,
+   "konsep:3309": 1,
+   "konsep:1963": 1,
+   "konsep:1404": 1,
+   "konsep:1346": 1,
+   "konsep:3319": 1,
+   "konsep:2708": 1,
+   "konsep:2202": 1,
+   "konsep:3546": 1,
+   "konsep:2204": 1,
+   "konsep:1352": 1,
+   "konsep:2710": 1,
+   "konsep:2206": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:2588"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:2588",
+    "konsep:3500",
+    "pasien:10",
+    "pasien:60",
+    "obat:249"
+   ],
+   "E2": [
+    "konsep:2588",
+    "obat:249",
+    "pasien:10",
+    "konsep:3500",
+    "pasien:60"
+   ],
+   "E3": [
+    "konsep:2588",
+    "konsep:3500",
+    "konsep:3683",
+    "konsep:2871",
+    "konsep:3127"
+   ],
+   "E4": [
+    "konsep:3682",
+    "konsep:3500",
+    "konsep:3683",
+    "konsep:2871",
+    "konsep:3127"
+   ]
+  }
+ },
+ {
+  "q": "emly hill",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:66",
+  "rel": {
+   "pasien:66": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "pasien:16",
+    "pasien:66"
+   ],
+   "B2": [
+    "pasien:16",
+    "pasien:66"
+   ],
+   "E1": [
+    "pasien:16",
+    "pasien:66",
+    "konsep:3809",
+    "konsep:4013",
+    "konsep:3441"
+   ],
+   "E2": [
+    "konsep:3809",
+    "obat:97",
+    "pasien:16",
+    "konsep:4013",
+    "pasien:66"
+   ],
+   "E3": [
+    "pasien:16",
+    "pasien:66",
+    "pasien:40",
+    "pasien:90",
+    "konsep:3809"
+   ],
+   "E4": [
+    "pasien:40",
+    "pasien:66",
+    "pasien:16",
+    "pasien:90",
+    "pasien:8"
+   ]
+  }
+ },
+ {
+  "q": "hiv enzyme immunoassay quantitative",
+  "tipe": "persis",
+  "ent": "konsep",
+  "seed": "konsep:659",
+  "rel": {
+   "konsep:659": 2,
+   "konsep:546": 1,
+   "konsep:658": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:659",
+    "konsep:546"
+   ],
+   "B1": [
+    "konsep:659",
+    "konsep:546",
+    "konsep:658",
+    "konsep:834",
+    "konsep:616"
+   ],
+   "B2": [
+    "konsep:659",
+    "konsep:658",
+    "konsep:546",
+    "konsep:834",
+    "konsep:616"
+   ],
+   "E1": [
+    "konsep:659",
+    "konsep:658",
+    "konsep:546",
+    "konsep:616",
+    "konsep:511"
+   ],
+   "E2": [
+    "konsep:659",
+    "lokasi:8",
+    "obat:219",
+    "konsep:658",
+    "obat:220"
+   ],
+   "E3": [
+    "konsep:659",
+    "konsep:658",
+    "konsep:546",
+    "konsep:616",
+    "konsep:511"
+   ],
+   "E4": [
+    "konsep:659",
+    "konsep:658",
+    "konsep:546",
+    "konsep:834",
+    "konsep:1086"
+   ]
+  }
+ },
+ {
+  "q": "senok 17mg",
+  "tipe": "trunkasi",
+  "ent": "obat",
+  "seed": "obat:286",
+  "rel": {
+   "obat:286": 2,
+   "konsep:1776": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:286"
+   ],
+   "B1": [
+    "obat:286"
+   ],
+   "B2": [
+    "obat:286"
+   ],
+   "E1": [
+    "obat:286",
+    "konsep:113",
+    "konsep:40"
+   ],
+   "E2": [
+    "konsep:113",
+    "obat:286",
+    "konsep:40"
+   ],
+   "E3": [
+    "obat:286",
+    "konsep:113",
+    "konsep:40"
+   ],
+   "E4": [
+    "konsep:113",
+    "konsep:40",
+    "konsep:1776",
+    "konsep:3907",
+    "konsep:1894"
+   ]
+  }
+ },
+ {
+  "q": "500mg co c vitamin",
+  "tipe": "urut_balik",
+  "ent": "obat",
+  "seed": "obat:310",
+  "rel": {
+   "obat:310": 2,
+   "konsep:1830": 1,
+   "obat:311": 1,
+   "obat:312": 1
+  },
+  "hasil": {
+   "B0": [
+    "obat:310"
+   ],
+   "B1": [
+    "obat:310",
+    "obat:311",
+    "obat:312",
+    "konsep:1830",
+    "konsep:1114"
+   ],
+   "B2": [
+    "obat:310",
+    "konsep:1830",
+    "obat:311",
+    "obat:312",
+    "konsep:1114"
+   ],
+   "E1": [
+    "obat:310",
+    "obat:311",
+    "obat:312",
+    "konsep:1830",
+    "konsep:4223"
+   ],
+   "E2": [
+    "konsep:1830",
+    "obat:310",
+    "konsep:4223",
+    "obat:311",
+    "konsep:18"
+   ],
+   "E3": [
+    "obat:310",
+    "obat:311",
+    "obat:312",
+    "obat:213",
+    "obat:230"
+   ],
+   "E4": [
+    "konsep:1830",
+    "obat:310",
+    "konsep:1671",
+    "obat:311",
+    "konsep:18"
+   ]
+  }
+ },
+ {
+  "q": "donald harris",
+  "tipe": "typo",
+  "ent": "pasien",
+  "seed": "pasien:19",
+  "rel": {
+   "pasien:19": 2
+  },
+  "hasil": {
+   "B0": [
+    "pasien:19",
+    "pasien:69"
+   ],
+   "B1": [
+    "pasien:19",
+    "pasien:69",
+    "pasien:39",
+    "pasien:89",
+    "pasien:102"
+   ],
+   "B2": [
+    "pasien:19",
+    "pasien:69",
+    "pasien:102",
+    "pasien:39",
+    "pasien:52"
+   ],
+   "E1": [
+    "pasien:19",
+    "pasien:69",
+    "pasien:102",
+    "pasien:52",
+    "pasien:39"
+   ],
+   "E2": [
+    "konsep:4152",
+    "pasien:19",
+    "konsep:63",
+    "pasien:69",
+    "konsep:2137"
+   ],
+   "E3": [
+    "pasien:19",
+    "pasien:69",
+    "pasien:102",
+    "pasien:52",
+    "pasien:39"
+   ],
+   "E4": [
+    "pasien:19",
+    "pasien:69",
+    "pasien:39",
+    "pasien:52",
+    "pasien:102"
+   ]
+  }
+ },
+ {
+  "q": "mobiel clinic",
+  "tipe": "typo",
+  "ent": "lokasi",
+  "seed": "lokasi:7",
+  "rel": {
+   "lokasi:7": 2
+  },
+  "hasil": {
+   "B0": [],
+   "B1": [
+    "konsep:750",
+    "konsep:736",
+    "lokasi:5",
+    "lokasi:7",
+    "konsep:4067"
+   ],
+   "B2": [
+    "konsep:750",
+    "konsep:4067",
+    "konsep:736",
+    "konsep:4022",
+    "konsep:4035"
+   ],
+   "E1": [
+    "lokasi:7",
+    "konsep:750",
+    "lokasi:5",
+    "konsep:736",
+    "konsep:4067"
+   ],
+   "E2": [
+    "konsep:750",
+    "lokasi:7",
+    "obat:294",
+    "pasien:41",
+    "konsep:736"
+   ],
+   "E3": [
+    "lokasi:7",
+    "lokasi:5",
+    "konsep:750",
+    "konsep:736",
+    "konsep:4067"
+   ],
+   "E4": [
+    "lokasi:5",
+    "lokasi:10",
+    "lokasi:11",
+    "lokasi:12",
+    "lokasi:13"
+   ]
+  }
+ },
+ {
+  "q": "with sepsis",
+  "tipe": "hilang_kata",
+  "ent": "konsep",
+  "seed": "konsep:3485",
+  "rel": {
+   "konsep:3485": 2,
+   "konsep:3565": 1,
+   "konsep:1125": 1,
+   "konsep:3106": 1,
+   "konsep:3278": 1
+  },
+  "hasil": {
+   "B0": [
+    "konsep:3485"
+   ],
+   "B1": [
+    "konsep:1125",
+    "konsep:3485",
+    "konsep:3565",
+    "obat:37",
+    "obat:38"
+   ],
+   "B2": [
+    "konsep:3485",
+    "konsep:1125",
+    "konsep:2463",
+    "konsep:3565",
+    "obat:37"
+   ],
+   "E1": [
+    "konsep:3485",
+    "konsep:1125",
+    "konsep:3565",
+    "konsep:2463",
+    "obat:37"
+   ],
+   "E2": [
+    "konsep:3485",
+    "obat:37",
+    "konsep:1125",
+    "obat:38",
+    "konsep:3565"
+   ],
+   "E3": [
+    "konsep:3485",
+    "konsep:1125",
+    "konsep:3565",
+    "konsep:2463",
+    "konsep:3126"
+   ],
+   "E4": [
+    "konsep:3126",
+    "konsep:2463",
+    "konsep:3485",
+    "konsep:3186",
+    "konsep:2173"
+   ]
+  }
+ },
+ {
+  "q": "lami zido",
+  "tipe": "trunkasi",
+  "ent": "konsep",
+  "seed": "konsep:134",
+  "rel": {
+   "konsep:134": 2
+  },
+  "hasil": {
+   "B0": [
+    "konsep:134",
+    "konsep:1836",
+    "konsep:146",
+    "konsep:1837"
+   ],
+   "B1": [],
+   "B2": [],
+   "E1": [
+    "konsep:134",
+    "obat:219",
+    "obat:220",
+    "konsep:146",
+    "obat:69"
+   ],
+   "E2": [
+    "konsep:134",
+    "obat:219",
+    "konsep:146",
+    "obat:220",
+    "konsep:56"
+   ],
+   "E3": [
+    "konsep:134",
+    "konsep:146",
+    "konsep:56",
+    "konsep:42",
+    "konsep:1473"
+   ],
+   "E4": [
+    "konsep:134",
+    "konsep:146",
+    "konsep:56",
+    "konsep:42",
+    "konsep:1837"
+   ]
+  }
+ }
+]

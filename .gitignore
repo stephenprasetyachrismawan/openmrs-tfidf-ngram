@@ -1,0 +1,28 @@
+# perkakas portabel — jangan masuk repo
+tools/
+
+# hasil build
+target/
+*.omod
+*.jar
+*.war
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# stack docker punya git sendiri
+openmrs-distro-referenceapplication/
+
+# scratch
+tmp/
+*.log
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.idea/
+.vscode/

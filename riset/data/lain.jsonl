@@ -1,0 +1,77 @@
+﻿{"id": "form:1", "entitas": "form", "judul": "Covid 19", "alias": null, "kode": "1", "konteks": "Covid 19 Form Consultation"}
+{"id": "form:2", "entitas": "form", "judul": "Form Engine Cookbook", "alias": null, "kode": "1", "konteks": "Reference examples of the OpenMRS 3 form engine's features. Each page demonstrates one topic, with a short markdown explanation followed by working example fields. Not for clinical use; this form is deliberately unpublished so it does not appear in the patient chart. Consultation"}
+{"id": "form:3", "entitas": "form", "judul": "Form Engine Cookbook Library", "alias": null, "kode": "1", "konteks": "Shared sections referenced by the Form Engine Cookbook. Not for clinical use. Consultation"}
+{"id": "form:4", "entitas": "form", "judul": "Ward Admission", "alias": null, "kode": "1.0.0", "konteks": "Create an admission request to an inpatient ward Transfer Request"}
+{"id": "form:5", "entitas": "form", "judul": "Mental Health Assessment Form", "alias": null, "kode": "1", "konteks": "A form used for screening, diagnosing, monitoring and measuring the severity of depression Mental Health Assessment"}
+{"id": "form:6", "entitas": "form", "judul": "SOAP Note Template", "alias": null, "kode": "1", "konteks": "SOAP Note Form Template Visit Note"}
+{"id": "form:7", "entitas": "form", "judul": "Structured SOAP note", "alias": null, "kode": "1.1", "konteks": "A form used to collect clinical information in a structured form Consultation"}
+{"id": "form:8", "entitas": "form", "judul": "Surgical Operation", "alias": null, "kode": "1", "konteks": "Surgery Form Consultation"}
+{"id": "form:9", "entitas": "form", "judul": "Test Form 1", "alias": null, "kode": "1", "konteks": "Consultation"}
+{"id": "form:10", "entitas": "form", "judul": "Laboratory Test Results", "alias": null, "kode": "3", "konteks": "Lab Results"}
+{"id": "lokasi:1", "entitas": "lokasi", "judul": "Unknown Location", "alias": null, "kode": null, "konteks": "Unknown Location"}
+{"id": "lokasi:2", "entitas": "lokasi", "judul": "Main Pharmacy", "alias": ["Main Pharmacy"], "kode": null, "konteks": ""}
+{"id": "lokasi:3", "entitas": "lokasi", "judul": "Main Store", "alias": ["Main Store"], "kode": null, "konteks": ""}
+{"id": "lokasi:4", "entitas": "lokasi", "judul": "Ubuntu Hospital", "alias": ["Visit Location"], "kode": null, "konteks": "Ubuntu Hospital"}
+{"id": "lokasi:5", "entitas": "lokasi", "judul": "Outpatient Clinic", "alias": ["Queue Location","Appointment Location","Login Location","Facility Location"], "kode": null, "konteks": "Outpatient Clinic"}
+{"id": "lokasi:6", "entitas": "lokasi", "judul": "Inpatient Ward", "alias": ["Login Location","Admission Location","Transfer Location"], "kode": null, "konteks": "Inpatient Ward"}
+{"id": "lokasi:7", "entitas": "lokasi", "judul": "Mobile Clinic", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Mobile Clinic"}
+{"id": "lokasi:8", "entitas": "lokasi", "judul": "Community Outreach", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Community Outreach"}
+{"id": "lokasi:9", "entitas": "lokasi", "judul": "Ward 1", "alias": ["Login Location","Admission Location","Transfer Location"], "kode": null, "konteks": "Ward 1"}
+{"id": "lokasi:10", "entitas": "lokasi", "judul": "Ward 2", "alias": ["Login Location","Admission Location","Transfer Location"], "kode": null, "konteks": "Ward 2"}
+{"id": "lokasi:11", "entitas": "lokasi", "judul": "Ward 3", "alias": ["Login Location","Admission Location","Transfer Location"], "kode": null, "konteks": "Ward 3"}
+{"id": "lokasi:12", "entitas": "lokasi", "judul": "Site 1", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 1"}
+{"id": "lokasi:13", "entitas": "lokasi", "judul": "Site 2", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 2"}
+{"id": "lokasi:14", "entitas": "lokasi", "judul": "Site 3", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 3"}
+{"id": "lokasi:15", "entitas": "lokasi", "judul": "Site 4", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 4"}
+{"id": "lokasi:16", "entitas": "lokasi", "judul": "Site 5", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 5"}
+{"id": "lokasi:17", "entitas": "lokasi", "judul": "Site 6", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 6"}
+{"id": "lokasi:18", "entitas": "lokasi", "judul": "Site 7", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 7"}
+{"id": "lokasi:19", "entitas": "lokasi", "judul": "Site 8", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 8"}
+{"id": "lokasi:20", "entitas": "lokasi", "judul": "Site 9", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 9"}
+{"id": "lokasi:21", "entitas": "lokasi", "judul": "Site 10", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 10"}
+{"id": "lokasi:22", "entitas": "lokasi", "judul": "Site 11", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 11"}
+{"id": "lokasi:23", "entitas": "lokasi", "judul": "Site 12", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 12"}
+{"id": "lokasi:24", "entitas": "lokasi", "judul": "Site 13", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 13"}
+{"id": "lokasi:25", "entitas": "lokasi", "judul": "Site 14", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 14"}
+{"id": "lokasi:26", "entitas": "lokasi", "judul": "Site 15", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 15"}
+{"id": "lokasi:27", "entitas": "lokasi", "judul": "Site 16", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 16"}
+{"id": "lokasi:28", "entitas": "lokasi", "judul": "Site 17", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 17"}
+{"id": "lokasi:29", "entitas": "lokasi", "judul": "Site 18", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 18"}
+{"id": "lokasi:30", "entitas": "lokasi", "judul": "Site 19", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 19"}
+{"id": "lokasi:31", "entitas": "lokasi", "judul": "Site 20", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 20"}
+{"id": "lokasi:32", "entitas": "lokasi", "judul": "Site 21", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 21"}
+{"id": "lokasi:33", "entitas": "lokasi", "judul": "Site 22", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 22"}
+{"id": "lokasi:34", "entitas": "lokasi", "judul": "Site 23", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 23"}
+{"id": "lokasi:35", "entitas": "lokasi", "judul": "Site 24", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 24"}
+{"id": "lokasi:36", "entitas": "lokasi", "judul": "Site 25", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 25"}
+{"id": "lokasi:37", "entitas": "lokasi", "judul": "Site 26", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 26"}
+{"id": "lokasi:38", "entitas": "lokasi", "judul": "Site 27", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 27"}
+{"id": "lokasi:39", "entitas": "lokasi", "judul": "Site 28", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 28"}
+{"id": "lokasi:40", "entitas": "lokasi", "judul": "Site 29", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 29"}
+{"id": "lokasi:41", "entitas": "lokasi", "judul": "Site 30", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 30"}
+{"id": "lokasi:42", "entitas": "lokasi", "judul": "Site 31", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 31"}
+{"id": "lokasi:43", "entitas": "lokasi", "judul": "Site 32", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 32"}
+{"id": "lokasi:44", "entitas": "lokasi", "judul": "Site 33", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 33"}
+{"id": "lokasi:45", "entitas": "lokasi", "judul": "Site 34", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 34"}
+{"id": "lokasi:46", "entitas": "lokasi", "judul": "Site 35", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 35"}
+{"id": "lokasi:47", "entitas": "lokasi", "judul": "Site 36", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 36"}
+{"id": "lokasi:48", "entitas": "lokasi", "judul": "Site 37", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 37"}
+{"id": "lokasi:49", "entitas": "lokasi", "judul": "Site 38", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 38"}
+{"id": "lokasi:50", "entitas": "lokasi", "judul": "Site 39", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 39"}
+{"id": "lokasi:51", "entitas": "lokasi", "judul": "Site 40", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 40"}
+{"id": "lokasi:52", "entitas": "lokasi", "judul": "Site 41", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 41"}
+{"id": "lokasi:53", "entitas": "lokasi", "judul": "Site 42", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 42"}
+{"id": "lokasi:54", "entitas": "lokasi", "judul": "Site 43", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 43"}
+{"id": "lokasi:55", "entitas": "lokasi", "judul": "Site 44", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 44"}
+{"id": "lokasi:56", "entitas": "lokasi", "judul": "Site 45", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 45"}
+{"id": "lokasi:57", "entitas": "lokasi", "judul": "Site 46", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 46"}
+{"id": "lokasi:58", "entitas": "lokasi", "judul": "Site 47", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 47"}
+{"id": "lokasi:59", "entitas": "lokasi", "judul": "Site 48", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 48"}
+{"id": "lokasi:60", "entitas": "lokasi", "judul": "Site 49", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 49"}
+{"id": "lokasi:61", "entitas": "lokasi", "judul": "Site 50", "alias": ["Login Location","Visit Location"], "kode": null, "konteks": "Site 50"}
+{"id": "provider:1", "entitas": "provider", "judul": "Unknown Provider", "alias": null, "kode": "UNKNOWN", "konteks": "f9badd80-ab76-11e2-9e96-0800200c9a66"}
+{"id": "provider:2", "entitas": "provider", "judul": "Super User", "alias": null, "kode": "admin", "konteks": "8f1b56a8-4366-4e10-9cff-e92b728217ef"}
+{"id": "provider:3", "entitas": "provider", "judul": "John Clerk", "alias": null, "kode": "clerk", "konteks": "fc56c535-aa16-46dd-b16e-ac2641850b6b"}
+{"id": "provider:4", "entitas": "provider", "judul": "June Technician", "alias": null, "kode": "technician", "konteks": "92416875-5fe2-4d3b-8531-e2c8c846a69d"}
+{"id": "provider:5", "entitas": "provider", "judul": "Jane Nurse", "alias": null, "kode": "nurse", "konteks": "1fee2f21-82f3-4aab-8d87-f1cf19034649"}
+{"id": "provider:6", "entitas": "provider", "judul": "Jake Doctor", "alias": null, "kode": "doctor", "konteks": "705f5791-07a7-44b8-932f-a81f3526fc98"}
