@@ -100,3 +100,20 @@ curl.exe -s -o NUL -w "%{http_code}" http://127.0.0.1/openmrs/ws/rest/v1/session
 ```
 
 Harus: 4 container `Up (healthy)`, dan kode HTTP `200`.
+
+## Versi platform (diverifikasi 20 Agustus 2026, tugas 00)
+
+Dibaca dari `GET /openmrs/ws/rest/v1/systeminformation?v=full`.
+
+| Butir | Nilai |
+|---|---|
+| OpenMRS Platform | **2.8.8 Build 0** |
+| Java di dalam container backend | 21.0.11 |
+| Java di mesin pengembang (untuk build) | 17.0.17 (Oracle JDK 17) |
+| Maven | 3.9.16 (portabel, `tools/apache-maven-3.9.16/`) |
+| MariaDB | 10.11.7 |
+
+Konsekuensi untuk modul: `openmrsPlatformVersion` di POM modul dipatok ke
+`2.8.8`, dan API yang dipakai harus yang tersedia di platform 2.8.x.
+Modul dikompilasi dengan JDK 17 dan dijalankan di JRE 21 — kompatibel, tetapi
+target bytecode jangan dinaikkan melebihi 17.
