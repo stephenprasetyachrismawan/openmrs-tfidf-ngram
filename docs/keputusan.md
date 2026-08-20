@@ -61,3 +61,101 @@ naikkan ke 11 lalu 17, dan **catat perubahannya di sini** beserta pesan galatnya
 Belum ditetapkan. Eksperimen memakai 0,45; sapuan parameter menunjukkan optimum
 di sekitar 0,25. Diselesaikan di `tugas/06-alpha-final.md`, memakai 100 query dev
 — **bukan** 180 query uji.
+
+---
+
+## 2026-08-21 · Direktori modul di container adalah `/openmrs/data/modules`
+
+**Keputusan:** skrip pemasangan menyalin `.omod` ke `/openmrs/data/modules`,
+bukan ke `/usr/local/tomcat/.OpenMRS/modules` seperti yang tertulis di
+`tugas/01-skeleton-omod.md`.
+
+**Bukti:** path yang disebut di berkas tugas tidak ada pada image ini.
+
+```
+docker exec ...-backend-1 sh -c 'ls -d /usr/local/tomcat/.OpenMRS'
+→ ls: cannot access /usr/local/tomcat/.OpenMRS: No such file or directory
+
+docker exec ...-backend-1 sh -c 'find / -name "*.omod" | head'
+→ /openmrs/data/modules/legacyui-2.1.0.omod  (dan 29 modul lain)
+```
+
+`/openmrs/data` adalah mount volume `openmrs-distro-referenceapplication_openmrs-data`,
+jadi `.omod` yang disalin bertahan walau container dibuat ulang.
+
+---
+
+## 2026-08-21 · Modul bergantung pada legacyui (hanya untuk lapisan web)
+
+**Keputusan:** `omod` memakai dependensi `org.openmrs.module:legacyui-omod:2.1.0`
+(scope `provided`) dan `config.xml` menyatakan `<require_modules>` pada
+`org.openmrs.module.legacyui`.
+
+**Alasan:** kelas titik-ekstensi menu administrasi,
+`org.openmrs.module.web.extension.AdministrationSectionExt`, sudah **tidak** ada
+di `openmrs-api`/`openmrs-web` 2.8.8. Build gagal:
+
+```
+package org.openmrs.module.web.extension does not exist
+cannot find symbol: class AdministrationSectionExt
+```
+
+Kelas itu sekarang berada di `legacyui-omod-2.1.0.jar`
+(`org/openmrs/module/web/extension/AdministrationSectionExt.class`), dan
+`legacyui-2.1.0.omod` memang sudah terpasang di stack ini.
+
+**Konsekuensi:** ketergantungan ini hanya untuk halaman antarmuka lama.
+Logika pencarian dan endpoint REST nanti tidak boleh menyentuh legacyui, supaya
+tetap bisa dipakai dari O3.
+
+---
+
+## 2026-08-20 · Antarmuka dibangun sebagai microfrontend O3 (bukan JSP)
+
+**Keputusan:** kedua antarmuka — menu "Pencarian Terpadu" dan perbaikan kotak
+diagnosis — dibangun sebagai **ESM (microfrontend) OpenMRS 3**, bukan halaman
+JSP legacyui.
+
+**Alasan:** RefApp 3 adalah tempat klinisi benar-benar bekerja. Halaman JSP
+legacyui hanya terlihat lewat menu Administration, sehingga demo "petugas
+mengetik `diabete melitus` di form Visit Note" tidak bisa ditunjukkan pada
+antarmuka yang sesungguhnya. Klaim kegunaan di proposal jadi lebih kuat kalau
+perbaikannya muncul di layar yang nyata.
+
+**Kelayakan sudah diperiksa** sebelum diputuskan:
+
+| Prasyarat | Status |
+|---|---|
+| Node | v26.7.0 |
+| npm | 11.11.0 |
+| git | 2.45.1 |
+| `importmap.json` di container frontend | ada dan terbaca |
+
+`importmap.json` adalah titik penyisipan: ESM kita dibangun jadi berkas `.js`,
+disajikan dari container frontend, lalu didaftarkan sebagai entri baru di peta
+itu. Tidak perlu membangun ulang seluruh frontend RefApp.
+
+**Yang ditolak:** JSP legacyui untuk panel evaluasi. Ditolak demi konsistensi —
+satu toolchain frontend lebih mudah dirawat empat orang daripada dua.
+
+### Risiko yang diterima, dan katupnya
+
+Ini pilihan termahal dari tiga yang tersedia. Risikonya nyata: toolchain O3
+(module federation, `openmrs` CLI, versi `@openmrs/esm-framework` yang harus
+cocok dengan RefApp yang berjalan) bisa memakan waktu berhari-hari sebelum satu
+piksel pun muncul.
+
+**Yang harus dipahami seluruh kelompok:** tidak satu pun klaim penelitian
+bergantung pada antarmuka ini. Seluruh angka di Bab 6 dihasilkan pipeline
+Python dan endpoint REST. Antarmuka hanya memperagakannya.
+
+**Katup pengaman — gerbang di tugas 10.** Kalau setelah tugas 10 ESM "hello
+world" belum juga tampil di frontend yang berjalan, kelompok **berhenti mencoba
+O3** dan turun ke halaman JSP legacyui (bahan mockup sudah siap di
+`docs/proposal.html`). Keputusan turun itu dicatat di berkas ini. Jangan
+menghabiskan minggu terakhir pada webpack sementara laporan belum ditulis.
+
+**Urutan pengerjaan dibalik dari rencana semula:** endpoint REST (tugas 09)
+harus selesai dan teruji lewat `curl` **sebelum** frontend disentuh. Dengan
+begitu, kalaupun jalur O3 gagal total, seluruh isi penelitian tetap utuh dan
+bisa dilaporkan.
