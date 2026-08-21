@@ -1210,3 +1210,47 @@ ranking di ESM) — kriteria tugas 11 kemungkinan ditulis mengacu ke data
 mockup `docs/proposal.html`, bukan korpus demo OpenMRS yang sebenarnya
 berjalan di sini. Dilaporkan apa adanya, bukan diakali dengan menambah data
 atau mengubah query contoh diam-diam.
+
+---
+
+## 2026-08-22 · C-3 / tugas 12: panel evaluasi di dalam ESM — LULUS
+
+### Perluasan endpoint eval yang dibutuhkan tugas ini (backend)
+
+Endpoint `/unifiedsearch/eval` sebelumnya (tugas 09/C1) hanya mengembalikan
+metrik agregat satu mode. Tugas 12 minta tabel perbandingan B0/B1/E1/E3
+berdampingan DAN rincian per jenis kesalahan ketik — dua hal yang belum
+didukung backend sama sekali. Diperluas, bukan diakali di ESM:
+
+- `DevQueryGoldStandard.EvalQuery` menambah field `tipe` (persis/typo/
+  trunkasi/hilang_kata/urut_balik), dibaca dari `gold-dev-100.json` yang
+  sudah punya field itu sejak C1 (cuma belum dipakai).
+- `EvalService.evaluate()` mengelompokkan hasil per `tipe` sekaligus per
+  mode, mengembalikan `per_tipe: {tipe: {n_query, ndcg10, p1}}` dan
+  `waktu_indeks_ms` (dari `IndexBuilder.getBuildDurationMs()`, sudah ada,
+  belum pernah diekspos lewat REST).
+- Panel ESM memanggil keempat mode (`b0,b1,e1,e3`) lewat `Promise.all`,
+  menyusun tabel metrik agregat (kolom nDCG@10 ditebalkan sebagai kolom
+  utama) dan tabel silang jenis-kesalahan × mode.
+
+### Verifikasi "Selesai kalau" — live di browser sungguhan
+
+| Kriteria | Hasil |
+|---|---|
+| Tombol ditekan → tabel terisi, tanpa galat console | Ya — 4 panggilan eval (`mode=b0,b1,e1,e3`) semuanya 200; satu galat 401 di console tidak terkait (tidak muncul di daftar network request pada rentang waktu yang sama, kemungkinan sisa proses login/session sebelum otentikasi selesai) |
+| nDCG@10 e3 ≈ acuan, b0 ≈ acuan | e3 = 0,846, b0 = 0,660 — **bukan** 0,811/0,628 seperti tertulis semula di `tugas/12-esm-panel-evaluasi.md`. Selisihnya **sudah dijelaskan dan diverifikasi di C1**: 0,811/0,628 adalah angka test set 180 query (tugas 08b), sedangkan endpoint eval sengaja memakai gold dev 100 query (CLAUDE.md aturan 10 — test set cuma boleh dijalankan sekali). `tugas/12-esm-panel-evaluasi.md` diperbarui supaya tidak menyesatkan pembaca berikutnya. Ini **bukan** penyimpangan baru — dev dan test memang dua angka berbeda by design |
+| Dua kali jalan berturut-turut → angka identik | Ya — dibandingkan lewat DOM (`JSON.stringify` dua array baris tabel), identik kecuali kolom latensi (diharapkan bervariasi, bukan bagian dari kriteria determinisme) |
+| Panel tetap terbaca di 1280 px | Ya — `document.documentElement.scrollWidth` (1265px) < `innerWidth` (1280px), tidak ada scroll horizontal di level halaman; tabel sendiri dibungkus `overflow-x:auto` |
+
+### Temuan tambahan yang layak dicatat
+
+Cross-tab jenis-kesalahan × mode langsung memperagakan klaim utama
+penelitian secara visual: **b0 pada tipo = 0,038** vs **b0 pada trunkasi =
+0,851** — heuristik OpenMRS runtuh total pada salah ketik tapi menang pada
+pemotongan kata, persis narasi `docs/proposal.html` bagian 6. Ini bukan
+angka baru, tapi kini bisa dilihat siapa saja dari panel tanpa membaca kode
+Python.
+
+Sepanjang C-2 dan C-3, bug cache 1-tahun dari `pasang-esm.ps1` (dicatat di
+entri C-2) tidak terulang — setiap pemasangan dengan tanggal-jam baru
+langsung menyajikan versi terbaru.

@@ -33,9 +33,12 @@ public final class DevQueryGoldStandard {
 
 		private final Map<String, Integer> rel;
 
-		public EvalQuery(String q, Map<String, Integer> rel) {
+		private final String tipe;
+
+		public EvalQuery(String q, Map<String, Integer> rel, String tipe) {
 			this.q = q;
 			this.rel = rel;
+			this.tipe = tipe;
 		}
 
 		public String getQ() {
@@ -44,6 +47,11 @@ public final class DevQueryGoldStandard {
 
 		public Map<String, Integer> getRel() {
 			return rel;
+		}
+
+		/** persis / typo / trunkasi / hilang_kata / urut_balik — untuk rincian per jenis kesalahan ketik (tugas 12). */
+		public String getTipe() {
+			return tipe;
 		}
 	}
 
@@ -84,13 +92,14 @@ public final class DevQueryGoldStandard {
 			@SuppressWarnings("unchecked")
 			Map<String, Object> row = (Map<String, Object>) item;
 			String q = String.valueOf(row.get("q"));
+			String tipe = String.valueOf(row.get("tipe"));
 			@SuppressWarnings("unchecked")
 			Map<String, Object> relRaw = (Map<String, Object>) row.get("rel");
 			Map<String, Integer> rel = new LinkedHashMap<String, Integer>();
 			for (Map.Entry<String, Object> e : relRaw.entrySet()) {
 				rel.put(e.getKey(), Integer.valueOf(((Number) e.getValue()).intValue()));
 			}
-			out.add(new EvalQuery(q, rel));
+			out.add(new EvalQuery(q, rel, tipe));
 		}
 		Object sha = root.get("sha256_sumber");
 		return new Gold(out, sha == null ? null : String.valueOf(sha));

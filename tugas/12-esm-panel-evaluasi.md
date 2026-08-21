@@ -38,8 +38,15 @@ diperiksa orang lain tanpa membangun ulang apa pun.
 ## Selesai kalau
 
 - Tombol ditekan → tabel terisi, tanpa galat di console.
-- nDCG@10 untuk `e3` berada di sekitar **0,811**, dan untuk `b0` di sekitar
-  **0,628**. Selisih besar dari itu harus dilaporkan, bukan didiamkan.
+- nDCG@10 untuk `e3` berada di sekitar **0,846**, dan untuk `b0` di sekitar
+  **0,660**. **Catatan (diperbarui setelah tugas 09/C1):** angka 0,811/0,628
+  yang tertulis semula adalah hasil test set 180 query (`riset/hasil3/`,
+  tugas 08b) — endpoint eval yang sebenarnya dipanggil panel ini memakai gold
+  **dev 100 query** (lihat `docs/keputusan.md`, entri C1 dan "coretan angka
+  tugas 12"), yang secara sengaja terpisah dari test set (CLAUDE.md aturan
+  10). Dev dan test bukan angka yang sama by design — jangan disamakan atau
+  dibaca sebagai penyimpangan. Selisih besar dari **0,846** (e3) atau
+  **0,660** (b0) yang tidak jelas sebabnya tetap harus dilaporkan.
 - Menjalankan dua kali berturut-turut memberi angka **identik** — determinisme,
   aturan 1 `CLAUDE.md`. Kalau berbeda, ada kebocoran non-determinisme di server;
   berhenti dan laporkan.

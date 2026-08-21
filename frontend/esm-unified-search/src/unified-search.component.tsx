@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Dropdown, InlineNotification, Loading, Search, Tag } from '@carbon/react';
 import { openmrsFetch, restBaseUrl, useDebounce } from '@openmrs/esm-framework';
+import EvalPanel from './eval-panel.component';
 import styles from './unified-search.scss';
 
 /**
@@ -185,6 +186,8 @@ const UnifiedSearch: React.FC = () => {
           ))}
         </div>
       )}
+
+      <EvalPanel />
     </div>
   );
 };

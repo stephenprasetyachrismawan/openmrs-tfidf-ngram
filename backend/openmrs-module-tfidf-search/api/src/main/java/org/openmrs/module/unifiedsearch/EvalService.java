@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -43,9 +44,12 @@ public class EvalService {
 		double alpha = AlphaConfig.current();
 		List<EvalQuery> queries = devQueries();
 		List<EvalMetrics.Result> rows = new ArrayList<EvalMetrics.Result>();
+		Map<String, List<EvalMetrics.Result>> rowsPerTipe = new TreeMap<String, List<EvalMetrics.Result>>();
 		for (EvalQuery item : queries) {
 			List<String> keys = engine.searchKeys(mode, item.getQ(), alpha, 10);
-			rows.add(EvalMetrics.compute(keys, item.getRel()));
+			EvalMetrics.Result r = EvalMetrics.compute(keys, item.getRel());
+			rows.add(r);
+			rowsPerTipe.computeIfAbsent(item.getTipe(), k -> new ArrayList<EvalMetrics.Result>()).add(r);
 		}
 		long waktuMs = (System.nanoTime() - mulai) / 1000000L;
 		Map<String, Object> out = new LinkedHashMap<String, Object>();
@@ -61,6 +65,17 @@ public class EvalService {
 		out.put("map", avg.get("map"));
 		out.put("ndcg10", avg.get("ndcg10"));
 		out.put("pct_nol", avg.get("pct_nol"));
+		out.put("waktu_indeks_ms", Long.valueOf(indexBuilder.getBuildDurationMs()));
+		Map<String, Object> perTipe = new LinkedHashMap<String, Object>();
+		for (Map.Entry<String, List<EvalMetrics.Result>> entry : rowsPerTipe.entrySet()) {
+			Map<String, Double> avgTipe = EvalMetrics.average(entry.getValue());
+			Map<String, Object> ringkasTipe = new LinkedHashMap<String, Object>();
+			ringkasTipe.put("n_query", Integer.valueOf(entry.getValue().size()));
+			ringkasTipe.put("ndcg10", avgTipe.get("ndcg10"));
+			ringkasTipe.put("p1", avgTipe.get("p1"));
+			perTipe.put(entry.getKey(), ringkasTipe);
+		}
+		out.put("per_tipe", perTipe);
 		log.info("Eval " + mode + " on " + queries.size() + " dev queries finished in " + waktuMs + " ms");
 		return new Timed<Map<String, Object>>(out, waktuMs);
 	}
