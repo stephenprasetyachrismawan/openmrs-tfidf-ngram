@@ -968,3 +968,99 @@ mode REST — bukan "salah satu dari dua pilihan yang direkomendasikan"
 (buang / masukkan ke REST) tapi opsi ketiga: pertahankan secara internal,
 blokir di REST (yang sudah terjadi). Tidak ada perubahan pada
 `EvalService.REST_MODES`.
+
+---
+
+## 2026-08-21 · Tugas 10 (gerbang keputusan) — LULUS, ESM O3 jalan
+
+**Langkah 1 — versi framework.** `spa-assemble-config.json` di container
+frontend melaporkan `"coreVersion":"10.0.0"`, cocok dengan versi seluruh app
+inti (esm-login-app, esm-primary-navigation-app, esm-devtools-app,
+esm-implementer-tools-app, esm-help-menu-app — semuanya 10.0.0). Diverifikasi
+`@openmrs/esm-framework@10.0.0`, `@openmrs/esm-styleguide@10.0.0`, dan
+`openmrs@10.0.0` memang ada di registry npm (bukan tebakan).
+
+**Langkah 2 — scaffold.** `openmrs-esm-template-app` tidak ada sebagai
+paket npm (404) — di-clone langsung dari GitHub
+(`github.com/openmrs/openmrs-esm-template-app`) ke `frontend/esm-unified-search/`,
+`.git` bawaan dihapus supaya jadi bagian repo utama. `devDependencies`
+`@openmrs/esm-framework`/`@openmrs/esm-styleguide`/`openmrs` yang semula
+`"next"` dikunci ke `10.0.0` (langkah 2: "kalau template menarik versi
+berbeda, samakan"). `yarn.lock`/`packageManager: yarn@4.10.3` diganti `npm`
+(lebih sederhana, tidak perlu corepack/Yarn PnP untuk satu app berdiri
+sendiri). `husky`, `turbo`, `lint-staged`, `.github/`, `.husky/`, `.yarn/`,
+`e2e/`, `playwright.config.ts` dibuang — semua itu infrastruktur monorepo
+template yang tidak berlaku untuk satu app berdiri sendiri di sini.
+
+**Langkah 3 — isi awal.** Komponen demo (boxes/greeter/patient-getter/
+resources) dibuang; `root.component.tsx` cuma menampilkan
+"Pencarian Terpadu — modul termuat". Satu entri menu (`menu-link.component.tsx`).
+
+**Bug versi nyata yang ditemukan dan diperbaiki — persis skenario yang
+diantisipasi gerbang ini.** Kode awal memakai `ConfigurableLink` dari
+`@openmrs/esm-styleguide`, pola umum di banyak tutorial O3. Build gagal:
+`TS2305: Module '"@openmrs/esm-styleguide"' has no exported member
+'ConfigurableLink'`. Diperiksa langsung ke `node_modules/@openmrs/esm-styleguide/dist/public.d.ts`
+(bukan dokumentasi/ingatan) — versi 10.0.0 yang terpasang memang tidak
+mengekspornya secara publik. Diganti dengan `navigate()` dari
+`@openmrs/esm-framework` (dipastikan ada di `esm-navigation/src/public.ts`),
+API yang lebih stabil dan cukup untuk kebutuhan tugas ini.
+
+**Temuan kedua yang tidak disebutkan di berkas tugas ini, tapi krusial:
+importmap.json saja tidak cukup.** Setelah menyisipkan entri importmap dan
+`docker cp` dist/, entri menu tidak muncul dan JS modul tidak pernah
+di-fetch (dibuktikan lewat `read_network_requests` di browser sungguhan,
+bukan tebakan). Diperiksa: shell RefApp memuat `GET
+/openmrs/spa/routes.registry.json` saat startup — manifest gabungan
+`routes.json` semua app. Tanpa entri kita di situ, shell tidak tahu app
+kita punya halaman/ekstensi apa pun, walau JS-nya sudah bisa diresolusi
+lewat importmap. `scripts/pasang-esm.ps1` diperluas menyisipkan (bukan
+menimpa — salinan asli disimpan di
+`docs/arsip/routes.registry.json.sebelum-unifiedsearch`, sama seperti
+importmap.json) entri kita ke `routes.registry.json` juga.
+
+**Temuan ketiga: nama slot menu salah di percobaan pertama.** Ekstensi
+menu awalnya didaftarkan ke slot `app-menu-item-slot` (dipakai
+esm-billing-app/esm-stock-management-app di registry yang sama) — tapi
+slot itu dirender di panel *lain* (tile grid System Administration), bukan
+panel "App Menu" di top nav. Panel App Menu (tombol aria-label "App Menu")
+ternyata merender slot `app-menu-slot` (dipakai esm-dispensing-app,
+esm-service-queues-app, esm-fast-data-entry-app). Diganti ke
+`app-menu-slot` — dikonfirmasi langsung: menu "Pencarian Terpadu" muncul di
+panel App Menu, JS ter-fetch (network request nyata, 200 OK), console
+bersih dari galat module federation.
+
+**Bug baru yang ditemukan sendiri: BOM di importmap.json.** Versi pertama
+`pasang-esm.ps1` menulis JSON hasil edit dengan `Set-Content -Encoding
+utf8`, yang di Windows PowerShell 5.1 menyisipkan BOM UTF-8. `JSON.parse()`
+browser menolak BOM di awal berkas — akan mematahkan seluruh RefApp kalau
+tidak ketahuan. Diperbaiki dengan `[System.IO.File]::WriteAllText(...,
+New-Object System.Text.UTF8Encoding($false))` (tanpa BOM), untuk kedua
+berkas yang disisipi (`importmap.json` dan `routes.registry.json`).
+
+**Verifikasi "Selesai kalau" — semua lulus, di browser sungguhan (bukan
+curl saja), lewat DOM/network/console inspection karena lingkungan ini
+tidak punya compositor layar untuk screenshot:**
+
+| Kriteria | Hasil |
+|---|---|
+| `npm run build` sukses | Ya — rspack compiled, 1 warning ukuran aset (jinak) |
+| `pasang-esm.ps1` jalan awal-akhir tanpa campur tangan | Ya, dua kali (dengan dan tanpa `-SkipInstall -SkipBuild`) |
+| Entri menu baru muncul + halaman menampilkan teks penanda | Ya — "Pencarian Terpadu" di panel App Menu, klik → "Pencarian Terpadu — modul termuat" |
+| Console bersih dari galat module federation | Ya — satu galat konsol ada, tapi pra-ada dan tidak terkait: `Could not find the package @openmrs/esm-cohort-builder` (dibuktikan ada juga di `importmap.json.sebelum-unifiedsearch`, sebelum modul kita disentuh sama sekali) |
+| App RefApp lain masih berfungsi (patient search, admin) | Ya — halaman pencarian pasien dan System Administration dicoba, tidak ada galat baru |
+| `docker ps` tetap 4 container | Ya, diperiksa sebelum dan sesudah setiap pemasangan |
+
+**Kenapa gerbang ini tidak dipakai untuk turun ke JSP.** Setiap masalah
+yang muncul (API hilang, manifest kedua yang perlu disisipi, nama slot
+salah, BOM) punya akar penyebab yang bisa diverifikasi langsung ke berkas
+nyata (`node_modules/**/*.d.ts`, network request, isi JSON) dalam hitungan
+menit — bukan ketidakcocokan versi framework yang mendalam atau kegagalan
+module federation yang tak bisa dijelaskan, yaitu tepatnya kondisi yang
+disebut berkas tugas ini sebagai alasan berhenti. Jalur O3 dilanjutkan ke
+tugas 11.
+
+**Catatan untuk tugas 11+:** `pasang-esm.ps1` sekarang jadi titik satu-satunya
+untuk memasang ulang setelah perubahan kode ESM — jalankan tanpa flag untuk
+siklus penuh (`npm ci` + build + salin + sisip + reload), atau dengan
+`-SkipInstall -SkipBuild` kalau `dist/` sudah dibangun manual.
