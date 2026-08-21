@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.openmrs.api.context.Context;
+import org.openmrs.module.unifiedsearch.FusionSearch;
+import org.openmrs.module.unifiedsearch.RankedDocument;
 import org.openmrs.module.unifiedsearch.SurfaceForm;
 import org.openmrs.module.unifiedsearch.SurfaceFormExtractor;
 import org.openmrs.module.unifiedsearch.TfIdfIndex;
@@ -21,14 +23,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Placeholder page. Until the search UI exists it reports the size of the
- * corpus (K1/K2) and, since tugas 04, a live check of the character n-gram
- * index (K4): build time for the whole corpus and the score of the two worked
- * examples from tugas/04-kepingan-karakter.md.
+ * corpus (K1/K2), a live check of the character n-gram index (K4), and since
+ * tugas 05, a live check of the K5 fusion. ALPHA=0.45 here is the provisional
+ * value from docs/keputusan.md, shown only to demonstrate the fusion — it is
+ * NOT tuned here; that happens in tugas 06.
  */
 @Controller
 public class UnifiedSearchPageController {
 	
 	private static final int NGRAM = 4;
+
+	/** Provisional only — see docs/keputusan.md "Menunggu keputusan". Not tuned here. */
+	private static final double ALPHA_SEMENTARA = 0.45;
 
 	private final DocumentRepository repository;
 
@@ -62,6 +68,7 @@ public class UnifiedSearchPageController {
 		int totalForm = 0;
 		List<SurfaceForm> formKonsep = new ArrayList<SurfaceForm>();
 		TfIdfIndex indeksKepinganKonsep = null;
+		TfIdfIndex indeksKataKonsep = null;
 		long mulaiBangunKepingan = System.nanoTime();
 		int totalKepinganVocab = 0;
 		for (VirtualDocumentList list : perEntitas) {
@@ -77,6 +84,8 @@ public class UnifiedSearchPageController {
 			if ("konsep".equals(list.getEntitas())) {
 				formKonsep = forms;
 				indeksKepinganKonsep = indeksKepingan;
+				indeksKataKonsep = new TfIdfIndex(Tokenizer::words);
+				indeksKataKonsep.build(teks(forms));
 			}
 		}
 		long durasiBangunKepinganMs = (System.nanoTime() - mulaiBangunKepingan) / 1000000L;
@@ -89,7 +98,28 @@ public class UnifiedSearchPageController {
 		model.addAttribute("durasiBangunKepinganMs", Long.valueOf(durasiBangunKepinganMs));
 		model.addAttribute("totalKepinganVocab", Integer.valueOf(totalKepinganVocab));
 		model.addAttribute("contohKepingan", contohKepingan(indeksKepinganKonsep, formKonsep));
+		model.addAttribute("contohFusi", contohFusi(indeksKataKonsep, indeksKepinganKonsep, formKonsep));
 		return "/module/unifiedsearch/pencarianTerpadu";
+	}
+
+	/**
+	 * K5 worked example from tugas/05-fusi-k5.md: "panadol" should rank the
+	 * Acetaminophen concept first, with a score close to what the "Panadol" alias
+	 * alone would score — not diluted by its many other aliases.
+	 */
+	private List<String> contohFusi(TfIdfIndex indeksKata, TfIdfIndex indeksKepingan, List<SurfaceForm> formKonsep) {
+		List<String> out = new ArrayList<String>();
+		if (indeksKata == null || indeksKepingan == null || formKonsep.isEmpty()) {
+			return out;
+		}
+		FusionSearch fusi = new FusionSearch(indeksKata, indeksKepingan, formKonsep);
+		List<RankedDocument> hasil = fusi.search("panadol", ALPHA_SEMENTARA);
+		for (int i = 0; i < Math.min(3, hasil.size()); i++) {
+			RankedDocument r = hasil.get(i);
+			out.add((i + 1) + ". " + r.getDokumen().getJudul() + " (" + r.getDokumen().getKunci() + ") = "
+			        + r.getSkor());
+		}
+		return out;
 	}
 
 	/**

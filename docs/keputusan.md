@@ -243,3 +243,80 @@ bukan di ingatan.
 Untuk `diabete melitus`, entri teratas adalah **Diabetes mellitus** (0,5555),
 bukan *type 2* (0,4546). Itu benar dan diharapkan — nama yang lebih pendek dan
 lebih dekat ke query memang menang. Jangan menganggapnya bug.
+
+---
+
+## 2026-08-20 · Dua penyimpangan K5 dari pipeline penelitian — DIUKUR
+
+Setelah tugas 05, implementasi Java dibandingkan dengan `riset/eksperimen2.py`.
+Ditemukan dua perbedaan. Dampaknya **diukur**, tidak dikira-kira, memakai 780
+query degradasi (tipo + trunkasi) dari 400 judul konsep acak (`tools/ukur_dampak.py`).
+
+### Penyimpangan 1 — urutan operasi. Dampak BESAR. Java harus berubah.
+
+Pipeline penelitian mengambil **maksimum per jalur dulu, baru menggabung**:
+
+```python
+def cosine(self, q):
+    """kembalikan dict id_record -> skor cosine maksimum atas surface form-nya"""
+    ...                                  # maks per pemilik ada DI DALAM cosine()
+
+def fusi1(idx, q):
+    a, b = idx["W"].cosine(q), idx["G"].cosine(q)      # dua-duanya sudah dimaksimumkan
+    s = ALPHA * a.get(k, 0.0) + (1 - ALPHA) * b.get(k, 0.0)
+```
+
+Java tugas 05 melakukan sebaliknya: menggabung per surface form, baru
+memaksimumkan. Bahkan ada uji (`maksimumDiambilSetelahDigabungBukanSebelum`)
+yang menegaskan urutan itu sebagai yang benar.
+
+Hasil pengukuran:
+
+| | jumlah | persen |
+|---|---|---|
+| query dengan skor berbeda | 370 / 780 | **47,4%** |
+| query dengan **10 besar berbeda** | 139 / 780 | **17,8%** |
+
+Hampir seperlima query menghasilkan peringkat 10-besar yang berbeda. Itu pasti
+menggeser nDCG@10, jadi angka Java tidak akan pernah cocok dengan 0,804 / 0,811
+yang dilaporkan proposal.
+
+**Keputusan: Java mengikuti urutan penelitian** (maks per jalur, lalu gabung).
+Bukan karena pendekatan Java salah secara konsep — justru sebaliknya, menggabung
+dulu bisa dibilang lebih benar secara teori karena menghormati satu surface form
+sebagai satu kesatuan. Tapi seluruh angka yang sudah dipublikasikan dihasilkan
+dengan urutan penelitian, dan aturan 2 `CLAUDE.md` melarang menyesuaikan angka
+dokumen dengan implementasi.
+
+**Dicatat sebagai pekerjaan lanjutan:** membandingkan kedua urutan sebagai
+varian sistem yang diukur benar-benar, bukan diputuskan lewat argumen. Kalau
+"gabung dulu" memang lebih baik, itu temuan yang layak dilaporkan — tapi harus
+lewat eksperimen penuh, bukan diselipkan.
+
+### Penyimpangan 2 — ambang skor 0,07. Ini KESALAHAN SAYA. Dampak kecil.
+
+Tabel parameter di `CLAUDE.md` mencantumkan "ambang skor minimum 0,07".
+**Angka itu tidak ada di mana pun dalam kode penelitian.** Pencarian `0.07` di
+`eksperimen2.py` dan `eksperimen2b.py` tidak menghasilkan apa pun. Nilai yang
+sebenarnya dipakai adalah **1e-6**, muncul tiga kali.
+
+Asalnya: 0,07 adalah ambang pada mockup JavaScript di `docs/proposal.html`,
+dipakai supaya daftar hasil demo tidak kepanjangan. Saya menyalinnya ke tabel
+parameter seolah-olah itu parameter penelitian. Agen mematuhi tabel itu dengan
+benar; kesalahannya ada pada tabelnya.
+
+Dampak terukur — **hampir nol**:
+
+| | ambang 1e-6 | ambang 0,07 |
+|---|---|---|
+| query nol-hasil | 2 / 780 (0,26%) | 2 / 780 (0,26%) |
+
+Tetap diselaraskan ke 1e-6 demi kesetiaan pada pipeline, bukan karena berbahaya.
+Tabel `CLAUDE.md` sudah dikoreksi.
+
+### Pelajaran
+
+Verifikasi tugas 04 cocok sampai 4 desimal, tapi **tidak menangkap penyimpangan
+ini** karena hanya menguji satu jalur (kepingan saja). Penyimpangan urutan
+operasi baru muncul ketika dua jalur digabungkan. Uji silang harus menguji
+kombinasi, bukan hanya komponen.

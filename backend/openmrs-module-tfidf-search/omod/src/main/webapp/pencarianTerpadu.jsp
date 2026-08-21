@@ -34,4 +34,9 @@
 	<c:forEach var="c" items="${contohKepingan}">${c}<br/></c:forEach>
 </p>
 
+<h3>Fusi kata + kepingan (K5) &mdash; query "panadol"</h3>
+<p id="contohFusi">
+	<c:forEach var="c" items="${contohFusi}">${c}<br/></c:forEach>
+</p>
+
 <%@ include file="/WEB-INF/template/footer.jsp" %>
