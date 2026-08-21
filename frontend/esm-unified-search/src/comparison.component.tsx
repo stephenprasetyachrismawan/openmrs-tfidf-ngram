@@ -141,11 +141,15 @@ const Comparison: React.FC = () => {
     <div className={styles.container}>
       <h3 className={styles.judul}>Perbandingan Pencarian</h3>
       <p className={styles.penjelasan}>
-        Satu query, tiga sistem, dijalankan serentak. Kolom kiri memanggil endpoint pencarian
-        konsep <b>bawaan OpenMRS yang sungguhan</b> (bukan tiruan kami) — ditemukan lewat tab
-        Network di kotak diagnosis Visit Note. Semua kolom dibatasi ke entitas konsep supaya
-        perbandingannya adil. Rincian endpoint dan hasil uji kesetiaan 28 query ada di{' '}
-        <code>docs/keputusan.md</code>.
+        Satu query, tiga sistem, dijalankan serentak. Kolom kiri memanggil endpoint{' '}
+        <b>pencarian konsep OpenMRS asli (fuzzy/Lucene)</b> yang sungguhan — bukan baseline
+        kami — ditemukan lewat tab Network di kotak diagnosis Visit Note. Kolom kiri ini{' '}
+        <b>hanya tersedia untuk entitas konsep</b>: OpenMRS tidak punya pencarian tahan-salah-ketik
+        untuk lima entitas lain (obat, pasien, form, lokasi, provider) sama sekali — itu sendiri
+        argumen terkuat halaman ini. Semua kolom dibatasi ke entitas konsep supaya
+        perbandingannya adil. Halaman ini meniru kotak diagnosis asli (dibatasi kelas Diagnosis,
+        28 query uji kesetiaan) — eksperimen terpisah tanpa batasan kelas (42 query, baseline
+        B0{"′"}) ada di <code>riset/hasil4/</code>. Rincian keduanya: <code>docs/keputusan.md</code>.
       </p>
 
       <div className={styles.contohBaris}>
@@ -168,11 +172,11 @@ const Comparison: React.FC = () => {
 
       <div className={styles.kolomWrapper}>
         <Kolom
-          judul="Bawaan OpenMRS (asli)"
-          keterangan="GET /ws/rest/v1/concept, searchType=fuzzy, kelas Diagnosis"
+          judul="Pencarian konsep OpenMRS asli (fuzzy/Lucene)"
+          keterangan="GET /ws/rest/v1/concept, searchType=fuzzy, kelas Diagnosis — hanya untuk konsep"
           state={kiri}
         />
-        <Kolom judul="Kami — mode b0" keterangan="Tiruan heuristik OpenMRS (uji kejujuran)" state={tengah} />
+        <Kolom judul="Kami — mode b0" keterangan="B0: baseline pencocokan awalan (uji kejujuran)" state={tengah} />
         <Kolom judul="Kami — mode e3" keterangan="Sistem usulan (kepingan karakter + Weighted RRF)" state={kanan} />
       </div>
     </div>
