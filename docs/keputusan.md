@@ -505,3 +505,162 @@ adalah bug, apa pun alasannya.
 Ini yang membedakan penelitian yang bisa dipertahankan dari yang tidak. Kalau
 test set dijalankan berulang sambil menyetel, ia berhenti menjadi ukuran
 independen — dan tidak ada cara memperbaikinya selain membuat query baru.
+
+---
+
+## 2026-08-21 · NGRAM, K_RRF, EPS dikunci di 100 query dev (tugas 06b)
+
+**Konteks.** Aturan 10 `CLAUDE.md`: `riset/eksperimen2b.py` menjalankan
+**keempat** sapuannya (n-gram, k, eps, alpha) di `qs[100:]` — 180 query **uji**
+(`qs` berisi 280 query total; `test = qs[100:]` di sana adalah 180 baris,
+bukan 80). Berkas itu dipertahankan sebagai arsip dan **tidak dijalankan
+lagi**. `riset/sapuan_dev.py` dibuat dari nol, mengulang tiga sapuan yang
+tersisa (ALPHA sudah diulang di tugas 06) memakai `qs[:100]` — 100 query dev
+yang sama dipakai laporan utama dan sapuan ALPHA sebelumnya.
+
+Baseline yang dipegang selama tiap sapuan satu-faktor: NGRAM=4, K_RRF=20,
+EPS=0,05, ALPHA=0,20. Metrik: nDCG@10 sistem E3, 100 query dev.
+
+### Sapuan NGRAM
+
+| NGRAM | nDCG (dev) |
+|---|---|
+| 2 | 0,8467 |
+| **3** | **0,8555** |
+| 4 (baseline) | 0,8464 |
+| 5 | 0,8108 |
+| 6 | 0,7475 |
+
+NGRAM=3 tampak unggul (+0,0091 dari baseline). Diuji bootstrap berpasangan
+(`E.bootstrap`, 5000 resample, seed 7) sebelum dipercaya:
+
+```
+NGRAM 3 vs 4: obs=0,0091  CI95=[0,0007, 0,0209]  p=0,0686
+```
+
+CI 95% nyaris menyentuh nol, dan p=0,0686 tidak signifikan pada ambang baku
+0,05. Pada 100 query, ini derau yang lemah, bukan sinyal yang cukup kuat
+untuk menimpa nilai yang sudah dipakai di seluruh kode, uji unit, dan fixture
+silang-Python (`Tokenizer.charGrams`, `TfIdfIndexTest`,
+`CharGramsSilangPythonTest`, halaman demo K4).
+
+**Keputusan: NGRAM tetap 4.** Alasan eksplisit (bukan menyembunyikan sinyal):
+buktinya borderline (CI hampir menyentuh nol, p>0,05) dan kesinambungan dengan
+implementasi yang sudah teruji lebih berat daripada peluang perbaikan ~0,01
+nDCG yang belum pasti nyata. Ini **berbeda** dari klaim proposal "2–4 setara"
+— proposal itu dari sampel jauh lebih besar (780 query degradasi); temuan
+NGRAM=3 sedikit unggul di 100 query dev dicatat di sini apa adanya, bukan
+diselipkan diam-diam, sesuai aturan 2 `CLAUDE.md`.
+
+### Sapuan K_RRF
+
+| K_RRF | nDCG (dev) |
+|---|---|
+| 5 | 0,8482 |
+| 10 | 0,8482 |
+| 20 (baseline) | 0,8464 |
+| 60 | 0,8453 |
+
+Rentang seluruh titik hanya 0,0029 — jelas di dalam derau sampling 100 query
+(jauh lebih kecil dari selisih NGRAM 3 vs 4 yang sendiri sudah borderline).
+**Keputusan: K_RRF tetap 20**, demi kesinambungan — dinyatakan terang-terangan,
+bukan karena kebetulan cocok dengan proposal.
+
+### Sapuan EPS
+
+| EPS | nDCG (dev) |
+|---|---|
+| 0,00 | 0,8464 |
+| 0,05 (baseline) | 0,8464 |
+| 0,15 | 0,8467 |
+| 0,30 | 0,8482 |
+
+Rentang 0,0018 — sama, di dalam derau. **Keputusan: EPS tetap 0,05**, demi
+kesinambungan, dinyatakan terang-terangan.
+
+### Sapuan ALPHA ulang (kombinasi final: NGRAM=4, K_RRF=20, EPS=0,05)
+
+Karena ketiga parameter di atas tidak berubah dari nilai yang dipakai tugas
+06, sapuan ALPHA ulang di sini **mereproduksi persis** angka tugas 06 (bukti
+konsistensi silang antar skrip, bukan kebetulan):
+
+| ALPHA | nDCG (dev) |
+|---|---|
+| 0,00 | 0,8279 |
+| 0,15 | 0,8465 (argmax) |
+| **0,20** | **0,8464 (dipilih, sama seperti tugas 06)** |
+| 0,45 | 0,8344 |
+| 1,00 | 0,7003 |
+
+Tidak ada perubahan pada keputusan ALPHA=0,20.
+
+**Hasil lengkap (empat sapuan + bootstrap):** `riset/hasil2/sapuan_dev.json`.
+Dijalankan dua kali berturut-turut, keluaran (stdout dan JSON) **identik
+byte-per-byte** — memenuhi aturan 1 `CLAUDE.md`.
+
+**Nilai final, seluruhnya bersumber 100 query dev:**
+
+| Parameter | Nilai final |
+|---|---|
+| `NGRAM` | 4 |
+| `ALPHA` | 0,20 |
+| `K_RRF` | 20 |
+| `EPS` | 0,05 |
+
+Tidak ada parameter lagi yang nilainya berasal dari test set atau dari
+proposal tanpa diverifikasi ulang di dev.
+
+---
+
+## 2026-08-20 · CI95 dan nilai p yang tampak bertentangan — bukan bug, tapi jebakan penyajian
+
+Sapuan NGRAM di tugas 06b melaporkan n=3 vs n=4: `obs=+0,0091`,
+`CI95=[0,0007, 0,0209]`, `p=0,0686`.
+
+Sekilas ini kontradiktif: selang kepercayaan 95% **tidak memuat nol**, tetapi
+p > 0,05. Pembaca umumnya menganggap keduanya setara. Diperiksa ke fungsinya
+(`bootstrap()` di `eksperimen2.py`, dipakai ulang oleh `sapuan_dev.py`):
+
+```python
+sam.sort()
+lo, hi = sam[int(0.025 * n)], sam[int(0.975 * n) - 1]   # persentil distribusi MENTAH
+pusat = [x - obs for x in sam]                           # digeser ke nol
+p = sum(1 for x in pusat if abs(x) >= abs(obs)) / float(n)
+```
+
+Keduanya benar, tetapi menjawab pertanyaan berbeda:
+
+- **CI** adalah persentil distribusi sampling penaksir — sebaran nilai selisih.
+- **p** dihitung pada distribusi yang **digeser ke nol**, yaitu pendekatan
+  terhadap hipotesis nol. Ini uji hipotesis yang sebenarnya.
+
+Di dekat batas, keduanya memang bisa berbeda arah. Nilai p yang lebih
+konservatif adalah yang tepat untuk pernyataan signifikansi.
+
+**Konsekuensi untuk laporan:** menyajikan `CI95=[0,0007, 0,0209]` bersebelahan
+dengan `p=0,0686` dan menyimpulkan "tidak signifikan" akan terlihat seperti
+kesalahan bagi penguji, walaupun benar. Dua pilihan, keduanya jujur:
+
+1. Sajikan keduanya, tambahkan satu kalimat bahwa CI adalah persentil distribusi
+   sampling sedangkan p berasal dari distribusi yang digeser ke nol.
+2. Laporkan CI dari distribusi tergeser juga, supaya konsisten dengan p.
+
+Ini berlaku untuk **seluruh** tabel signifikansi di proposal, bukan hanya baris
+NGRAM — fungsi bootstrap yang sama menghasilkan semuanya. Diputuskan saat
+menulis Bab 6 di tugas 08b.
+
+## Catatan tentang memilih tetap NGRAM = 4
+
+Sapuan dev menunjuk n=3 (0,8555) di atas n=4 (0,8464). Kelompok tetap memakai 4
+dengan alasan kesinambungan, dinyatakan terang-terangan.
+
+Framing yang jujur sekaligus menguntungkan: memakai 4 berarti sistem yang
+dilaporkan **bukan** yang paling optimal menurut data pengembangan. Artinya
+angka hasil, kalau pun bergeser, cenderung **meremehkan** kemampuan metode —
+bukan melebihkannya. Itu posisi yang aman dipertahankan di sidang, dan jauh
+lebih baik daripada terlihat memilih 4 karena kebetulan cocok dengan dokumen
+yang sudah ditulis.
+
+Kalau penguji menanyakannya, jawabannya lengkap: n=3 sedikit lebih baik pada
+100 query dev (+0,0091), tidak signifikan (p = 0,0686), dan tidak dipakai
+supaya seluruh kode dan pengujian tetap konsisten dengan eksperimen pertama.

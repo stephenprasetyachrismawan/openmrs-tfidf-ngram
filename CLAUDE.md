@@ -73,13 +73,15 @@ dipasang di puskesmas tanpa GPU dan tanpa internet".
 
 | Parameter | Nilai | Catatan |
 |---|---|---|
-| `NGRAM` panjang kepingan | 4 | 2â€“4 setara; 4 dipilih |
-| `ALPHA` bobot jalur kata | **belum final** | eksperimen memakai 0,45; sapuan menunjukkan optimum 0,25. Lihat tugas 06. |
-| `K_RRF` | 20 | |
-| `EPS` lantai bobot tabel | 0,05 | |
+| `NGRAM` panjang kepingan | 4 | dikunci tugas 06b dari sapuan 100 query dev. NGRAM=3 tampak unggul (+0,0091) tapi bootstrap borderline (CI95 [0,0007; 0,0209], p=0,0686 pada n=100) — dipertahankan 4 demi kesinambungan, bukan kebetulan cocok proposal. Lihat `docs/keputusan.md`. |
+| `ALPHA` bobot jalur kata | **0,20** | ditetapkan tugas 06 dari sapuan 100 query dev (bukan 180 query uji); diulang tugas 06b pada kombinasi NGRAM/K_RRF/EPS final — hasil identik. Global property `unifiedsearch.alpha`. |
+| `K_RRF` | 20 | dikunci tugas 06b dari sapuan 100 query dev; seluruh titik (5/10/20/60) beda ≤0,0029 nDCG, di dalam derau — dipertahankan demi kesinambungan. |
+| `EPS` lantai bobot tabel | 0,05 | dikunci tugas 06b dari sapuan 100 query dev; seluruh titik (0/0,05/0,15/0,30) beda ≤0,0018 nDCG, di dalam derau — dipertahankan demi kesinambungan. |
 | ambang skor minimum | **1e-6** | nilai riset (`eksperimen2.py`). 0,07 yang tertulis sebelumnya KELIRU — itu ambang mockup demo, bukan parameter penelitian. Lihat `docs/keputusan.md`. |
 
-Jangan menetapkan `ALPHA` diam-diam. Tugas 06 mengatur cara memutuskannya.
+Jangan menetapkan parameter apa pun diam-diam — seluruh empat di atas kini
+bersumber sapuan 100 query dev (tugas 06 dan 06b), tidak ada lagi yang
+berasal dari test set atau disalin mentah dari proposal.
 
 ## Alur kerja
 
