@@ -14,9 +14,8 @@ import java.util.TreeMap;
  * entity, kept only as a research comparison; measured worse than the B0
  * baseline, and that is the point, not a bug to hide), and E3 (Weighted RRF).
  * <p>
- * B0/B1 baselines are a separate component (tugas 08); mode routing for the
- * REST endpoint is tugas 09. This class only has to make E1/E2/E3 computable
- * and comparable.
+ * Mode routing for the REST endpoint is tugas 09. This class computes B0
+ * (prefix heuristic), E1, E2, and E3.
  */
 public class RankingEngine {
 	
@@ -39,6 +38,13 @@ public class RankingEngine {
 	}
 	
 	public List<RankedDocument> search(String mode, String query) {
+		if ("b0".equals(mode)) {
+			Map<String, List<RankedDocument>> perEntitas = new TreeMap<String, List<RankedDocument>>();
+			for (Map.Entry<String, FusionSearch> entry : lokal.entrySet()) {
+				perEntitas.put(entry.getKey(), OpenMrsHeuristic.search(entry.getValue().getSurfaceForms(), query));
+			}
+			return unionSorted(perEntitas);
+		}
 		Map<String, List<RankedDocument>> perEntitas = new TreeMap<String, List<RankedDocument>>();
 		for (Map.Entry<String, FusionSearch> entry : lokal.entrySet()) {
 			perEntitas.put(entry.getKey(), entry.getValue().search(query, alpha));

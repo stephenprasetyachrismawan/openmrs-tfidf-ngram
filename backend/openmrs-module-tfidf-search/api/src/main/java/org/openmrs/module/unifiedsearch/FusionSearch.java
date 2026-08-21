@@ -53,6 +53,10 @@ public class FusionSearch {
 		this.surfaceForms = surfaceForms;
 	}
 
+	public List<SurfaceForm> getSurfaceForms() {
+		return surfaceForms;
+	}
+
 	public List<RankedDocument> search(String query, double alpha) {
 		double[] skorKata = indeksKata.search(query);
 		double[] skorKepingan = indeksKepingan.search(query);

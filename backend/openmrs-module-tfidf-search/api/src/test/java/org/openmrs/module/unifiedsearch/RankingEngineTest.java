@@ -41,9 +41,11 @@ public class RankingEngineTest {
 		    new ArrayList<String>(), "", null);
 		VirtualDocument form = new VirtualDocument("form", 1, "diabetes follow-up form", new ArrayList<String>(),
 		    new ArrayList<String>(), "", null);
+		VirtualDocument edema = new VirtualDocument("konsep", 4, "pulmonary edema", new ArrayList<String>(),
+		    new ArrayList<String>(), "", null);
 
 		java.util.Map<String, List<VirtualDocument>> perEntitas = new TreeMap<String, List<VirtualDocument>>();
-		perEntitas.put("konsep", Arrays.asList(dm1, dm2, insipidus));
+		perEntitas.put("konsep", Arrays.asList(dm1, dm2, insipidus, edema));
 		perEntitas.put("lokasi", Arrays.asList(klinik));
 		perEntitas.put("form", Arrays.asList(form));
 
@@ -116,5 +118,16 @@ public class RankingEngineTest {
 		for (int i = 0; i < 50; i++) {
 			assertEquals(pertama, kunciSaja(engine.search("e3", "diabete")));
 		}
+	}
+
+	@Test
+	public void modeB0DiabeteMelitusKosongPulmEdemAda() {
+		assertTrue(engine.search("b0", "diabete melitus").isEmpty());
+		List<RankedDocument> pulm = engine.search("b0", "pulm edem");
+		assertFalse(pulm.isEmpty());
+		assertEquals("konsep:4", pulm.get(0).getDokumen().getKunci());
+		List<RankedDocument> exact = engine.search("b0", "diabetes mellitus");
+		assertFalse(exact.isEmpty());
+		assertTrue(exact.get(0).getDokumen().getKunci().startsWith("konsep:"));
 	}
 }
