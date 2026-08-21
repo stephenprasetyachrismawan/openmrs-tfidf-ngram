@@ -10,12 +10,23 @@
       "slot": "app-menu-slot",
       "online": true,
       "offline": true
+    },
+    {
+      "name": "comparison-app-menu-item",
+      "component": "comparisonMenuLink",
+      "slot": "app-menu-slot",
+      "online": true,
+      "offline": true
     }
   ],
   "pages": [
     {
       "component": "root",
       "route": "unified-search"
+    },
+    {
+      "component": "comparison",
+      "route": "perbandingan-pencarian"
     }
   ]
 }

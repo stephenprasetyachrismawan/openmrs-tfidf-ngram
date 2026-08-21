@@ -1294,3 +1294,139 @@ kriteria atau cara mengukurnya (CLAUDE.md aturan 2) — angka p95=60ms pada
 bukan disembunyikan karena sudah ada perbaikan lain yang "cukup baik".
 
 Uji regresi: `mvn test` 47/47 lulus setelah perubahan.
+
+---
+
+## 2026-08-22 · D1: endpoint pencarian konsep bawaan OpenMRS — ditemukan lewat Network, bukan ditebak
+
+**Cara menemukan.** Login sungguhan di browser, buka chart pasien demo
+(Joshua Johnson), mulai visit, buka workspace "Visit note", ketik di kotak
+"Choose a primary diagnosis" dengan tab Network terbuka.
+
+**Permintaan yang keluar, persis:**
+
+```
+GET /openmrs/ws/rest/v1/concept
+    ?name=<query, url-encoded>
+    &searchType=fuzzy
+    &class=8d4918b0-c2cc-11de-8d13-0010c6dffd0f
+    &v=custom:(uuid,display)
+```
+
+`class=8d4918b0-c2cc-11de-8d13-0010c6dffd0f` diverifikasi lewat
+`GET /openmrs/ws/rest/v1/conceptclass/8d4918b0-...` -> `"name":"Diagnosis"`.
+Artinya kotak diagnosis bawaan **hanya mencari konsep berkelas Diagnosis**,
+bukan seluruh kelas klinis (Symptom, Finding, Procedure, Test, Anatomy, Drug)
+yang dipakai `bangun_query()` untuk membangun query dev "konsep". Ini
+penting untuk keadilan D1: query dev konsep yang seed-nya bukan kelas
+Diagnosis tidak bisa dibandingkan adil dengan endpoint ini sama sekali —
+bukan karena heuristiknya lemah, tapi karena cakupannya memang beda.
+
+**Bentuk jawaban:** `{"results":[{"uuid":"...","display":"..."}]}`, tanpa
+skor, tanpa informasi peringkat selain urutan array.
+
+### Uji kesetiaan `OpenMrsHeuristic` (mode b0) — 28 query dev berkelas Diagnosis
+
+Skrip `riset/bandingkan_baseline_openmrs.py` (baru): menyaring 42 query dev
+`entitas_target=konsep`, mengecek kelas konsep seed-nya lewat SQL langsung
+(`docker exec ... mysql`), mempertahankan 28 yang benar-benar berkelas
+Diagnosis, memanggil kedua endpoint untuk tiap query, membandingkan
+top-1. Hasil lengkap: `riset/hasil3/baseline_openmrs_vs_b0.json`.
+
+**Kesepakatan (keduanya benar ATAU keduanya salah): 22/28 (78,6%).**
+
+**Enam ketidaksepakatan, dan polanya jelas — bukan acak:**
+
+| Query | Tipe | Bawaan benar? | b0 benar? |
+|---|---|---|---|
+| dribblng of urine | typo | Ya | Tidak |
+| angian pectoris | typo | Ya | Tidak |
+| acute cornoary syndrome | typo | Ya | Tidak |
+| acute otiits externa | typo | Ya | Tidak |
+| proedure refused | typo | Ya | Tidak |
+| disease liver toxic | urut_balik | Tidak | Ya |
+
+**Temuan yang dilaporkan apa adanya (bukan diakali):** pada 5 dari 6
+ketidaksepakatan — semuanya tipe **typo** — endpoint bawaan OpenMRS yang
+sungguhan **berhasil**, sedangkan `OpenMrsHeuristic` (b0) kami **gagal**.
+Artinya mesin fuzzy-search bawaan OpenMRS (kemungkinan berbasis toleransi
+edit-distance di lapisan Lucene/MySQL, bukan cuma pencocokan awalan kata)
+**lebih toleran terhadap salah ketik** daripada tiruan heuristik kami.
+
+**Konsekuensi jujur untuk klaim penelitian.** `OpenMrsHeuristic` dipakai di
+seluruh eksperimen sebagai proksi "apa yang OpenMRS lakukan sekarang", dan
+angka +0,174 nDCG (E1 vs B0, p<0,001) dihitung terhadap proksi itu, bukan
+terhadap endpoint bawaan yang sungguhan. Temuan D1 ini menunjukkan proksi
+itu **sedikit lebih lemah** dari aslinya khusus pada query typo — jadi
+klaim +0,174 kemungkinan **sedikit melebih-lebihkan** keunggulan E1
+dibanding baseline OpenMRS yang sesungguhnya (arah bias: menguntungkan
+penelitian ini). Ini **tidak membatalkan** klaim utama (kepingan karakter
+tetap satu-satunya komponen yang terbukti signifikan secara substantif),
+tapi harus disebutkan sebagai keterbatasan yang jujur, bukan disembunyikan.
+
+**Yang TIDAK dilakukan sebagai respons temuan ini:** `OpenMrsHeuristic.java`
+**tidak diubah**. CLAUDE.md aturan baru sesi ini melarangnya tanpa izin
+manusia — kelas itu menopang seluruh angka B0 yang sudah dipakai di
+laporan. Mengubahnya sekarang akan mengubah angka penelitian demi
+"kerapian", persis yang dilarang aturan 2.
+
+### Halaman "Perbandingan Pencarian" dibangun sebagai rute kedua di ESM
+
+`frontend/esm-unified-search/src/comparison.component.tsx` +
+`comparison-menu-link.component.tsx`, rute `perbandingan-pencarian`, entri
+menu kedua di slot `app-menu-slot` (pola sama seperti tugas 10/11). Tiga
+kolom paralel: kiri = endpoint bawaan di atas, tengah = `mode=b0` kami,
+kanan = `mode=e3` kami; ketiganya dibatasi `entitas=konsep`. Empat tombol
+contoh: `diabete melitus`, `pulm edem`, `hypertension`, `alclo 0 05`.
+
+**Koreksi jujur terhadap premis "Selesai kalau" — dicek live, bukan
+diasumsikan:**
+
+| Contoh | Kolom kiri (bawaan) | Kolom tengah (b0) | Kolom kanan (e3) |
+|---|---|---|---|
+| `diabete melitus` | **12 hasil, "Diabetes mellitus" peringkat 1** | 0 hasil | 10 hasil, "Diabetes mellitus" peringkat 1 |
+| `pulm edem` | **3 hasil, "Pulmonary edema" peringkat 1** | 3 hasil, benar | 10 hasil, benar |
+| `hypertension` | 12 hasil, benar | 10 hasil, benar | 10 hasil, benar |
+| `alclo 0 05` | 0 hasil | 0 hasil | 10 hasil, tapi tidak relevan (bukan istilah diagnosis) |
+
+Premis di prompt D1 ("kolom kiri bawaan memberi 0 atau nol hasil relevan
+pada `diabete melitus`") **tidak terbukti** — endpoint bawaan yang
+sungguhan justru berhasil pada kedua contoh typo (`diabete melitus`,
+`pulm edem`). Ini konsisten dan **memperkuat**, bukan bertentangan dengan,
+temuan uji kesetiaan 28-query di atas: mesin fuzzy-search bawaan OpenMRS
+memang lebih mumpuni dari yang diasumsikan proposal — yang justru gagal
+adalah **`OpenMrsHeuristic` (b0) kami sendiri**, bukan OpenMRS aslinya.
+Kolom tengah ("uji kejujuran") adalah yang menunjukkan ini dengan jelas:
+0 hasil untuk `diabete melitus` pada b0, padahal kolom kiri dan kanan
+sama-sama berhasil.
+
+**Demo intinya karena itu bergeser** dari "bawaan gagal, kami berhasil"
+menjadi yang lebih jujur: **"tiruan heuristik kami (b0) gagal pada typo,
+baik OpenMRS asli maupun sistem usulan kami (e3) sama-sama berhasil."**
+Ini tetap klaim yang berharga (menunjukkan e3 sama kompetennya dengan
+mesin fuzzy-search OpenMRS pada kasus mudah, dan e3 tidak pernah kalah
+pada tiga contoh pertama), tapi bukan klaim "kami menyelamatkan pengguna
+dari kegagalan total OpenMRS" seperti yang diasumsikan semula.
+
+**`alclo 0 05` tidak menunjukkan yang dimaksud prompt.** Query ini
+sebenarnya query **obat** (`riset/data`, seed `obat:20`), bukan konsep —
+di bawah pembatasan `entitas=konsep` yang diwajibkan D1 sendiri untuk
+keadilan, baik kolom kiri maupun tengah benar memberi 0 hasil (istilah itu
+memang bukan nama diagnosis), dan kolom kanan memberi hasil yang tidak
+relevan (bukan kegagalan tapi juga bukan kemenangan). "Kasus yang
+dimenangkan heuristik bawaan pada trunkasi" yang dimaksud prompt ternyata
+berasal dari data **obat**, bukan dari korpus konsep yang bisa dibandingkan
+adil dengan endpoint bawaan ini sama sekali (endpoint ini cuma mencari
+kelas Diagnosis). Tidak ditemukan pengganti trunkasi-konsep yang jelas
+menunjukkan "bawaan menang" dalam 28 query yang diuji (lihat tabel
+kesetiaan di atas — satu-satunya kemenangan kolom tengah/kami ada di tipe
+`urut_balik`, bukan `trunkasi`). Tombol ini dipertahankan persis seperti
+diminta karena tetap menunjukkan sesuatu yang jujur (batas cakupan
+endpoint), bukan diganti diam-diam.
+
+**Verifikasi lain:** console bersih dari galat terkait halaman ini (dua
+galat single-spa yang muncul berasal dari `patient-chart`/`app-menu-button`,
+bukan dari `unified-search-app` — dicek tidak menyebut nama app kami sama
+sekali); seluruh permintaan jaringan ke `127.0.0.1` saja; `docker ps` tetap
+4 container; halaman terbaca penuh di 1280px
+(`document.documentElement.scrollWidth` 1280px == `innerWidth`).

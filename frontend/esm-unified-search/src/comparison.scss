@@ -1,0 +1,89 @@
+@use '@carbon/layout';
+@use '@carbon/type';
+
+.container {
+  padding: layout.$spacing-07;
+  max-width: 75rem;
+}
+
+.judul {
+  @include type.type-style('heading-04');
+  margin-bottom: layout.$spacing-03;
+}
+
+.penjelasan {
+  color: #525252;
+  font-size: 0.85rem;
+  margin-bottom: layout.$spacing-05;
+  max-width: 55rem;
+}
+
+.contohBaris {
+  display: flex;
+  align-items: center;
+  gap: layout.$spacing-03;
+  flex-wrap: wrap;
+  margin-bottom: layout.$spacing-04;
+
+  span {
+    color: #525252;
+    font-size: 0.85rem;
+  }
+}
+
+.kotakCari {
+  margin-bottom: layout.$spacing-06;
+  max-width: 40rem;
+}
+
+.kolomWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: layout.$spacing-05;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kolom {
+  border: 1px solid #e0e0e0;
+  padding: layout.$spacing-04;
+  min-height: 8rem;
+
+  h4 {
+    margin-bottom: layout.$spacing-02;
+  }
+}
+
+.keteranganKolom {
+  color: #6f6f6f;
+  font-size: 0.75rem;
+  margin-bottom: layout.$spacing-04;
+  font-family: monospace;
+}
+
+.ringkasanKolom {
+  font-weight: 600;
+  margin-bottom: layout.$spacing-03;
+  font-size: 0.85rem;
+}
+
+.kosong {
+  color: #525252;
+  font-size: 0.85rem;
+}
+
+.daftarHasil {
+  padding-left: layout.$spacing-05;
+
+  li {
+    font-size: 0.85rem;
+    margin-bottom: layout.$spacing-02;
+  }
+}
+
+.skorKecil {
+  color: #6f6f6f;
+  font-size: 0.75rem;
+}

@@ -23,3 +23,13 @@ export function startupApp() {
 export const root = getAsyncLifecycle(() => import('./root.component'), options);
 
 export const unifiedSearchMenuLink = getAsyncLifecycle(() => import('./menu-link.component'), options);
+
+/**
+ * Pengganti tugas 13 (disetujui pemilik repo — lihat docs/keputusan.md "D1"):
+ * RefApp 3 versi ini tidak punya extension slot di workspace Visit Note, jadi
+ * klaim penelitian ditunjukkan lewat halaman perbandingan berdampingan alih-alih
+ * menambal kotak diagnosis bawaan.
+ */
+export const comparison = getAsyncLifecycle(() => import('./comparison.component'), options);
+
+export const comparisonMenuLink = getAsyncLifecycle(() => import('./comparison-menu-link.component'), options);
