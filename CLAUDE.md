@@ -40,8 +40,10 @@ manusia â€” bukan angka dokumen yang disesuaikan.
 ### 3. Jangan melebih-lebihkan komponen mana pun
 
 Penelitian ini menemukan bahwa **hanya satu komponen** yang berpengaruh
-signifikan (kepingan karakter, +0,176, p<0,001). Weighted RRF tidak signifikan
-(+0,007, p=0,207). Perluasan query memperburuk dan sudah dibuang.
+signifikan (kepingan karakter, +0,174, p&lt;0,001). Weighted RRF (E3 vs E1)
++0,013 nDCG di test, p=0,039 — signifikan secara nominal, efek kecil, tanpa
+koreksi multi-perbandingan; jangan dilebih-lebihkan sebagai peningkatan kualitas
+setara kepingan karakter. Perluasan query memperburuk dan sudah dibuang.
 
 Komentar kode, nama variabel, pesan commit, dan teks antarmuka harus
 mencerminkan itu. Jangan menulis "meningkatkan akurasi" untuk komponen yang
@@ -176,7 +178,7 @@ mendekati angka ini. Kalau meleset jauh, laporkan â€” jangan sesuaikan doku
 | B0 heuristik OpenMRS | 0,628 | 0,689 | 18,3% |
 | B1 TF-IDF kata | 0,646 | 0,572 | 11,1% |
 | E1 + kepingan karakter | 0,804 | 0,783 | 0,6% |
-| E3 + Weighted RRF | 0,811 | 0,806 | 0,6% |
+| E3 + Weighted RRF | 0,815 | 0,806 | 0,6% |
 
 
 ### 10. Test set haram disentuh

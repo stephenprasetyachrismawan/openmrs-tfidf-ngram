@@ -53,8 +53,10 @@ tugas/
 
 1. **Determinisme.** Kunci urut harus `(-skor, id)`. Pernah menghabiskan berjam-jam.
 2. **Surface form.** Alias tidak boleh dilebur jadi satu string.
-3. **Klaim berlebihan.** Hanya kepingan karakter yang terbukti signifikan.
-   Weighted RRF tidak (p=0,207). Perluasan query memperburuk dan sudah dibuang.
+3. **Klaim berlebihan.** Hanya kepingan karakter yang terbukti signifikan secara
+   substantif (+0,174, p&lt;0,001). Weighted RRF (E3 vs E1) +0,013, p=0,039 —
+   nominal signifikan, efek kecil; jangan dilebih-lebihkan. Perluasan query
+   memperburuk dan sudah dibuang.
 
 ## Keterbatasan yang sudah diketahui
 

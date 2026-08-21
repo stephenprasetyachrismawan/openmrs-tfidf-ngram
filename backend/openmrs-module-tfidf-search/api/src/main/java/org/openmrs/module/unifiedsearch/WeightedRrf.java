@@ -17,8 +17,10 @@ import java.util.TreeMap;
  * urutkan menurun dengan kunci (-nilai, kunci_unik)
  * </pre>
  *
- * This component is architectural, not a quality improvement: measured effect
- * was +0.007 nDCG, p=0.207 — not significant. It exists to turn six separate
+ * This component is architectural, not a quality improvement: measured E3 vs E1
+ * on the official test set (hasil3/) was +0.013 nDCG, p=0.039 — nominally
+ * significant at alpha=0.05 but a small effect, not comparable to char ngrams.
+ * It exists to turn six separate
  * per-entity rankings into the single list a unified search box needs, and to
  * fix RRF's degenerate behavior on disjoint collections (every table's rank-1
  * entry would otherwise tie at the same raw RRF value regardless of how good

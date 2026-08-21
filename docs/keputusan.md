@@ -762,8 +762,9 @@ ALPHA=0,20. Commit sebelum perubahan: `9c71797` (tugas 08).
 | E1 vs B1 | — | +0,156, p=0 |
 
 **Temuan signifikansi:** E1-vs-B0 tetap kuat (p&lt;0,001). Weighted RRF (E3-vs-E1)
-+0,013 di test (p=0,039); di dev +0,007 (p=0,207). Selisih kecil — **tidak
-terbukti meningkatkan akurasi** seperti kepingan karakter.
++0,013 di test (p=0,039): signifikan secara nominal pada α=0,05, efek kecil;
+tanpa koreksi multi-perbandingan tidak setara klaim kepingan karakter (+0,174).
+Angka p=0,207 pernah muncul di proposal lama — sumber tercemar, lihat di bawah.
 
 **Sumber resmi proposal:** `riset/hasil3/hasil.json`, `ringkasan.csv`,
 `per_query.json`.
@@ -775,3 +776,26 @@ terbukti meningkatkan akurasi** seperti kepingan karakter.
 | 5 | B1, B2, E4 belum diimplementasi di modul Java | Terbuka (tugas 09+) |
 | 6 | Perbandingan peringkat Java-vs-Python pada 180 query test | Tertunda — Docker/OpenMRS mati saat evaluasi |
 | 7 | `tools/silang_fusi.py` masih ALPHA=0,45 (acuan halaman admin saja) | Diketahui, sengaja |
+
+---
+
+## 2026-08-21 · Koreksi klaim E3-vs-E1: angka p=0,207 dari arsip tercemar
+
+**Masalah.** Proposal sempat memakai pasangan E3-vs-E1 **+0,007, p=0,207** di
+beberapa tempat — termasuk atribusi palsu ke "dev". Angka itu berasal dari
+`riset/hasil2/sapuan.json`, dihitung `riset/eksperimen2b.py` pada **180 query
+test** dengan ALPHA=0,45. Aturan 10 `CLAUDE.md`: `eksperimen2b.py` menjalankan
+seluruh sapuannya di test set; berkas itu **tercemar, arsip, tidak dijalankan
+lagi**. Bukan pembanding sah untuk melunakkan hasil resmi.
+
+**Angka sah (satu-satunya).** `riset/hasil3/hasil.json` → `uji.E3_vs_E1`:
++0,013, CI95 [+0,001; +0,025], p=0,039 (bootstrap seed=7, top-10 penuh).
+
+**Keputusan narasi (rumusan B).** E3 vs E1 signifikan secara nominal pada
+α=0,05, tetapi efek kecil (+0,013) dan tidak sebanding E1 vs B0 (+0,174,
+p=0,000). Tanpa koreksi multi-perbandingan, p=0,039 dibaca hati-hati. Klaim
+penelitian tetap pada kepingan karakter; Weighted RRF peran arsitektural, bukan
+peningkatan kualitas setara K4.
+
+**Perubahan dokumen:** `docs/proposal.html`, `CLAUDE.md` — seluruh klaim hidup
++0,007 / p=0,207 dihapus; tidak ada atribusi dev untuk pasangan ini.

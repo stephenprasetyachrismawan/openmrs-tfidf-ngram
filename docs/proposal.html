@@ -121,7 +121,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 
 <div class="box neu">
 <p class="lbl">Yang tidak berhasil — supaya tidak dikira semuanya mulus</p>
-<p>Dari 7 komponen yang kami uji, <b>hanya 1 yang benar-benar berpengaruh</b>: kepingan karakter. Pembobotan antar-tabel (yang di dalamnya RRF dipakai): selisih +0,007, tidak signifikan — perannya arsitektural, bukan peningkatan kualitas. Perluasan query otomatis: <b>memperburuk</b>. Semuanya tetap kami laporkan apa adanya.</p>
+<p>Dari 7 komponen yang kami uji, <b>hanya 1 yang benar-benar berpengaruh</b>: kepingan karakter. Pembobotan antar-tabel (Weighted RRF): +0,013 nDCG di test (p=0,039) — signifikan secara nominal, tetapi efek kecil dan bukan klaim peningkatan kualitas seperti E1 vs B0 (+0,174). Perannya arsitektural. Perluasan query otomatis: <b>memperburuk</b>. Semuanya tetap kami laporkan apa adanya.</p>
 </div>
 
 <div class="toc">
@@ -324,7 +324,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
     <text x="20" y="80" fill="#1c1b19">K6 pembobotan antar tabel (RRF)</text>
     <rect x="230" y="70" width="360" height="14" fill="#f0eee9" rx="3"/>
     <rect x="230" y="70" width="13" height="14" fill="#9b9b9b" rx="3"/>
-    <text x="602" y="81" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">+0,013  p=0,039 (test)</text>
+    <text x="602" y="81" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">+0,013  p=0,039</text>
 
     <text x="20" y="108" fill="#1c1b19">K3 TF-IDF kata saja</text>
     <rect x="230" y="98" width="360" height="14" fill="#f0eee9" rx="3"/>
@@ -400,7 +400,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 <tr><td style="width:100px"><b>Masalah</b></td><td>Setelah K5 kita punya 6 daftar peringkat terpisah — satu per tabel. Petugas mau satu daftar. Skor mentah antar tabel juga tidak selalu sebanding (indeks konsep punya 4.249 dokumen pembanding, indeks provider cuma 6), jadi menjumlah skor mentah begitu saja berisiko bias ke tabel yang kebetulan skalanya beda.</td></tr>
 <tr><td><b>Yang dibuat</b></td><td>RRF (Reciprocal Rank Fusion): tiap entri dinilai dari <b>posisi peringkatnya</b> di daftar asalnya (1/(K+peringkat)), bukan dari skor mentahnya. Lalu, karena RRF polos punya cacat (lihat kotak di bawah), kami tambahkan pembobotan per tabel berbasis IDF global sebelum RRF dijalankan — disebut <b>Weighted RRF</b>.</td></tr>
 <tr><td><b>Kenapa RRF, bukan sekadar gabung-skor</b></td><td>RRF berguna karena ia tidak butuh skor yang sebanding — cukup peringkat. Itu artinya menambah tabel ketujuh yang mesin pencariannya beda (atau bahkan yang cuma mengembalikan peringkat tanpa skor sama sekali, misalnya hasil dari sistem pihak ketiga) tetap bisa digabung tanpa mengubah rumus. Itulah kegunaannya di proposal ini: <b>jembatan penyatu format</b>, bukan alat peningkat akurasi.</td></tr>
-<tr><td><b>Status — penting</b></td><td><b>Di dev: +0,007, p = 0,207 (tidak signifikan).</b> Di test: +0,013, p = 0,039 — selisih kecil, bukan peningkatan akurasi seperti kepingan karakter. Penggabungan skor biasa (E1) sudah cukup baik; Weighted RRF perannya arsitektural.</td></tr>
+<tr><td><b>Status — penting</b></td><td>Di test resmi (<span class="mono">hasil3/</span>), E3 vs E1: +0,013 nDCG, p=0,039 — <b>signifikan secara nominal</b> pada α=0,05, tetapi efeknya kecil dan tidak sebanding dengan E1 vs B0 (+0,174, p&lt;0,001). Tanpa koreksi multi-perbandingan, p=0,039 tidak cukup untuk mengubah narasi: komponen yang terbukti membawa perbaikan tetap kepingan karakter; Weighted RRF tetap kami laporkan sebagai mekanisme fusi, bukan penemuan peningkatan kualitas setara K4.</td></tr>
 <tr><td><b>Kenapa tetap dipakai</b></td><td>Ongkosnya hampir nol (E1 1,2 ms → E3 1,5 ms) dan ia bisa bekerja tanpa perlu skor — berguna kalau kelak ditambah sumber yang cuma memberi peringkat. Nilainya arsitektural, bukan kualitas hasil. Kalau ada yang lebih suka penggabungan skor biasa karena lebih sederhana, data kami tidak melarangnya.</td></tr>
 </tbody>
 </table>
@@ -549,7 +549,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 
 <div class="box good">
 <p class="lbl">Kalimat kontribusi yang bisa dipakai di ringkasan/kesimpulan</p>
-<p>"Penelitian ini menunjukkan bahwa Reciprocal Rank Fusion baku berperilaku degeneratif pada koleksi yang saling lepas — setiap koleksi memperoleh satu posisi teratas berskor identik terlepas dari relevansinya — dan mengusulkan pembobotan koleksi berbasis IDF global sebagai perbaikannya. Pembobotan tersebut tidak meningkatkan efektivitas dibanding penggabungan skor langsung (+0,007, p = 0,207), tetapi memulihkan kelayakan fusi berbasis peringkat yang tanpa pembobotan kehilangan 0,231 nDCG@10."</p>
+<p>"Penelitian ini menunjukkan bahwa Reciprocal Rank Fusion baku berperilaku degeneratif pada koleksi yang saling lepas — setiap koleksi memperoleh satu posisi teratas berskor identik terlepas dari relevansinya — dan mengusulkan pembobotan koleksi berbasis IDF global sebagai perbaikannya. Dibanding penggabungan skor langsung (E1), Weighted RRF (E3) unggul tipis di test (+0,013 nDCG, p=0,039), tetapi selisih itu kecil dan bukan fokus kontribusi; yang memulihkan kelayakan fusi berbasis peringkat adalah pembobotan terhadap degenerasi RRF polos (E3 vs E2 +0,232 nDCG@10)."</p>
 </div>
 <h2 id="b3y"><span class="n">3++</span>Contoh nyata: dari ketikan sampai angka</h2>
 
@@ -791,7 +791,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 
 <div class="box neu">
 <p class="lbl">Kesimpulan jujur dari tiga cara ini</p>
-<p>Cara C (skor mentah) hasilnya <b>hampir sama bagusnya</b> dengan cara B. Pada 180 query uji, selisihnya cuma +0,007 nDCG dan itu tidak signifikan (p = 0,207). Yang jelas kalah cuma cara A (RRF polos), yang memang rusak.</p>
+<p>Cara C (skor mentah / E1) hasilnya <b>hampir sama bagusnya</b> dengan cara B (Weighted RRF / E3). Pada 180 query test resmi, E3 vs E1: +0,013 nDCG, p=0,039 — signifikan secara nominal, tetapi efek kecil dibanding loncatan E1 vs B0 (+0,174). Yang jelas kalah cuma cara A (RRF polos), yang memang rusak.</p>
 <p>Jadi kenapa kami tetap memakai cara B? Karena cara C punya satu ketergantungan tersembunyi: ia mensyaratkan <b>semua tabel memberi skor pada skala yang sama</b>. Selama semua tabel dicari dengan mesin yang sama (TF-IDF cosine 0–1), itu benar. Begitu ada satu sumber data yang mesinnya beda — misalnya nanti ditambah pencarian ke server terminologi luar yang cuma mengembalikan urutan tanpa skor — cara C langsung tidak bisa dipakai, sementara cara B tetap jalan. Itu satu-satunya alasan cara B dipertahankan, dan kami tulis apa adanya: <b>nilainya arsitektural, bukan peningkatan kualitas.</b></p>
 </div>
 
@@ -954,7 +954,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 
 <div class="box warn">
 <p class="lbl">Yang jujur harus disampaikan saat mendemokan ini</p>
-<p>Loncatan besar terjadi dari <b>B1 ke E1</b>. Dari <b>E1 ke E3</b> perubahannya halus dan pada banyak query <b>tidak terlihat sama sekali</b> — itu bukan kesalahan mockup, itu memang temuan kami (+0,007, p = 0,207). Jangan menjanjikan penonton akan melihat perbedaan dramatis di sana.</p>
+<p>Loncatan besar terjadi dari <b>B1 ke E1</b>. Dari <b>E1 ke E3</b> perubahannya halus dan pada banyak query <b>tidak terlihat sama sekali</b> — itu bukan kesalahan mockup: E3 vs E1 hanya +0,013 nDCG (p=0,039), jauh di bawah E1 vs B0 (+0,174). Jangan menjanjikan penonton akan melihat perbedaan dramatis di sana.</p>
 </div>
 
 <h4 style="font-size:1rem;font-weight:660;margin-top:26px">Tiga query yang paling memperlihatkan bedanya</h4>
@@ -1365,20 +1365,20 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
   <text x="640" y="94" font-size="10" fill="#2f6f52" font-weight="640">seluruh selang di kanan nol → SIGNIFIKAN</text>
 
   <rect x="30" y="114" width="740" height="66" rx="8" fill="#f4f2ee" stroke="#9b9b9b"/>
-  <text x="46" y="132" font-size="10.5" font-weight="700" fill="#6b6862">E3 vs E1 — selisih +0,013, CI 95% [+0,001, +0,025], p = 0,039 (dev: +0,007, p = 0,207)</text>
+  <text x="46" y="132" font-size="10.5" font-weight="700" fill="#6b6862">E3 vs E1 — selisih +0,013, CI 95% [+0,001, +0,025], p = 0,039</text>
   <line x1="300" y1="158" x2="300" y2="174" stroke="#a03434" stroke-width="1.6" stroke-dasharray="3 2"/>
   <text x="300" y="152" font-size="9" fill="#a03434" text-anchor="middle">nol</text>
   <line x1="60" y1="166" x2="740" y2="166" stroke="#cfcbc3" stroke-width="1"/>
-  <rect x="278" y="160" width="52" height="12" rx="6" fill="#9b9b9b"/>
-  <circle cx="308" cy="166" r="5" fill="#1c1b19"/>
-  <text x="350" y="170" font-size="10" fill="#6b6862" font-weight="640">selang MELEWATI nol → TIDAK signifikan (selisihnya bisa saja kebetulan)</text>
+  <rect x="302" y="160" width="120" height="12" rx="6" fill="#9b9b9b"/>
+  <circle cx="362" cy="166" r="5" fill="#1c1b19"/>
+  <text x="440" y="170" font-size="10" fill="#6b6862" font-weight="640">selang di kanan nol, p&lt;0,05 — nominal signifikan, efek kecil</text>
 </svg>
 </div>
 
 <table>
 <tbody>
 <tr><td style="width:130px"><b>p &lt; 0,05</b></td><td>Selisihnya kecil kemungkinan cuma kebetulan. Boleh diklaim.</td></tr>
-<tr><td><b>p ≥ 0,05</b></td><td>Selisihnya bisa saja muncul dari keberuntungan sampel. <b>Tidak boleh diklaim sebagai perbaikan.</b> Inilah yang terjadi pada Weighted RRF (p = 0,207) — dan kami melaporkannya apa adanya, tidak menyembunyikannya.</td></tr>
+<tr><td><b>p ≥ 0,05</b></td><td>Selisihnya bisa saja muncul dari keberuntungan sampel. <b>Tidak boleh diklaim sebagai perbaikan.</b> Contoh dari test resmi: B1 vs B0 (+0,018, p=0,510).</td></tr>
 <tr><td><b>CI 95%</b></td><td>Rentang selisih yang masuk akal. Kalau rentangnya mencakup angka nol, artinya "tidak ada selisih" masih merupakan kemungkinan yang wajar.</td></tr>
 </tbody>
 </table>
@@ -1415,6 +1415,8 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 </tbody>
 </table>
 
+<p class="small"><b>Catatan metodologis:</b> <span class="mono">hasil3/</span> menguji beberapa pasangan bootstrap sekaligus tanpa koreksi multi-perbandingan. Oleh karena itu, p di sekitar 0,05 — seperti E3 vs E1 (p=0,039) — harus dibaca hati-hati: signifikan secara nominal, tetapi bukan bukti kuat seperti E1 vs B0 (p=0,000). Klaim penelitian tetap pada kepingan karakter.</p>
+
 <table>
 <thead><tr><th>Perbandingan</th><th class="num">selisih nDCG</th><th>CI 95%</th><th class="num">p</th><th>Bacaan</th></tr></thead>
 <tbody>
@@ -1422,7 +1424,7 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <tr><td>E3 vs B0</td><td class="num">+0,187</td><td>[+0,138, +0,238]</td><td class="num">0,000</td><td><b>signifikan</b> — hampir seluruhnya dari E1, bukan RRF</td></tr>
 <tr><td>B1 vs B0</td><td class="num">+0,018</td><td>[−0,037, +0,071]</td><td class="num">0,510</td><td>tidak signifikan</td></tr>
 <tr><td>B2 vs B0</td><td class="num">−0,013</td><td>[−0,072, +0,045]</td><td class="num">0,656</td><td>tidak signifikan</td></tr>
-<tr><td>E3 vs E1</td><td class="num">+0,013</td><td>[+0,001, +0,025]</td><td class="num">0,039</td><td>selisih kecil — <b>tidak terbukti meningkatkan akurasi</b> (dev p=0,207)</td></tr>
+<tr><td>E3 vs E1</td><td class="num">+0,013</td><td>[+0,001, +0,025]</td><td class="num">0,039</td><td>nominal signifikan (α=0,05), efek kecil — bukan klaim peningkatan kualitas setara K4</td></tr>
 <tr><td>E1 vs B1</td><td class="num">+0,156</td><td>[+0,116, +0,199]</td><td class="num">0,000</td><td>signifikan — kepingan, bukan kata saja</td></tr>
 <tr><td>E2 vs B0</td><td class="num">−0,045</td><td>[−0,097, +0,007]</td><td class="num">0,093</td><td>RRF polos menghapus keuntungan E1</td></tr>
 </tbody>
@@ -1510,12 +1512,12 @@ Muat kamus CIEL penuh, naikkan jumlah pasien demo. <span class="small">Selesai k
 
 <div class="box good">
 <p class="lbl">Kami klaim</p>
-<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian OpenMRS secara signifikan (+0,174 nDCG@10, p &lt; 0,001), terutama dengan menurunkan pencarian nol-hasil dari 18,3% ke 0,6% dan menaikkan nDCG query typo dari 0,081 ke 0,773, dengan biaya yang cukup kecil untuk dipasang tanpa GPU. Kami juga menunjukkan bahwa RRF baku degeneratif pada tabel yang saling lepas, dan pembobotan IDF global memperbaikinya — sebagai temuan, bukan sebagai klaim peningkatan kualitas. Weighted RRF menambah +0,013 nDCG di test (p=0,039) dan +0,007 di dev (p=0,207): selisih kecil, <b>tidak terbukti meningkatkan akurasi</b> seperti kepingan karakter.</p>
+<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian OpenMRS secara signifikan (+0,174 nDCG@10, p &lt; 0,001), terutama dengan menurunkan pencarian nol-hasil dari 18,3% ke 0,6% dan menaikkan nDCG query typo dari 0,081 ke 0,773, dengan biaya yang cukup kecil untuk dipasang tanpa GPU. Kami juga menunjukkan bahwa RRF baku degeneratif pada tabel yang saling lepas, dan pembobotan IDF global memperbaikinya — sebagai temuan, bukan sebagai klaim peningkatan kualitas. Weighted RRF (E3 vs E1) unggul tipis di test (+0,013 nDCG, p=0,039): signifikan secara nominal pada α=0,05, tetapi efek kecil dan tidak sebanding dengan E1 vs B0; klaim penelitian tetap pada kepingan karakter.</p>
 </div>
 
 <div class="box neu">
 <p class="lbl">Kami tidak klaim</p>
-<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil secara substantif — tidak; selisih +0,013 di test (p=0,039) dan +0,007 di dev (p=0,207) terlalu kecil untuk dijadikan klaim peningkatan akurasi. Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk (0,815 → 0,598). Bahwa TF-IDF lebih baik dari heuristik OpenMRS — tidak, selisihnya tidak signifikan, dan pada query terpotong heuristiknya justru menang. Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
+<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil secara substantif — tidak; E3 vs E1 hanya +0,013 nDCG (p=0,039): signifikan secara nominal, tetapi efek kecil dan tanpa koreksi multi-perbandingan tidak setara klaim E1 vs B0 (+0,174). Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk (0,815 → 0,598). Bahwa TF-IDF lebih baik dari heuristik OpenMRS — tidak, selisihnya tidak signifikan, dan pada query terpotong heuristiknya justru menang. Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
 </div>
 
 <h3>7.5 Referensi</h3>
@@ -1783,7 +1785,7 @@ var MODEINFO={
      'Jalur kata dan jalur kepingan 4 huruf digabung dengan α = 0,30 (K4 + K5). Penggabungan antar tabel masih skor mentah. Inilah komponen yang membawa hampir seluruh perbaikan.',
      'good'],
  e3:['E3 · + Weighted RRF — metode usulan',
-     'Sama seperti E1, tetapi enam daftar disatukan memakai peringkat × bobot tabel (K6), bukan skor mentah. Skor yang tampil jadi angka RRF yang kecil — itu wajar, yang penting urutannya. Bedanya dengan E1 halus dan pada banyak query tidak terlihat: itu memang temuan kami (+0,007, p = 0,207).',
+     'Sama seperti E1, tetapi enam daftar disatukan memakai peringkat × bobot tabel (K6), bukan skor mentah. Skor yang tampil jadi angka RRF yang kecil — itu wajar, yang penting urutannya. Bedanya dengan E1 halus: E3 vs E1 hanya +0,013 nDCG (p=0,039), jauh di bawah loncatan E1 vs B0.',
      'good']};
 
 function setInfo(mode){
