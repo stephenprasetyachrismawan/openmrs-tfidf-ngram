@@ -29,6 +29,9 @@ tmp-*.json
 tmp-*.txt
 *.log
 
+# catatan kerja manusia (prompt sesi), bukan bagian modul
+/PROMPT-*.md
+
 # OS / editor
 Thumbs.db
 desktop.ini
