@@ -1,0 +1,1414 @@
+[
+  {
+    "q": "disease kidney chronic",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "145438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic Kidney Disease",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120577AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage V",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage I",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "3034271b-5d91-4616-9f49-8a8cae5c2e76",
+        "display": "Chronic kidney disease, stage IIIB (moderate)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "2c156b19-3b11-4e11-9ae2-5ea2bff2b093",
+        "display": "Chronic kidney disease, stage IIIA (moderate)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120579AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage III (moderate)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120578AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage IV (severe)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120574AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage II (mild)",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "145438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic Kidney Disease",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120577AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage V",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage I",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "3034271b-5d91-4616-9f49-8a8cae5c2e76",
+        "display": "Chronic kidney disease, stage IIIB (moderate)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "2c156b19-3b11-4e11-9ae2-5ea2bff2b093",
+        "display": "Chronic kidney disease, stage IIIA (moderate)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120579AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage III (moderate)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120578AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage IV (severe)",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "120574AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic kidney disease, stage II (mild)",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "dribblng of urine",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "141774AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dribbling of Urine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "141774AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dribbling of Urine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "benzyl procaine",
+    "tipe": "hilang_kata",
+    "panggilan1": [
+      {
+        "uuid": "aee293c2-1ca7-413e-b85a-50ae41bc5305",
+        "display": "Benzyl penicillin Procaine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "aee293c2-1ca7-413e-b85a-50ae41bc5305",
+        "display": "Benzyl penicillin Procaine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "heparin sodium",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "77414AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Heparin sodium",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "77414AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Heparin sodium",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "newborn in vomiting",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "122981AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Vomiting in newborn",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "122981AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Vomiting in newborn",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "isoniaizd rifapentine",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "f01f4a5f-198f-4d1f-a950-94a161863223",
+        "display": "Isoniazid / Rifapentine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "f01f4a5f-198f-4d1f-a950-94a161863223",
+        "display": "Isoniazid / Rifapentine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "dilated cardiomoypathy i42 0",
+    "tipe": "typo",
+    "panggilan1": [],
+    "panggilan2": [],
+    "deterministik": true
+  },
+  {
+    "q": "dyphenhydramine",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "497457dc-48c1-40f9-8261-0bd9f4bf6b21",
+        "display": "Dyphenhydramine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "497457dc-48c1-40f9-8261-0bd9f4bf6b21",
+        "display": "Dyphenhydramine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "acute ulcerative gingivitis",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "149482AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute ulcerative gingivitis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "149482AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute ulcerative gingivitis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "mitral valve stenosis",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "134082AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Mitral valve stenosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "134082AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Mitral valve stenosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "unspecified arthritis juvenile",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "157409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Juvenile arthritis, unspecified",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "157409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Juvenile arthritis, unspecified",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "self accu",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "163470AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Self-accusation",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "163470AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Self-accusation",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "psychotic disorder due to medical condition with delusions",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "1a717880-04d3-4631-acd7-b2848f56e6f1",
+        "display": "Psychotic disorder due to medical condition with delusions",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "1a717880-04d3-4631-acd7-b2848f56e6f1",
+        "display": "Psychotic disorder due to medical condition with delusions",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "post trau stres disor",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "113881AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Post-traumatic stress disorder",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "113881AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Post-traumatic stress disorder",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "date of hiv diagnossi",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Date of HIV diagnosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Date of HIV diagnosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "seafood to allergy",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "149070AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Allergy to seafood",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "149070AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Allergy to seafood",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "propo",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "82726AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Propofol",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "83645AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Salicylic acid",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "82726AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Propofol",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "83645AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Salicylic acid",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "hist of jaun",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "5986AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "History of jaundice",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "5986AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "History of jaundice",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "umbilical cord copmlication during labour and delivery",
+    "tipe": "typo",
+    "panggilan1": [],
+    "panggilan2": [],
+    "deterministik": true
+  },
+  {
+    "q": "lido",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "104584AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Epinephrine / lidocaine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "8f8920be-f144-4fba-b4db-d32940dcea04",
+        "display": "Dequalinium & Lidocaine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "78849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Lidocaine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "5c07fc3a-5bcd-4282-9717-f0a3fbfe6f7e",
+        "display": "Lidocaine & Epinephrine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "4c7472fd-a025-49a1-bdca-ffd7d4fd766f",
+        "display": "Lidocaine w & epinephrine dental",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "104584AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Epinephrine / lidocaine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "8f8920be-f144-4fba-b4db-d32940dcea04",
+        "display": "Dequalinium & Lidocaine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "78849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Lidocaine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "5c07fc3a-5bcd-4282-9717-f0a3fbfe6f7e",
+        "display": "Lidocaine & Epinephrine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "4c7472fd-a025-49a1-bdca-ffd7d4fd766f",
+        "display": "Lidocaine w & epinephrine dental",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "qualitative test pregnancy serum",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "1945AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Serum pregnancy test, qualitative",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "1945AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Serum pregnancy test, qualitative",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "angian pectoris",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "121610AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Angina pectoris",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "121610AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Angina pectoris",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "spells fainting",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "112961AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Fainting Spells",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "112961AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Fainting Spells",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "natural death unknown cause",
+    "tipe": "hilang_kata",
+    "panggilan1": [
+      {
+        "uuid": "133475AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Natural Death with Unknown Cause",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "133475AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Natural Death with Unknown Cause",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "acute cornoary syndrome",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "122093AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute coronary syndrome",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "122093AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute coronary syndrome",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "swell of ingu regio",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "125207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Swelling of Inguinal Region",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "125207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Swelling of Inguinal Region",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "haem influ b vacc",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "1f89aab8-a830-4469-98b4-2f19143d7244",
+        "display": "Haemophilus influenzae B vaccination",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "5261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Hemophilus influenza B vaccination",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "159694AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acellular Pertussis / Diphtheria Toxoid / Haemophilus influenzae b, capsular polysaccharide  / Inactivated Polioviruses Type 1 / Inactivated Polioviruses Type 2 / Inactivated Polioviruses Type 3 / Tetanus toxoid conjugate vaccine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "1f89aab8-a830-4469-98b4-2f19143d7244",
+        "display": "Haemophilus influenzae B vaccination",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "5261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Hemophilus influenza B vaccination",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "159694AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acellular Pertussis / Diphtheria Toxoid / Haemophilus influenzae b, capsular polysaccharide  / Inactivated Polioviruses Type 1 / Inactivated Polioviruses Type 2 / Inactivated Polioviruses Type 3 / Tetanus toxoid conjugate vaccine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "personal history of infertility",
+    "tipe": "hilang_kata",
+    "panggilan1": [
+      {
+        "uuid": "158308AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Personal history of female infertility",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "158308AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Personal history of female infertility",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "disease liver toxic",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Hepatotoxicity",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Hepatotoxicity",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "neonatal jaundice",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "115368AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Neonatal jaundice",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "133391AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Neonatal jaundice associated with preterm delivery",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "115368AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Neonatal jaundice",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "133391AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Neonatal jaundice associated with preterm delivery",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "imperfecta dentinogenesis",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "142575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dentinogenesis imperfecta",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "142575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dentinogenesis imperfecta",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "uterus of body of neoplasm malignant",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "116077AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of body of uterus",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "116077AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of body of uterus",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "acute otiits externa",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "121897AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute otitis externa",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "121897AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute otitis externa",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "discharge hospital",
+    "tipe": "hilang_kata",
+    "panggilan1": [
+      {
+        "uuid": "2537896a-7d27-4c71-8e93-4c265ffa5954",
+        "display": "Discharge from hospital",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "2537896a-7d27-4c71-8e93-4c265ffa5954",
+        "display": "Discharge from hospital",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "proedure refused",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "128453AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Procedure refused",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "128453AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Procedure refused",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "diarrhea vomiting or abdominal",
+    "tipe": "hilang_kata",
+    "panggilan1": [
+      {
+        "uuid": "87b3f6a1-6d79-4923-9485-200dfd937782",
+        "display": "Diarrhea, Vomiting or Abdominal pain",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "87b3f6a1-6d79-4923-9485-200dfd937782",
+        "display": "Diarrhea, Vomiting or Abdominal pain",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "malignant neoplasm",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "116031AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135134AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of humerus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "80fb501d-4128-4979-95f9-db4c9edc8fdc",
+        "display": "Malignant neoplasm of vagina",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "157588AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of bone",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116049AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of pancreas",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116041AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of stomach",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116033AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of uterus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of lip",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113763AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of colon",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of kidney",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113676AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of tongue",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135092AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of nervous system",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134756AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of thyroid gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "129079AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of anal canal",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128983AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of endometrium",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128884AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of mandible",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128845AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of ovary",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128803AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of placenta",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128779AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of renal pelvis",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "158533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of vulva",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "158532AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of vagina",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "151521AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Family history of malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "151286AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Personal history of malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of endocrine gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116023AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of cervix uteri",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "115961AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of urinary bladder",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113784AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of accessory sinus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113778AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of biliary tract",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of female breast",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113696AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of rectosigmoid junction",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113689AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of small intestine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113670AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of urinary organ",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128701AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of sublingual gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128700AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of submaxillary gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "126931AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Secondary malignant neoplasm of lymph node",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "151185AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Screening for malignant neoplasm of cervix",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116077AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of body of uterus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "115992AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of major salivary glands",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113757AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of eye, part unspecified",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135117AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of long bones of leg",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of liver and intrahepatic bile ducts",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161894AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Follow-up examination after surgery for malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161892AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Follow-up examination after chemotherapy for malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161893AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Follow-up examination after combined treatment for malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135225AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant Neoplasm of Auditory Tube, Middle Ear and Mastoid Air Cells",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134848AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of gallbladder",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134807AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of ovary",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of prostate",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134785AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of rectum",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134759AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of testis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "116031AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135134AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of humerus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "80fb501d-4128-4979-95f9-db4c9edc8fdc",
+        "display": "Malignant neoplasm of vagina",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "157588AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of bone",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116049AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of pancreas",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116041AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of stomach",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116033AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of uterus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of lip",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113763AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of colon",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of kidney",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113676AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of tongue",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135092AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of nervous system",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134756AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of thyroid gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "129079AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of anal canal",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128983AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of endometrium",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128884AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of mandible",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128845AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of ovary",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128803AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of placenta",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128779AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of renal pelvis",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "158533AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of vulva",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "158532AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of vagina",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "151521AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Family history of malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "151286AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Personal history of malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116074AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of endocrine gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116023AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of cervix uteri",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "115961AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of urinary bladder",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113784AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of accessory sinus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113778AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of biliary tract",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of female breast",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113696AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of rectosigmoid junction",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113689AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of small intestine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113670AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of urinary organ",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128701AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of sublingual gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "128700AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Primary malignant neoplasm of submaxillary gland",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "126931AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Secondary malignant neoplasm of lymph node",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "151185AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Screening for malignant neoplasm of cervix",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "116077AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of body of uterus",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "115992AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of major salivary glands",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "113757AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of eye, part unspecified",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135117AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of long bones of leg",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135118AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant neoplasm of liver and intrahepatic bile ducts",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161894AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Follow-up examination after surgery for malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161892AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Follow-up examination after chemotherapy for malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161893AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Follow-up examination after combined treatment for malignant neoplasm",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135225AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant Neoplasm of Auditory Tube, Middle Ear and Mastoid Air Cells",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134848AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of gallbladder",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134807AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of ovary",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134788AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of prostate",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134785AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of rectum",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "134759AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malignant tumor of testis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "peri fluid",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "159997AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Peritoneal fluid",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "163366AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pericardial fluid specimen",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "159997AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Peritoneal fluid",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "163366AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pericardial fluid specimen",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "uncontrolled hypertension",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "165587AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Uncontrolled hypertension",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "165587AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Uncontrolled hypertension",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "lept",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "116341AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Leptospirosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "116341AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Leptospirosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "acrodermatitis atrophicans crhonica",
+    "tipe": "typo",
+    "panggilan1": [],
+    "panggilan2": [],
+    "deterministik": true
+  },
+  {
+    "q": "cd8",
+    "tipe": "hilang_kata",
+    "panggilan1": [
+      {
+        "uuid": "854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "CD4/CD8",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "CD4/CD8",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  }
+]

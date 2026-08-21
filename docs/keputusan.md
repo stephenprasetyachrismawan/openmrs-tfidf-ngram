@@ -1430,3 +1430,71 @@ bukan dari `unified-search-app` — dicek tidak menyebut nama app kami sama
 sekali); seluruh permintaan jaringan ke `127.0.0.1` saja; `docker ps` tetap
 4 container; halaman terbaca penuh di 1280px
 (`document.documentElement.scrollWidth` 1280px == `innerWidth`).
+
+---
+
+## 2026-08-22 · E1: Baseline B0′ (OpenMRS asli) — dijalankan, hasilnya diterima apa adanya
+
+**Rancangan disetujui manusia dengan lima syarat tambahan** (locale eksplisit,
+limit eksplisit, dedupe sebelum top-10, dua angka apa-adanya/korpus, uji
+determinisme) sebelum dijalankan — lihat riwayat sesi. Skrip:
+`riset/eksperimen3_baseline_asli.py`. Hasil lengkap: `riset/hasil4/laporan.md`.
+
+**Endpoint & parameter final:**
+```
+GET /openmrs/ws/rest/v1/concept?name=<query>&searchType=fuzzy&limit=50&v=custom:(uuid,display)
+```
+Tanpa `class` (beda dari D1 — filter kelas tidak adil untuk 42 query konsep
+yang mencakup kelas selain Diagnosis).
+
+**Temuan metodologis tak terduga — syarat #1 (locale eksplisit) ternyata
+merusak endpoint.** Dicoba `&locale=en` eksplisit sesuai permintaan.
+Diverifikasi lewat curl **sebelum** dipakai di eksperimen: parameter itu
+membuat endpoint mengembalikan **daftar tetap yang tidak berkaitan sama
+sekali** untuk *setiap* query apa pun isinya (`kidney` → `ATT DEFAULT
+ATTACHMENT`, `Heparins`, dst; `disease kidney chronic` → deretan yang
+sama persis). Tanpa parameter locale, hasilnya benar (`kidney` →
+`Chronic Kidney Disease` dkk., relevan). Locale dipatok lewat **sesi**
+sebagai gantinya (`GET .../session` → `"locale":"en"`, dicek tiap jalan
+skrip lewat `assert`), bukan lewat parameter query — memenuhi maksud
+syarat #1 (locale terpatok & tercatat) tanpa memicu bug endpoint yang
+baru ditemukan ini. `&limit=50` sendiri diverifikasi aman.
+
+Ini bug endpoint OpenMRS bawaan yang sesungguhnya (bukan salah pakai di
+pihak kami — diverifikasi lewat `curl` langsung, direproduksi 100% dari
+waktu ke waktu), layak dilaporkan sebagai temuan tersendiri kalau ditanya
+penguji: parameter `locale` pada `GET /ws/rest/v1/concept?searchType=fuzzy`
+tidak berfungsi seperti namanya menyarankan.
+
+**Hasil (42 query konsep dev, `qs[:100]` saja):**
+
+| Sistem | nDCG@10 |
+|---|---|
+| B0 (tiruan kami) | 0,664 |
+| **B0′ (OpenMRS asli)** | **0,800** |
+| B1 | 0,693 |
+| E1 | 0,893 |
+| **E3** | **0,903** |
+
+**E3 vs B0′: +0,103, CI95 [+0,034, +0,183], p=0,0076 — signifikan, E3 tetap
+menang, tapi margin ~4× lebih kecil dari E3 vs B0 (+0,239, p=0,0002).**
+B0′ vs B0: +0,136, p=0,0108 — OpenMRS asli mengalahkan tiruan kami sendiri,
+mengonfirmasi kuantitatif temuan D1.
+
+**Dua syarat lain, keduanya bersih:** 0/104 hasil mentah di luar korpus
+4.249-baris (B0′-apaadanya = B0′-korpus, tidak ada bias dari sumber ini);
+0/42 query tidak deterministik antara dua panggilan (endpoint stabil pada
+pengujian ini — dicatat sebagai bukti untuk saat pengujian dilakukan,
+bukan jaminan selamanya).
+
+**Temuan per jenis kesalahan ketik (n=6-10/sel, arah bukan bukti
+statistik):** pada **trunkasi**, B0 (0,942) sedikit **mengungguli** B0′
+(0,904) *dan* E3 (0,929) — pencocokan awalan menang pada kata terpotong,
+sekarang terbukti juga terhadap OpenMRS asli, bukan cuma TF-IDF kata. Pada
+**typo**, B0=0,000, B0′=0,604, E3=0,913 — Lucene menutup sebagian lubang
+B0, E3 tetap tertinggi.
+
+**Hasil diterima apa adanya — tidak ada parameter yang disetel ulang.**
+ALPHA/NGRAM/K_RRF/EPS tidak disentuh. `OpenMrsHeuristic.java` tidak diubah
+— B0′ adalah baseline TAMBAHAN, bukan pengganti B0. `qs[100:]` tidak
+disentuh sama sekali.
