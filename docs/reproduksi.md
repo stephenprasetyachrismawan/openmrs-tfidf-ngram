@@ -154,6 +154,39 @@ Semua URL **`http://127.0.0.1`**, jangan `localhost` (CLAUDE.md aturan 7).
    bawah, klik "Jalankan seluruh data uji" — tabel `nDCG@10` untuk `e3`
    harus di sekitar **0,846** (dev), bukan 0,811 (itu angka test set).
 
+## Langkah 9 — mengulang eksperimen B0′ (baseline OpenMRS asli)
+
+Butuh stack Docker sudah berjalan (langkah 2) dan login sesi aktif di
+`http://127.0.0.1` (kredensial `admin`/`Admin123` pada instalasi demo
+default — skrip login lewat `admin:Admin123` basic auth ke
+`/ws/rest/v1/session`, bukan lewat browser).
+
+```bash
+cd riset
+python eksperimen3_baseline_asli.py
+```
+
+**Cara tahu berhasil:**
+- Baris pertama mencetak `Locale sesi dikonfirmasi: 'en'` — kalau sesi
+  bukan locale `en`, skrip berhenti dengan `AssertionError` (disengaja,
+  lihat komentar di kepala skrip soal bug parameter `locale` pada endpoint).
+- Ringkasan akhir menunjukkan nDCG@10: B0≈0,664, **B0′≈0,800**, B1≈0,693,
+  E1≈0,893, E3≈0,903 (42 query konsep dev, `qs[:100]` saja).
+- `riset/hasil4/` berisi `hasil.json`, `per_query.json`, `ringkasan.csv`,
+  `laporan.md`, `mentah_b0prime.json`, `uuid_ke_concept_id.json`.
+- **Jangan kaget** kalau angka persis berbeda sedikit dari yang tercatat
+  di `docs/keputusan.md` ("E1") — itu wajar kalau korpus demo di instalasi
+  lain sedikit berbeda datanya; yang harus konsisten adalah **arah**
+  temuannya (B0′ jauh lebih kuat dari B0, E3 tetap menang tapi dengan
+  margin lebih kecil dari klaim terhadap B0).
+
+**Peringatan penting yang harus dibaca sebelum menjalankan ulang:**
+parameter `&locale=en` pada endpoint `GET /ws/rest/v1/concept?searchType=fuzzy`
+**merusak pencarian** (mengembalikan daftar tetap tidak berkaitan untuk
+query apa pun) — jangan menambahkannya kalau memodifikasi skrip ini.
+Locale dipatok lewat sesi, bukan parameter query. Rincian lengkap:
+`docs/keputusan.md` ("E1").
+
 ## Yang TIDAK diuji sesi ini — sisa pekerjaan manusia
 
 Sesuai CLAUDE.md aturan 8 (satu stack Docker saja), langkah-langkah berikut
