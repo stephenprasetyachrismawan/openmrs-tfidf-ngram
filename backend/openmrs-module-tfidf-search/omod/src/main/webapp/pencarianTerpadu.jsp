@@ -25,4 +25,13 @@
 	<c:forEach var="c" items="${contoh}">${c}<br/></c:forEach>
 </p>
 
+<h3>Indeks kepingan karakter (K4)</h3>
+<p>
+	Waktu bangun (6 indeks, seluruh korpus): <span id="durasiBangunKepinganMs">${durasiBangunKepinganMs}</span> ms.
+	Total kosakata kepingan: <span id="totalKepinganVocab">${totalKepinganVocab}</span>.
+</p>
+<p id="contohKepingan">
+	<c:forEach var="c" items="${contohKepingan}">${c}<br/></c:forEach>
+</p>
+
 <%@ include file="/WEB-INF/template/footer.jsp" %>

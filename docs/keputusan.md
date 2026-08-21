@@ -204,3 +204,42 @@ hasilnya tetap `insulin glargine`.
 
 **Status:** ditemukan sebelum indeks dibangun, jadi tidak ada angka yang perlu
 dihitung ulang. Diperbaiki di awal tugas 03.
+
+---
+
+## 2026-08-20 · Verifikasi silang Java vs Python pada korpus asli — COCOK
+
+Setelah tugas 04, skor kepingan karakter modul Java dihitung ulang secara
+independen di Python (`tools/silang_skor.py`) langsung dari
+`riset/data/konsep.jsonl`, memakai aturan surface form yang sama dengan
+`riset/eksperimen2.py`.
+
+| Yang dibandingkan | Java (live di server) | Python (hitung ulang) |
+|---|---|---|
+| surface form konsep | 26.580 | **26.580** |
+| `pulm edem` → Pulmonary edema | 0,5113 | **0,5113** |
+| `diabete melitus` → Diabetes mellitus, type 2 | 0,4546 | **0,4546** |
+
+Cocok sampai empat desimal pada dua query berbeda, di atas korpus penuh —
+bukan korpus mainan. Ini membuktikan seluruh rantai Java (pemuatan tabel →
+surface form → normalisasi → kepingan → pembobotan ltc → cosine → maksimum
+per entri) mereproduksi pipeline penelitian secara numerik.
+
+### Catatan proses: satu jebakan yang hampir jadi kesalahan
+
+Percobaan pertama memberi 26.575 — meleset 5. Penyebabnya **bukan** Java,
+melainkan aturan tebakan pada skrip verifikasi: skrip membuang alias dengan
+membandingkan bentuk ternormalisasi (`norm(a) != norm(nama)`), sedangkan
+`eksperimen2.py` membandingkan **string persis** (`a != nama`). Aturan yang
+lebih ketat membuang 5 alias tambahan.
+
+Pelajarannya untuk siapa pun yang memverifikasi di kemudian hari: ketika angka
+verifikasi tidak cocok, **periksa dulu aturan pembandingnya**, jangan langsung
+menyimpulkan implementasinya salah. Aturan yang sah ada di `riset/eksperimen2.py`,
+bukan di ingatan.
+
+### Peringatan urutan pemeringkatan
+
+Untuk `diabete melitus`, entri teratas adalah **Diabetes mellitus** (0,5555),
+bukan *type 2* (0,4546). Itu benar dan diharapkan — nama yang lebih pendek dan
+lebih dekat ke query memang menang. Jangan menganggapnya bug.
