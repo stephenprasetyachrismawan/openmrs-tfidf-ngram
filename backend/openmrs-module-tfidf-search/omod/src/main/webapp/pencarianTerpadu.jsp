@@ -39,4 +39,9 @@
 	<c:forEach var="c" items="${contohFusi}">${c}<br/></c:forEach>
 </p>
 
+<h3>Indeks global dan Weighted RRF (K6) &mdash; query "diabete"</h3>
+<p id="contohRrf">
+	<c:forEach var="c" items="${contohRrf}">${c}<br/></c:forEach>
+</p>
+
 <%@ include file="/WEB-INF/template/footer.jsp" %>

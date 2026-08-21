@@ -664,3 +664,59 @@ yang sudah ditulis.
 Kalau penguji menanyakannya, jawabannya lengkap: n=3 sedikit lebih baik pada
 100 query dev (+0,0091), tidak signifikan (p = 0,0686), dan tidak dipakai
 supaya seluruh kode dan pengujian tetap konsisten dengan eksperimen pertama.
+
+---
+
+## 2026-08-20 · Bobot K6 terverifikasi, dan koreksi atas penjelasannya
+
+Bobot koleksi Java diverifikasi terhadap pipeline Python (`tools/cek_bobot.py`,
+mengimpor `eksperimen2` sebagai modul — `main()` tidak dijalankan, jadi test set
+tidak tersentuh).
+
+| query `diabete` | bobot | skor global |
+|---|---|---|
+| konsep | **0,8831** | 0,4897 |
+| obat | **0,1669** | 0,0687 |
+| pasien / form / lokasi / provider | 0,0500 | 0,0000 (lantai EPS) |
+
+Angka `konsep = 0,8831` **cocok persis** dengan hasil live modul Java.
+
+### Koreksi: penjelasan "tidak ada kecocokan non-konsep" tidak lengkap
+
+Laporan tugas 07 menyimpulkan, dari kueri SQL `LIKE 'diabet%'` yang nihil, bahwa
+tidak ada entitas non-konsep yang cocok. Kesimpulan itu **tidak berlaku untuk
+kepingan karakter**. Buktinya: `obat` tidak berada di lantai EPS — skornya
+0,0687.
+
+Kalau benar hanya konsep yang berskor, bobotnya akan jadi
+`0,05 + 0,95 × 1 = 1,0`, bukan 0,8831. Angka 0,8831 sendiri sudah membuktikan
+ada entitas lain yang menyumbang.
+
+Pelajarannya: **pencocokan harfiah SQL bukan alat yang sah untuk menyimpulkan
+sesuatu tentang skor kepingan karakter.** Seluruh premis metode ini justru
+kecocokan tanpa kesamaan kata utuh.
+
+### Dua contoh konkret — keduanya layak masuk laporan
+
+**`diabete` → Metformin (obat), skor 0,0687.** Kecocokannya **bukan** lewat
+judul, melainkan lewat alias/kode. Metformin memang obat diabetes, jadi ini
+kaitan yang benar secara klinis, muncul dari desain surface form (K2) tanpa
+pengetahuan medis apa pun ditanamkan. Contoh bagus untuk menunjukkan gunanya
+mengindeks alias secara terpisah.
+
+**`pulm edem` → Pulmicort (obat), skor 0,0999, lewat kepingan `pulm`.**
+Pulmicort adalah budesonide untuk asma, **tidak** ada hubungannya dengan edema
+paru. Ini contoh jujur dari sifat terlalu murah hati kepingan karakter — persis
+alasan K5 mempertahankan jalur kata sebagai penyeimbang, dan persis yang ditulis
+di proposal bagian K5 ("kepingan bisa terlalu murah hati").
+
+Sepasang contoh ini menunjukkan kedua sisi komponen yang sama dalam satu tarikan
+napas: satu kaitan yang benar dan tak terduga, satu kaitan yang salah dan bisa
+dijelaskan. Jauh lebih meyakinkan daripada hanya menampilkan yang berhasil.
+
+### Batas yang perlu diperjelas untuk aturan 10
+
+Mengimpor `riset/eksperimen2.py` sebagai modul dan memanggil fungsinya untuk
+kueri ad-hoc **boleh** — `main()` dijaga `if __name__ == "__main__"`, dan query
+ad-hoc bukan bagian dari `qs`. Yang dilarang adalah menjalankan skripnya
+sehingga blok evaluasi `for it in test` ikut berjalan.

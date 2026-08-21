@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.openmrs.api.context.Context;
 import org.openmrs.module.unifiedsearch.AlphaConfig;
 import org.openmrs.module.unifiedsearch.FusionSearch;
+import org.openmrs.module.unifiedsearch.GlobalIndex;
 import org.openmrs.module.unifiedsearch.RankedDocument;
+import org.openmrs.module.unifiedsearch.RankingEngine;
 import org.openmrs.module.unifiedsearch.SurfaceForm;
 import org.openmrs.module.unifiedsearch.SurfaceFormExtractor;
 import org.openmrs.module.unifiedsearch.TfIdfIndex;
@@ -24,18 +27,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Placeholder page. Until the search UI exists it reports the size of the
- * corpus (K1/K2), a live check of the character n-gram index (K4), and since
- * tugas 05, a live check of the K5 fusion. ALPHA=0.45 here is the provisional
- * value from docs/keputusan.md, shown only to demonstrate the fusion — it is
- * NOT tuned here; that happens in tugas 06.
+ * corpus (K1/K2), a live check of the character n-gram index (K4), a live
+ * check of the K5 fusion (tugas 05/06), and since tugas 07, a live check of
+ * the K6 global index / Weighted RRF.
  */
 @Controller
 public class UnifiedSearchPageController {
-	
+
 	private static final int NGRAM = 4;
 
 	/** Fixed at the value tools/silang_fusi.py's reference table was computed with — not the operational ALPHA. */
 	private static final double ALPHA_ACUAN_VERIFIKASI = 0.45;
+
+	/** dikunci tugas 06b dari sapuan 100 query dev; lihat docs/keputusan.md. */
+	private static final double EPS = 0.05;
+
+	private static final int K_RRF = 20;
 
 	private final DocumentRepository repository;
 
@@ -70,6 +77,8 @@ public class UnifiedSearchPageController {
 		List<SurfaceForm> formKonsep = new ArrayList<SurfaceForm>();
 		TfIdfIndex indeksKepinganKonsep = null;
 		TfIdfIndex indeksKataKonsep = null;
+		Map<String, FusionSearch> lokal = new TreeMap<String, FusionSearch>();
+		List<SurfaceForm> semuaForm = new ArrayList<SurfaceForm>();
 		long mulaiBangunKepingan = System.nanoTime();
 		int totalKepinganVocab = 0;
 		for (VirtualDocumentList list : perEntitas) {
@@ -78,18 +87,30 @@ public class UnifiedSearchPageController {
 			formPerEntitas.put(list.getEntitas(), Integer.valueOf(forms.size()));
 			totalDokumen += list.getDokumen().size();
 			totalForm += forms.size();
+			semuaForm.addAll(forms);
 
 			TfIdfIndex indeksKepingan = new TfIdfIndex(gramTokenizer);
 			indeksKepingan.build(teks(forms));
 			totalKepinganVocab += indeksKepingan.vocabularySize();
+
+			TfIdfIndex indeksKata = new TfIdfIndex(Tokenizer::words);
+			indeksKata.build(teks(forms));
+			lokal.put(list.getEntitas(), new FusionSearch(indeksKata, indeksKepingan, forms));
+
 			if ("konsep".equals(list.getEntitas())) {
 				formKonsep = forms;
 				indeksKepinganKonsep = indeksKepingan;
-				indeksKataKonsep = new TfIdfIndex(Tokenizer::words);
-				indeksKataKonsep.build(teks(forms));
+				indeksKataKonsep = indeksKata;
 			}
 		}
 		long durasiBangunKepinganMs = (System.nanoTime() - mulaiBangunKepingan) / 1000000L;
+
+		TfIdfIndex globalKata = new TfIdfIndex(Tokenizer::words);
+		globalKata.build(teks(semuaForm));
+		TfIdfIndex globalKepingan = new TfIdfIndex(gramTokenizer);
+		globalKepingan.build(teks(semuaForm));
+		GlobalIndex global = new GlobalIndex(globalKata, globalKepingan, semuaForm);
+		RankingEngine engine = new RankingEngine(lokal, global, AlphaConfig.current(), EPS, K_RRF);
 
 		model.addAttribute("dokumenPerEntitas", dokumenPerEntitas);
 		model.addAttribute("formPerEntitas", formPerEntitas);
@@ -100,7 +121,49 @@ public class UnifiedSearchPageController {
 		model.addAttribute("totalKepinganVocab", Integer.valueOf(totalKepinganVocab));
 		model.addAttribute("contohKepingan", contohKepingan(indeksKepinganKonsep, formKonsep));
 		model.addAttribute("contohFusi", contohFusi(indeksKataKonsep, indeksKepinganKonsep, formKonsep));
+		model.addAttribute("contohRrf", contohRrf(global, engine));
 		return "/module/unifiedsearch/pencarianTerpadu";
+	}
+
+	/**
+	 * K6 worked example from tugas/07-weighted-rrf.md: collection weights for
+	 * query "diabete" on the real corpus (the 0,38/0,12 figures in the task were
+	 * from the docs/proposal.html mockup — only the relative order is expected to
+	 * match on the real corpus, not the exact numbers).
+	 * <p>
+	 * "diabete" itself does not reorder e1 vs e3 on THIS corpus: the demo data has
+	 * zero non-concept rows matching "diabet*" (checked directly against the
+	 * database), so only one entity ever has candidates and RRF has nothing to
+	 * reweight against. "form" is shown instead to demonstrate e1/e3 diverging on
+	 * real data (confirmed first against the Python reference pipeline). RRF is
+	 * architectural — it does not claim to rank better than e1, only to merge six
+	 * lists into one; see CLAUDE.md rule 3.
+	 */
+	private List<String> contohRrf(GlobalIndex global, RankingEngine engine) {
+		List<String> out = new ArrayList<String>();
+		double alpha = AlphaConfig.current();
+
+		Map<String, Double> bobot = global.collectionWeights("diabete", alpha, EPS);
+		out.add("bobot koleksi (K6) untuk \"diabete\":");
+		for (Map.Entry<String, Double> entry : bobot.entrySet()) {
+			out.add("  " + entry.getKey() + " = " + entry.getValue());
+		}
+
+		String queryBeda = "form";
+		out.add("--- E1 (K5 saja, tanpa RRF) top 3 untuk \"" + queryBeda + "\" ---");
+		tambahTop3(out, engine.search("e1", queryBeda));
+		out.add("--- E3 (Weighted RRF) top 3 untuk \"" + queryBeda + "\" ---");
+		tambahTop3(out, engine.search("e3", queryBeda));
+
+		return out;
+	}
+
+	private void tambahTop3(List<String> out, List<RankedDocument> hasil) {
+		for (int i = 0; i < Math.min(3, hasil.size()); i++) {
+			RankedDocument r = hasil.get(i);
+			out.add((i + 1) + ". " + r.getDokumen().getEntitas() + ":" + r.getDokumen().getJudul() + " ("
+			        + r.getDokumen().getKunci() + ") = " + r.getSkor());
+		}
 	}
 
 	/**
