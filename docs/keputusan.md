@@ -159,3 +159,48 @@ menghabiskan minggu terakhir pada webpack sementara laporan belum ditulis.
 harus selesai dan teruji lewat `curl` **sebelum** frontend disentuh. Dengan
 begitu, kalaupun jalur O3 gagal total, seluruh isi penelitian tetap utuh dan
 bisa dilaporkan.
+
+---
+
+## 2026-08-20 · Bug laten: `toLowerCase()` tanpa Locale (WAJIB diperbaiki)
+
+**Temuan.** `TextNormalizer.normalize()` memakai `value.toLowerCase()` tanpa
+argumen Locale. Metode itu memakai **locale bawaan JVM**, sehingga hasilnya
+berbeda antar mesin. Python `str.lower()` tidak begitu — ia tidak bergantung
+locale. Jadi cermin Java–Python yang kita andalkan bocor.
+
+**Bukti** (dijalankan pada JDK 17 mesin ini):
+
+```
+default   : [insulin glargine]
+turki     : [ınsulin glargine]      <- i tanpa titik
+ROOT      : [insulin glargine]
+norm turki: [nsulin glargine]       <- huruf I HILANG setelah [^a-z0-9] disapu
+norm ROOT : [insulin glargine]
+SAMA? false
+```
+
+Pada JVM berlocale Turki/Azerbaijan, `"I".toLowerCase()` menghasilkan `ı`
+(U+0131), yang bukan anggota `[a-z0-9]`, sehingga dibuang jadi spasi. Setiap
+kata berhuruf kapital I terpotong. `Insulin` menjadi `nsulin`.
+
+**Kenapa ini penting walau sekarang tidak tampak.** Container berjalan pada
+locale netral, jadi angka hari ini benar. Tapi seluruh klaim reproduksibilitas
+penelitian ini — aturan 1 `CLAUDE.md`, dan janji "penguji cukup memasang modul
+lalu menekan satu tombol" — runtuh kalau angkanya bergantung pada setelan
+regional mesin penguji. Ini kelas bug yang sama dengan hash randomization
+Python yang sudah pernah menghabiskan waktu kelompok ini.
+
+**Perbaikan wajib:**
+
+```java
+String lowered = value.toLowerCase(java.util.Locale.ROOT);
+```
+
+Berlaku untuk **setiap** `toLowerCase()` dan `toUpperCase()` di seluruh basis
+kode, bukan hanya di `TextNormalizer`. Sertakan uji unit yang menormalkan
+`"Insulin glargine"` di bawah `Locale.forLanguageTag("tr")` dan menuntut
+hasilnya tetap `insulin glargine`.
+
+**Status:** ditemukan sebelum indeks dibangun, jadi tidak ada angka yang perlu
+dihitung ulang. Diperbaiki di awal tugas 03.

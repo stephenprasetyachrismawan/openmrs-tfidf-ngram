@@ -23,6 +23,7 @@
 		<openmrsPlatformVersion>2.8.8</openmrsPlatformVersion>
 		<openmrsModuleId>unifiedsearch</openmrsModuleId>
 		<legacyuiVersion>2.1.0</legacyuiVersion>
+		<springVersion>5.3.39</springVersion>
 	</properties>
 
 	<dependencyManagement>
@@ -44,6 +45,24 @@
 				<artifactId>openmrs-test</artifactId>
 				<version>${openmrsPlatformVersion}</version>
 				<type>pom</type>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${springVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${springVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.13.2</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
