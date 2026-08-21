@@ -799,3 +799,172 @@ peningkatan kualitas setara K4.
 
 **Perubahan dokumen:** `docs/proposal.html`, `CLAUDE.md` — seluruh klaim hidup
 +0,007 / p=0,207 dihapus; tidak ada atribusi dev untuk pasangan ini.
+
+---
+
+## 2026-08-21 · C1 diperbaiki: gold dev Java tidak lagi dibangkitkan sendiri
+
+**Gejala.** `GET /ws/rest/v1/unifiedsearch/eval?mode=e3` memberi nDCG@10=0,809,
+padahal acuan dev Python (`riset/hasil2/sapuan_alpha_dev.json`) = 0,846.
+
+**Akar masalah.** `DevQueryGoldStandard.java` mencoba meniru `bangun_query()`
+Python dengan `java.util.Random(42)`. Itu mustahil cocok: `java.util.Random`
+adalah LCG 48-bit, `random.Random` Python adalah Mersenne Twister — seed sama,
+urutan angka acak berbeda total. SHA-256 daftar query: Python `3b140c96…`,
+Java `d2c27d1b…`. Bukti bahwa peringkatnya sendiri sudah benar:
+`riset/hasil3/investigasi_gap_eval.json` menunjukkan peringkat Java yang
+sama, dievaluasi memakai gold Python, menghasilkan 0,8464 — persis Python.
+
+**Perbaikan.** Java berhenti membangkitkan query. `riset/ekspor_gold_dev.py`
+mengimpor `eksperimen2` sebagai modul (tidak memanggil `main()`, jadi
+`qs[100:]` tidak tersentuh), memanggil `bangun_query()` dengan
+`random.Random(42)` yang sama dipakai laporan utama, mengambil `qs[:100]`,
+dan menulis `backend/openmrs-module-tfidf-search/api/src/main/resources/gold-dev-100.json`
+(field `q`, `tipe`, `entitas_target`, `seed`, `rel`, plus `sha256_sumber`
+atas isi berkas). `DevQueryGoldStandard.java` sekarang hanya membaca berkas
+itu lewat parser JSON kecil buatan sendiri (tidak ada dependensi Jackson di
+`api/pom.xml`, dan berkasnya kecil serta bentuknya kita kendalikan sendiri).
+`EvalService` membuang seluruh kode SQL `concept_class`/`drug` yang sebelumnya
+hanya melayani pembangkitan query, dan menyertakan `gold_sha256` di jawaban
+endpoint eval supaya bisa dicocokkan mata telanjang dengan
+`sha256_sumber` di `gold-dev-100.json`.
+
+**Hasil verifikasi setelah pasang ulang modul** (`?mode=e3`, `?mode=b0`,
+container `openmrs-distro-referenceapplication-backend-1`):
+
+| Mode | Java (live) | Python (dev, qs[:100]) | Selisih |
+|---|---|---|---|
+| E3 | 0,846403821575558 | 0,8464038215755585 | ~1e-15 |
+| B0 | 0,6600207482302375 | 0,6600207482302376 | ~1e-16 |
+
+Acuan B0 dev belum pernah dicatat sebelumnya — dihitung di sini dengan skrip
+ad-hoc yang mengimpor `eksperimen2` sebagai modul dan memanggil
+`jalankan("B0", ...)` atas `qs[:100]` yang sama (tidak menjalankan `main()`,
+tidak menyentuh `qs[100:]`). **B0 nDCG@10 dev = 0,6600207482302376.**
+
+**gold_sha256 langsung dari endpoint:**
+`cfd7a5aeb8452a3d6b05c67374b8ecba7ada60b7b919d2d99055ee28e533fbc4`.
+
+Kesimpulan: seluruh kesenjangan C1 adalah gap generator query, bukan gap
+algoritma peringkat. Peringkat Java sudah cocok dengan Python sejak sebelum
+perbaikan ini (dibuktikan tugas-tugas sebelumnya); yang salah murni cara
+membangkitkan 100 query dev secara independen di dua bahasa dengan PRNG
+berbeda.
+
+---
+
+## 2026-08-21 · C2 diperbaiki: `waktu_ms` dipindah ke header respons
+
+**Gejala.** Kriteria tugas 09 "panggilan yang sama dua kali memberi jawaban
+byte-identik" gagal — satu-satunya byte berbeda adalah field `waktu_ms` di
+badan JSON.
+
+**Perbaikan.** `waktu_ms` dibuang dari badan `/unifiedsearch` dan
+`/unifiedsearch/eval`, dipindah ke header respons `X-Unifiedsearch-Waktu-Ms`.
+`UnifiedSearchService.search()` dan `EvalService.evaluate()` sekarang
+mengembalikan `Timed<Map<String,Object>>` (kelas baru, `api/.../Timed.java`);
+`UnifiedSearchRestController` membaca `getWaktuMs()` untuk header dan
+`getBody()` untuk badan lewat `ResponseEntity`. Tidak ada pembulatan waktu
+untuk "memperbaiki" — waktunya memang tidak dilaporkan di badan sama sekali.
+
+---
+
+## 2026-08-21 · C3 diperbaiki: indeks dibangun saat startup, bukan lazy
+
+**Sebelumnya.** `UnifiedSearchActivator.started()` hanya mencatat log;
+`IndexBuilder.ensureBuilt()` membangun indeks pada permintaan pertama.
+
+**Perbaikan.** `UnifiedSearchActivator` sekarang mengimplementasikan
+`DaemonTokenAware` (menerima `DaemonToken` dari OpenMRS core saat modul
+diinisialisasi) dan memanggil
+`Daemon.runInDaemonThreadWithoutResult(Runnable, DaemonToken)` di `started()`
+untuk membangun indeks di **thread daemon terpisah** — bukan thread startup
+Tomcat/OpenMRS, dan tidak memegang koneksi JDBC dari transaksi startup
+selama proses TF-IDF di memori. `IndexBuilder.ensureBuilt()` dipertahankan
+sebagai pengaman kalau permintaan datang sebelum thread daemon selesai.
+
+**Catatan API.** `Daemon.runInDaemonThread(Runnable, DaemonToken)` (varian
+yang mengembalikan `Thread`) sudah **deprecated** di openmrs-api 2.8.8 —
+dipakai `runInDaemonThreadWithoutResult(...)` (mengembalikan
+`Future<?>`, diabaikan — fire-and-forget) sebagai gantinya. Tidak ada
+warning deprecation lagi setelah perbaikan (`mvn -o clean compile
+-Dmaven.compiler.showDeprecation=true`, bersih).
+
+**Masalah tersembunyi yang ditemukan sekaligus dibereskan: level log.**
+`openmrs-distro-referenceapplication`'s `log4j2.xml` (bukan punya kita,
+tidak boleh diubah — CLAUDE.md aturan 9) mengunci logger `org.openmrs`
+(termasuk `org.openmrs.module.unifiedsearch`) ke **WARN**. Baris
+`log.info("... index build finished ...")` karena itu tidak pernah muncul
+di `openmrs.log`, di sesi manapun, sejak awal — bukan regresi baru. Baris
+durasi build yang disyaratkan tugas 09 harus terlihat, jadi baris itu (dan
+hanya baris itu) dinaikkan ke `log.warn(...)`; baris info lain di
+`IndexBuilder`/`EvalService` dibiarkan `info` karena tidak disyaratkan
+terlihat.
+
+**Bukti (setelah pasang ulang modul, sekali restart):**
+```
+WARN - IndexBuilder.build(137) |...T15:37:23,822| Unified search index build
+finished in 1181 ms (4748 documents, 29320 surface forms, 13 indices)
+```
+1181 ms, di bawah ambang 10 detik. Tidak ada deadlock atau timeout startup
+yang ditemukan — jadi tidak perlu mundur ke lazy-build; tidak ada
+penyimpangan untuk dicatat di sini selain catatan log level di atas.
+
+---
+
+## 2026-08-21 · C4: latensi query pertama, diukur ulang setelah indeks hangat
+
+Setelah C3 (indeks terbangun sebelum permintaan pertama tiba), 20 query
+`?q=diabete%20melitus&mode=e3` berturut-turut diukur lewat header
+`X-Unifiedsearch-Waktu-Ms` (bukan lagi lewat badan JSON, lihat catatan C2).
+
+Sampel mentah (ms), berurutan:
+`54, 42, 41, 43, 39, 36, 36, 36, 32, 66, 25, 24, 25, 23, 31, 23, 26, 24, 24, 26`
+
+| Metrik | Nilai |
+|---|---|
+| p50 | 32 ms |
+| p95 | 54 ms |
+| min / max | 23 ms / 66 ms |
+
+**Kriteria tugas 09 "latensi query < 50 ms" tidak lulus di p95** (54 ms, dan
+satu titik 66 ms). Dilaporkan apa adanya sesuai CLAUDE.md aturan 2 — tidak
+ada penyesuaian kriteria atau pembuangan outlier untuk membuatnya lulus.
+Dugaan penyebab (belum diverifikasi, bukan klaim): JIT warm-up JVM pada
+proses backend yang baru direstart — nilai menurun dan menstabil di sekitar
+23-26 ms pada 8 permintaan terakhir. Perlu diukur ulang setelah JVM
+benar-benar panas (mis. 100+ permintaan pemanasan) sebelum menyimpulkan
+apakah p95 sesungguhnya di bawah 50 ms pada kondisi operasional wajar.
+
+---
+
+## 2026-08-21 · C5: mode `e2` dipertahankan (Java-internal), bukan dibuang
+
+**Gejala.** `RankingEngine.search()` menerima `"e2"`, tetapi
+`EvalService.validateMode()` hanya mengizinkan `b0|b1|e1|e3` — kelihatan
+seperti kode mati yang menyesatkan.
+
+**Diperiksa lebih dulu, sebelum membuang.** `UnifiedSearchService.search()`
+memanggil `EvalService.validateMode(mode)` **sebelum** memanggil
+`engine.search(mode, ...)` — jadi `mode=e2` sudah tertolak di lapisan REST
+sejak awal (dibuktikan: `curl .../unifiedsearch?q=diabete&mode=e2` →
+**HTTP 400**, sebelum maupun sesudah perubahan berkas ini). E2 tidak pernah
+benar-benar bisa dijangkau dari luar; "risiko dibaca sebagai komponen yang
+masih hidup" murni kosmetik pada kode sumber, bukan risiko operasional.
+
+**Kenapa tidak dibuang saja.** `WeightedRrfDeterminismRunner.java` dan
+`WeightedRrfSeparateProcessDeterminismTest.java` — uji "TITIK RAWAN"
+determinisme yang diwajibkan `tugas/07-weighted-rrf.md` — memanggil
+`engine.search("e2", ...)` secara langsung dari Java, sengaja memakai bobot
+seragam E2 supaya beberapa dokumen dijamin seri pada nilai RRF yang persis
+sama (skenario yang dulu membocorkan urutan iterasi hash ke hasil,
+CLAUDE.md aturan 1). Menghapus cabang `e2` dari `RankingEngine` akan
+mematahkan regresi determinisme ini — mengorbankan aturan 1 (aturan paling
+keras di proyek ini) demi kerapian kosmetik yang sebenarnya tidak berisiko.
+
+**Keputusan.** Cabang `e2` dipertahankan di `RankingEngine.search()`,
+didokumentasikan jelas di javadoc sebagai fixture uji Java-internal, bukan
+mode REST — bukan "salah satu dari dua pilihan yang direkomendasikan"
+(buang / masukkan ke REST) tapi opsi ketiga: pertahankan secara internal,
+blokir di REST (yang sudah terjadi). Tidak ada perubahan pada
+`EvalService.REST_MODES`.
