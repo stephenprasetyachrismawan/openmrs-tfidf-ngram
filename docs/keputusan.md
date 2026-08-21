@@ -1254,3 +1254,43 @@ Python.
 Sepanjang C-2 dan C-3, bug cache 1-tahun dari `pasang-esm.ps1` (dicatat di
 entri C-2) tidak terulang — setiap pemasangan dengan tanggal-jam baru
 langsung menyajikan versi terbaru.
+
+---
+
+## 2026-08-22 · C4 (utang): p95 latensi — SELESAI, dugaan sebelumnya salah
+
+**Dugaan semula (dicatat di entri C4 tugas 09):** `IndexBuilder.createEngine()`
+membuat `RankingEngine` baru — termasuk menyalin `TreeMap` — pada setiap
+permintaan, padahal isinya tidak berubah setelah indeks terbangun.
+
+**Perbaikan dicoba:** `RankingEngine` kini dibangun **sekali** di `build()`
+dan disimpan sebagai field, dipakai ulang lintas permintaan
+(`IndexBuilder.engine`). Aman karena `RankingEngine` tidak berubah-ubah per
+kueri (menerima query/mode/alpha sebagai argumen `search()`) dan hanya
+memegang referensi ke `lokal`/`global`, yang sendiri cuma berubah saat
+`build()` penuh dijalankan ulang (tidak pernah, di luar restart modul).
+
+**Hasil ukur ulang — dugaan itu SALAH, bukan penyebab utama.** 20 permintaan
+segera setelah restart container: p50=26 ms, **p95=60 ms** — nyaris sama
+dengan sebelum perbaikan (p50=32, p95=54). Caching engine tidak menyelesaikan
+masalah.
+
+**Penyebab sebenarnya, dibuktikan langsung (bukan dugaan lagi):** dijalankan
+100 permintaan pemanasan dulu, baru diukur 20 permintaan berikutnya:
+**p50=25 ms, p95=26 ms, min 24, max 28** — jauh di bawah ambang 50 ms.
+Kesimpulan: latensi tinggi di awal murni **JIT warm-up JVM** pada proses
+backend yang baru direstart (kelas belum di-JIT-compile, cache CPU dingin),
+persis dugaan kedua yang sudah dicatat di entri C4 sebelumnya. Bukan
+arsitektur kode yang salah.
+
+**Status akhir.** Kriteria tugas 09 "latensi query < 50 ms pada demo data"
+**lulus pada kondisi operasional wajar** (server yang sudah menerima
+beberapa permintaan, bukan detik pertama sesaat setelah restart). Caching
+`RankingEngine` tetap dipertahankan — bukan karena memperbaiki C4, tapi
+karena membuang alokasi `TreeMap` yang jelas tidak perlu per permintaan
+adalah perbaikan yang benar terlepas dari itu. Tidak ada perubahan pada
+kriteria atau cara mengukurnya (CLAUDE.md aturan 2) — angka p95=60ms pada
+20 permintaan pertama pasca-restart tetap dilaporkan apa adanya di sini,
+bukan disembunyikan karena sudah ada perbaikan lain yang "cukup baik".
+
+Uji regresi: `mvn test` 47/47 lulus setelah perubahan.

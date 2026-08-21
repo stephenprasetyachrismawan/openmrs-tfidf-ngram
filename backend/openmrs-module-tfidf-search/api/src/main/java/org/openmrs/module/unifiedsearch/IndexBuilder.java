@@ -52,6 +52,8 @@ public class IndexBuilder {
 
 	private Map<String, VirtualDocument> documentsByKunci = new TreeMap<String, VirtualDocument>();
 
+	private RankingEngine engine;
+
 	@Autowired
 	public IndexBuilder(DocumentRepository repository) {
 		this.repository = repository;
@@ -80,9 +82,16 @@ public class IndexBuilder {
 		return documentsByKunci;
 	}
 
+	/**
+	 * The engine is built once alongside the indices and reused across requests — it holds no
+	 * per-query state (RankingEngine.search() takes query/mode/alpha as arguments), only
+	 * references into {@link #lokal}/{@link #global}, which themselves only change on a full
+	 * {@link #build()}. Investigated for C4 (tugas 09 p95 latency > 50ms): constructing a new
+	 * RankingEngine per request copies {@code lokal} into a fresh TreeMap on every call.
+	 */
 	public RankingEngine createEngine() {
 		ensureBuilt();
-		return new RankingEngine(lokal, global, EPS, K_RRF);
+		return engine;
 	}
 
 	public void ensureBuilt() {
@@ -127,6 +136,7 @@ public class IndexBuilder {
 		this.lokal = lokalBaru;
 		this.global = globalBaru;
 		this.documentsByKunci = dokumenBaru;
+		this.engine = new RankingEngine(lokalBaru, globalBaru, EPS, K_RRF);
 		this.buildDurationMs = (System.nanoTime() - mulai) / 1000000L;
 		this.ready = true;
 
