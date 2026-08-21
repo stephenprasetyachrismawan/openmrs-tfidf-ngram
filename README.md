@@ -60,6 +60,9 @@ tugas/
 
 ## Keterbatasan yang sudah diketahui
 
-- Indeks dibangun saat startup, tidak diperbarui saat data berubah.
+- **Indeks dibangun sekali saat modul start** (listener aktivasi), disimpan di memori,
+  dan **tidak diperbarui** saat data OpenMRS berubah. Tambah/obat/konsep baru tidak
+  masuk indeks sampai server di-restart. Itu keterbatasan yang sudah diakui di
+  proposal — bukan bug tersembunyi.
 - Belum diuji pada kamus CIEL penuh (~50.000 konsep).
 - Query uji dibangkitkan program, belum dikonfirmasi klinisi.

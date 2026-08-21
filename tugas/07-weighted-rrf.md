@@ -26,6 +26,11 @@ Menyatukan enam daftar peringkat jadi satu.
 Komponen ini **tidak signifikan** (+0,007, p=0,207). Ia dipertahankan karena
 alasan arsitektural. Jangan menulis komentar kode yang mengklaim sebaliknya.
 
+> **Catatan (2026-08-21):** Angka +0,007 / p=0,207 di atas berasal dari arsip
+> tercemar (`eksperimen2b.py`, sapuan di test set). **Superseded** oleh evaluasi
+> resmi `hasil3/`: E3 vs E1 +0,013, p=0,039 (rumusan B di `CLAUDE.md`). Riwayat
+> tugas ini sengaja tidak dihapus.
+
 
 ---
 
@@ -62,6 +67,7 @@ Jangan "memperbaiki" E2 supaya kelihatan lebih baik.
 # Nada penulisan
 
 Aturan 3 `CLAUDE.md` berlaku ketat di sini. Weighted RRF **tidak signifikan**
-(+0,007, p = 0,207 pada eksperimen lama). Komentar kode, nama variabel, dan
-teks apa pun tidak boleh menyiratkan komponen ini meningkatkan kualitas.
+(+0,007, p = 0,207 pada eksperimen lama — superseded: +0,013, p=0,039 di
+`hasil3/`). Komentar kode, nama variabel, dan teks apa pun tidak boleh
+menyiratkan komponen ini meningkatkan kualitas setara kepingan karakter.
 Nilainya arsitektural: ia menyatukan enam daftar jadi satu.

@@ -14,21 +14,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * K6 end to end: E1 (K5 only, no RRF) vs E3 (Weighted RRF). Corpus mirrors the
- * shape of "Contoh 3" in docs/proposal.html: one entity ("lokasi") has a
- * single strong exact-ish match, another ("konsep") has several weaker
- * matches. E1 ranks by raw score, so the single strong lokasi entry can beat
- * every individual konsep entry; E3 additionally weighs by how much of the
- * global evidence each entity holds, which can move things around. Whether it
- * does on THIS corpus is checked, not assumed — the assertion is "the two
- * modes are computable and produce comparable results", not a specific order.
+ * K6 end to end: E1 (K5 only, no RRF) vs E3 (Weighted RRF).
  */
 public class RankingEngineTest {
-	
+
+	private static final double ALPHA = 0.20;
+
 	private final SurfaceFormExtractor extractor = new SurfaceFormExtractor();
-	
+
 	private RankingEngine engine;
-	
+
 	@Before
 	public void bangunEngine() {
 		VirtualDocument dm1 = new VirtualDocument("konsep", 1, "diabetes mellitus type 1", new ArrayList<String>(),
@@ -58,7 +53,7 @@ public class RankingEngineTest {
 		}
 		GlobalIndex global = new GlobalIndex(bangunKata(semuaForm), bangunKepingan(semuaForm), semuaForm);
 
-		engine = new RankingEngine(lokal, global, 0.20, 0.05, 20);
+		engine = new RankingEngine(lokal, global, 0.05, 20);
 	}
 
 	private static TfIdfIndex bangunKata(List<SurfaceForm> forms) {
@@ -85,9 +80,9 @@ public class RankingEngineTest {
 		return out;
 	}
 
-	private static List<String> kunciSaja(List<RankedDocument> hasil) {
+	private static List<String> kunciSaja(List<SearchHit> hasil) {
 		List<String> out = new ArrayList<String>();
-		for (RankedDocument r : hasil) {
+		for (SearchHit r : hasil) {
 			out.add(r.getDokumen().getKunci());
 		}
 		return out;
@@ -95,8 +90,8 @@ public class RankingEngineTest {
 
 	@Test
 	public void e1DanE3KeduanyaBerjalanDanMenghasilkanUrutanBerbeda() {
-		List<RankedDocument> e1 = engine.search("e1", "diabete");
-		List<RankedDocument> e3 = engine.search("e3", "diabete");
+		List<SearchHit> e1 = engine.search("e1", "diabete", ALPHA);
+		List<SearchHit> e3 = engine.search("e3", "diabete", ALPHA);
 
 		assertFalse("e1 harus menghasilkan sesuatu", e1.isEmpty());
 		assertFalse("e3 harus menghasilkan sesuatu", e3.isEmpty());
@@ -105,28 +100,25 @@ public class RankingEngineTest {
 
 	@Test
 	public void e2JugaBerjalan() {
-		// "Jangan lupakan E2" -- RRF polos tetap harus bisa dipanggil walau hasilnya
-		// buruk secara riset; ini bukan komponen yang boleh dihilangkan diam-diam.
-		List<RankedDocument> e2 = engine.search("e2", "diabete");
-
+		List<SearchHit> e2 = engine.search("e2", "diabete", ALPHA);
 		assertFalse(e2.isEmpty());
 	}
 
 	@Test
 	public void panggilanBerulangDalamProsesYangSamaMemberiUrutanIdentik() {
-		List<String> pertama = kunciSaja(engine.search("e3", "diabete"));
+		List<String> pertama = kunciSaja(engine.search("e3", "diabete", ALPHA));
 		for (int i = 0; i < 50; i++) {
-			assertEquals(pertama, kunciSaja(engine.search("e3", "diabete")));
+			assertEquals(pertama, kunciSaja(engine.search("e3", "diabete", ALPHA)));
 		}
 	}
 
 	@Test
 	public void modeB0DiabeteMelitusKosongPulmEdemAda() {
-		assertTrue(engine.search("b0", "diabete melitus").isEmpty());
-		List<RankedDocument> pulm = engine.search("b0", "pulm edem");
+		assertTrue(engine.search("b0", "diabete melitus", ALPHA).isEmpty());
+		List<SearchHit> pulm = engine.search("b0", "pulm edem", ALPHA);
 		assertFalse(pulm.isEmpty());
 		assertEquals("konsep:4", pulm.get(0).getDokumen().getKunci());
-		List<RankedDocument> exact = engine.search("b0", "diabetes mellitus");
+		List<SearchHit> exact = engine.search("b0", "diabetes mellitus", ALPHA);
 		assertFalse(exact.isEmpty());
 		assertTrue(exact.get(0).getDokumen().getKunci().startsWith("konsep:"));
 	}

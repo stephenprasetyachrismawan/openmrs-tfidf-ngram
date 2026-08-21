@@ -65,8 +65,13 @@ public final class WeightedRrfDeterminismRunner {
 		globalKepingan.build(teks(semuaForm));
 		GlobalIndex global = new GlobalIndex(globalKata, globalKepingan, semuaForm);
 		
-		RankingEngine engine = new RankingEngine(lokal, global, 0.20, 0.05, 20);
-		return engine.search("e2", "diabete");
+		RankingEngine engine = new RankingEngine(lokal, global, 0.05, 20);
+		List<SearchHit> hits = engine.search("e2", "diabete", 0.20);
+		List<RankedDocument> out = new ArrayList<RankedDocument>();
+		for (SearchHit hit : hits) {
+			out.add(new RankedDocument(hit.getDokumen(), hit.getSkor()));
+		}
+		return out;
 	}
 	
 	private static List<String> teks(List<SurfaceForm> forms) {

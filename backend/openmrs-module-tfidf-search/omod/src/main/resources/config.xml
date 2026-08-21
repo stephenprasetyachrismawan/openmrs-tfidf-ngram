@@ -16,6 +16,7 @@
 	<!-- The admin-list entry point and the placeholder JSP are rendered by the legacy UI. -->
 	<require_modules>
 		<require_module version="${legacyuiVersion}">org.openmrs.module.legacyui</require_module>
+		<require_module version="${webservicesRestVersion}">org.openmrs.module.webservices.rest</require_module>
 	</require_modules>
 
 	<extension>

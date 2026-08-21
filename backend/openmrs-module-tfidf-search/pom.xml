@@ -23,6 +23,7 @@
 		<openmrsPlatformVersion>2.8.8</openmrsPlatformVersion>
 		<openmrsModuleId>unifiedsearch</openmrsModuleId>
 		<legacyuiVersion>2.1.0</legacyuiVersion>
+		<webservicesRestVersion>2.48.0</webservicesRestVersion>
 		<springVersion>5.3.39</springVersion>
 	</properties>
 
@@ -69,6 +70,12 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.0.1</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>webservices.rest-omod</artifactId>
+				<version>${webservicesRestVersion}</version>
 				<scope>provided</scope>
 			</dependency>
 		</dependencies>

@@ -57,6 +57,11 @@ public class FusionSearch {
 		return surfaceForms;
 	}
 
+	/** B1 — word TF-IDF only (docs/algoritma.md mode {@code b1}). */
+	public List<RankedDocument> searchWordsOnly(String query) {
+		return rankFromWordScores(indeksKata.search(query));
+	}
+
 	public List<RankedDocument> search(String query, double alpha) {
 		double[] skorKata = indeksKata.search(query);
 		double[] skorKepingan = indeksKepingan.search(query);
@@ -89,6 +94,36 @@ public class FusionSearch {
 			}
 		}
 
+		Collections.sort(hasil, new Comparator<RankedDocument>() {
+
+			@Override
+			public int compare(RankedDocument a, RankedDocument b) {
+				int byScore = Double.compare(b.getSkor(), a.getSkor());
+				return byScore != 0 ? byScore : a.getDokumen().getKunci().compareTo(b.getDokumen().getKunci());
+			}
+		});
+		return hasil;
+	}
+
+	private List<RankedDocument> rankFromWordScores(double[] skorKata) {
+		Map<String, VirtualDocument> dokumenByKunci = new LinkedHashMap<String, VirtualDocument>();
+		Map<String, Double> maksByKunci = new LinkedHashMap<String, Double>();
+		for (int i = 0; i < surfaceForms.size(); i++) {
+			VirtualDocument dokumen = surfaceForms.get(i).getDokumen();
+			String kunci = dokumen.getKunci();
+			dokumenByKunci.put(kunci, dokumen);
+			Double sebelumnya = maksByKunci.get(kunci);
+			if (sebelumnya == null || skorKata[i] > sebelumnya.doubleValue()) {
+				maksByKunci.put(kunci, Double.valueOf(skorKata[i]));
+			}
+		}
+		List<RankedDocument> hasil = new ArrayList<RankedDocument>();
+		for (Map.Entry<String, VirtualDocument> entry : dokumenByKunci.entrySet()) {
+			double skor = maksByKunci.get(entry.getKey()).doubleValue();
+			if (skor > SCORE_THRESHOLD) {
+				hasil.add(new RankedDocument(entry.getValue(), skor));
+			}
+		}
 		Collections.sort(hasil, new Comparator<RankedDocument>() {
 
 			@Override

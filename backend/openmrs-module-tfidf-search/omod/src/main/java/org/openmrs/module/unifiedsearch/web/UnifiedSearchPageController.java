@@ -12,6 +12,7 @@ import org.openmrs.module.unifiedsearch.FusionSearch;
 import org.openmrs.module.unifiedsearch.GlobalIndex;
 import org.openmrs.module.unifiedsearch.RankedDocument;
 import org.openmrs.module.unifiedsearch.RankingEngine;
+import org.openmrs.module.unifiedsearch.SearchHit;
 import org.openmrs.module.unifiedsearch.SurfaceForm;
 import org.openmrs.module.unifiedsearch.SurfaceFormExtractor;
 import org.openmrs.module.unifiedsearch.TfIdfIndex;
@@ -110,7 +111,7 @@ public class UnifiedSearchPageController {
 		TfIdfIndex globalKepingan = new TfIdfIndex(gramTokenizer);
 		globalKepingan.build(teks(semuaForm));
 		GlobalIndex global = new GlobalIndex(globalKata, globalKepingan, semuaForm);
-		RankingEngine engine = new RankingEngine(lokal, global, AlphaConfig.current(), EPS, K_RRF);
+		RankingEngine engine = new RankingEngine(lokal, global, EPS, K_RRF);
 
 		model.addAttribute("dokumenPerEntitas", dokumenPerEntitas);
 		model.addAttribute("formPerEntitas", formPerEntitas);
@@ -151,16 +152,16 @@ public class UnifiedSearchPageController {
 
 		String queryBeda = "form";
 		out.add("--- E1 (K5 saja, tanpa RRF) top 3 untuk \"" + queryBeda + "\" ---");
-		tambahTop3(out, engine.search("e1", queryBeda));
+		tambahTop3(out, engine.search("e1", queryBeda, alpha));
 		out.add("--- E3 (Weighted RRF) top 3 untuk \"" + queryBeda + "\" ---");
-		tambahTop3(out, engine.search("e3", queryBeda));
+		tambahTop3(out, engine.search("e3", queryBeda, alpha));
 
 		return out;
 	}
 
-	private void tambahTop3(List<String> out, List<RankedDocument> hasil) {
+	private void tambahTop3(List<String> out, List<SearchHit> hasil) {
 		for (int i = 0; i < Math.min(3, hasil.size()); i++) {
-			RankedDocument r = hasil.get(i);
+			SearchHit r = hasil.get(i);
 			out.add((i + 1) + ". " + r.getDokumen().getEntitas() + ":" + r.getDokumen().getJudul() + " ("
 			        + r.getDokumen().getKunci() + ") = " + r.getSkor());
 		}
