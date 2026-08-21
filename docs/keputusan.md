@@ -1064,3 +1064,99 @@ tugas 11.
 untuk memasang ulang setelah perubahan kode ESM — jalankan tanpa flag untuk
 siklus penuh (`npm ci` + build + salin + sisip + reload), atau dengan
 `-SkipInstall -SkipBuild` kalau `dist/` sudah dibangun manual.
+
+---
+
+## 2026-08-22 · Urutan Langkah C dibalik: tugas 13 dulu, baru 11, baru 12
+
+**Keputusan disengaja pemilik repo.** Halaman JSP dari Langkah A sudah jadi
+padanan fungsional untuk tugas 11 (pencarian lintas 6 tabel, pemilih mode)
+dan tugas 12 (panel evaluasi) — kalau waktu habis, keduanya masih punya
+wujud yang bisa didemokan. Tugas 13 (kotak diagnosis di Visit Note) tidak
+punya pengganti apa pun, dan itu justru demo inti sidang. Karena itu tugas
+13 dikerjakan lebih dulu.
+
+**Soal prasyarat "tugas 11 lulus" yang tertulis di `tugas/13-esm-kotak-diagnosis.md`
+baris 3.** Prasyarat teknis sebenarnya adalah endpoint REST (tugas 09) dan
+kerangka ESM (tugas 10) — keduanya sudah lulus (lihat entri di atas).
+Tugas 13 tidak bergantung pada isi `root.component.tsx` (itu tugas 11);
+ia mendaftar ke extension slot RefApp sendiri, terpisah dari halaman kita.
+
+---
+
+## 2026-08-22 · Tugas 13 (gerbang keputusan) — BERHENTI, tidak ada extension slot
+
+**Yang dicari.** Slot resmi RefApp 3 tempat form Visit Note merender kotak
+pencarian diagnosis, supaya komponen kita bisa didaftarkan ke situ tanpa
+menambal kode app resmi — persis metode yang berhasil di tugas 10
+(`routes.registry.json` + `data-extension-slot-name` di DOM nyata).
+
+**Yang sudah dicoba, berurutan:**
+
+1. **`routes.registry.json` dari container frontend** (manifest gabungan
+   yang sama yang membuka tugas 10) — dicari semua entri `slot` yang
+   memuat kata "diagnos", "condition", atau "search". Tidak ada satu pun
+   yang cocok dengan form Visit Note. Entri terdekat
+   (`esm-patient-conditions-app` -> `patient-chart-conditions-dashboard-slot`,
+   `esm-dispensing-app` -> `dispensing-condition-and-diagnoses`) adalah
+   widget tampilan riwayat, bukan kotak input form.
+
+2. **Entri `@openmrs/esm-patient-notes-app` di `routes.registry.json`** —
+   Visit Note terdaftar sebagai `workspaces2` (`visitNotesFormWorkspace`),
+   bukan `pages`/`extensions` biasa. Tidak ada daftar extension slot
+   per-field untuk workspace ini di manifest.
+
+3. **Bukti langsung dari DOM nyata (bukan tebakan), lewat panel "UI
+   editor" milik `esm-implementer-tools-app` sendiri** — dibuka visit
+   sungguhan pada pasien demo (`Joshua Johnson`), form Visit Note dibuka,
+   lalu ditelusuri seluruh rantai elemen induk dari teks
+   "No diagnosis selected — Enter a diagnosis below" sampai ke
+   `#omrs-workspaces-container`. Kelas terdalamnya adalah
+   `esm-patient-notes__visit-notes-form__diagnosesText` — murni komponen
+   React internal `esm-patient-notes-app`, tanpa pembungkus extension slot
+   sama sekali.
+
+4. **Verifikasi silang supaya kesimpulan "tidak ada slot" bukan salah
+   baca.** Dicek slot yang **memang ada** dan terbukti bekerja (menu
+   "Pencarian Terpadu" milik kita sendiri, tugas 10) — pembungkusnya
+   punya atribut `data-extension-slot-name` dan `data-extension-id` yang
+   jelas. `document.querySelectorAll('[data-extension-slot-name]')` pada
+   halaman Visit Note yang sama, dengan panel diagnosis terbuka,
+   mengembalikan 17 slot (`patient-header-slot`, `patient-actions-slot`,
+   `patient-info-slot`, dst) — **tidak satu pun ada di dalam atau di
+   sekitar workspace Visit Note itu sendiri.** Seluruh workspace
+   `visitNotesFormWorkspace` tidak punya extension slot apa pun, bukan
+   cuma kotak diagnosisnya saja.
+
+**Kesimpulan.** RefApp 3 versi ini (`@openmrs/esm-framework@10.0.0`,
+`esm-patient-notes-app@12.3.4`) tidak menyediakan extension slot untuk
+menambah atau mengganti kotak pencarian diagnosis di form Visit Note.
+Premis tugas 13 langkah 1 ("RefApp 3 memakai extension slot" untuk titik
+ini) tidak berlaku pada versi yang sedang berjalan di sini.
+
+**Kenapa berhenti, bukan menambal.** Aturan tugas 13 eksplisit: "Jangan
+mengubah kode app resmi RefApp... Kalau slot yang cocok tidak ada,
+laporkan — jangan menambal (patch) app orang lain." Menambal berarti
+menyalin/mengubah berkas `esm-patient-notes-app` di dalam container
+frontend, yang akan hilang pada rebuild/redeploy app resmi berikutnya, dan
+melanggar aturan proyek yang berlaku sejak tugas 10.
+
+**Belum dicoba, kemungkinan jalan alternatif untuk manusia
+mempertimbangkan (bukan keputusan, hanya opsi):**
+- Mengganti backend `ConceptService`/handler pencarian FHIR/`conceptsearch`
+  yang dipakai kotak diagnosis bawaan, supaya kotak yang SAMA memanggil
+  logika kita tanpa perubahan UI sama sekali. Ini mengubah perilaku
+  pencarian konsep untuk **seluruh OpenMRS**, bukan cuma kotak diagnosis —
+  jangkauannya jauh lebih luas dari yang dibayangkan tugas 13, berisiko
+  tinggi, dan tidak dicoba tanpa persetujuan eksplisit.
+- Mengusulkan slot baru ke proyek `openmrs-esm-patient-notes-app` hulu
+  (kontribusi upstream) — di luar cakupan dan waktu proyek ini.
+- Menerima bahwa tugas 13 versi "sisip ke kotak bawaan" tidak bisa
+  dikerjakan pada versi RefApp ini, dan demo sidang memakai halaman JSP
+  (Langkah A) atau halaman ESM (tugas 11) sebagai gantinya — keduanya
+  sudah terbukti bekerja.
+
+**Status: tugas 13 dihentikan di sini, dilanjutkan ke C-2 (tugas 11) sesuai
+instruksi ("kalau tersendat, berhenti dan laporkan... lanjut ke bagian
+berikutnya" secara implisit lewat urutan P0 → C-1 → C-2 → C-3 yang tetap
+berurutan, tapi C-1 tidak lulus kriteria "Selesai kalau"-nya).**
