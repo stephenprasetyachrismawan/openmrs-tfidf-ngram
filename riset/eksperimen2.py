@@ -8,11 +8,11 @@ import json, math, os, re, random, time, bisect, collections
 
 DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(DIR, "data")
-OUT  = os.path.join(DIR, "hasil2")
+OUT  = os.path.join(DIR, "hasil3")
 os.makedirs(OUT, exist_ok=True)
 ENT  = ["konsep", "obat", "pasien", "form", "lokasi", "provider"]
 SEED = 42
-ALPHA, NGRAM, K_RRF, EPS = 0.45, 4, 20, 0.05
+ALPHA, NGRAM, K_RRF, EPS = 0.20, 4, 20, 0.05
 
 _re_non = re.compile(r"[^a-z0-9]+")
 _re_sp  = re.compile(r"\s+")
@@ -417,6 +417,13 @@ def main():
             if kode == basis: continue
             b = [x["ndcg"] for x in per_query[basis]]
             uji["%s_vs_%s" % (kode, basis)] = bootstrap(a, b)
+    # pasangan tambahan untuk proposal (bootstrap seed=7, top-10 penuh)
+    for a, b in (("E3", "E1"), ("E1", "B1")):
+        va = [x["ndcg"] for x in per_query[a]]
+        vb = [x["ndcg"] for x in per_query[b]]
+        uji["%s_vs_%s" % (a, b)] = bootstrap(va, vb)
+
+    ndcg_test = dict((kode, [b["ndcg"] for b in per_query[kode]]) for kode, _ in SISTEM)
 
     # rincian per jenis degradasi dan per entitas target
     def rinci(kunci):
@@ -440,6 +447,7 @@ def main():
 
     hasil = dict(dokumen=dict(hit), surface_form=nform, waktu_indeks=t_idx,
                  n_query=len(qs), n_test=len(test), ringkas=ringkas, uji=uji,
+                 ndcg_test=ndcg_test, bootstrap_seed=7,
                  per_tipe=per_tipe, per_entitas=per_ent, distribusi_top5=dist,
                  param=dict(alpha=ALPHA, ngram=NGRAM, k_rrf=K_RRF, eps=EPS, seed=SEED))
     json.dump(hasil, open(os.path.join(OUT, "hasil.json"), "w", encoding="utf-8"),

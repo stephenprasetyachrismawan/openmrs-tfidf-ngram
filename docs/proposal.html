@@ -112,12 +112,12 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 <tbody>
 <tr><td>Pencarian yang gagal total (0 hasil)</td><td class="num">18,3%</td><td class="num"><b>0,6%</b></td></tr>
 <tr><td>Hasil nomor 1 sudah benar (P@1)</td><td class="num">0,689</td><td class="num"><b>0,806</b></td></tr>
-<tr><td>Kualitas peringkat (nDCG@10)</td><td class="num">0,628</td><td class="num"><b>0,811</b></td></tr>
-<tr><td>Query salah ketik (nDCG@10)</td><td class="num">0,081</td><td class="num"><b>0,789</b></td></tr>
-<tr><td>Waktu pencarian</td><td class="num">0,15 ms</td><td class="num">1,28 ms</td></tr>
+<tr><td>Kualitas peringkat (nDCG@10)</td><td class="num">0,628</td><td class="num"><b>0,815</b></td></tr>
+<tr><td>Query salah ketik (nDCG@10)</td><td class="num">0,081</td><td class="num"><b>0,773</b></td></tr>
+<tr><td>Waktu pencarian</td><td class="num">0,15 ms</td><td class="num">1,50 ms</td></tr>
 </tbody>
 </table>
-<p class="small">Diuji pada demo data resmi OpenMRS: 4.748 dokumen dari 6 tabel, 180 query uji. Selisih nDCG +0,183, p &lt; 0,001. Tanpa GPU, tanpa AI, tanpa layanan luar.</p>
+<p class="small">Diuji pada demo data resmi OpenMRS: 4.748 dokumen dari 6 tabel, 180 query uji (<span class="mono">riset/hasil3/</span>, ALPHA=0,20). Selisih nDCG kepingan karakter (E1 vs B0) +0,174, p &lt; 0,001. Tanpa GPU, tanpa AI, tanpa layanan luar.</p>
 
 <div class="box neu">
 <p class="lbl">Yang tidak berhasil — supaya tidak dikira semuanya mulus</p>
@@ -294,9 +294,9 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 <p>Kami jalankan semuanya:</p>
 <table>
 <thead><tr><th>panjang kepingan</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th><th class="num">6</th></tr></thead>
-<tbody><tr><td>nDCG@10</td><td class="num">0,811</td><td class="num">0,811</td><td class="num"><b>0,811</b></td><td class="num">0,784</td><td class="num">0,735</td></tr></tbody>
+<tbody><tr><td>nDCG@10 (dev, E3)</td><td class="num">0,847</td><td class="num">0,855</td><td class="num"><b>0,846</b></td><td class="num">0,811</td><td class="num">0,748</td></tr></tbody>
 </table>
-<p class="small">2–4 setara, turun mulai 5. Kepingan terlalu panjang kembali berperilaku seperti kata: satu tipo merusak 5–6 kepingan, dan query pendek seperti <span class="mono">pulm</span> (4 huruf) tidak menghasilkan kepingan sama sekali pada n = 6. Kami pilih 4.</p>
+<p class="small">Sapuan 100 query dev (tugas 06b). n=3 sedikit unggul (+0,009) tapi tidak signifikan (p=0,069); kami tetap n=4 demi kesinambungan. Turun mulai n=5.</p>
 
 <h3>2.4 Kenapa bukan cara lain</h3>
 <table>
@@ -319,12 +319,12 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
     <text x="20" y="52" fill="#1c1b19">K4 kepingan karakter</text>
     <rect x="230" y="42" width="360" height="14" fill="#f0eee9" rx="3"/>
     <rect x="230" y="42" width="312" height="14" fill="#2f6f52" rx="3"/>
-    <text x="602" y="53" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">+0,176  p&lt;0,001</text>
+    <text x="602" y="53" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">+0,174  p&lt;0,001</text>
 
     <text x="20" y="80" fill="#1c1b19">K6 pembobotan antar tabel (RRF)</text>
     <rect x="230" y="70" width="360" height="14" fill="#f0eee9" rx="3"/>
     <rect x="230" y="70" width="13" height="14" fill="#9b9b9b" rx="3"/>
-    <text x="602" y="81" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">+0,007  p=0,207</text>
+    <text x="602" y="81" font-family="ui-monospace,Menlo,monospace" fill="#6b6862">+0,013  p=0,039 (test)</text>
 
     <text x="20" y="108" fill="#1c1b19">K3 TF-IDF kata saja</text>
     <rect x="230" y="98" width="360" height="14" fill="#f0eee9" rx="3"/>
@@ -380,7 +380,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 <tbody>
 <tr><td style="width:100px"><b>Masalah</b></td><td>Selama unitnya kata, kemiripan cuma punya dua nilai: cocok atau tidak.</td></tr>
 <tr><td><b>Yang dibuat</b></td><td>Indeks TF-IDF kedua, di atas kepingan 4 huruf. Rumusnya sama persis, cuma "kosakata"-nya beda.</td></tr>
-<tr><td><b>Status</b></td><td><b>+0,176 nDCG, p &lt; 0,001.</b> Query nol-hasil 18,3% → 0,6%. Ini komponen yang membawa perbaikan.</td></tr>
+<tr><td><b>Status</b></td><td><b>+0,174 nDCG, p &lt; 0,001.</b> Query nol-hasil 18,3% → 0,6%. Pada query typo saja: B0 0,081 vs E1 0,773 — ini komponen yang membawa perbaikan.</td></tr>
 </tbody>
 </table>
 
@@ -389,8 +389,8 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 <tbody>
 <tr><td style="width:100px"><b>Masalah</b></td><td>Kepingan bisa terlalu murah hati — <span class="mono">Pulmonary tuberculosis</span> berbagi banyak kepingan dengan <span class="mono">pulm edem</span>. Pencocokan kata lebih tegas. Kita mau dua-duanya.</td></tr>
 <tr><td><b>Yang dibuat</b></td><td><span class="mono">skor = α × cosine_kata + (1−α) × cosine_kepingan</span>. Sah dijumlahkan langsung karena keduanya dari korpus yang sama dan sama-sama di rentang [0,1].</td></tr>
-<tr><td><b>Berapa α</b></td><td>Disapu seluruh rentangnya: kepingan saja (α=0) 0,793 · α=0,25 <b>0,818</b> · α=0,45 0,811 · kata saja (α=1) 0,657. <b>Jalur kepingan menyumbang jauh lebih besar.</b> Optimum ≈ 0,25.</td></tr>
-<tr><td><b>Catatan</b></td><td>Rentang 0–0,65 cuma bergerak 0,793–0,818. Sistemnya tidak peka — bagus untuk penerapan, tapi juga alasan kami tidak menjadikan penyetelan α sebagai kontribusi.</td></tr>
+<tr><td><b>Berapa α</b></td><td>Disapu pada 100 query dev (kombinasi final NGRAM/K_RRF/EPS): kepingan saja (α=0) 0,828 · argmax α=0,15 0,847 · <b>α=0,20 (dipakai) 0,846</b> · α=0,45 0,834 · kata saja (α=1) 0,700. <b>Jalur kepingan menyumbang jauh lebih besar.</b> Kami pilih 0,20 (bukan argmax) demi kesinambungan.</td></tr>
+<tr><td><b>Catatan</b></td><td>Rentang 0–1 bergerak 0,828–0,847 pada dev. Sistemnya tidak peka — bagus untuk penerapan, tapi juga alasan kami tidak menjadikan penyetelan α sebagai kontribusi.</td></tr>
 </tbody>
 </table>
 
@@ -400,15 +400,15 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 <tr><td style="width:100px"><b>Masalah</b></td><td>Setelah K5 kita punya 6 daftar peringkat terpisah — satu per tabel. Petugas mau satu daftar. Skor mentah antar tabel juga tidak selalu sebanding (indeks konsep punya 4.249 dokumen pembanding, indeks provider cuma 6), jadi menjumlah skor mentah begitu saja berisiko bias ke tabel yang kebetulan skalanya beda.</td></tr>
 <tr><td><b>Yang dibuat</b></td><td>RRF (Reciprocal Rank Fusion): tiap entri dinilai dari <b>posisi peringkatnya</b> di daftar asalnya (1/(K+peringkat)), bukan dari skor mentahnya. Lalu, karena RRF polos punya cacat (lihat kotak di bawah), kami tambahkan pembobotan per tabel berbasis IDF global sebelum RRF dijalankan — disebut <b>Weighted RRF</b>.</td></tr>
 <tr><td><b>Kenapa RRF, bukan sekadar gabung-skor</b></td><td>RRF berguna karena ia tidak butuh skor yang sebanding — cukup peringkat. Itu artinya menambah tabel ketujuh yang mesin pencariannya beda (atau bahkan yang cuma mengembalikan peringkat tanpa skor sama sekali, misalnya hasil dari sistem pihak ketiga) tetap bisa digabung tanpa mengubah rumus. Itulah kegunaannya di proposal ini: <b>jembatan penyatu format</b>, bukan alat peningkat akurasi.</td></tr>
-<tr><td><b>Status — penting</b></td><td><b>+0,007 dengan p = 0,207. Tidak signifikan.</b> Penggabungan skor biasa — cara paling sederhana — ternyata sudah bekerja sama baiknya. Pada P@5 dan MAP ia malah sedikit unggul.</td></tr>
-<tr><td><b>Kenapa tetap dipakai</b></td><td>Ongkosnya hampir nol (0,74 → 1,28 ms) dan ia bisa bekerja tanpa perlu skor — berguna kalau kelak ditambah sumber yang cuma memberi peringkat. Nilainya arsitektural, bukan kualitas hasil. Kalau ada yang lebih suka penggabungan skor biasa karena lebih sederhana, data kami tidak melarangnya.</td></tr>
+<tr><td><b>Status — penting</b></td><td><b>Di dev: +0,007, p = 0,207 (tidak signifikan).</b> Di test: +0,013, p = 0,039 — selisih kecil, bukan peningkatan akurasi seperti kepingan karakter. Penggabungan skor biasa (E1) sudah cukup baik; Weighted RRF perannya arsitektural.</td></tr>
+<tr><td><b>Kenapa tetap dipakai</b></td><td>Ongkosnya hampir nol (E1 1,2 ms → E3 1,5 ms) dan ia bisa bekerja tanpa perlu skor — berguna kalau kelak ditambah sumber yang cuma memberi peringkat. Nilainya arsitektural, bukan kualitas hasil. Kalau ada yang lebih suka penggabungan skor biasa karena lebih sederhana, data kami tidak melarangnya.</td></tr>
 </tbody>
 </table>
 
 <div class="box warn">
 <p class="lbl">Satu jebakan yang kami temukan di sini</p>
-<p>RRF versi polos (tanpa pembobotan) <b>merusak</b>: hasil 0,804 jatuh ke 0,580, lebih buruk dari OpenMRS. Sebabnya: RRF dirancang untuk beberapa mesin yang memeringkat dokumen yang <em>sama</em>. Pada tabel yang saling lepas, tiap tabel otomatis dapat satu kursi berskor sama di puncak. Tabel <span class="mono">form</span> yang cuma berisi 10 dari 4.748 dokumen dapat 7,6% kursi di lima besar.</p>
-<p>Pembobotan memperbaikinya (+0,231), tapi itu <b>menambal lubang yang kami gali sendiri</b> — bukan perbaikan atas keadaan OpenMRS. Kami tulis sebagai temuan tentang perilaku RRF, bukan sebagai pencapaian.</p>
+<p>RRF versi polos (tanpa pembobotan) <b>merusak</b>: E1 0,802 jatuh ke E2 0,582, lebih buruk dari OpenMRS. Sebabnya: RRF dirancang untuk beberapa mesin yang memeringkat dokumen yang <em>sama</em>. Pada tabel yang saling lepas, tiap tabel otomatis dapat satu kursi berskor sama di puncak. Tabel <span class="mono">form</span> yang cuma berisi 10 dari 4.748 dokumen dapat 7,6% kursi di lima besar.</p>
+<p>Pembobotan memperbaikinya (E3 vs E2 +0,232), tapi itu <b>menambal lubang yang kami gali sendiri</b> — bukan perbaikan atas keadaan OpenMRS. Kami tulis sebagai temuan tentang perilaku RRF, bukan sebagai pencapaian.</p>
 </div>
 
 <div class="box neu">
@@ -417,7 +417,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
 </div>
 
 <h3>Yang diuji lalu dibuang: perluasan query otomatis</h3>
-<p>Idenya: cari sekali, ambil 5 teratas, panen sinonim &amp; kodenya, cari ulang dengan query yang diperkaya. Hasilnya <b>memperburuk: 0,811 → 0,589</b>. Sebabnya alias obat berisi ratusan nama dagang, jadi query 2 kata membengkak jadi 30 kata yang sebagian besar bising. Ini kegagalan kedua untuk komponen ini (sebelumnya gagal karena pemicunya tidak pernah menyala), jadi kami keluarkan dari sistem.</p>
+<p>Idenya: cari sekali, ambil 5 teratas, panen sinonim &amp; kodenya, cari ulang dengan query yang diperkaya. Hasilnya <b>memperburuk: E3 0,815 → E4 0,598</b>. Sebabnya alias obat berisi ratusan nama dagang, jadi query 2 kata membengkak jadi 30 kata yang sebagian besar bising. Ini kegagalan kedua untuk komponen ini (sebelumnya gagal karena pemicunya tidak pernah menyala), jadi kami keluarkan dari sistem.</p>
 <p class="small">Tetap ditulis karena orang berikutnya pasti terpikir ide yang sama — sinonimnya jelas-jelas tersedia melimpah. Lebih berguna tahu bahwa sudah dicoba dua kali dan bagaimana gagalnya.</p>
 
 <h3>Alurnya utuh</h3>
@@ -536,7 +536,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
   <rect x="150" y="128" width="632" height="70" rx="8" fill="#fbeaea" stroke="#a03434" stroke-dasharray="4 3"/>
   <text x="166" y="148" font-size="10.5" font-weight="700" fill="#a03434">✕ Perluasan query (K7, dicoba lalu dibuang)</text>
   <text x="166" y="164" font-size="9.5" fill="#1c1b19">in: top-5 hasil ronde pertama → panen sinonim/kode → out: query baru yang diperkaya</text>
-  <text x="166" y="180" font-size="9.5" fill="#a03434" font-weight="640">Hasilnya memperburuk (0,811 → 0,589) — jalur ini tidak dipakai, digambar putus-putus sebagai catatan sejarah percobaan.</text>
+  <text x="166" y="180" font-size="9.5" fill="#a03434" font-weight="640">Hasilnya memperburuk (0,815 → 0,598) — jalur ini tidak dipakai, digambar putus-putus sebagai catatan sejarah percobaan.</text>
 
   <rect x="150" y="210" width="632" height="76" rx="8" fill="#f4f2ee" stroke="#cfcbc3"/>
   <text x="166" y="230" font-size="10.5" font-weight="700" fill="#1c1b19">Apa gunanya RRF di bagan ini</text>
@@ -879,7 +879,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 <table>
 <thead><tr><th style="width:180px">Sifat</th><th>Bagaimana dicapai</th></tr></thead>
 <tbody>
-<tr><td><b>Muncul saat mengetik</b></td><td>Pencarian 1,28 ms — jauh di bawah 100 ms yang terasa instan. Tidak perlu tombol "Cari".</td></tr>
+<tr><td><b>Muncul saat mengetik</b></td><td>Pencarian 1,50 ms — jauh di bawah 100 ms yang terasa instan. Tidak perlu tombol "Cari".</td></tr>
 <tr><td><b>Tahan salah ketik</b></td><td>K4, kepingan karakter. Ini yang paling terasa bedanya.</td></tr>
 <tr><td><b>Cocok saat baru separuh diketik</b></td><td>Kepingan karakter juga: <span class="mono">diabe</span> sudah berbagi kepingan dengan <span class="mono">diabetes</span>.</td></tr>
 <tr><td><b>Sorotan huruf yang cocok</b></td><td>Tandai posisi yang tercakup kepingan query. Bonus: pengguna jadi paham kenapa hasil itu muncul.</td></tr>
@@ -900,7 +900,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 
 <div class="box neu">
 <p class="lbl">Kenapa perlu pemilih metode</p>
-<p>Angka di bagian 6 mengatakan "E1 lebih baik 0,176 dari B0". Itu angka rata-rata dari 180 query — sulit dirasakan. Dengan pemilih ini, penguji cukup mengetik <span class="mono">diabete melitus</span>, menekan B0, lalu menekan E3, dan melihat sendiri bedanya dalam satu detik. <b>Metode default yang dipakai sehari-hari tetap E3;</b> pemilih ini ada di halaman eksperimental, bukan di kotak pencarian produksi.</p>
+<p>Angka di bagian 6 mengatakan "E1 lebih baik 0,174 dari B0". Itu angka rata-rata dari 180 query — sulit dirasakan. Dengan pemilih ini, penguji cukup mengetik <span class="mono">diabete melitus</span>, menekan B0, lalu menekan E3, dan melihat sendiri bedanya dalam satu detik. <b>Metode default yang dipakai sehari-hari tetap E3;</b> pemilih ini ada di halaman eksperimental, bukan di kotak pencarian produksi.</p>
 </div>
 
 <div class="mk">
@@ -992,7 +992,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
     <text x="56" y="118" fill="#1c1b19">P@1</text><text x="220" y="118" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,806</text>
     <text x="56" y="138" fill="#1c1b19">MRR</text><text x="220" y="138" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,888</text>
     <text x="56" y="158" fill="#1c1b19">R@10</text><text x="220" y="158" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,781</text>
-    <text x="56" y="178" fill="#2f6f52" font-weight="700">nDCG@10</text><text x="220" y="178" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">0,811</text>
+    <text x="56" y="178" fill="#2f6f52" font-weight="700">nDCG@10</text><text x="220" y="178" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#2f6f52" font-weight="700">0,815</text>
     <text x="56" y="200" fill="#1c1b19">query 0-hasil</text><text x="220" y="200" text-anchor="end" font-family="ui-monospace,Menlo,monospace" fill="#1c1b19">0,6%</text>
   </g>
   <text x="250" y="118" font-size="10.5" fill="#6b6862">vs OpenMRS 0,689</text>
@@ -1009,9 +1009,9 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
     <rect x="412" y="124" width="352" height="20" rx="4" fill="#fff"/>
     <text x="424" y="138" fill="#1c1b19">TF-IDF kata saja</text><text x="752" y="138" text-anchor="end" font-family="ui-monospace,Menlo,monospace">0,646</text>
     <rect x="412" y="146" width="352" height="20" rx="4" fill="#e6f2eb"/>
-    <text x="424" y="160" fill="#1c1b19" font-weight="640">+ kepingan karakter</text><text x="752" y="160" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-weight="700">0,804</text>
+    <text x="424" y="160" fill="#1c1b19" font-weight="640">+ kepingan karakter</text><text x="752" y="160" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-weight="700">0,802</text>
     <rect x="412" y="168" width="352" height="20" rx="4" fill="#e6f2eb"/>
-    <text x="424" y="182" fill="#1c1b19" font-weight="640">+ pembobotan tabel</text><text x="752" y="182" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-weight="700">0,811</text>
+    <text x="424" y="182" fill="#1c1b19" font-weight="640">+ pembobotan tabel</text><text x="752" y="182" text-anchor="end" font-family="ui-monospace,Menlo,monospace" font-weight="700">0,815</text>
   </g>
   <rect x="412" y="192" width="352" height="20" rx="4" fill="#2f6f52"/>
   <text x="588" y="206" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="640">Jalankan ulang seluruh data uji</text>
@@ -1341,13 +1341,13 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <thead><tr><th style="width:170px">Metrik</th><th>Artinya</th><th>Angka kami</th></tr></thead>
 <tbody>
 <tr><td><b>% query nol-hasil</b></td><td>Berapa persen pencarian yang mengembalikan layar kosong total. Ini kegagalan paling parah — bukan cuma urutannya jelek, tapi petugas tidak dapat apa pun dan harus menebak ejaan sendiri. Metrik ini tidak muncul di P/R/nDCG karena query nol-hasil sudah dihitung nol di semuanya; ia perlu dilaporkan terpisah supaya besarnya masalah kelihatan.</td><td>18,3% → <b>0,6%</b></td></tr>
-<tr><td><b>Waktu (ms)</b></td><td>Berapa milidetik satu pencarian. Penting karena premis kami adalah "ringan, bisa dipasang di puskesmas tanpa GPU". Di bawah ~100 ms terasa instan bagi manusia, jadi 1,28 ms masih sangat longgar. Kalau ini membengkak jadi ratusan ms, klaim "bisa dipakai sambil mengetik" batal.</td><td>0,15 → <b>1,28 ms</b></td></tr>
+<tr><td><b>Waktu (ms)</b></td><td>Berapa milidetik satu pencarian. Penting karena premis kami adalah "ringan, bisa dipasang di puskesmas tanpa GPU". Di bawah ~100 ms terasa instan bagi manusia, jadi 1,50 ms masih sangat longgar. Kalau ini membengkak jadi ratusan ms, klaim "bisa dipakai sambil mengetik" batal.</td><td>0,15 → <b>1,50 ms</b></td></tr>
 </tbody>
 </table>
 
 <h4 style="font-size:1rem;font-weight:660;margin-top:26px">Uji signifikansi — kenapa selisih angka saja tidak cukup</h4>
 
-<p>Kalau sistem A dapat nDCG 0,811 dan sistem B dapat 0,804, apakah A benar-benar lebih baik? Belum tentu — bisa saja itu kebetulan dari 180 query yang kebetulan terpilih. Kalau kami mengambil 180 query lain, urutannya mungkin terbalik.</p>
+<p>Kalau sistem A dapat nDCG 0,815 dan sistem B dapat 0,802, apakah A benar-benar lebih baik? Belum tentu — bisa saja itu kebetulan dari 180 query yang kebetulan terpilih. Kalau kami mengambil 180 query lain, urutannya mungkin terbalik.</p>
 
 <p><b>Paired bootstrap</b> mengujinya begini: dari 180 query, ambil acak 180 query dengan pengembalian (boleh berulang), hitung selisih nDCG di sampel itu. Ulangi 5.000 kali. Lalu lihat sebaran 5.000 selisih itu.</p>
 
@@ -1356,7 +1356,7 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
   <text x="20" y="20" font-size="11.5" font-weight="700" fill="#1c1b19">Membaca hasil bootstrap: apakah selang kepercayaan melewati angka nol?</text>
 
   <rect x="30" y="38" width="740" height="66" rx="8" fill="#e6f2eb" stroke="#2f6f52"/>
-  <text x="46" y="56" font-size="10.5" font-weight="700" fill="#2f6f52">E1 vs B0 — selisih +0,176, CI 95% [+0,131, +0,223], p &lt; 0,001</text>
+  <text x="46" y="56" font-size="10.5" font-weight="700" fill="#2f6f52">E1 vs B0 — selisih +0,174, CI 95% [+0,128, +0,224], p &lt; 0,001</text>
   <line x1="300" y1="82" x2="300" y2="98" stroke="#a03434" stroke-width="1.6" stroke-dasharray="3 2"/>
   <text x="300" y="76" font-size="9" fill="#a03434" text-anchor="middle">nol</text>
   <line x1="60" y1="90" x2="740" y2="90" stroke="#cfcbc3" stroke-width="1"/>
@@ -1365,7 +1365,7 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
   <text x="640" y="94" font-size="10" fill="#2f6f52" font-weight="640">seluruh selang di kanan nol → SIGNIFIKAN</text>
 
   <rect x="30" y="114" width="740" height="66" rx="8" fill="#f4f2ee" stroke="#9b9b9b"/>
-  <text x="46" y="132" font-size="10.5" font-weight="700" fill="#6b6862">E3 vs E1 — selisih +0,007, CI 95% [−0,004, +0,019], p = 0,207</text>
+  <text x="46" y="132" font-size="10.5" font-weight="700" fill="#6b6862">E3 vs E1 — selisih +0,013, CI 95% [+0,001, +0,025], p = 0,039 (dev: +0,007, p = 0,207)</text>
   <line x1="300" y1="158" x2="300" y2="174" stroke="#a03434" stroke-width="1.6" stroke-dasharray="3 2"/>
   <text x="300" y="152" font-size="9" fill="#a03434" text-anchor="middle">nol</text>
   <line x1="60" y1="166" x2="740" y2="166" stroke="#cfcbc3" stroke-width="1"/>
@@ -1407,23 +1407,24 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <tbody>
 <tr><td>B0 heuristik OpenMRS</td><td class="num">0,689</td><td class="num">0,521</td><td class="num">0,743</td><td class="num">0,466</td><td class="num">0,628</td><td class="num">18,3%</td><td class="num">0,15</td></tr>
 <tr><td>B1 TF-IDF kata</td><td class="num">0,572</td><td class="num">0,666</td><td class="num">0,691</td><td class="num">0,523</td><td class="num">0,646</td><td class="num">11,1%</td><td class="num">0,14</td></tr>
-<tr><td>B2 BM25</td><td class="num">0,533</td><td class="num">0,658</td><td class="num">0,651</td><td class="num">0,485</td><td class="num">0,615</td><td class="num">11,1%</td><td class="num">0,21</td></tr>
-<tr class="hi"><td>E1 + kepingan karakter</td><td class="num">0,783</td><td class="num"><b>0,785</b></td><td class="num">0,877</td><td class="num"><b>0,672</b></td><td class="num">0,804</td><td class="num">0,6%</td><td class="num">0,74</td></tr>
-<tr><td>E2 + RRF polos</td><td class="num">0,306</td><td class="num">0,763</td><td class="num">0,576</td><td class="num">0,412</td><td class="num">0,580</td><td class="num">0,6%</td><td class="num">0,82</td></tr>
-<tr class="hi"><td>E3 + Weighted RRF</td><td class="num"><b>0,806</b></td><td class="num">0,781</td><td class="num"><b>0,888</b></td><td class="num">0,663</td><td class="num"><b>0,811</b></td><td class="num">0,6%</td><td class="num">1,28</td></tr>
-<tr><td>E4 + perluasan query</td><td class="num">0,456</td><td class="num">0,761</td><td class="num">0,596</td><td class="num">0,492</td><td class="num">0,589</td><td class="num">0,6%</td><td class="num">6,88</td></tr>
+<tr><td>B2 BM25</td><td class="num">0,533</td><td class="num">0,658</td><td class="num">0,651</td><td class="num">0,485</td><td class="num">0,615</td><td class="num">11,1%</td><td class="num">0,22</td></tr>
+<tr class="hi"><td>E1 + kepingan karakter</td><td class="num">0,772</td><td class="num"><b>0,796</b></td><td class="num">0,870</td><td class="num"><b>0,670</b></td><td class="num">0,802</td><td class="num">0,6%</td><td class="num">1,20</td></tr>
+<tr><td>E2 + RRF polos</td><td class="num">0,311</td><td class="num">0,771</td><td class="num">0,579</td><td class="num">0,418</td><td class="num">0,582</td><td class="num">0,6%</td><td class="num">1,54</td></tr>
+<tr class="hi"><td>E3 + Weighted RRF</td><td class="num"><b>0,806</b></td><td class="num">0,794</td><td class="num"><b>0,887</b></td><td class="num">0,668</td><td class="num"><b>0,815</b></td><td class="num">0,6%</td><td class="num">1,50</td></tr>
+<tr><td>E4 + perluasan query</td><td class="num">0,467</td><td class="num">0,768</td><td class="num">0,610</td><td class="num">0,504</td><td class="num">0,598</td><td class="num">0,6%</td><td class="num">9,07</td></tr>
 </tbody>
 </table>
 
 <table>
 <thead><tr><th>Perbandingan</th><th class="num">selisih nDCG</th><th>CI 95%</th><th class="num">p</th><th>Bacaan</th></tr></thead>
 <tbody>
-<tr><td>E1 vs B0</td><td class="num">+0,176</td><td>[+0,131, +0,223]</td><td class="num">0,000</td><td><b>signifikan</b> — kepingan karakter menolong</td></tr>
-<tr><td>E3 vs B0</td><td class="num">+0,183</td><td>[+0,136, +0,232]</td><td class="num">0,000</td><td><b>signifikan</b></td></tr>
+<tr><td>E1 vs B0</td><td class="num">+0,174</td><td>[+0,128, +0,224]</td><td class="num">0,000</td><td><b>signifikan</b> — kepingan karakter menolong</td></tr>
+<tr><td>E3 vs B0</td><td class="num">+0,187</td><td>[+0,138, +0,238]</td><td class="num">0,000</td><td><b>signifikan</b> — hampir seluruhnya dari E1, bukan RRF</td></tr>
 <tr><td>B1 vs B0</td><td class="num">+0,018</td><td>[−0,037, +0,071]</td><td class="num">0,510</td><td>tidak signifikan</td></tr>
 <tr><td>B2 vs B0</td><td class="num">−0,013</td><td>[−0,072, +0,045]</td><td class="num">0,656</td><td>tidak signifikan</td></tr>
-<tr><td>E3 vs E1</td><td class="num">+0,007</td><td>[−0,004, +0,019]</td><td class="num">0,207</td><td>tidak signifikan — pembobotan tabel tidak menambah kualitas</td></tr>
-<tr><td>E2 vs B0</td><td class="num">−0,048</td><td>[−0,099, +0,005]</td><td class="num">0,069</td><td>RRF polos menghapus keuntungan E1</td></tr>
+<tr><td>E3 vs E1</td><td class="num">+0,013</td><td>[+0,001, +0,025]</td><td class="num">0,039</td><td>selisih kecil — <b>tidak terbukti meningkatkan akurasi</b> (dev p=0,207)</td></tr>
+<tr><td>E1 vs B1</td><td class="num">+0,156</td><td>[+0,116, +0,199]</td><td class="num">0,000</td><td>signifikan — kepingan, bukan kata saja</td></tr>
+<tr><td>E2 vs B0</td><td class="num">−0,045</td><td>[−0,097, +0,007]</td><td class="num">0,093</td><td>RRF polos menghapus keuntungan E1</td></tr>
 </tbody>
 </table>
 
@@ -1434,10 +1435,11 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <tr><td>B0 heuristik OpenMRS</td><td class="num">0,770</td><td class="num" style="color:#a03434;font-weight:700">0,081</td><td class="num">0,822</td><td class="num">0,709</td><td class="num">0,788</td></tr>
 <tr><td>B1 TF-IDF kata</td><td class="num">0,827</td><td class="num">0,464</td><td class="num" style="color:#b8622a;font-weight:700">0,353</td><td class="num">0,734</td><td class="num">0,848</td></tr>
 <tr><td>B2 BM25</td><td class="num">0,816</td><td class="num">0,449</td><td class="num" style="color:#b8622a;font-weight:700">0,312</td><td class="num">0,718</td><td class="num">0,774</td></tr>
-<tr class="hi"><td>E3 usulan</td><td class="num">0,849</td><td class="num"><b>0,789</b></td><td class="num"><b>0,789</b></td><td class="num">0,754</td><td class="num"><b>0,888</b></td></tr>
+<tr class="hi"><td>E1 + kepingan</td><td class="num">0,855</td><td class="num"><b>0,773</b></td><td class="num">0,784</td><td class="num">0,753</td><td class="num">0,857</td></tr>
+<tr class="hi"><td>E3 usulan</td><td class="num">0,850</td><td class="num">0,812</td><td class="num"><b>0,803</b></td><td class="num">0,752</td><td class="num"><b>0,869</b></td></tr>
 </tbody>
 </table>
-<p>Heuristik OpenMRS <b>runtuh pada tipo</b> (0,081) tapi <b>menang pada trunkasi</b> (0,822 — lebih baik dari metode kami). TF-IDF kata kebalikannya. Metode kami menutup kedua lubang.</p>
+<p>Heuristik OpenMRS <b>runtuh pada tipo</b> (0,081) tapi <b>menang pada trunkasi</b> (0,822 — lebih baik dari E1 0,784). TF-IDF kata kebalikannya. Kepingan karakter menutup lubang tipo (0,773) tanpa kehilangan trunkasi sepenuhnya.</p>
 
 <div class="box warn">
 <p class="lbl">Catatan reproduksibilitas yang harus dibaca anggota kelompok</p>
@@ -1476,8 +1478,8 @@ Fungsi <span class="mono">norm</span>, <span class="mono">kata</span>, <span cla
 <div class="step"><div class="no">5</div><div class="tx"><b>Metrik &amp; uji bootstrap</b>
 <span class="small">Selesai kalau: dua proses terpisah memberi angka identik. — <b>sudah selesai</b></span></div></div>
 
-<div class="step"><div class="no">6</div><div class="tx"><b>Setel ulang α dan jalankan ulang</b>
-Sapuan menunjukkan optimum di 0,25, sementara eksperimen memakai 0,45. <span class="small">Selesai kalau: tabel metrik versi final keluar.</span></div></div>
+<div class="step"><div class="no">6</div><div class="tx"><b>Setel ulang α dan jalankan evaluasi test sekali</b>
+Sapuan dev: argmax α=0,15; kami pakai α=0,20. <span class="small">Selesai kalau: tabel metrik versi final keluar di <span class="mono">riset/hasil3/</span>. — <b>sudah selesai</b></span></div></div>
 
 <div class="step"><div class="no">7</div><div class="tx"><b>Validasi baseline lewat REST API OpenMRS asli</b>
 <span class="mono">/ws/rest/v1/concept?q=</span> <span class="small">Selesai kalau: ada tabel perbandingan tiruan vs API asli. Ini titik yang paling mungkin ditanya penguji.</span></div></div>
@@ -1508,12 +1510,12 @@ Muat kamus CIEL penuh, naikkan jumlah pasien demo. <span class="small">Selesai k
 
 <div class="box good">
 <p class="lbl">Kami klaim</p>
-<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian OpenMRS secara signifikan (+0,176 nDCG@10, p &lt; 0,001), terutama dengan menurunkan pencarian nol-hasil dari 18,3% ke 0,6%, dengan biaya yang cukup kecil untuk dipasang tanpa GPU. Kami juga menunjukkan bahwa RRF baku degeneratif pada tabel yang saling lepas, dan pembobotan IDF global memperbaikinya — sebagai temuan, bukan sebagai klaim peningkatan kualitas.</p>
+<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian OpenMRS secara signifikan (+0,174 nDCG@10, p &lt; 0,001), terutama dengan menurunkan pencarian nol-hasil dari 18,3% ke 0,6% dan menaikkan nDCG query typo dari 0,081 ke 0,773, dengan biaya yang cukup kecil untuk dipasang tanpa GPU. Kami juga menunjukkan bahwa RRF baku degeneratif pada tabel yang saling lepas, dan pembobotan IDF global memperbaikinya — sebagai temuan, bukan sebagai klaim peningkatan kualitas. Weighted RRF menambah +0,013 nDCG di test (p=0,039) dan +0,007 di dev (p=0,207): selisih kecil, <b>tidak terbukti meningkatkan akurasi</b> seperti kepingan karakter.</p>
 </div>
 
 <div class="box neu">
 <p class="lbl">Kami tidak klaim</p>
-<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil — tidak, selisihnya tidak signifikan. Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk. Bahwa TF-IDF lebih baik dari heuristik OpenMRS — tidak, selisihnya tidak signifikan, dan pada query terpotong heuristiknya justru menang. Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
+<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil secara substantif — tidak; selisih +0,013 di test (p=0,039) dan +0,007 di dev (p=0,207) terlalu kecil untuk dijadikan klaim peningkatan akurasi. Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk (0,815 → 0,598). Bahwa TF-IDF lebih baik dari heuristik OpenMRS — tidak, selisihnya tidak signifikan, dan pada query terpotong heuristiknya justru menang. Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
 </div>
 
 <h3>7.5 Referensi</h3>

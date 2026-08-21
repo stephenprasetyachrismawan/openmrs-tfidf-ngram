@@ -720,3 +720,58 @@ Mengimpor `riset/eksperimen2.py` sebagai modul dan memanggil fungsinya untuk
 kueri ad-hoc **boleh** — `main()` dijaga `if __name__ == "__main__"`, dan query
 ad-hoc bukan bagian dari `qs`. Yang dilarang adalah menjalankan skripnya
 sehingga blok evaluasi `for it in test` ikut berjalan.
+
+---
+
+## 2026-08-21 · Evaluasi test set resmi (`hasil3/`, ALPHA=0,20)
+
+**Keputusan metodologis bootstrap.** Pasangan E3-vs-E1 dan E1-vs-B1 awalnya
+direkonstruksi dari top-5 di `per_query.json` — basis berbeda dari E1-vs-B0
+(top-10 penuh). Dipilih **opsi (A)**: `eksperimen2.py` kini menyimpan
+`ndcg_test` (vektor nDCG@10 per query, ketujuh sistem) dan pasangan bootstrap
+E3_vs_E1 / E1_vs_B1 di blok `uji`. Pipeline test dijalankan ulang **sekali**
+dengan parameter identik (ALPHA=0,20, NGRAM=4, K_RRF=20, EPS=0,05, seed=42);
+bootstrap seed=7.
+
+**Bukti determinisme sebelum menimpa `hasil3/`.** Ringkasan agregat, `per_tipe`,
+dan pasangan bootstrap yang sudah ada **identik byte-per-byte** antara
+`hasil3/` lama dan baru — hanya menambah `ndcg_test`, `bootstrap_seed`, dan
+pasangan `E3_vs_E1` / `E1_vs_B1`.
+
+**Arsip.** `riset/hasil2/` tetap arsip evaluasi test pada ALPHA=0,45 (tidak
+ditimpa). `riset/eksperimen2.py` sekarang menulis ke `hasil3/` dengan
+ALPHA=0,20. Commit sebelum perubahan: `9c71797` (tugas 08).
+
+### Tabel lama vs baru — 180 query test
+
+| Sistem | nDCG@10 lama (`hasil2/`, α=0,45) | nDCG@10 baru (`hasil3/`, α=0,20) | Δ |
+|---|---|---|---|
+| B0 | 0,628 | 0,628 | 0,000 |
+| B1 | 0,646 | 0,646 | 0,000 |
+| B2 | 0,615 | 0,615 | 0,000 |
+| E1 | 0,804 | 0,802 | −0,002 |
+| E2 | 0,580 | 0,582 | +0,003 |
+| E3 | 0,811 | 0,815 | +0,004 |
+| E4 | 0,589 | 0,598 | +0,009 |
+
+| Uji bootstrap (seed=7, top-10) | Lama | Baru |
+|---|---|---|
+| E1 vs B0 | +0,176, p=0 | +0,174, p=0 |
+| E3 vs B0 | +0,183, p=0 | +0,187, p=0 |
+| E3 vs E1 | — | +0,013, p=0,039 |
+| E1 vs B1 | — | +0,156, p=0 |
+
+**Temuan signifikansi:** E1-vs-B0 tetap kuat (p&lt;0,001). Weighted RRF (E3-vs-E1)
++0,013 di test (p=0,039); di dev +0,007 (p=0,207). Selisih kecil — **tidak
+terbukti meningkatkan akurasi** seperti kepingan karakter.
+
+**Sumber resmi proposal:** `riset/hasil3/hasil.json`, `ringkasan.csv`,
+`per_query.json`.
+
+### Pekerjaan terbuka (penyimpangan Java)
+
+| # | Item | Status |
+|---|---|---|
+| 5 | B1, B2, E4 belum diimplementasi di modul Java | Terbuka (tugas 09+) |
+| 6 | Perbandingan peringkat Java-vs-Python pada 180 query test | Tertunda — Docker/OpenMRS mati saat evaluasi |
+| 7 | `tools/silang_fusi.py` masih ALPHA=0,45 (acuan halaman admin saja) | Diketahui, sengaja |
