@@ -1390,7 +1390,7 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <table>
 <thead><tr><th style="width:180px">Kelemahan</th><th>Penjelasan</th></tr></thead>
 <tbody>
-<tr><td><b>Baseline bukan yang asli</b></td><td>B0 adalah tiruan skema skor OpenMRS, bukan panggilan ke REST API produksi. Tiruan kami ternyata <em>lebih kuat</em> dari yang dilaporkan komunitas — jadi selisih yang kami laporkan konservatif, bukan dilebihkan.</td></tr>
+<tr><td><b>Baseline bukan yang asli</b></td><td>B0 (<span class="mono">OpenMrsHeuristic</span>) adalah tiruan skema skor OpenMRS, bukan panggilan ke REST API produksi. Diuji langsung terhadap endpoint asli (<span class="mono">GET /ws/rest/v1/concept?searchType=fuzzy</span>) pada 28 query dev berkelas Diagnosis: sepakat 22/28 (78,6%). Pada 5 dari 6 ketidaksepakatan — semuanya tipe <b>typo</b> — endpoint asli <b>berhasil</b> sementara tiruan kami <b>gagal</b>: mesin fuzzy-search bawaan OpenMRS lebih toleran salah ketik dari yang tiruan kami tunjukkan. Konsekuensinya searah, bukan acak: klaim +0,174 nDCG (E1 vs B0) kemungkinan <b>sedikit melebih-lebihkan</b> keunggulan E1 dibanding OpenMRS yang sesungguhnya — arah bias menguntungkan penelitian ini, bukan sebaliknya. Rincian lengkap: <span class="mono">docs/keputusan.md</span> ("D1"), data mentah <span class="mono">riset/hasil3/baseline_openmrs_vs_b0.json</span>.</td></tr>
 <tr><td><b>Query buatan program</b></td><td>Perlu konfirmasi dengan query manual dari klinisi.</td></tr>
 <tr><td><b>Ukuran tabel timpang ekstrem</b></td><td>4.249 konsep vs 6 provider. Pada instalasi nyata dengan puluhan ribu pasien, sebagian temuan bisa berbalik.</td></tr>
 <tr><td><b>Skala korpus</b></td><td>Kamus CIEL penuh ~50.000 konsep. Indeks kepingan berukuran 3–5× indeks kata — ini risiko rekayasa utama, belum diukur.</td></tr>
@@ -1448,6 +1448,37 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <p>Kami sempat menemukan hasilnya bergoyang ±0,02 antar-run tanpa ada yang diubah. Penyebabnya: RRF menghasilkan banyak skor yang <b>persis sama</b>, dan urutan akhirnya ditentukan urutan iterasi <span class="mono">set</span> Python — yang bergantung hash string dan diacak ulang tiap proses.</p>
 <p>Perbaikannya satu baris: urutkan dengan kunci <span class="mono">(-skor, id)</span>, bukan <span class="mono">-skor</span> saja. Setelah itu dua proses terpisah memberi angka identik sampai digit terakhir. <b>Kalau nanti ada yang menambah kode, jangan sampai sifat ini hilang lagi.</b></p>
 </div>
+
+<h3>6.1 Verifikasi modul Java sungguhan</h3>
+
+<p>Tabel di atas adalah hasil <span class="mono">riset/eksperimen2.py</span> (Python) pada 180 query uji resmi. Modul Java (<span class="mono">backend/openmrs-module-tfidf-search</span>) sudah dipasang dan berjalan pada RefApp 3 sungguhan (Docker). Angka di bawah ini <b>bukan angka test set di atas</b> — dihitung terhadap 100 query <b>pengembangan (dev)</b>, yang sengaja dipisah dari 180 query uji sejak awal (CLAUDE.md aturan 10) supaya test set tetap satu kali pakai. Jangan mencampur keduanya.</p>
+
+<table>
+<thead><tr><th>Sistem</th><th class="num">nDCG@10 (dev, Java)</th><th class="num">nDCG@10 (dev, Python)</th></tr></thead>
+<tbody>
+<tr><td>B0 heuristik OpenMRS</td><td class="num">0,660021</td><td class="num">0,660021</td></tr>
+<tr class="hi"><td>E3 usulan</td><td class="num"><b>0,846404</b></td><td class="num">0,846404</td></tr>
+</tbody>
+</table>
+<p class="small">Java dan Python cocok sampai presisi bilangan <span class="mono">double</span> (selisih &lt;1e-9) — implementasi Java setia pada pipeline penelitian, bukan reimplementasi yang menyimpang diam-diam. Dihitung lewat endpoint <span class="mono">GET /ws/rest/v1/unifiedsearch/eval?mode=</span>, yang menyertakan <span class="mono">gold_sha256</span> di jawabannya supaya siapa pun bisa mencocokkan query dev yang dipakai dengan <span class="mono">riset/ekspor_gold_dev.py</span>.</p>
+
+<table>
+<thead><tr><th>Ukuran operasional</th><th>Nilai</th></tr></thead>
+<tbody>
+<tr><td>Waktu bangun 13 indeks saat startup modul</td><td>1,2 detik (4.748 dokumen, 29.320 surface form)</td></tr>
+<tr><td>Latensi p50 (indeks sudah hangat)</td><td>25 ms</td></tr>
+<tr><td>Latensi p95 (indeks sudah hangat)</td><td>26 ms</td></tr>
+<tr><td>Latensi p95 (20 permintaan pertama setelah modul baru direstart)</td><td>~60 ms — JIT JVM belum panas, bukan masalah arsitektur (diverifikasi: hangat setelah ~30 permintaan)</td></tr>
+</tbody>
+</table>
+<p class="small">Dilaporkan apa adanya termasuk angka yang kurang bagus (p95 60 ms segera setelah restart) — bukan disembunyikan karena ada angka lain yang lebih baik. Rincian penyelidikan: <span class="mono">docs/keputusan.md</span> ("C4").</p>
+
+<h3>6.2 Keterbatasan integrasi RefApp 3 yang ditemukan, bukan diasumsikan</h3>
+
+<p>Rencana semula (mockup A, bagian 4.1) adalah menyisipkan kotak pencarian kami langsung ke kotak diagnosis di form Visit Note lewat <b>extension slot</b> — mekanisme resmi OpenMRS 3 untuk menambah UI tanpa mengubah kode app lain. Diperiksa langsung ke RefApp yang berjalan (bukan diasumsikan dari dokumentasi umum): dibuka form Visit Note sungguhan, panel "UI editor" bawaan OpenMRS diaktifkan, dan seluruh rantai elemen dari kotak diagnosis sampai ke akar workspace ditelusuri. Hasilnya: <b>workspace Visit Note pada versi RefApp ini (<span class="mono">@openmrs/esm-patient-notes-app@12.3.4</span>) tidak punya extension slot sama sekali</b> — bukan cuma kotak diagnosisnya, seluruh workspace-nya tertutup. Diverifikasi silang dengan slot yang memang bekerja (menu kami sendiri): slot asli membawa atribut <span class="mono">data-extension-slot-name</span>; tidak satu pun elemen di workspace Visit Note membawa atribut itu.</p>
+
+<p>Sesuai aturan proyek ("jangan menambal app resmi, kalau slot tidak ada, laporkan"), rencana mockup A untuk titik sisip ini <b>tidak dikerjakan</b>. Sebagai gantinya dibangun halaman <b>"Perbandingan Pencarian"</b> — satu query dijalankan serentak pada endpoint pencarian konsep bawaan OpenMRS yang sungguhan, tiruan heuristik kami, dan sistem usulan, ditampilkan berdampingan. Pendekatan ini membuktikan klaim yang sama (sistem kami tahan salah ketik, dijalankan pada endpoint nyata) tanpa menyentuh app resmi mana pun, dan sekaligus menutup celah yang mungkin dipertanyakan penguji: bahwa baseline-nya dibuat lemah sendiri. Rincian lengkap, termasuk bukti penelusuran DOM: <span class="mono">docs/keputusan.md</span> (entri "tugas 13" dan "D1").</p>
+
 <h2 id="b7"><span class="n">7</span>Pembagian kerja &amp; jadwal</h2>
 
 <h3>7.1 Siapa mengerjakan apa</h3>
@@ -1484,7 +1515,7 @@ Fungsi <span class="mono">norm</span>, <span class="mono">kata</span>, <span cla
 Sapuan dev: argmax α=0,15; kami pakai α=0,20. <span class="small">Selesai kalau: tabel metrik versi final keluar di <span class="mono">riset/hasil3/</span>. — <b>sudah selesai</b></span></div></div>
 
 <div class="step"><div class="no">7</div><div class="tx"><b>Validasi baseline lewat REST API OpenMRS asli</b>
-<span class="mono">/ws/rest/v1/concept?q=</span> <span class="small">Selesai kalau: ada tabel perbandingan tiruan vs API asli. Ini titik yang paling mungkin ditanya penguji.</span></div></div>
+Endpoint sebenarnya ditemukan lewat tab Network sungguhan (dugaan awal <span class="mono">?q=</span> ternyata salah): <span class="mono">GET /ws/rest/v1/concept?name=&searchType=fuzzy&class=&lt;Diagnosis&gt;&v=custom:(uuid,display)</span>. <span class="small">Selesai kalau: ada tabel perbandingan tiruan vs API asli. — <b>sudah selesai</b>: 28 query dev, sepakat 22/28 (78,6%); lihat 5.6 dan <span class="mono">docs/keputusan.md</span> ("D1").</span></div></div>
 
 <div class="step"><div class="no">8</div><div class="tx"><b>30–50 query manual dari skenario klinis</b>
 Aturan relevansi ditulis <b>sebelum</b> sistem dijalankan, disimpan terpisah, tidak diubah setelah lihat hasil. <span class="small">Ini yang paling menentukan kredibilitas di sidang.</span></div></div>
