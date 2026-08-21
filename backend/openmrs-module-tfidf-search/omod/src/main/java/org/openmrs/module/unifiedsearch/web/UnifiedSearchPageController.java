@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openmrs.api.context.Context;
+import org.openmrs.module.unifiedsearch.AlphaConfig;
 import org.openmrs.module.unifiedsearch.FusionSearch;
 import org.openmrs.module.unifiedsearch.RankedDocument;
 import org.openmrs.module.unifiedsearch.SurfaceForm;
@@ -33,8 +34,8 @@ public class UnifiedSearchPageController {
 	
 	private static final int NGRAM = 4;
 
-	/** Provisional only — see docs/keputusan.md "Menunggu keputusan". Not tuned here. */
-	private static final double ALPHA_SEMENTARA = 0.45;
+	/** Fixed at the value tools/silang_fusi.py's reference table was computed with — not the operational ALPHA. */
+	private static final double ALPHA_ACUAN_VERIFIKASI = 0.45;
 
 	private final DocumentRepository repository;
 
@@ -103,9 +104,11 @@ public class UnifiedSearchPageController {
 	}
 
 	/**
-	 * K5 worked example from tugas/05-fusi-k5.md: "panadol" should rank the
-	 * Acetaminophen concept first, with a score close to what the "Panadol" alias
-	 * alone would score — not diluted by its many other aliases.
+	 * K5 worked examples: "panadol" (tugas/05-fusi-k5.md) run at the operational
+	 * ALPHA read from the {@code unifiedsearch.alpha} global property (tugas 06),
+	 * plus the four reference scores from tools/silang_fusi.py fixed at ALPHA=0.45
+	 * — the value that reference table was computed with — used to verify the
+	 * fix in tugas/06-alpha-final.md.
 	 */
 	private List<String> contohFusi(TfIdfIndex indeksKata, TfIdfIndex indeksKepingan, List<SurfaceForm> formKonsep) {
 		List<String> out = new ArrayList<String>();
@@ -113,13 +116,32 @@ public class UnifiedSearchPageController {
 			return out;
 		}
 		FusionSearch fusi = new FusionSearch(indeksKata, indeksKepingan, formKonsep);
-		List<RankedDocument> hasil = fusi.search("panadol", ALPHA_SEMENTARA);
-		for (int i = 0; i < Math.min(3, hasil.size()); i++) {
-			RankedDocument r = hasil.get(i);
+
+		double alphaOperasional = AlphaConfig.current();
+		out.add("ALPHA operasional (unifiedsearch.alpha) = " + alphaOperasional);
+		List<RankedDocument> panadol = fusi.search("panadol", alphaOperasional);
+		for (int i = 0; i < Math.min(3, panadol.size()); i++) {
+			RankedDocument r = panadol.get(i);
 			out.add((i + 1) + ". " + r.getDokumen().getJudul() + " (" + r.getDokumen().getKunci() + ") = "
 			        + r.getSkor());
 		}
+
+		out.add("--- verifikasi acuan tools/silang_fusi.py (ALPHA=0,45, tetap) ---");
+		out.add(skorAcuan(fusi, "panadol", "Acetaminophen"));
+		out.add(skorAcuan(fusi, "diabete melitus", "Diabetes mellitus"));
+		out.add(skorAcuan(fusi, "diabete melitus", "Diabetes mellitus, type 2"));
+		out.add(skorAcuan(fusi, "pulm edem", "Pulmonary edema"));
 		return out;
+	}
+
+	private String skorAcuan(FusionSearch fusi, String query, String judulTarget) {
+		List<RankedDocument> hasil = fusi.search(query, ALPHA_ACUAN_VERIFIKASI);
+		for (RankedDocument r : hasil) {
+			if (judulTarget.equals(r.getDokumen().getJudul())) {
+				return "\"" + query + "\" -> " + judulTarget + " = " + r.getSkor();
+			}
+		}
+		return "\"" + query + "\" -> " + judulTarget + " tidak ditemukan (di bawah ambang atau bukan konsep)";
 	}
 
 	/**

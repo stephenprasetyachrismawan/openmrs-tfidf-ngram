@@ -176,3 +176,21 @@ mendekati angka ini. Kalau meleset jauh, laporkan â€” jangan sesuaikan doku
 | E1 + kepingan karakter | 0,804 | 0,783 | 0,6% |
 | E3 + Weighted RRF | 0,811 | 0,806 | 0,6% |
 
+
+### 10. Test set haram disentuh
+
+Query dibagi `dev, test = qs[:100], qs[100:]`. Bagian `test` **hanya boleh
+dijalankan satu kali**, oleh `tugas/08b-evaluasi-test-sekali.md`, setelah
+seluruh parameter dikunci.
+
+Setiap skrip lain yang membaca `qs[100:]` adalah bug, apa pun alasannya —
+termasuk "cuma mengecek", "cuma sapuan kecil", atau "biar yakin". Kalau butuh
+mengukur sesuatu, pakai `qs[:100]`.
+
+Ini pernah dilanggar: `riset/eksperimen2b.py` menjalankan keempat sapuannya di
+`test`, sehingga seluruh tabel sapuan parameter di proposal tercemar. Berkas itu
+dipertahankan sebagai arsip dan **tidak boleh dijalankan lagi**. Lihat
+`docs/keputusan.md`.
+
+Kalau test set terlanjur dijalankan berulang sambil menyetel, ia berhenti jadi
+ukuran independen, dan satu-satunya perbaikan adalah membangkitkan query baru.

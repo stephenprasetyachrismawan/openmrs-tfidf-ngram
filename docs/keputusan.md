@@ -320,3 +320,188 @@ Verifikasi tugas 04 cocok sampai 4 desimal, tapi **tidak menangkap penyimpangan
 ini** karena hanya menguji satu jalur (kepingan saja). Penyimpangan urutan
 operasi baru muncul ketika dua jalur digabungkan. Uji silang harus menguji
 kombinasi, bukan hanya komponen.
+
+---
+
+## 2026-08-21 · ALPHA ditetapkan 0,20 dari sapuan 100 query dev
+
+**Konteks.** `tugas/06-alpha-final.md` mewajibkan dua perbaikan K5 lebih dulu
+(urutan operasi maks-per-jalur, dan ambang 1e-6), lalu penyetelan ALPHA
+memakai **100 query dev saja**, bukan 180 query uji.
+
+**Pelanggaran yang ditemukan sebelum menyapu ulang.** `riset/eksperimen2b.py`
+menyapu ALPHA dengan `test = qs[100:]` — yaitu memakai 180 query **uji**
+(`qs` berisi 280 query total; `main()` di `eksperimen2.py` membelahnya
+`dev = qs[:100]`, `test = qs[100:]`, jadi `test` di sana adalah 180 baris,
+bukan 80). Hasil sapuan lama (`riset/hasil2/sapuan.json`, kolom `sweep_alpha`)
+karena itu membocorkan test set — sesuai larangan tugas 06.
+
+**Sapuan ulang.** `riset/sapuan_alpha_dev.py` dibuat: query, seed, dan urutan
+shuffle identik dengan `main()`, tapi hanya memakai `qs[:100]` (100 query dev
+yang sama yang dipakai laporan utama). Sistem yang dievaluasi: E3 (K5 + K6
+Weighted RRF), metrik nDCG@10 rata-rata atas 100 query dev.
+
+| ALPHA | nDCG (dev) |
+|---|---|
+| 0,00 | 0,8279 |
+| 0,05 | 0,8423 |
+| 0,10 | 0,8423 |
+| **0,15** | **0,8465** |
+| 0,20 | 0,8464 |
+| 0,25 | 0,8409 |
+| 0,30 | 0,8415 |
+| 0,35 | 0,8397 |
+| 0,45 | 0,8344 |
+| 0,65 | 0,8235 |
+| 1,00 | 0,7003 |
+
+Hasil lengkap: `riset/hasil2/sapuan_alpha_dev.json`.
+
+**Temuan.** Puncaknya bukan di 0,25 seperti dikira sebelumnya (itu dari sapuan
+yang bocor test set) — pada 100 query dev, puncaknya di sekitar **0,15–0,20**,
+dengan plateau datar dari 0,10 sampai 0,20 (selisih 0,8423→0,8465, semuanya
+dalam rentang noise sampling 100 query). ALPHA=0,45 (nilai eksperimen asli)
+memberi nDCG 0,8344 — jelas di bawah plateau optimum.
+
+**Keputusan: ALPHA = 0,20.** Argmax mentah adalah 0,15 (nDCG 0,8465), tapi
+selisihnya ke 0,20 (0,8464) hanya 0,0001 — di dalam noise. 0,20 dipilih karena
+duduk di tengah plateau 0,10–0,20 (lebih tahan terhadap variasi sampling
+dibanding titik ujung 0,15) dan angka yang lebih bulat.
+
+**Implementasi.**
+- `AlphaConfig.DEFAULT_ALPHA = 0.20` (`api/.../AlphaConfig.java`).
+- Global property OpenMRS `unifiedsearch.alpha`, didaftarkan di `config.xml`
+  dengan `defaultValue=0.20`, bisa diubah dari Admin > Settings tanpa
+  membangun ulang modul. Diverifikasi ada di `global_property` setelah modul
+  dipasang: `unifiedsearch.alpha = 0.20`.
+- Halaman placeholder (`UnifiedSearchPageController`) memakai
+  `AlphaConfig.current()` untuk demo K5 operasional — dikonfirmasi live
+  membaca 0,2 dari database.
+
+**Bukan diputuskan dari 180 query uji.** `riset/sapuan_alpha_dev.py` tidak
+menyentuh `qs[100:]` sama sekali.
+
+**Pekerjaan lanjutan yang belum dikerjakan:** sapuan `ngram`, `k` (RRF), dan
+`eps` di `eksperimen2b.py` masih memakai `test = qs[100:]` (180 query uji).
+Tugas 06 hanya meminta perbaikan ALPHA; tiga sapuan lain itu di luar cakupan
+tugas ini dan **belum diperbaiki** — perlu tugas terpisah kalau mau
+diselaraskan dengan aturan dev/test yang sama.
+
+---
+
+## 2026-08-20 · TEMUAN SERIUS: seluruh sapuan parameter memakai test set
+
+Ditemukan saat tugas 06, diverifikasi langsung ke kode penelitian.
+
+`riset/eksperimen2.py` baris 390 membagi query:
+
+```python
+dev, test = qs[:100], qs[100:]
+```
+
+`riset/eksperimen2b.py` baris 11 memakai:
+
+```python
+test = qs[100:]
+```
+
+dan **keempat sapuan** dijalankan di atasnya:
+
+| baris | sapuan | dijalankan pada |
+|---|---|---|
+| 39 | panjang n-gram (2,3,4,5,6) | `test` |
+| 52 | `K_RRF` (5,10,20,60) | `test` |
+| 61 | `EPS` (0; 0,05; 0,15; 0,30) | `test` |
+| 70 | `ALPHA` | `test` |
+
+Artinya seluruh tabel sapuan parameter di `docs/proposal.html` — termasuk tabel
+"Kenapa 4 huruf, bukan 3 atau 6" (bagian 2.3) dan angka sapuan ALPHA di
+bagian K5 — dihitung pada **query uji yang seharusnya disimpan**.
+
+### Seberapa parah — dibaca dengan jujur, tidak dibesarkan dan tidak dikecilkan
+
+**Yang TIDAK tercemar:** tabel hasil utama (B0/B1/B2/E1/E2/E3/E4 pada 180 query
+uji, berikut bootstrap-nya). Itu dijalankan sekali dengan parameter tetap.
+
+**Yang tercemar:** justifikasinya. Proposal menyajikan sapuan itu seolah dasar
+pemilihan parameter. Kalau parameter dipilih dengan melihat test set, test set
+berhenti menjadi held-out, dan penguji berhak mempersoalkannya.
+
+**Peringan yang jujur:** parameter yang benar-benar dipakai di eksperimen utama
+sebagian besar **bukan** hasil sapuan itu. `ALPHA = 0,45` diwarisi dari
+eksperimen pertama, bukan dari sapuan (yang justru menunjuk 0,25). `NGRAM = 4`
+juga sudah dipakai sejak eksperimen pertama. `K_RRF = 20` dan `EPS = 0,05`
+adalah nilai konvensional. Jadi kebocorannya lebih merusak **narasi** daripada
+angkanya.
+
+### Sapuan ALPHA bersih (100 query dev)
+
+Dijalankan ulang lewat `riset/sapuan_alpha_dev.py`, hanya `qs[:100]`:
+
+| ALPHA | nDCG@10 dev |
+|---|---|
+| 0,00 | 0,8279 |
+| 0,10 | 0,8423 |
+| **0,15** | **0,8465** (argmax) |
+| **0,20** | **0,8464** (dipilih) |
+| 0,25 | 0,8409 |
+| 0,45 | 0,8344 |
+| 1,00 | 0,7003 |
+
+Puncaknya **0,15–0,20**, bukan 0,25. Angka 0,25 yang tertulis di proposal
+berasal dari sapuan yang bocor. `ALPHA = 0,20` dipilih karena berada di tengah
+dataran puncak; selisihnya dari argmax 0,0001, jauh di dalam derau 100 query.
+
+### Konsekuensi yang belum diselesaikan
+
+Modul sekarang memakai `ALPHA = 0,20`, sedangkan seluruh angka di proposal
+(0,804 / 0,811 / +0,176 / +0,183) dihasilkan pada `ALPHA = 0,45`. **Modul tidak
+lagi menggambarkan sistem yang dilaporkan.** Ini harus diselesaikan sebelum
+panel evaluasi (tugas 12) dibangun, karena panel itu menjanjikan angka yang
+bisa direproduksi.
+
+Keputusan cara menyelesaikannya diambil manusia — dicatat pada entri berikutnya.
+
+---
+
+## 2026-08-20 · Keputusan: kunci parameter di dev, jalankan test sekali
+
+Menjawab dua konsekuensi temuan kebocoran test set di atas.
+
+### Keputusan 1 — semua parameter dikunci memakai 100 query dev
+
+Sapuan `NGRAM`, `K_RRF`, `EPS` diulang pada `qs[:100]`, sama seperti yang sudah
+dilakukan untuk `ALPHA`. Tabel sapuan di `docs/proposal.html` diganti dengan
+versi dev ini. Dikerjakan di `tugas/06b-sapuan-dev.md`.
+
+Alasan: justifikasi pemilihan parameter jadi bersih. Kalau penguji bertanya
+"dari mana angka 4 huruf", jawabannya "dari 100 query pengembangan yang terpisah
+dari query pelaporan" — bukan "dari query yang sama yang kami pakai melaporkan
+hasil".
+
+### Keputusan 2 — evaluasi test dijalankan SEKALI, setelah semua parameter terkunci
+
+Seluruh angka Bab 6 dihasilkan ulang dalam satu kali jalan, dengan parameter
+final. Dikerjakan di `tugas/08b-evaluasi-test-sekali.md`, setelah tugas 07
+(Weighted RRF) dan 08 (baseline B0) selesai — karena keduanya dibutuhkan untuk
+menghasilkan tabel perbandingan lengkap.
+
+Konsekuensi yang diterima: **seluruh tabel angka di `docs/proposal.html` harus
+ditulis ulang**, termasuk nDCG, selisih, selang kepercayaan, nilai p, tabel per
+jenis kesalahan ketik, dan ringkasan di halaman depan. Angka 0,804 / 0,811 /
++0,176 / +0,183 kemungkinan besar berubah.
+
+Berdasarkan sapuan dev, arah perubahannya kemungkinan **naik** (dev naik dari
+0,8344 di ALPHA 0,45 ke 0,8464 di 0,20). Tapi itu dugaan, bukan janji — dan
+angka berapa pun yang keluar adalah angka yang dilaporkan. Aturan 2 `CLAUDE.md`
+tetap berlaku: tidak ada penyesuaian angka supaya cocok dengan harapan.
+
+### Aturan baru — test set haram disentuh
+
+Ditambahkan sebagai aturan 7 di `CLAUDE.md`. Ringkasnya: `qs[100:]` hanya boleh
+dijalankan oleh `tugas/08b`, satu kali. Setiap skrip lain yang menyentuhnya
+adalah bug, apa pun alasannya.
+
+Ini yang membedakan penelitian yang bisa dipertahankan dari yang tidak. Kalau
+test set dijalankan berulang sambil menyetel, ia berhenti menjadi ukuran
+independen — dan tidak ada cara memperbaikinya selain membuat query baru.

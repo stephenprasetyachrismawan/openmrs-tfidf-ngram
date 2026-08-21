@@ -55,32 +55,36 @@ public class FusionSearchTest {
 	}
 	
 	@Test
-	public void maksimumDiambilSetelahDigabungBukanSebelum() {
+	public void maksimumDiambilPerJalurSebelumDigabung() {
+		// Diperiksa ulang setelah tugas 05: pipeline penelitian (fusi1() di
+		// eksperimen2.py) memaksimumkan tiap jalur DULU, baru menggabung. Urutan
+		// sebaliknya (gabung per surface form, baru maksimumkan) diukur menyimpang
+		// pada 17,8% query 10-besar — lihat docs/keputusan.md "Dua penyimpangan K5".
 		String query = "diabetes mellitus";
 		double alpha = 0.5;
-		
+
 		double[] skorKata = indeksKata.search(query);
 		double[] skorKepingan = indeksKepingan.search(query);
-		
+
 		// Buktikan korpus ini benar-benar membelah dua jalur: form judul (indeks 0)
 		// unggul di kata, form alias (indeks 1) unggul di kepingan.
 		assertTrue("judul harus unggul di jalur kata", skorKata[0] > skorKata[1]);
 		assertTrue("alias harus unggul di jalur kepingan", skorKepingan[1] > skorKepingan[0]);
-		
-		double benarForm0 = alpha * skorKata[0] + (1 - alpha) * skorKepingan[0];
-		double benarForm1 = alpha * skorKata[1] + (1 - alpha) * skorKepingan[1];
-		double skorBenar = Math.max(benarForm0, benarForm1);
-		
-		double skorSalah = alpha * Math.max(skorKata[0], skorKata[1]) + (1 - alpha) * Math.max(skorKepingan[0],
+
+		double skorBenar = alpha * Math.max(skorKata[0], skorKata[1]) + (1 - alpha) * Math.max(skorKepingan[0],
 		    skorKepingan[1]);
-		
+
+		double kombinasiForm0 = alpha * skorKata[0] + (1 - alpha) * skorKepingan[0];
+		double kombinasiForm1 = alpha * skorKata[1] + (1 - alpha) * skorKepingan[1];
+		double skorSalah = Math.max(kombinasiForm0, kombinasiForm1);
+
 		// Untuk korpus ini kedua pendekatan harus berbeda, kalau tidak uji ini tidak
 		// membuktikan apa pun.
-		assertTrue("korpus harus membuat dua pendekatan berbeda", skorSalah > skorBenar + 1e-6);
-		
+		assertTrue("korpus harus membuat dua pendekatan berbeda", skorBenar > skorSalah + 1e-6);
+
 		FusionSearch fusi = new FusionSearch(indeksKata, indeksKepingan, forms);
 		List<RankedDocument> hasil = fusi.search(query, alpha);
-		
+
 		RankedDocument dok1 = cari(hasil, "konsep:1");
 		assertEquals(skorBenar, dok1.getSkor(), EPS);
 	}

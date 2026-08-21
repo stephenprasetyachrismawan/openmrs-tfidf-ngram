@@ -31,4 +31,15 @@
 		<lang>id</lang>
 		<file>messages_id.properties</file>
 	</messages>
+
+	<globalProperty>
+		<property>unifiedsearch.alpha</property>
+		<defaultValue>0.20</defaultValue>
+		<description>
+			Bobot jalur kata pada fusi K5 (0-1); sisanya (1-nilai) dipakai jalur
+			kepingan karakter. Ditetapkan 0,20 dari sapuan 100 query dev (tugas 06,
+			lihat docs/keputusan.md dan riset/hasil2/sapuan_alpha_dev.json). Ubah
+			nilai ini untuk menguji ALPHA lain tanpa membangun ulang modul.
+		</description>
+	</globalProperty>
 </module>

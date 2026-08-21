@@ -9,13 +9,21 @@ import java.util.Map;
 
 /**
  * K5 — combines the word index and the character n-gram index into one score
- * per document (docs/algoritma.md sec. 4):
+ * per document (docs/algoritma.md sec. 4, matching {@code fusi1()} in
+ * riset/eksperimen2.py):
  *
  * <pre>
- * skor(surface form) = ALPHA * cosine_kata + (1 - ALPHA) * cosine_kepingan
- * skor(dokumen)       = max atas surface form-nya, diambil SETELAH digabung
+ * cos_kata(dokumen)     = max atas surface form-nya, jalur kata SENDIRI
+ * cos_kepingan(dokumen) = max atas surface form-nya, jalur kepingan SENDIRI
+ * skor(dokumen)         = ALPHA * cos_kata(dokumen) + (1 - ALPHA) * cos_kepingan(dokumen)
  * </pre>
  *
+ * The maximum is taken per path first, THEN the two paths are combined — the
+ * reverse (combine per surface form, then take the max) was tried first and
+ * measured to disagree with the research pipeline on 17.8% of queries' top-10
+ * (see docs/keputusan.md "Dua penyimpangan K5"). This order is what every
+ * published number in the study was produced with.
+ * <p>
  * {@code alpha} is a caller-supplied parameter, never a constant baked into
  * this class — see the "CATATAN PARAMETER" note in tugas/05-fusi-k5.md. Its
  * final value is decided in tugas 06 using 100 dev queries, not here.
@@ -25,48 +33,60 @@ import java.util.Map;
  * mismatch.
  */
 public class FusionSearch {
-	
-	/** docs/algoritma.md "Parameter — nilai resmi": documents at or below this are dropped. */
-	public static final double SCORE_THRESHOLD = 0.07;
-	
+
+	/**
+	 * Matches the 1e-6 threshold literally present three times in
+	 * riset/eksperimen2.py. 0.07 was a demo-mockup value mistakenly copied into
+	 * CLAUDE.md's parameter table — see docs/keputusan.md "Dua penyimpangan K5".
+	 */
+	public static final double SCORE_THRESHOLD = 1e-6;
+
 	private final TfIdfIndex indeksKata;
-	
+
 	private final TfIdfIndex indeksKepingan;
-	
+
 	private final List<SurfaceForm> surfaceForms;
-	
+
 	public FusionSearch(TfIdfIndex indeksKata, TfIdfIndex indeksKepingan, List<SurfaceForm> surfaceForms) {
 		this.indeksKata = indeksKata;
 		this.indeksKepingan = indeksKepingan;
 		this.surfaceForms = surfaceForms;
 	}
-	
+
 	public List<RankedDocument> search(String query, double alpha) {
 		double[] skorKata = indeksKata.search(query);
 		double[] skorKepingan = indeksKepingan.search(query);
-		
+
 		Map<String, VirtualDocument> dokumenByKunci = new LinkedHashMap<String, VirtualDocument>();
-		Map<String, Double> skorTerbaikByKunci = new LinkedHashMap<String, Double>();
+		Map<String, Double> maksKataByKunci = new LinkedHashMap<String, Double>();
+		Map<String, Double> maksKepinganByKunci = new LinkedHashMap<String, Double>();
 		for (int i = 0; i < surfaceForms.size(); i++) {
-			double gabungan = alpha * skorKata[i] + (1.0 - alpha) * skorKepingan[i];
 			VirtualDocument dokumen = surfaceForms.get(i).getDokumen();
 			String kunci = dokumen.getKunci();
-			Double sebelumnya = skorTerbaikByKunci.get(kunci);
-			if (sebelumnya == null || gabungan > sebelumnya.doubleValue()) {
-				skorTerbaikByKunci.put(kunci, Double.valueOf(gabungan));
-				dokumenByKunci.put(kunci, dokumen);
+			dokumenByKunci.put(kunci, dokumen);
+
+			Double kataSebelumnya = maksKataByKunci.get(kunci);
+			if (kataSebelumnya == null || skorKata[i] > kataSebelumnya.doubleValue()) {
+				maksKataByKunci.put(kunci, Double.valueOf(skorKata[i]));
+			}
+			Double kepinganSebelumnya = maksKepinganByKunci.get(kunci);
+			if (kepinganSebelumnya == null || skorKepingan[i] > kepinganSebelumnya.doubleValue()) {
+				maksKepinganByKunci.put(kunci, Double.valueOf(skorKepingan[i]));
 			}
 		}
-		
+
 		List<RankedDocument> hasil = new ArrayList<RankedDocument>();
-		for (Map.Entry<String, Double> entry : skorTerbaikByKunci.entrySet()) {
-			if (entry.getValue().doubleValue() > SCORE_THRESHOLD) {
-				hasil.add(new RankedDocument(dokumenByKunci.get(entry.getKey()), entry.getValue().doubleValue()));
+		for (Map.Entry<String, VirtualDocument> entry : dokumenByKunci.entrySet()) {
+			String kunci = entry.getKey();
+			double gabungan = alpha * maksKataByKunci.get(kunci).doubleValue() + (1.0 - alpha) * maksKepinganByKunci
+			        .get(kunci).doubleValue();
+			if (gabungan > SCORE_THRESHOLD) {
+				hasil.add(new RankedDocument(entry.getValue(), gabungan));
 			}
 		}
-		
+
 		Collections.sort(hasil, new Comparator<RankedDocument>() {
-			
+
 			@Override
 			public int compare(RankedDocument a, RankedDocument b) {
 				int byScore = Double.compare(b.getSkor(), a.getSkor());
