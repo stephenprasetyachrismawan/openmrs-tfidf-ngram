@@ -1,0 +1,71 @@
+@use '@carbon/layout';
+@use '@carbon/type';
+
+.container {
+  padding: layout.$spacing-07;
+  max-width: 60rem;
+}
+
+.judul {
+  @include type.type-style('heading-04');
+  margin-bottom: layout.$spacing-05;
+}
+
+.kontrol {
+  display: flex;
+  gap: layout.$spacing-05;
+  align-items: flex-end;
+  margin-bottom: layout.$spacing-03;
+}
+
+.kotakCari {
+  flex: 1;
+}
+
+.pemilihMode {
+  width: 20rem;
+}
+
+.keteranganMode {
+  color: #525252;
+  font-size: 0.85rem;
+  margin-bottom: layout.$spacing-05;
+}
+
+.statusKosong {
+  color: #525252;
+}
+
+.kelompok {
+  margin-bottom: layout.$spacing-05;
+
+  h4 {
+    display: flex;
+    align-items: center;
+    gap: layout.$spacing-03;
+    background: #f4f4f4;
+    padding: layout.$spacing-03 layout.$spacing-04;
+    margin-bottom: layout.$spacing-02;
+  }
+}
+
+.baris {
+  padding: layout.$spacing-03 layout.$spacing-04;
+  border-bottom: 1px solid #e0e0e0;
+
+  a {
+    font-weight: 600;
+  }
+}
+
+.skor {
+  color: #6f6f6f;
+  font-size: 0.8rem;
+  margin-left: layout.$spacing-03;
+}
+
+.konteks {
+  color: #393939;
+  font-size: 0.85rem;
+  margin-top: layout.$spacing-02;
+}

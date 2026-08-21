@@ -1160,3 +1160,53 @@ mempertimbangkan (bukan keputusan, hanya opsi):**
 instruksi ("kalau tersendat, berhenti dan laporkan... lanjut ke bagian
 berikutnya" secara implisit lewat urutan P0 → C-1 → C-2 → C-3 yang tetap
 berurutan, tapi C-1 tidak lulus kriteria "Selesai kalau"-nya).**
+
+---
+
+## 2026-08-22 · C-2 / tugas 11: halaman ESM Pencarian Terpadu — LULUS
+
+`root.component.tsx` diisi dengan `UnifiedSearch` (berkas baru
+`unified-search.component.tsx` + `.scss`) — kotak `Search` Carbon, pemilih
+mode `Dropdown` Carbon, hasil dikelompokkan per entitas dengan `Tag` jumlah,
+disorot per kata query, keadaan kosong/memuat/galat ditangani. Semua
+panggilan lewat `openmrsFetch`/`restBaseUrl`/`useDebounce` dari
+`@openmrs/esm-framework` (bukan `fetch` mentah seperti di JSP) — pola O3
+standar yang otomatis menangani sesi/kredensial.
+
+### Bug nyata kedua yang ditemukan di tugas ini: cache 1 tahun
+
+Setelah build pertama, halaman terus menampilkan teks penanda tugas 10 lama
+("Pencarian Terpadu — modul termuat") walau `root.component.tsx` sudah
+ditulis ulang total dan berkas server sudah diverifikasi benar
+(`docker exec ... grep` di 658.js server tidak menemukan teks lama sama
+sekali). Diperiksa dengan `curl -D-` langsung ke berkas entry:
+`Cache-Control: max-age=31536000`. rspack (lewat `openmrs/default-rspack-config`)
+tidak memberi content-hash pada nama chunk (`335.js`, `658.js`, dst — angka
+saja), jadi menimpa direktori pemasangan yang sama membuat browser memakai
+salinan lama selamanya tanpa pernah meminta ulang ke server, walau berkas
+di server sudah beda total.
+
+**Perbaikan permanen di `pasang-esm.ps1`:** nama direktori pemasangan kini
+menyertakan tanggal-jam build (`openmrs-esm-unified-search-app-0.1.0-yyyyMMddHHmmss`),
+jadi setiap pemasangan mendapat URL baru dan bug ini tidak bisa terulang.
+Direktori lama (`openmrs-$shortName-*`) dibersihkan otomatis di awal setiap
+pemasangan supaya tidak menumpuk di container. Ini relevan untuk tugas 12
+dan 13 juga — bukan sekali pakai untuk tugas 11 saja.
+
+### Verifikasi "Selesai kalau" — live di browser sungguhan
+
+| Kriteria | Hasil |
+|---|---|
+| `diabete` menampilkan hasil dari lebih dari satu jenis data | **Tidak berlaku pada korpus ini** — dicek langsung ke backend (`curl .../unifiedsearch?q=diabete&mode=e3`), hasilnya 100% `konsep`, nol entitas lain. Ini fakta korpus, bukan bug ESM — sudah terdokumentasi sebelumnya di komentar `UnifiedSearchPageController.contohRrf` ("diabete itu sendiri tidak me-reorder e1 vs e3 pada korpus ini: data demo tidak punya baris non-konsep yang cocok diabet*"). Dibuktikan dengan query lain yang memang lintas jenis: `richard` -> Pasien 8 + Konsep 10 + Obat 2 (dicek langsung di komponen, bukan cuma backend) |
+| `diabete melitus` memunculkan konsep Diabetes mellitus | Ya — peringkat 1, skor 0,0357 |
+| Mode `b0` pada query yang sama memberi 0 hasil | Ya — `diabete melitus` mode `b0` -> "Tidak ada hasil", dicek `#unified-search-mode button.title` benar-benar berubah ke b0 sebelum request dikirim |
+| Tidak ada permintaan jaringan ke luar | Ya — seluruh network request (`read_network_requests`, tanpa filter) mengarah ke `127.0.0.1` |
+| App RefApp lain masih berfungsi | Ya — patient-search-app dan patient-registration-app termuat dan memanggil endpoint REST mereka sendiri tanpa galat selama sesi yang sama |
+| `docker ps` tetap 4 container | Ya |
+
+**Catatan jujur soal kriteria "diabete" yang tidak berlaku:** ini bukan
+kegagalan implementasi (perhitungan tetap 100% di server, tidak ada logika
+ranking di ESM) — kriteria tugas 11 kemungkinan ditulis mengacu ke data
+mockup `docs/proposal.html`, bukan korpus demo OpenMRS yang sebenarnya
+berjalan di sini. Dilaporkan apa adanya, bukan diakali dengan menambah data
+atau mengubah query contoh diam-diam.

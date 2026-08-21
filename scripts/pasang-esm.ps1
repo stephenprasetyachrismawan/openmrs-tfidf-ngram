@@ -38,7 +38,14 @@ if (-not (Test-Path (Join-Path $AppDir 'package.json'))) {
 $pkg = Get-Content (Join-Path $AppDir 'package.json') -Raw | ConvertFrom-Json
 $pkgName = $pkg.name                      # '@openmrs/esm-unified-search-app'
 $shortName = ($pkgName -replace '^@openmrs/', '')   # 'esm-unified-search-app'
-$dirName = "openmrs-$shortName-$($pkg.version)"     # 'openmrs-esm-unified-search-app-0.1.0'
+# nginx menyajikan .js dengan Cache-Control: max-age=31536000 (setahun) -- dibuktikan
+# lewat curl -D- langsung ke container. rspack (lewat openmrs/default-rspack-config)
+# TIDAK memberi content-hash pada nama chunk, jadi menimpa direktori yang sama membuat
+# browser terus memakai berkas lama tanpa pernah meminta ulang ke server. Tanggal-jam
+# di nama direktori membuat SETIAP pemasangan punya URL baru, jadi bug ini tidak bisa
+# terulang. Direktori lama dibersihkan di bawah supaya tidak menumpuk di container.
+$buildStamp = Get-Date -Format 'yyyyMMddHHmmss'
+$dirName = "openmrs-$shortName-$($pkg.version)-$buildStamp"   # 'openmrs-esm-unified-search-app-0.1.0-20260822...'
 $entryFile = "openmrs-$shortName.js"                # 'openmrs-esm-unified-search-app.js'
 
 Push-Location $AppDir
@@ -60,9 +67,14 @@ if (-not (Test-Path (Join-Path $DistDir $entryFile))) {
     throw "Berkas $entryFile tidak ditemukan di $DistDir setelah build. Periksa nama entry di dist/*.buildmanifest.json."
 }
 
+# --- Bersihkan direktori lama (nama beda tiap build karena bug cache di atas) ---
+Write-Step 'Membersihkan direktori pemasangan lama'
+& docker exec $Container sh -c "rm -rf $ContainerRoot/openmrs-$shortName-*"
+if ($LASTEXITCODE -ne 0) { throw "docker exec (bersihkan direktori lama) gagal" }
+
 # --- Salin dist/ ke container -------------------------------------------
 Write-Step "Menyalin dist/ ke ${Container}:$ContainerRoot/$dirName"
-& docker exec $Container sh -c "rm -rf $ContainerRoot/$dirName && mkdir -p $ContainerRoot/$dirName"
+& docker exec $Container sh -c "mkdir -p $ContainerRoot/$dirName"
 if ($LASTEXITCODE -ne 0) { throw "docker exec (mkdir) gagal" }
 & docker cp "$DistDir/." "${Container}:$ContainerRoot/$dirName/"
 if ($LASTEXITCODE -ne 0) { throw "docker cp gagal (exit $LASTEXITCODE)" }

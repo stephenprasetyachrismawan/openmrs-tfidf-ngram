@@ -1,16 +1,8 @@
 import React from 'react';
-import styles from './root.scss';
+import UnifiedSearch from './unified-search.component';
 
-/**
- * Halaman kosong tugas 10 — hanya membuktikan rantai build -> daftar -> render
- * microfrontend O3 bekerja. Pencarian sungguhan ditambahkan di tugas 11.
- */
 const Root: React.FC = () => {
-  return (
-    <div className={styles.container}>
-      <p className={styles.penanda}>Pencarian Terpadu &mdash; modul termuat</p>
-    </div>
-  );
+  return <UnifiedSearch />;
 };
 
 export default Root;
