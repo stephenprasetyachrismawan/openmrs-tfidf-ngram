@@ -25,3 +25,43 @@ Menyatukan enam daftar peringkat jadi satu.
 ## Ingat
 Komponen ini **tidak signifikan** (+0,007, p=0,207). Ia dipertahankan karena
 alasan arsitektural. Jangan menulis komentar kode yang mengklaim sebaliknya.
+
+
+---
+
+# TITIK RAWAN — determinisme, justru di sini
+
+Bug non-determinisme yang dulu menghabiskan waktu kelompok ini **terjadi persis
+di komponen ini**. Alasannya struktural, bukan kebetulan: RRF menghasilkan
+banyak skor yang **persis sama** (tiap tabel otomatis menyumbang satu kursi
+teratas berskor identik), sehingga urutan akhir sepenuhnya ditentukan oleh
+pemecah seri. Kalau pemecah serinya urutan iterasi himpunan, hasilnya berubah
+antar proses.
+
+Wajib:
+
+- Kunci sortir akhir `(-skor, id)`, bukan `-skor` saja.
+- Jangan mengiterasi `HashSet`/`HashMap` tanpa mengurutkan. Pakai `TreeMap`/
+  `TreeSet`, atau urutkan dulu.
+- Acuan Python (`eksperimen2.py`) memakai `for k in sorted(set(a) | set(b))`
+  — perhatikan `sorted()`-nya.
+
+Uji yang wajib ada: jalankan pencarian yang sama 20 kali dalam satu proses
+**dan** bandingkan dengan hasil proses terpisah. Dua-duanya harus identik.
+
+# Jangan lupakan E2 (RRF polos)
+
+Evaluasi membandingkan tujuh sistem, termasuk **E2 = RRF tanpa pembobotan**.
+E2 harus tetap diimplementasikan walaupun hasilnya buruk (0,580, lebih rendah
+dari baseline). Itu bukan kegagalan yang disembunyikan — itu temuan penelitian
+tentang perilaku degeneratif RRF pada koleksi yang saling lepas, dan salah satu
+bagian paling menarik dari laporan ini.
+
+Jangan "memperbaiki" E2 supaya kelihatan lebih baik.
+
+# Nada penulisan
+
+Aturan 3 `CLAUDE.md` berlaku ketat di sini. Weighted RRF **tidak signifikan**
+(+0,007, p = 0,207 pada eksperimen lama). Komentar kode, nama variabel, dan
+teks apa pun tidak boleh menyiratkan komponen ini meningkatkan kualitas.
+Nilainya arsitektural: ia menyatukan enam daftar jadi satu.
