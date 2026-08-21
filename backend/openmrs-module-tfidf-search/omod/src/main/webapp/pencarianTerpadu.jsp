@@ -29,7 +29,7 @@
 	<div id="us-controls">
 		<input type="text" id="us-query" placeholder="Ketik kata kunci, mis. diabete melitus" autocomplete="off"/>
 		<select id="us-mode">
-			<option value="b0">b0 &mdash; heuristik OpenMRS (dasar, tanpa toleransi ejaan)</option>
+			<option value="b0">b0 &mdash; pencocokan awalan, gaya legacy UI (dasar, tanpa toleransi ejaan)</option>
 			<option value="b1">b1 &mdash; TF-IDF kata saja</option>
 			<option value="e1">e1 &mdash; TF-IDF kata + kepingan karakter (tahan salah ketik)</option>
 			<option value="e3" selected="selected">e3 &mdash; e1 + Weighted RRF antar-entitas (default, diusulkan)</option>
@@ -49,7 +49,7 @@
 	</p>
 	<div id="eval-controls">
 		<select id="eval-mode">
-			<option value="b0">b0 &mdash; heuristik OpenMRS</option>
+			<option value="b0">b0 &mdash; pencocokan awalan (gaya legacy UI)</option>
 			<option value="b1">b1 &mdash; TF-IDF kata saja</option>
 			<option value="e1">e1 &mdash; TF-IDF kata + kepingan karakter</option>
 			<option value="e3" selected="selected">e3 &mdash; e1 + Weighted RRF</option>
@@ -119,7 +119,7 @@
 	var EVAL_URL = CTX + '/ws/rest/v1/unifiedsearch/eval';
 
 	var MODE_DESC = {
-		b0: 'Aturan heuristik OpenMRS bawaan: cocok jika awalan kata sama persis. Tidak tahan salah ketik.',
+		b0: 'Baseline pencocokan awalan gaya legacy UI (bukan tiruan setia mesin pencarian OpenMRS -- diuji lebih lemah dari fuzzy-search OpenMRS asli, lihat docs/keputusan.md "E1"): cocok jika awalan kata sama persis. Tidak tahan salah ketik.',
 		b1: 'TF-IDF atas kata utuh saja, tanpa kepingan karakter. Basis pembanding penelitian.',
 		e1: 'TF-IDF kata digabung kepingan karakter 4-huruf (K5) &mdash; komponen yang terbukti signifikan (+0,174 nDCG@10, p<0,001).',
 		e3: 'e1 ditambah Weighted RRF (K6) untuk menggabungkan enam entitas. Perbaikan kecil dibanding e1 (+0,013 nDCG@10, p=0,039) &mdash; jangan dibaca setara K4.'

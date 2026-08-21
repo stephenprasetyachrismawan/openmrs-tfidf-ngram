@@ -1498,3 +1498,69 @@ B0, E3 tetap tertinggi.
 ALPHA/NGRAM/K_RRF/EPS tidak disentuh. `OpenMrsHeuristic.java` tidak diubah
 — B0′ adalah baseline TAMBAHAN, bukan pengganti B0. `qs[100:]` tidak
 disentuh sama sekali.
+
+---
+
+## 2026-08-22 · E2: penamaan B0 diperbaiki di seluruh dokumen, klaim disusun ulang
+
+**Nama diganti** dari "B0 heuristik OpenMRS" / "tiruan heuristik OpenMRS"
+jadi **"B0 baseline pencocokan awalan (gaya legacy UI)"** di:
+`docs/algoritma.md` §6, `CLAUDE.md` (tabel "Angka rujukan"),
+`docs/proposal.html` (label tombol mode, tabel, teks narasi, komentar JS),
+`tugas/08-baseline-b0.md` (judul + dua paragraf klaim lama yang salah),
+`pencarianTerpadu.jsp` (pemilih mode + keterangan), dan ESM
+(`unified-search.component.tsx`, `eval-panel.component.tsx`). **Tidak ada
+angka lama yang dihapus** — tabel 180-query dan 100-query dev tetap sama
+persis, cuma label barisnya. `OpenMrsHeuristic.java` dan nilai mode `b0`
+**tidak disentuh** sama sekali (cuma nama & penjelasan yang berubah).
+
+**Klaim penelitian disusun ulang jadi tiga lapis** di `docs/proposal.html`
+§7.4:
+1. **Klaim kuat #1** — pencarian terpadu lintas 6 tabel; OpenMRS tidak
+   punya padanan sama sekali (fuzzy Lucene-nya cuma untuk konsep). Tidak
+   tersentuh temuan B0′.
+2. **Klaim kuat #2** — ringan tanpa Lucene/server indeks/GPU/internet;
+   sekarang dengan angka nyata (indeks 1,2 detik, p95 26 ms hangat).
+3. **Klaim yang harus diukur ulang** — ketahanan salah ketik pada konsep,
+   sekarang dibandingkan terhadap B0′: E3 tetap menang (+0,103 nDCG@10,
+   p=0,0076) tapi margin ~4× lebih kecil dari klaim lama terhadap B0
+   (+0,174).
+
+Ditambah **kotak keterbatasan baru**: B0 bukan OpenMRS sungguhan; B0′ cuma
+terukur pada 42 query konsep (lima entitas lain tidak punya padanan
+OpenMRS sama sekali); struktur Lucene beda dari pipeline TF-IDF eksplisit
+kami; sampel tipis untuk uji per jenis salah ketik (6-10 query/sel).
+
+**Kalimat "Kami tidak klaim" diperbarui** untuk secara eksplisit menyebut
+"B0 adalah tiruan setia OpenMRS asli — tidak; diuji langsung dan B0 kalah
+signifikan dari B0′".
+
+**Verifikasi:** `mvn clean package` (47/47 test lulus), `npm run
+typescript`/`build`/`test` ESM lulus, dipasang ulang ke backend+frontend
+container, dicek live di browser: label JSP mode selector dan ESM mode
+selector sudah benar, console bersih, `docker ps` tetap 4 container.
+
+---
+
+## 2026-08-22 · E3: label kolom halaman Perbandingan Pencarian diperbaiki
+
+Kolom kiri diganti dari "Bawaan OpenMRS (asli)" jadi **"Pencarian konsep
+OpenMRS asli (fuzzy/Lucene)"** — bukan lagi disebut "baseline" (kolom kiri
+BUKAN baseline kami, itu justru yang diukur). Kolom tengah diganti dari
+"Tiruan heuristik OpenMRS" jadi **"B0: baseline pencocokan awalan"**.
+
+Ditambahkan satu kalimat penjelasan eksplisit di teks pembuka halaman:
+kolom kiri hanya tersedia untuk entitas konsep, dan OpenMRS tidak punya
+padanan pencarian tahan-salah-ketik untuk lima entitas lain sama sekali —
+"itu sendiri argumen terkuat halaman ini" (kutipan langsung dari teks
+halaman). Juga dijelaskan bahwa halaman ini meniru kotak diagnosis asli
+(dibatasi kelas Diagnosis, 28 query uji kesetiaan dari D1) — berbeda dari
+eksperimen B0′ (E1) yang tanpa batasan kelas (42 query) — supaya pembaca
+tidak mengira keduanya angka yang sama.
+
+**Verifikasi live:** query `diabete melitus` di halaman Perbandingan
+Pencarian menampilkan tiga kolom dengan judul baru
+(`document.querySelectorAll('h4')` → "Pencarian konsep OpenMRS asli
+(fuzzy/Lucene)", "Kami — mode b0", "Kami — mode e3"), karakter `′` (U+2032)
+tampil benar di teks penjelasan, console bersih, `docker ps` tetap 4
+container.

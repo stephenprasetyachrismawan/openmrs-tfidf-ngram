@@ -105,7 +105,17 @@ urutkan menurun dengan kunci (-nilai, kunci_unik)
 
 **Peringkat `r` dihitung di dalam entitasnya sendiri**, bukan peringkat global.
 
-## 6. B0 — tiruan heuristik OpenMRS (untuk pembanding)
+## 6. B0 — baseline pencocokan awalan (gaya legacy UI, untuk pembanding)
+
+**Catatan penamaan (2026-08-22, lihat `docs/keputusan.md` "E1"/"E2"):** B0
+sebelumnya disebut "tiruan heuristik OpenMRS". Nama itu menyesatkan — diuji
+langsung terhadap endpoint pencarian konsep OpenMRS asli
+(`GET /ws/rest/v1/concept?searchType=fuzzy`) dan B0 kalah signifikan
+(nDCG@10 0,664 vs 0,800, p=0,0108). B0 adalah baseline pencocokan-awalan
+independen yang meniru gaya kotak pencarian legacy UI OpenMRS, **bukan**
+tiruan setia dari mesin pencarian OpenMRS yang sesungguhnya (yang memakai
+fuzzy-search berbasis Lucene). Baseline yang setia terhadap OpenMRS asli
+adalah **B0′**, diukur terpisah pada 42 query konsep (`riset/hasil4/`).
 
 Dua tahap. Tahap 1 menyaring, tahap 2 memberi skor.
 

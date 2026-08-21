@@ -31,8 +31,9 @@ type Mode = 'b0' | 'b1' | 'e1' | 'e3';
 const MODE_ITEMS: Array<{ id: Mode; text: string; keterangan: string }> = [
   {
     id: 'b0',
-    text: 'b0 — heuristik OpenMRS',
-    keterangan: 'Aturan bawaan OpenMRS: cocok jika awalan kata sama persis. Tidak tahan salah ketik.',
+    text: 'b0 — pencocokan awalan (gaya legacy UI)',
+    keterangan:
+      'Baseline kami, bukan tiruan setia mesin pencarian OpenMRS: cocok jika awalan kata sama persis. Tidak tahan salah ketik. Diuji lebih lemah dari fuzzy-search OpenMRS asli (docs/keputusan.md "E1") — lihat halaman Perbandingan Pencarian.',
   },
   {
     id: 'b1',

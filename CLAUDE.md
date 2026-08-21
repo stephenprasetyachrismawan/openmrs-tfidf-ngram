@@ -175,10 +175,18 @@ mendekati angka ini. Kalau meleset jauh, laporkan â€” jangan sesuaikan doku
 
 | Sistem | nDCG@10 | P@1 | 0-hasil |
 |---|---|---|---|
-| B0 heuristik OpenMRS | 0,628 | 0,689 | 18,3% |
+| B0 baseline pencocokan awalan (gaya legacy UI) | 0,628 | 0,689 | 18,3% |
 | B1 TF-IDF kata | 0,646 | 0,572 | 11,1% |
 | E1 + kepingan karakter | 0,804 | 0,783 | 0,6% |
 | E3 + Weighted RRF | 0,815 | 0,806 | 0,6% |
+
+**Catatan (2026-08-22):** B0 di atas bukan tiruan setia OpenMRS —
+dibandingkan langsung terhadap endpoint pencarian konsep OpenMRS asli
+(`GET /ws/rest/v1/concept?searchType=fuzzy`), B0 kalah signifikan
+(nDCG@10 0,664 vs 0,800 pada 42 query konsep dev, p=0,0108). Baseline
+yang setia terhadap OpenMRS asli adalah **B0′**, lihat `docs/keputusan.md`
+("E1") dan `riset/hasil4/`. Angka B0 di tabel ini (dari 180 query uji
+resmi) tidak diubah — cuma namanya, sesuai aturan 2 di atas.
 
 
 ### 10. Test set haram disentuh

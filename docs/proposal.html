@@ -207,7 +207,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
   <text x="40" y="128" font-size="11.5" fill="#1c1b19"><tspan font-weight="700">Artinya:</tspan> menyetel ulang angka +10000 / +1000 / +500 tidak akan menolong. Dokumen yang benar sudah dibuang sebelum diberi skor.</text>
 
   <rect x="20" y="148" width="800" height="34" rx="7" fill="#fff" stroke="#e2dfd8"/>
-  <text x="40" y="170" font-size="11.5" fill="#1c1b19"><tspan font-weight="700">Tapi heuristik OpenMRS tidak jelek.</tspan> Pada query terpotong ia justru menang: nDCG 0,822 vs 0,353 milik TF-IDF biasa. Ia punya satu lubang, bukan cacat menyeluruh.</text>
+  <text x="40" y="170" font-size="11.5" fill="#1c1b19"><tspan font-weight="700">Tapi B0 (pencocokan awalan) tidak jelek.</tspan> Pada query terpotong ia justru menang: nDCG 0,822 vs 0,353 milik TF-IDF biasa. Ia punya satu lubang, bukan cacat menyeluruh.</text>
 </svg>
 <p class="cap"><b>Kesimpulan:</b> masalahnya ada pada <em>unit pencocokan</em> — kata utuh. Itu yang kami ganti.</p>
 </div>
@@ -336,7 +336,7 @@ hr{border:0;border-top:1px solid var(--line);margin:36px 0}
     <rect x="230" y="126" width="115" height="14" fill="#a03434" rx="3"/>
     <text x="602" y="137" font-family="ui-monospace,Menlo,monospace" fill="#a03434">−0,222  memperburuk</text>
   </g>
-  <text x="20" y="164" font-size="10.5" fill="#6b6862">Dibandingkan terhadap heuristik OpenMRS, kecuali K6 (terhadap penggabungan skor biasa).</text>
+  <text x="20" y="164" font-size="10.5" fill="#6b6862">Dibandingkan terhadap B0 (baseline pencocokan awalan), kecuali K6 (terhadap penggabungan skor biasa).</text>
 
   <rect x="20" y="178" width="760" height="60" rx="8" fill="#e8f1f8" stroke="#2f6ea8"/>
   <text x="40" y="200" font-size="12" font-weight="700" fill="#2f6ea8">Baca ini sebelum lanjut</text>
@@ -818,7 +818,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
     <div class="mk-form">Form: <b>Visit Note</b></div>
     <div class="modebar">
       <span class="modelbl">Metode:</span>
-      <button class="mode" data-g="1" data-m="b0">B0 · Heuristik OpenMRS</button>
+      <button class="mode" data-g="1" data-m="b0">B0 · Pencocokan awalan</button>
       <button class="mode" data-g="1" data-m="b1">B1 · TF-IDF kata</button>
       <button class="mode on" data-g="1" data-m="e1">Usulan · kata + kepingan <span class="tagusul">E1/E3</span></button>
     </div>
@@ -914,7 +914,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 
     <div class="modebar">
       <span class="modelbl">Metode peringkat:</span>
-      <button class="mode" data-g="2" data-m="b0">B0 · Heuristik OpenMRS</button>
+      <button class="mode" data-g="2" data-m="b0">B0 · Pencocokan awalan</button>
       <button class="mode" data-g="2" data-m="b1">B1 · TF-IDF kata</button>
       <button class="mode" data-g="2" data-m="e1">E1 · + kepingan karakter</button>
       <button class="mode on" data-g="2" data-m="e3">E3 · + Weighted RRF <span class="tagusul">usulan</span></button>
@@ -945,7 +945,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 <table>
 <thead><tr><th style="width:64px">Kode</th><th style="width:150px">Nama</th><th>Yang dijalankan</th><th>Yang akan Anda lihat</th></tr></thead>
 <tbody>
-<tr><td class="mono"><b>B0</b></td><td>Heuristik OpenMRS</td><td>Saring kandidat dengan aturan awalan kata, lalu beri skor bertingkat (kode persis, nama persis, nama utama, awalan).</td><td>Query benar → hasil bagus. Query salah ketik seperti <span class="mono">diabete melitus</span> → <b>layar kosong</b>.</td></tr>
+<tr><td class="mono"><b>B0</b></td><td>Baseline pencocokan awalan</td><td>Saring kandidat dengan aturan awalan kata, lalu beri skor bertingkat (kode persis, nama persis, nama utama, awalan).</td><td>Query benar → hasil bagus. Query salah ketik seperti <span class="mono">diabete melitus</span> → <b>layar kosong</b>.</td></tr>
 <tr><td class="mono"><b>B1</b></td><td>TF-IDF kata</td><td>Hanya jalur kata (K3). Jalur kepingan dimatikan. Penggabungan antar tabel pakai skor mentah.</td><td>Lebih toleran urutan kata, tapi <span class="mono">pulm edem</span> tetap kosong — tidak ada kata yang cocok.</td></tr>
 <tr><td class="mono"><b>E1</b></td><td>+ kepingan karakter</td><td>Jalur kata + jalur kepingan digabung (K4 + K5). Penggabungan antar tabel masih pakai skor mentah.</td><td>Salah ketik dan singkatan mulai ketemu. <b>Ini lompatan terbesarnya.</b></td></tr>
 <tr><td class="mono"><b>E3</b></td><td>+ Weighted RRF</td><td>Sama seperti E1, tapi penyatuan enam tabel memakai peringkat × bobot tabel (K6), bukan skor mentah.</td><td>Isi hasilnya mirip E1. Yang berubah cuma <em>urutan antar kelompok</em> — tabel yang tidak menjanjikan turun.</td></tr>
@@ -965,7 +965,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 <thead><tr><th style="width:142px">Ketik ini</th><th style="width:96px">Jenis kesalahan</th><th>Yang terjadi saat berpindah metode</th></tr></thead>
 <tbody>
 <tr><td class="mono"><b>diabete melitus</b></td><td>salah ketik</td><td><b>B0 → kosong.</b> Penyaring awalan membuang semuanya: "melitus" bukan awalan "mellitus". <b>B1 → juga kosong</b>, karena tidak ada kata yang persis begitu. <b>E1 dan E3 → ketemu</b>, Diabetes mellitus type 1 dan 2 di puncak. <span class="small">Inilah lubang yang jadi alasan seluruh penelitian ini.</span></td></tr>
-<tr><td class="mono"><b>pulm edem</b></td><td>disingkat</td><td><b>B0 justru BERHASIL</b> — "pulm" memang awalan "pulmonary". <b>B1 malah gagal total</b>, karena bagi TF-IDF kata, token "pulm" dan "pulmonary" tidak berhubungan sama sekali. <b>E1 dan E3 → berhasil.</b> <span class="small">Kasus ini membuktikan heuristik OpenMRS tidak jelek-jelek amat, dan mengganti mesinnya dengan TF-IDF kata saja justru merugikan.</span></td></tr>
+<tr><td class="mono"><b>pulm edem</b></td><td>disingkat</td><td><b>B0 justru BERHASIL</b> — "pulm" memang awalan "pulmonary". <b>B1 malah gagal total</b>, karena bagi TF-IDF kata, token "pulm" dan "pulmonary" tidak berhubungan sama sekali. <b>E1 dan E3 → berhasil.</b> <span class="small">Kasus ini membuktikan B0 (pencocokan awalan) tidak jelek-jelek amat, dan mengganti mesinnya dengan TF-IDF kata saja justru merugikan.</span></td></tr>
 <tr><td class="mono"><b>diabete</b></td><td>separuh diketik</td><td>Semua metode kecuali B1 dapat hasil, tapi <b>urutan kelompoknya beda</b>. E1 menaruh <em>Diabetes Clinic</em> (lokasi) di puncak karena skor mentahnya paling besar (0,44). E3 menaikkan kelompok Konsep ke atas, karena bobot tabel konsep (0,38) sedikit lebih besar dari lokasi (0,376). <span class="small">Di sinilah peran K6 terlihat — halus, dan memang cuma sebesar itu.</span></td></tr>
 </tbody>
 </table>
@@ -973,7 +973,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 <div class="box good">
 <p class="lbl">Perhatikan baris kedua — ini bukti bahwa kami tidak sedang menjual TF-IDF</p>
 <p>Pada <span class="mono">pulm edem</span>, sistem yang sudah ada (B0) <b>mengalahkan</b> TF-IDF kata murni (B1). Ini bukan anomali mockup: di eksperimen sungguhan pada 180 query, untuk jenis kesalahan "trunkasi" B0 memperoleh nDCG 0,822 sementara B1 cuma 0,353 — lihat tabel per jenis kesalahan di bagian 6.</p>
-<p>Kesimpulan yang kami ambil bukan "ganti heuristik OpenMRS dengan TF-IDF", melainkan <b>"tambahkan jalur kepingan karakter supaya kedua lubang tertutup sekaligus"</b>. Karena itu juga judul proposal ini menyebut TF-IDF <em>kata–karakter</em>, bukan TF-IDF saja.</p>
+<p>Kesimpulan yang kami ambil bukan "ganti B0 dengan TF-IDF", melainkan <b>"tambahkan jalur kepingan karakter supaya kedua lubang tertutup sekaligus"</b>. Karena itu juga judul proposal ini menyebut TF-IDF <em>kata–karakter</em>, bukan TF-IDF saja.</p>
 </div>
 
 <h4 style="font-size:1rem;font-weight:660;margin-top:26px">Panel evaluasi di halaman yang sama</h4>
@@ -1005,7 +1005,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
   <text x="412" y="94" font-size="10.5" font-weight="700" fill="#6b6862">BANDINGKAN SISTEM</text>
   <g font-size="10.5">
     <rect x="412" y="102" width="352" height="20" rx="4" fill="#fff"/>
-    <text x="424" y="116" fill="#1c1b19">Heuristik OpenMRS</text><text x="752" y="116" text-anchor="end" font-family="ui-monospace,Menlo,monospace">0,628</text>
+    <text x="424" y="116" fill="#1c1b19">B0 pencocokan awalan</text><text x="752" y="116" text-anchor="end" font-family="ui-monospace,Menlo,monospace">0,628</text>
     <rect x="412" y="124" width="352" height="20" rx="4" fill="#fff"/>
     <text x="424" y="138" fill="#1c1b19">TF-IDF kata saja</text><text x="752" y="138" text-anchor="end" font-family="ui-monospace,Menlo,monospace">0,646</text>
     <rect x="412" y="146" width="352" height="20" rx="4" fill="#e6f2eb"/>
@@ -1095,7 +1095,7 @@ skor akhir = bobot_tabel × 1 / (20 + peringkat)
 <table>
 <thead><tr><th style="width:56px">Kode</th><th>Sistem</th><th>Menguji</th></tr></thead>
 <tbody>
-<tr><td class="mono"><b>B0</b></td><td>Heuristik OpenMRS</td><td>baseline, keadaan sekarang</td></tr>
+<tr><td class="mono"><b>B0</b></td><td>Baseline pencocokan awalan</td><td>baseline, keadaan sekarang</td></tr>
 <tr><td class="mono"><b>B1</b></td><td>TF-IDF kata</td><td>apakah ganti rumus peringkat saja cukup</td></tr>
 <tr><td class="mono"><b>B2</b></td><td>BM25</td><td>pembanding IR probabilistik</td></tr>
 <tr><td class="mono"><b>E1</b></td><td>B1 + kepingan karakter</td><td><b>kontribusi K4</b></td></tr>
@@ -1405,7 +1405,7 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <table>
 <thead><tr><th>Sistem</th><th class="num">P@1</th><th class="num">R@10</th><th class="num">MRR</th><th class="num">MAP</th><th class="num">nDCG@10</th><th class="num">0-hasil</th><th class="num">ms</th></tr></thead>
 <tbody>
-<tr><td>B0 heuristik OpenMRS</td><td class="num">0,689</td><td class="num">0,521</td><td class="num">0,743</td><td class="num">0,466</td><td class="num">0,628</td><td class="num">18,3%</td><td class="num">0,15</td></tr>
+<tr><td>B0 baseline pencocokan awalan</td><td class="num">0,689</td><td class="num">0,521</td><td class="num">0,743</td><td class="num">0,466</td><td class="num">0,628</td><td class="num">18,3%</td><td class="num">0,15</td></tr>
 <tr><td>B1 TF-IDF kata</td><td class="num">0,572</td><td class="num">0,666</td><td class="num">0,691</td><td class="num">0,523</td><td class="num">0,646</td><td class="num">11,1%</td><td class="num">0,14</td></tr>
 <tr><td>B2 BM25</td><td class="num">0,533</td><td class="num">0,658</td><td class="num">0,651</td><td class="num">0,485</td><td class="num">0,615</td><td class="num">11,1%</td><td class="num">0,22</td></tr>
 <tr class="hi"><td>E1 + kepingan karakter</td><td class="num">0,772</td><td class="num"><b>0,796</b></td><td class="num">0,870</td><td class="num"><b>0,670</b></td><td class="num">0,802</td><td class="num">0,6%</td><td class="num">1,20</td></tr>
@@ -1434,14 +1434,14 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <table>
 <thead><tr><th>Sistem</th><th class="num">persis</th><th class="num">tipo</th><th class="num">trunkasi</th><th class="num">hilang kata</th><th class="num">urut balik</th></tr></thead>
 <tbody>
-<tr><td>B0 heuristik OpenMRS</td><td class="num">0,770</td><td class="num" style="color:#a03434;font-weight:700">0,081</td><td class="num">0,822</td><td class="num">0,709</td><td class="num">0,788</td></tr>
+<tr><td>B0 baseline pencocokan awalan</td><td class="num">0,770</td><td class="num" style="color:#a03434;font-weight:700">0,081</td><td class="num">0,822</td><td class="num">0,709</td><td class="num">0,788</td></tr>
 <tr><td>B1 TF-IDF kata</td><td class="num">0,827</td><td class="num">0,464</td><td class="num" style="color:#b8622a;font-weight:700">0,353</td><td class="num">0,734</td><td class="num">0,848</td></tr>
 <tr><td>B2 BM25</td><td class="num">0,816</td><td class="num">0,449</td><td class="num" style="color:#b8622a;font-weight:700">0,312</td><td class="num">0,718</td><td class="num">0,774</td></tr>
 <tr class="hi"><td>E1 + kepingan</td><td class="num">0,855</td><td class="num"><b>0,773</b></td><td class="num">0,784</td><td class="num">0,753</td><td class="num">0,857</td></tr>
 <tr class="hi"><td>E3 usulan</td><td class="num">0,850</td><td class="num">0,812</td><td class="num"><b>0,803</b></td><td class="num">0,752</td><td class="num"><b>0,869</b></td></tr>
 </tbody>
 </table>
-<p>Heuristik OpenMRS <b>runtuh pada tipo</b> (0,081) tapi <b>menang pada trunkasi</b> (0,822 — lebih baik dari E1 0,784). TF-IDF kata kebalikannya. Kepingan karakter menutup lubang tipo (0,773) tanpa kehilangan trunkasi sepenuhnya.</p>
+<p>B0 (baseline pencocokan awalan) <b>runtuh pada tipo</b> (0,081) tapi <b>menang pada trunkasi</b> (0,822 — lebih baik dari E1 0,784). TF-IDF kata kebalikannya. Kepingan karakter menutup lubang tipo (0,773) tanpa kehilangan trunkasi sepenuhnya.</p>
 
 <div class="box warn">
 <p class="lbl">Catatan reproduksibilitas yang harus dibaca anggota kelompok</p>
@@ -1456,7 +1456,7 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 <table>
 <thead><tr><th>Sistem</th><th class="num">nDCG@10 (dev, Java)</th><th class="num">nDCG@10 (dev, Python)</th></tr></thead>
 <tbody>
-<tr><td>B0 heuristik OpenMRS</td><td class="num">0,660021</td><td class="num">0,660021</td></tr>
+<tr><td>B0 baseline pencocokan awalan</td><td class="num">0,660021</td><td class="num">0,660021</td></tr>
 <tr class="hi"><td>E3 usulan</td><td class="num"><b>0,846404</b></td><td class="num">0,846404</td></tr>
 </tbody>
 </table>
@@ -1502,7 +1502,7 @@ Empat berkas SQL, hasilkan JSONL. <span class="small">Selesai kalau: jumlah bari
 <div class="step"><div class="no">2</div><div class="tx"><b>Mesin pencarian</b>
 Fungsi <span class="mono">norm</span>, <span class="mono">kata</span>, <span class="mono">kepingan</span>, kelas <span class="mono">Indeks</span>, fungsi <span class="mono">cari</span>. <span class="small">Selesai kalau: query yang sama persis dengan sebuah judul menghasilkan skor ≈ 1,0. — <b>sudah selesai</b></span></div></div>
 
-<div class="step"><div class="no">3</div><div class="tx"><b>Baseline heuristik OpenMRS</b>
+<div class="step"><div class="no">3</div><div class="tx"><b>Baseline B0 (pencocokan awalan)</b>
 <span class="small">Selesai kalau: query <span class="mono">diabete melitus</span> mengembalikan <b>0 hasil</b>. Kalau tidak, penyaringan awalannya salah. — <b>sudah selesai</b></span></div></div>
 
 <div class="step"><div class="no">4</div><div class="tx"><b>Query set &amp; penilaian relevansi</b>
@@ -1541,14 +1541,31 @@ Muat kamus CIEL penuh, naikkan jumlah pasien demo. <span class="small">Selesai k
 
 <h3>7.4 Yang kami klaim dan yang tidak</h3>
 
+<p class="small"><b>Disusun ulang 2026-08-22</b> (lihat <span class="mono">docs/keputusan.md</span> "E2") jadi tiga lapis dengan tingkat kepastian berbeda, setelah baseline B0′ (pencarian konsep OpenMRS asli) diukur langsung — bukan lagi satu blok "kami klaim" tunggal.</p>
+
 <div class="box good">
-<p class="lbl">Kami klaim</p>
-<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian OpenMRS secara signifikan (+0,174 nDCG@10, p &lt; 0,001), terutama dengan menurunkan pencarian nol-hasil dari 18,3% ke 0,6% dan menaikkan nDCG query typo dari 0,081 ke 0,773, dengan biaya yang cukup kecil untuk dipasang tanpa GPU. Kami juga menunjukkan bahwa RRF baku degeneratif pada tabel yang saling lepas, dan pembobotan IDF global memperbaikinya — sebagai temuan, bukan sebagai klaim peningkatan kualitas. Weighted RRF (E3 vs E1) unggul tipis di test (+0,013 nDCG, p=0,039): signifikan secara nominal pada α=0,05, tetapi efek kecil dan tidak sebanding dengan E1 vs B0; klaim penelitian tetap pada kepingan karakter.</p>
+<p class="lbl">Klaim kuat #1 — kontribusi yang tidak tersentuh temuan B0′</p>
+<p>Pencarian terpadu lintas 6 tabel (konsep, obat, pasien, form, lokasi, provider) dalam satu kotak. OpenMRS tidak menyediakan ini sama sekali — fuzzy-search Lucene bawaannya (endpoint <span class="mono">/ws/rest/v1/concept?searchType=fuzzy</span>) hanya melayani entitas konsep; lima entitas lainnya tidak punya padanan pencarian tahan-salah-ketik apa pun di OpenMRS. Ini kontribusi arsitektural yang berdiri sendiri, tidak bergantung pada seberapa kuat baseline B0/B0′.</p>
+</div>
+
+<div class="box good">
+<p class="lbl">Klaim kuat #2 — ringan tanpa infrastruktur tambahan, sekarang dengan angka nyata</p>
+<p>Berjalan tanpa Lucene, tanpa server indeks terpisah, tanpa GPU, tanpa layanan internet. Modul Java yang benar-benar berjalan: indeks 13-nya terbangun <b>1,2 detik</b> saat startup (4.748 dokumen, 29.320 surface form), latensi p95 <b>26 ms</b> setelah JVM hangat. Ini premis "cukup ringan untuk puskesmas" — sekarang dibuktikan angka operasional sungguhan, bukan cuma janji desain.</p>
+</div>
+
+<div class="box neu">
+<p class="lbl">Klaim yang harus diukur ulang — ketahanan salah ketik pada konsep, terhadap B0′</p>
+<p>Mengganti unit pencocokan dari kata utuh menjadi kepingan empat huruf memperbaiki pencarian secara signifikan dibanding B0, baseline pencocokan-awalan kami (+0,174 nDCG@10 pada 180 query uji, p &lt; 0,001) — tapi B0 <b>bukan</b> tiruan setia OpenMRS (lihat kotak keterbatasan di bawah). Diukur ulang langsung terhadap B0′ (endpoint fuzzy OpenMRS asli, 42 query konsep dev): E3 <b>tetap menang</b>, tapi selisihnya <b>+0,103 nDCG@10 (p=0,0076)</b> — sekitar 4× lebih kecil dari +0,174 di atas. Weighted RRF (E3 vs E1) tetap unggul tipis di test (+0,013 nDCG, p=0,039): signifikan secara nominal pada α=0,05, efek kecil, tidak sebanding E1 vs B0. Klaim penelitian tetap pada kepingan karakter, bukan Weighted RRF.</p>
 </div>
 
 <div class="box neu">
 <p class="lbl">Kami tidak klaim</p>
-<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil secara substantif — tidak; E3 vs E1 hanya +0,013 nDCG (p=0,039): signifikan secara nominal, tetapi efek kecil dan tanpa koreksi multi-perbandingan tidak setara klaim E1 vs B0 (+0,174). Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk (0,815 → 0,598). Bahwa TF-IDF lebih baik dari heuristik OpenMRS — tidak, selisihnya tidak signifikan, dan pada query terpotong heuristiknya justru menang. Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
+<p>Bahwa pembobotan antar-tabel (Weighted RRF) memperbaiki kualitas hasil secara substantif — tidak; E3 vs E1 hanya +0,013 nDCG (p=0,039): signifikan secara nominal, tetapi efek kecil dan tanpa koreksi multi-perbandingan tidak setara klaim E1 vs B0 (+0,174). Bahwa perluasan query dengan sinonim menolong — tidak, ia memperburuk (0,815 → 0,598). Bahwa TF-IDF lebih baik dari B0 (baseline pencocokan awalan) — tidak, selisihnya tidak signifikan, dan pada query terpotong B0 justru menang (juga terhadap B0′ dan E3 sekaligus — lihat <span class="mono">riset/hasil4/</span>). Bahwa B0 adalah tiruan setia mesin pencarian OpenMRS asli — <b>tidak</b>; diuji langsung dan B0 kalah signifikan dari B0′ (0,664 vs 0,800 nDCG@10, p=0,0108). Bahwa metode ini bisa menjawab pertanyaan yang butuh pemahaman makna — tidak, dan memang tidak dirancang untuk itu.</p>
+</div>
+
+<div class="box warn">
+<p class="lbl">Keterbatasan jujur seputar B0/B0′</p>
+<p><b>B0 bukan OpenMRS sungguhan.</b> B0 adalah tiruan skema pencocokan-awalan gaya legacy UI, bukan panggilan ke mesin pencarian OpenMRS produksi (yang memakai fuzzy-search Lucene). <b>B0′ hanya bisa diukur pada 42 query konsep</b> dari 100 query dev — endpoint fuzzy OpenMRS cuma melayani entitas konsep, jadi lima entitas lain (obat, pasien, form, lokasi, provider) tidak punya pembanding OpenMRS asli sama sekali. <b>Struktur Lucene berbeda</b> dari pipeline TF-IDF eksplisit kami — perbandingannya adil dari sisi metrik (P@1/P@5/R@10/MRR/MAP/nDCG@10 yang sama, gold yang sama), tapi bukan perbandingan algoritma yang setara arsitektur. <b>Ukuran sampel tipis untuk uji per jenis salah ketik</b> — 42 query terbagi 6-10 per jenis, cukup untuk gambaran arah, tidak cukup untuk klaim statistik per sel.</p>
 </div>
 
 <h3>7.5 Referensi</h3>
@@ -1708,7 +1725,7 @@ ENT.forEach(function(e){
 var GW=build(GF.map(function(x){return kata(x);})),
     GG=build(GF.map(function(x){return kepingan(x,NG);}));
 
-/* ---------- B0: tiruan heuristik OpenMRS ---------- */
+/* ---------- B0: baseline pencocokan awalan (bukan tiruan OpenMRS asli -- lihat B0prime di docs/keputusan.md) ---------- */
 function skorB0(f,utama,q){
  var qw=kata(q),fw=kata(f);
  if(!qw.length)return 0;
@@ -1806,7 +1823,7 @@ function baris(r,q,mode,extra){
   '<span class="sc">'+(r.v!==undefined?r.v:r.s).toFixed(mode==="e3"?4:2).replace(".",",")+'</span></div>';}
 
 var MODEINFO={
- b0:['B0 · Heuristik OpenMRS (keadaan sekarang)',
+ b0:['B0 · Pencocokan awalan (keadaan sekarang)',
      'Menyaring kandidat dengan aturan awalan kata dulu, baru memberi skor. Kepingan karakter TIDAK dipakai. Penggabungan antar tabel: skor mentah.',
      'bad'],
  b1:['B1 · TF-IDF kata saja',

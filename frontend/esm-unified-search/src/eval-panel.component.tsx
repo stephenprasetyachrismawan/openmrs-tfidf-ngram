@@ -8,7 +8,7 @@ type Mode = 'b0' | 'b1' | 'e1' | 'e3';
 const MODES: Mode[] = ['b0', 'b1', 'e1', 'e3'];
 
 const MODE_LABEL: Record<Mode, string> = {
-  b0: 'B0 — heuristik OpenMRS',
+  b0: 'B0 — pencocokan awalan (gaya legacy UI)',
   b1: 'B1 — TF-IDF kata',
   e1: 'E1 — TF-IDF kata + kepingan',
   e3: 'E3 — E1 + Weighted RRF',
