@@ -18,6 +18,8 @@ openmrs-distro-referenceapplication/
 
 # scratch
 tmp/
+tmp-*.json
+tmp-*.txt
 *.log
 
 # OS / editor
