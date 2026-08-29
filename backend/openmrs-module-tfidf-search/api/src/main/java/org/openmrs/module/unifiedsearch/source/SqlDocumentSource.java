@@ -7,9 +7,10 @@ import java.util.Map;
 import org.openmrs.api.db.hibernate.DbSessionFactory;
 
 /**
- * Shared plumbing for the six sources. Bulk SQL is used on purpose: the service
- * API would issue one query per row and the index build has to touch every row
- * of six tables at start-up.
+ * Shared plumbing for the sources (see DocumentRepository.ENTITAS for the full
+ * list). Bulk SQL is used on purpose: the service API would issue one query
+ * per row and the index build has to touch every row of every source table
+ * at start-up.
  */
 public abstract class SqlDocumentSource implements DocumentSource {
 	

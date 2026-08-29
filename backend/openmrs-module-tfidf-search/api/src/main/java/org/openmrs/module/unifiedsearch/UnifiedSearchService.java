@@ -1,10 +1,12 @@
 package org.openmrs.module.unifiedsearch;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -41,7 +43,9 @@ public class UnifiedSearchService {
 		List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
 		for (SearchHit hit : hits) {
 			VirtualDocument d = hit.getDokumen();
-			if ("pasien".equals(d.getEntitas()) && !mayViewPatients) {
+			// hasillab carries the same patient-identifying data as pasien (patient name as
+			// alias, tautan_pasien) -- CLAUDE.md rule 5 applies to it too, not just "pasien".
+			if (("pasien".equals(d.getEntitas()) || "hasillab".equals(d.getEntitas())) && !mayViewPatients) {
 				continue;
 			}
 			if (entitasFilter != null && !entitasFilter.trim().isEmpty()
@@ -61,6 +65,49 @@ public class UnifiedSearchService {
 		return new Timed<Map<String, Object>>(out, waktuMs);
 	}
 
+	/**
+	 * Saran ketikan untuk dropdown navbar (BigramJaccardSuggester) -- bukan salah satu dari
+	 * mode b0/b1/e1/e3 yang dikunci EvalService.REST_MODES, jalur terpisah sepenuhnya. Sama
+	 * seperti {@link #search}, hasil pasien/hasillab disaring lewat privilege "View Patients"
+	 * (CLAUDE.md aturan 5) sebelum dikembalikan.
+	 */
+	public Timed<Map<String, Object>> saran(String q, int limit) {
+		if (q == null || q.trim().isEmpty()) {
+			throw new IllegalArgumentException("parameter q wajib");
+		}
+		if (limit <= 0) {
+			limit = 10;
+		}
+		indexBuilder.ensureBuilt();
+		long mulai = System.nanoTime();
+		List<RankedDocument> gabungan = new ArrayList<RankedDocument>();
+		for (FusionSearch fusion : indexBuilder.getLokal().values()) {
+			gabungan.addAll(BigramJaccardSuggester.search(fusion.getSurfaceForms(), q.trim()));
+		}
+		Collections.sort(gabungan, BigramJaccardSuggester.KUNCI_COMPARATOR);
+		boolean mayViewPatients = Context.hasPrivilege(PRIVILEGE_VIEW_PATIENTS);
+		List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
+		int peringkat = 0;
+		for (RankedDocument rd : gabungan) {
+			VirtualDocument d = rd.getDokumen();
+			if (("pasien".equals(d.getEntitas()) || "hasillab".equals(d.getEntitas())) && !mayViewPatients) {
+				continue;
+			}
+			peringkat++;
+			SearchHit hit = new SearchHit(d, rd.getSkor(), null, Integer.valueOf(peringkat), null);
+			results.add(toResultRow(hit, "saran"));
+			if (results.size() >= limit) {
+				break;
+			}
+		}
+		long waktuMs = (System.nanoTime() - mulai) / 1000000L;
+		Map<String, Object> out = new LinkedHashMap<String, Object>();
+		out.put("query", q.trim());
+		out.put("mode", "saran");
+		out.put("results", results);
+		return new Timed<Map<String, Object>>(out, waktuMs);
+	}
+
 	private static Map<String, Object> toResultRow(SearchHit hit, String mode) {
 		VirtualDocument d = hit.getDokumen();
 		Map<String, Object> row = new LinkedHashMap<String, Object>();
@@ -73,8 +120,30 @@ public class UnifiedSearchService {
 		row.put("peringkat_di_tabel", hit.getPeringkatDiTabel());
 		row.put("bobot_tabel", "e3".equals(mode) && hit.getBobotTabel() != null
 		        ? Double.valueOf(round4(hit.getBobotTabel().doubleValue())) : null);
-		row.put("url", ResultUrlBuilder.url(d));
+		row.put("url", buildUrl(d));
 		return row;
+	}
+
+	/**
+	 * O3 (the current RefApp frontend) only has a real page for patients
+	 * (the chart, addressed by UUID, not the numeric id in the index) --
+	 * verified against docs/arsip/routes.registry.json.sebelum-unifiedsearch,
+	 * no other installed app owns a concept/drug/form/location/provider
+	 * detail route. Those five keep pointing at the legacy admin UI because
+	 * that is the only page that exists for them, not because O3 was skipped.
+	 * hasillab has no detail page of its own either (it is one obs, not a
+	 * concept/patient in its own right) -- the closest useful destination is
+	 * the patient it belongs to (tautan_pasien), same chart as "pasien".
+	 */
+	private static String buildUrl(VirtualDocument d) {
+		Integer patientId = "pasien".equals(d.getEntitas()) ? Integer.valueOf(d.getId()) : d.getTautanPasien();
+		if (patientId != null) {
+			Patient patient = Context.getPatientService().getPatient(patientId);
+			if (patient != null) {
+				return "/openmrs/spa/patient/" + patient.getUuid() + "/chart";
+			}
+		}
+		return ResultUrlBuilder.url(d);
 	}
 
 	private static double round4(double v) {

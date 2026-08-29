@@ -1,194 +1,74 @@
-import React, { useState } from 'react';
-import { Dropdown, InlineNotification, Loading, Search, Tag } from '@carbon/react';
-import { openmrsFetch, restBaseUrl, useDebounce } from '@openmrs/esm-framework';
-import EvalPanel from './eval-panel.component';
+import React, { useEffect, useState } from 'react';
+import { Button } from '@carbon/react';
+import SearchResults from './search-results.component';
+import { useUnifiedSearch } from './use-unified-search';
 import styles from './unified-search.scss';
 
+const CONTOH = ['diabete melitus', 'pnemonia', 'pulm edem', 'hypertension'];
+
 /**
- * Cocok dengan bentuk badan JSON /ws/rest/v1/unifiedsearch
- * (lihat UnifiedSearchService.toResultRow di backend).
+ * Halaman default pengguna sehari-hari. Kotak pencarian ada di navbar
+ * (nav-search-form.component.tsx), bukan di halaman ini -- lihat
+ * pengalihan lewat parameter ?q= di bawah. Selalu memakai mode e3 (E1 +
+ * Weighted RRF); lihat halaman Pengujian Ablasi untuk membandingkan
+ * komponen K3-K6 satu per satu.
  */
-interface SearchHit {
-  entitas: string;
-  id: number;
-  judul: string;
-  konteks: string;
-  skor: number;
-  skor_asli: number | null;
-  peringkat_di_tabel: number;
-  bobot_tabel: number | null;
-  url: string;
-}
-
-interface SearchResponse {
-  query: string;
-  mode: string;
-  results: SearchHit[];
-}
-
-type Mode = 'b0' | 'b1' | 'e1' | 'e3';
-
-const MODE_ITEMS: Array<{ id: Mode; text: string; keterangan: string }> = [
-  {
-    id: 'b0',
-    text: 'b0 — pencocokan awalan (gaya legacy UI)',
-    keterangan:
-      'Baseline kami, bukan tiruan setia mesin pencarian OpenMRS: cocok jika awalan kata sama persis. Tidak tahan salah ketik. Diuji lebih lemah dari fuzzy-search OpenMRS asli (docs/keputusan.md "E1") — lihat halaman Perbandingan Pencarian.',
-  },
-  {
-    id: 'b1',
-    text: 'b1 — TF-IDF kata saja',
-    keterangan: 'TF-IDF atas kata utuh saja, tanpa kepingan karakter. Basis pembanding penelitian.',
-  },
-  {
-    id: 'e1',
-    text: 'e1 — TF-IDF kata + kepingan karakter',
-    keterangan:
-      "TF-IDF kata digabung kepingan karakter 4-huruf (K5) — komponen yang terbukti signifikan (+0,174 nDCG@10, p<0,001).",
-  },
-  {
-    id: 'e3',
-    text: 'e3 — e1 + Weighted RRF (default)',
-    keterangan:
-      'e1 ditambah Weighted RRF (K6) untuk menggabungkan enam jenis data. Perbaikan kecil dibanding e1 (+0,013 nDCG@10, p=0,039) — jangan dibaca setara kepingan karakter.',
-  },
-];
-
-const ENTITAS_LABEL: Record<string, string> = {
-  konsep: 'Konsep',
-  obat: 'Obat',
-  pasien: 'Pasien',
-  form: 'Form',
-  lokasi: 'Lokasi',
-  provider: 'Provider',
-};
-
-/** Sorot kemunculan tiap kata query (>=2 huruf) di dalam judul, tanpa peduli huruf besar/kecil. */
-function sorot(judul: string, query: string): React.ReactNode {
-  const kata = query
-    .trim()
-    .split(/\s+/)
-    .filter((w) => w.length >= 2)
-    .map((w) => w.replace(/[.*+?^{}()|[\]\\$]/g, '\\$&'));
-  if (kata.length === 0) {
-    return judul;
-  }
-  const re = new RegExp(`(${kata.join('|')})`, 'ig');
-  const parts = judul.split(re);
-  return parts.map((part, i) => (re.test(part) ? <mark key={i}>{part}</mark> : <React.Fragment key={i}>{part}</React.Fragment>));
-}
-
 const UnifiedSearch: React.FC = () => {
   const [query, setQuery] = useState('');
-  const [mode, setMode] = useState<Mode>('e3');
-  const [data, setData] = useState<SearchResponse | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const debouncedQuery = useDebounce(query, 150);
-
-  React.useEffect(() => {
-    const q = debouncedQuery.trim();
-    if (q.length === 0) {
-      setData(null);
-      setError(null);
-      setIsLoading(false);
-      return;
-    }
-    let dibatalkan = false;
-    setIsLoading(true);
-    setError(null);
-    const url = `${restBaseUrl}/unifiedsearch?q=${encodeURIComponent(q)}&mode=${mode}&limit=20`;
-    openmrsFetch<SearchResponse>(url)
-      .then((res) => {
-        if (dibatalkan) {
-          return;
-        }
-        setData(res.data);
-      })
-      .catch((err: Error) => {
-        if (dibatalkan) {
-          return;
-        }
-        setError(err.message || 'Permintaan gagal');
-        setData(null);
-      })
-      .finally(() => {
-        if (!dibatalkan) {
-          setIsLoading(false);
-        }
-      });
-    return () => {
-      dibatalkan = true;
+  /**
+   * Isi dari ?q= saat halaman dibuka lewat kotak pencarian di navbar, dan
+   * dipakai ulang tiap kali single-spa mencatat navigasi baru -- navigasi
+   * dari navbar tidak me-remount komponen ini karena route-nya sama persis
+   * (cuma query string yang berbeda), jadi efek sekali-jalan saja tidak
+   * pernah terpicu ulang untuk pencarian kedua dan seterusnya. App ini tidak
+   * dibungkus <Router> react-router-dom (tidak dipakai di mana pun di repo
+   * ini), jadi tidak bisa pakai useLocation() -- dengarkan
+   * single-spa:routing-event yang dipancarkan navigate()-nya esm-framework
+   * (lihat node_modules/@openmrs/esm-navigation/src/navigation/navigate.ts).
+   */
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const q = new URLSearchParams(window.location.search).get('q');
+      setQuery(q ?? '');
     };
-  }, [debouncedQuery, mode]);
+    syncFromUrl();
+    window.addEventListener('single-spa:routing-event', syncFromUrl);
+    return () => window.removeEventListener('single-spa:routing-event', syncFromUrl);
+  }, []);
 
-  const modeAktif = MODE_ITEMS.find((m) => m.id === mode) ?? MODE_ITEMS[3];
-
-  const kelompok = new Map<string, SearchHit[]>();
-  for (const hit of data?.results ?? []) {
-    if (!kelompok.has(hit.entitas)) {
-      kelompok.set(hit.entitas, []);
-    }
-    kelompok.get(hit.entitas)!.push(hit);
-  }
+  const { data, isLoading, error } = useUnifiedSearch(query, 'e3');
+  const queryKosong = query.trim().length === 0;
 
   return (
     <div className={styles.container}>
       <h3 className={styles.judul}>Pencarian Terpadu</h3>
+      <p className={styles.penjelasan}>
+        Pencarian tahan salah ketik lintas tujuh jenis data OpenMRS: konsep, obat, pasien,
+        form, lokasi, provider, dan hasil lab. Ketik di kotak pencarian pada bilah navigasi
+        di atas untuk mulai.
+      </p>
 
-      <div className={styles.kontrol}>
-        <Search
-          size="lg"
-          labelText="Kata kunci pencarian"
-          placeholder="Ketik kata kunci, mis. diabete melitus"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className={styles.kotakCari}
-        />
-        <Dropdown
-          id="unified-search-mode"
-          titleText="Mode"
-          label={modeAktif.text}
-          items={MODE_ITEMS}
-          itemToString={(item) => (item ? item.text : '')}
-          selectedItem={modeAktif}
-          onChange={({ selectedItem }) => selectedItem && setMode(selectedItem.id)}
-          className={styles.pemilihMode}
-        />
-      </div>
-      <p className={styles.keteranganMode}>{modeAktif.keterangan}</p>
-
-      {isLoading && <Loading small withOverlay={false} description="Mencari..." />}
-
-      {error && (
-        <InlineNotification kind="error" title="Galat" subtitle={error} lowContrast hideCloseButton />
-      )}
-
-      {!isLoading && !error && data && data.results.length === 0 && (
-        <p className={styles.statusKosong}>Tidak ada hasil untuk &quot;{data.query}&quot;.</p>
-      )}
-
-      {!isLoading && !error && data && data.results.length > 0 && (
-        <div className={styles.hasil}>
-          {Array.from(kelompok.entries()).map(([entitas, hits]) => (
-            <div key={entitas} className={styles.kelompok}>
-              <h4>
-                {ENTITAS_LABEL[entitas] ?? entitas} <Tag type="gray">{hits.length}</Tag>
-              </h4>
-              {hits.map((hit) => (
-                <div key={`${hit.entitas}:${hit.id}`} className={styles.baris}>
-                  <a href={hit.url}>{sorot(hit.judul, data.query)}</a>
-                  <span className={styles.skor}>skor={hit.skor}</span>
-                  {hit.konteks && <div className={styles.konteks}>{hit.konteks}</div>}
-                </div>
-              ))}
-            </div>
-          ))}
+      {queryKosong && (
+        <div className={styles.kosong}>
+          <p className={styles.kosongTeks}>Belum ada pencarian. Coba salah satu contoh berikut:</p>
+          <div className={styles.contohBaris}>
+            {CONTOH.map((c) => (
+              <Button key={c} kind="tertiary" size="sm" onClick={() => setQuery(c)}>
+                {c}
+              </Button>
+            ))}
+          </div>
         </div>
       )}
 
-      <EvalPanel />
+      {!queryKosong && (
+        <p className={styles.hasilUntuk}>
+          Hasil untuk <strong>&quot;{query}&quot;</strong>
+        </p>
+      )}
+
+      <SearchResults data={data} isLoading={isLoading} error={error} />
     </div>
   );
 };

@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * One row of any of the six source tables, projected onto the single shape
- * described in docs/kontrak-data.md (component K1). Field names follow that
- * contract; after this projection the ranking engine no longer knows which
- * table a document came from.
+ * One row of any source table (see DocumentRepository.ENTITAS), projected onto
+ * the single shape described in docs/kontrak-data.md (component K1). Field
+ * names follow that contract; after this projection the ranking engine no
+ * longer knows which table a document came from.
  */
 public class VirtualDocument {
 	
@@ -25,9 +25,16 @@ public class VirtualDocument {
 	private final String konteks;
 	
 	private final Integer tautanKonsep;
-	
+
+	private final Integer tautanPasien;
+
 	public VirtualDocument(String entitas, int id, String judul, List<String> alias, List<String> kode, String konteks,
 	    Integer tautanKonsep) {
+		this(entitas, id, judul, alias, kode, konteks, tautanKonsep, null);
+	}
+
+	public VirtualDocument(String entitas, int id, String judul, List<String> alias, List<String> kode, String konteks,
+	    Integer tautanKonsep, Integer tautanPasien) {
 		this.entitas = entitas;
 		this.id = id;
 		this.judul = judul;
@@ -37,6 +44,7 @@ public class VirtualDocument {
 		        : kode));
 		this.konteks = konteks == null ? "" : konteks;
 		this.tautanKonsep = tautanKonsep;
+		this.tautanPasien = tautanPasien;
 	}
 	
 	public String getEntitas() {
@@ -66,6 +74,11 @@ public class VirtualDocument {
 	
 	public Integer getTautanKonsep() {
 		return tautanKonsep;
+	}
+
+	/** For hasillab: obs.person_id, used to link the result to the patient's O3 chart. */
+	public Integer getTautanPasien() {
+		return tautanPasien;
 	}
 	
 	/**

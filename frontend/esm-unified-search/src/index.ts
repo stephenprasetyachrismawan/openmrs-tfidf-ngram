@@ -24,6 +24,8 @@ export const root = getAsyncLifecycle(() => import('./root.component'), options)
 
 export const unifiedSearchMenuLink = getAsyncLifecycle(() => import('./menu-link.component'), options);
 
+export const unifiedSearchNavForm = getAsyncLifecycle(() => import('./nav-search-form.component'), options);
+
 /**
  * Pengganti tugas 13 (disetujui pemilik repo — lihat docs/keputusan.md "D1"):
  * RefApp 3 versi ini tidak punya extension slot di workspace Visit Note, jadi
@@ -33,3 +35,13 @@ export const unifiedSearchMenuLink = getAsyncLifecycle(() => import('./menu-link
 export const comparison = getAsyncLifecycle(() => import('./comparison.component'), options);
 
 export const comparisonMenuLink = getAsyncLifecycle(() => import('./comparison-menu-link.component'), options);
+
+/**
+ * Pengujian ablasi (pemilih mode b0/b1/e1/e3 + panel evaluasi) dipisah dari
+ * halaman Pencarian Terpadu (permintaan pemilik repo) supaya halaman itu
+ * tetap sederhana -- selalu mode e3 (Weighted RRF) -- untuk pemakaian
+ * sehari-hari.
+ */
+export const ablation = getAsyncLifecycle(() => import('./ablation.component'), options);
+
+export const ablationMenuLink = getAsyncLifecycle(() => import('./ablation-menu-link.component'), options);

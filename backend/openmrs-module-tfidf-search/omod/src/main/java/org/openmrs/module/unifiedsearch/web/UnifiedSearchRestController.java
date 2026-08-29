@@ -52,6 +52,18 @@ public class UnifiedSearchRestController extends BaseRestController {
 		return withWaktuHeader(hasil);
 	}
 
+	/**
+	 * Saran ketikan untuk dropdown navbar (BigramJaccardSuggester) -- jalur terpisah dari
+	 * b0/b1/e1/e3 di atas, bukan salah satu mode yang dikunci EvalService.REST_MODES.
+	 */
+	@RequestMapping(value = "/saran", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<Map<String, Object>> saran(@RequestParam("q") String q,
+	        @RequestParam(value = "limit", required = false, defaultValue = "6") int limit) {
+		Timed<Map<String, Object>> hasil = searchService.saran(q, limit);
+		return withWaktuHeader(hasil);
+	}
+
 	@RequestMapping(value = "/eval", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> evaluate(

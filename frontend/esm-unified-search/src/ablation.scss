@@ -1,0 +1,40 @@
+@use '@carbon/layout';
+@use '@carbon/type';
+
+.container {
+  padding: layout.$spacing-07;
+  max-width: 60rem;
+}
+
+.judul {
+  @include type.type-style('heading-04');
+  margin-bottom: layout.$spacing-05;
+}
+
+.penjelasan {
+  color: #525252;
+  font-size: 0.85rem;
+  margin-bottom: layout.$spacing-05;
+  max-width: 45rem;
+}
+
+.kontrol {
+  display: flex;
+  gap: layout.$spacing-05;
+  align-items: flex-end;
+  margin-bottom: layout.$spacing-03;
+}
+
+.kotakCari {
+  flex: 1;
+}
+
+.pemilihMode {
+  width: 20rem;
+}
+
+.keteranganMode {
+  color: #525252;
+  font-size: 0.85rem;
+  margin-bottom: layout.$spacing-05;
+}

@@ -5,6 +5,14 @@
   },
   "extensions": [
     {
+      "name": "unified-search-nav-form",
+      "component": "unifiedSearchNavForm",
+      "slot": "top-nav-actions-slot",
+      "online": true,
+      "offline": true,
+      "order": 20
+    },
+    {
       "name": "unified-search-app-menu-item",
       "component": "unifiedSearchMenuLink",
       "slot": "app-menu-slot",
@@ -14,6 +22,13 @@
     {
       "name": "comparison-app-menu-item",
       "component": "comparisonMenuLink",
+      "slot": "app-menu-slot",
+      "online": true,
+      "offline": true
+    },
+    {
+      "name": "ablation-app-menu-item",
+      "component": "ablationMenuLink",
       "slot": "app-menu-slot",
       "online": true,
       "offline": true
@@ -27,6 +42,10 @@
     {
       "component": "comparison",
       "route": "perbandingan-pencarian"
+    },
+    {
+      "component": "ablation",
+      "route": "pengujian-ablasi"
     }
   ]
 }

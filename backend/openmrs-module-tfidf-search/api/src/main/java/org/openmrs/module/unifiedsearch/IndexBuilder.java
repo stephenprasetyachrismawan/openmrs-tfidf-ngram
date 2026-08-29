@@ -14,8 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Builds all 13 in-memory indices once at module startup (six local word + six
- * local n-gram + one global pair). Duration is logged for tugas 09 verification.
+ * Builds all in-memory indices once at module startup: one local word + one
+ * local n-gram per entity in DocumentRepository.ENTITAS, plus one global
+ * pair (13 total for the original six-entity research corpus; more once
+ * "hasillab" is included — see DocumentRepository). Duration is logged for
+ * tugas 09 verification.
  */
 @Component("unifiedsearch.indexBuilder")
 public class IndexBuilder {
@@ -144,8 +147,10 @@ public class IndexBuilder {
 		// openmrs-distro-referenceapplication, not ours to edit — CLAUDE.md rule 9), so an
 		// INFO line here would silently vanish from openmrs.log. tugas 09 requires the build
 		// duration to actually be visible in the log, so this one line is WARN, not spam.
+		int jumlahIndeks = lokalBaru.size() * 2 + 1;
 		log.warn("Unified search index build finished in " + buildDurationMs + " ms ("
-		        + dokumenBaru.size() + " documents, " + semuaForm.size() + " surface forms, 13 indices)");
+		        + dokumenBaru.size() + " documents, " + semuaForm.size() + " surface forms, " + jumlahIndeks
+		        + " indices)");
 	}
 
 	private static List<String> teks(List<SurfaceForm> forms) {

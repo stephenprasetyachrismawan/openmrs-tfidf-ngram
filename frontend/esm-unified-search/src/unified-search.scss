@@ -8,64 +8,33 @@
 
 .judul {
   @include type.type-style('heading-04');
-  margin-bottom: layout.$spacing-05;
-}
-
-.kontrol {
-  display: flex;
-  gap: layout.$spacing-05;
-  align-items: flex-end;
   margin-bottom: layout.$spacing-03;
 }
 
-.kotakCari {
-  flex: 1;
-}
-
-.pemilihMode {
-  width: 20rem;
-}
-
-.keteranganMode {
+.penjelasan {
   color: #525252;
-  font-size: 0.85rem;
-  margin-bottom: layout.$spacing-05;
+  max-width: 45rem;
+  margin-bottom: layout.$spacing-06;
 }
 
-.statusKosong {
+.kosong {
+  padding: layout.$spacing-06;
+  background: #f4f4f4;
+  border: 1px solid #e0e0e0;
+}
+
+.kosongTeks {
   color: #525252;
+  margin-bottom: layout.$spacing-04;
 }
 
-.kelompok {
+.contohBaris {
+  display: flex;
+  flex-wrap: wrap;
+  gap: layout.$spacing-03;
+}
+
+.hasilUntuk {
+  color: #525252;
   margin-bottom: layout.$spacing-05;
-
-  h4 {
-    display: flex;
-    align-items: center;
-    gap: layout.$spacing-03;
-    background: #f4f4f4;
-    padding: layout.$spacing-03 layout.$spacing-04;
-    margin-bottom: layout.$spacing-02;
-  }
-}
-
-.baris {
-  padding: layout.$spacing-03 layout.$spacing-04;
-  border-bottom: 1px solid #e0e0e0;
-
-  a {
-    font-weight: 600;
-  }
-}
-
-.skor {
-  color: #6f6f6f;
-  font-size: 0.8rem;
-  margin-left: layout.$spacing-03;
-}
-
-.konteks {
-  color: #393939;
-  font-size: 0.85rem;
-  margin-top: layout.$spacing-02;
 }

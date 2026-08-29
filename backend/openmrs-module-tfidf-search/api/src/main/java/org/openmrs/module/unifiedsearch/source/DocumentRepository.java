@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Loads all six sources and returns the whole corpus of virtual documents.
+ * Loads all sources and returns the whole corpus of virtual documents.
  * <p>
  * The result is sorted by entity (in the fixed order used throughout the study)
  * and then by id, so two runs in two processes produce the same list — see
@@ -20,17 +20,23 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component("unifiedsearch.documentRepository")
 public class DocumentRepository {
-	
-	/** Fixed entity order, matching ENT in riset/eksperimen2.py. */
+
+	/**
+	 * Fixed entity order. The first six match ENT in riset/eksperimen2.py exactly
+	 * -- that is the corpus every B0/B1/E1/E3 number in docs/ was measured on.
+	 * "hasillab" was added later at the repo owner's explicit request and has no
+	 * Python counterpart or baseline comparison; it is last on purpose so the
+	 * first six keep their original relative order.
+	 */
 	public static final List<String> ENTITAS = Collections.unmodifiableList(Arrays.asList("konsep", "obat", "pasien",
-	    "form", "lokasi", "provider"));
-	
+	    "form", "lokasi", "provider", "hasillab"));
+
 	private final List<DocumentSource> sources = new ArrayList<DocumentSource>();
-	
+
 	@Autowired
 	public DocumentRepository(DbSessionFactory sessionFactory) {
 		SqlDocumentSource[] all = new SqlDocumentSource[] { new ConceptSource(), new DrugSource(), new PatientSource(),
-		        new FormSource(), new LocationSource(), new ProviderSource() };
+		        new FormSource(), new LocationSource(), new ProviderSource(), new HasilLabSource() };
 		for (SqlDocumentSource source : all) {
 			source.setSessionFactory(sessionFactory);
 			sources.add(source);

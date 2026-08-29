@@ -7,11 +7,12 @@ import java.util.TreeMap;
 import org.openmrs.module.unifiedsearch.source.DocumentRepository;
 
 /**
- * The 13th index (docs/algoritma.md sec. 3): word + n-gram TF-IDF built over
- * every surface form of all six entities combined, used only to compute
- * per-entity collection weights for K6. It is never used to rank results
- * directly — ranking within an entity comes from that entity's own local
- * index (see docs/algoritma.md sec. 5, step 1).
+ * The extra index beyond the per-entity ones (docs/algoritma.md sec. 3): word
+ * + n-gram TF-IDF built over every surface form of all entities combined
+ * (DocumentRepository.ENTITAS), used only to compute per-entity collection
+ * weights for K6. It is never used to rank results directly — ranking within
+ * an entity comes from that entity's own local index (see docs/algoritma.md
+ * sec. 5, step 1).
  */
 public class GlobalIndex {
 	
