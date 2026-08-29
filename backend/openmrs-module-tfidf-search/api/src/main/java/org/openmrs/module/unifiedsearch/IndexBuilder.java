@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * Builds all in-memory indices once at module startup: one local word + one
  * local n-gram per entity in DocumentRepository.ENTITAS, plus one global
  * pair (13 total for the original six-entity research corpus; more once
- * "hasillab" is included — see DocumentRepository). Duration is logged for
+ * "hasillab" and "kondisi" are included — see DocumentRepository). Duration is logged for
  * tugas 09 verification.
  */
 @Component("unifiedsearch.indexBuilder")

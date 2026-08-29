@@ -44,9 +44,9 @@ const UnifiedSearch: React.FC = () => {
     <div className={styles.container}>
       <h3 className={styles.judul}>Pencarian Terpadu</h3>
       <p className={styles.penjelasan}>
-        Pencarian tahan salah ketik lintas tujuh jenis data OpenMRS: konsep, obat, pasien,
-        form, lokasi, provider, dan hasil lab. Ketik di kotak pencarian pada bilah navigasi
-        di atas untuk mulai.
+        Pencarian tahan salah ketik lintas delapan jenis data OpenMRS: konsep, obat, pasien,
+        form, lokasi, provider, hasil lab, dan kondisi pasien. Ketik di kotak pencarian pada
+        bilah navigasi di atas untuk mulai.
       </p>
 
       {queryKosong && (

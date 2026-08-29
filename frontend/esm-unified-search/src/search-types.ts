@@ -30,4 +30,6 @@ export const ENTITAS_LABEL: Record<string, string> = {
   provider: 'Provider',
   /** Ditambahkan belakangan, di luar enam entitas riset asli -- lihat docs/kontrak-data.md "Entitas ketujuh: hasillab". */
   hasillab: 'Hasil Lab',
+  /** Ditambahkan belakangan, di luar enam entitas riset asli -- lihat docs/kontrak-data.md "Entitas kedelapan: kondisi". */
+  kondisi: 'Kondisi',
 };

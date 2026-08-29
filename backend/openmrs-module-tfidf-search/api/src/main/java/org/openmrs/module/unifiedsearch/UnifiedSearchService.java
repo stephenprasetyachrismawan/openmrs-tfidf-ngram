@@ -43,9 +43,7 @@ public class UnifiedSearchService {
 		List<Map<String, Object>> results = new ArrayList<Map<String, Object>>();
 		for (SearchHit hit : hits) {
 			VirtualDocument d = hit.getDokumen();
-			// hasillab carries the same patient-identifying data as pasien (patient name as
-			// alias, tautan_pasien) -- CLAUDE.md rule 5 applies to it too, not just "pasien".
-			if (("pasien".equals(d.getEntitas()) || "hasillab".equals(d.getEntitas())) && !mayViewPatients) {
+			if (isDataPasien(d) && !mayViewPatients) {
 				continue;
 			}
 			if (entitasFilter != null && !entitasFilter.trim().isEmpty()
@@ -68,7 +66,7 @@ public class UnifiedSearchService {
 	/**
 	 * Saran ketikan untuk dropdown navbar (BigramJaccardSuggester) -- bukan salah satu dari
 	 * mode b0/b1/e1/e3 yang dikunci EvalService.REST_MODES, jalur terpisah sepenuhnya. Sama
-	 * seperti {@link #search}, hasil pasien/hasillab disaring lewat privilege "View Patients"
+	 * seperti {@link #search}, hasil pasien/hasillab/kondisi disaring lewat privilege "View Patients"
 	 * (CLAUDE.md aturan 5) sebelum dikembalikan.
 	 */
 	public Timed<Map<String, Object>> saran(String q, int limit) {
@@ -90,7 +88,7 @@ public class UnifiedSearchService {
 		int peringkat = 0;
 		for (RankedDocument rd : gabungan) {
 			VirtualDocument d = rd.getDokumen();
-			if (("pasien".equals(d.getEntitas()) || "hasillab".equals(d.getEntitas())) && !mayViewPatients) {
+			if (isDataPasien(d) && !mayViewPatients) {
 				continue;
 			}
 			peringkat++;
@@ -106,6 +104,17 @@ public class UnifiedSearchService {
 		out.put("mode", "saran");
 		out.put("results", results);
 		return new Timed<Map<String, Object>>(out, waktuMs);
+	}
+
+	/**
+	 * True for every entity whose rows identify a patient. "hasillab" and "kondisi"
+	 * carry the same patient-identifying data as "pasien" (patient full name as an
+	 * indexed alias, plus tautan_pasien), so CLAUDE.md rule 5 applies to all three,
+	 * not just "pasien".
+	 */
+	private static boolean isDataPasien(VirtualDocument d) {
+		String entitas = d.getEntitas();
+		return "pasien".equals(entitas) || "hasillab".equals(entitas) || "kondisi".equals(entitas);
 	}
 
 	private static Map<String, Object> toResultRow(SearchHit hit, String mode) {
@@ -131,9 +140,10 @@ public class UnifiedSearchService {
 	 * no other installed app owns a concept/drug/form/location/provider
 	 * detail route. Those five keep pointing at the legacy admin UI because
 	 * that is the only page that exists for them, not because O3 was skipped.
-	 * hasillab has no detail page of its own either (it is one obs, not a
-	 * concept/patient in its own right) -- the closest useful destination is
-	 * the patient it belongs to (tautan_pasien), same chart as "pasien".
+	 * hasillab and kondisi have no detail page of their own either (one is an
+	 * obs, the other a problem-list row, neither a concept/patient in its own
+	 * right) -- the closest useful destination is the patient they belong to
+	 * (tautan_pasien), same chart as "pasien".
 	 */
 	private static String buildUrl(VirtualDocument d) {
 		Integer patientId = "pasien".equals(d.getEntitas()) ? Integer.valueOf(d.getId()) : d.getTautanPasien();

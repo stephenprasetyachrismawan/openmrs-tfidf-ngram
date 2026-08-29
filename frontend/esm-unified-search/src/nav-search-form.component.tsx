@@ -15,14 +15,14 @@ const LIMIT_SARAN = 6;
  *
  * Dropdown-nya BUKAN pratinjau hasil pencarian -- cuma saran ketikan, sumber
  * datanya judul semua dokumen (konsep, obat, pasien, form, lokasi, provider,
- * hasil lab) lewat endpoint /unifiedsearch/saran (Jaccard kepingan-dua-huruf,
+ * hasil lab, kondisi) lewat endpoint /unifiedsearch/saran (Jaccard kepingan-dua-huruf,
  * BigramJaccardSuggester di backend -- bukan salah satu mode riset
  * b0/b1/e1/e3, dan bukan K5/NGRAM=4 yang butuh minimal 4 huruf query). Beda
  * dari K5, kepingan-2-huruf plus Jaccard mentolerir prefiks pendek DAN typo
  * satu huruf -- lihat Javadoc BigramJaccardSuggester untuk perbandingannya
  * dengan b0 (pencocokan awalan, gaya legacy UI). Filter hak akses pasien di
  * UnifiedSearchService.saran berlaku sama seperti /unifiedsearch biasa, jadi
- * baris pasien/hasillab otomatis tersaring untuk pengguna tanpa privilege --
+ * baris pasien/hasillab/kondisi otomatis tersaring untuk pengguna tanpa privilege --
  * dropdown ini tidak perlu logika privilege sendiri. Klik satu saran cuma
  * mengambil teksnya dan menjalankan pencarian penuh (mode e3) untuk kata
  * itu -- bukan tautan langsung ke satu dokumen, jadi tidak perlu label

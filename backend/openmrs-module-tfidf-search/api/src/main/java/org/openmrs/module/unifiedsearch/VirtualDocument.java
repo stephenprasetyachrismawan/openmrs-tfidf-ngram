@@ -76,7 +76,7 @@ public class VirtualDocument {
 		return tautanKonsep;
 	}
 
-	/** For hasillab: obs.person_id, used to link the result to the patient's O3 chart. */
+	/** For hasillab: obs.person_id; for kondisi: conditions.patient_id. Used to link the result to the patient's O3 chart. */
 	public Integer getTautanPasien() {
 		return tautanPasien;
 	}
