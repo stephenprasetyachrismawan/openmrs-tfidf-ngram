@@ -96,4 +96,26 @@ public class BigramJaccardSuggesterTest {
 		List<RankedDocument> hasil = BigramJaccardSuggester.search(forms, "fev");
 		assertEquals(0.5, hasil.get(0).getSkor(), 1e-9);
 	}
+
+	@Test
+	public void namaPasienLewatJudulMenangAtasCatatanYangCumaMenyebutNamanya() {
+		// Ditemukan langsung lewat query "mark": pasien "Mark Smith" (cocok lewat JUDULnya)
+		// seri skor dengan hasillab yang alias-nya juga "Mark Smith" (cuma menyebut pasien
+		// itu, bukan namanya sendiri). Tanpa tie-break ini, "hasillab" menang murni karena
+		// alfabetis lebih awal dari "pasien", dan nama pasiennya sendiri terdorong keluar
+		// dari dropdown 6-item.
+		VirtualDocument pasien = new VirtualDocument("pasien", 1, "Mark Smith", Collections.<String> emptyList(),
+		    Collections.<String> emptyList(), "", null);
+		VirtualDocument hasilLab = new VirtualDocument("hasillab", 2, "Blood urea nitrogen",
+		    Collections.singletonList("Mark Smith"), Collections.<String> emptyList(), "Pasien: Mark Smith", null);
+		List<SurfaceForm> korpus = new ArrayList<SurfaceForm>();
+		korpus.addAll(extractor.extract(pasien));
+		korpus.addAll(extractor.extract(hasilLab));
+
+		List<RankedDocument> hasil = BigramJaccardSuggester.search(korpus, "mark");
+		assertEquals(2, hasil.size());
+		assertEquals(hasil.get(0).getSkor(), hasil.get(1).getSkor(), 1e-9);
+		assertEquals("pasien:1", hasil.get(0).getDokumen().getKunci());
+		assertEquals("hasillab:2", hasil.get(1).getDokumen().getKunci());
+	}
 }

@@ -28,6 +28,16 @@ import java.util.TreeSet;
  * tie with "Fever" against query "fev", because a 1-gram form has nowhere to go but 1.0/n. The
  * one-gram-of-one-gram case ("tb" query against a "TB" code) is still allowed: same-set is an
  * exact match, not a coincidence.
+ * <p>
+ * Tie-break order: -skor, then title-match before alias/code-match, then kunci (CLAUDE.md rule
+ * 1 -- compound key, never score alone). The title step matters because every document is
+ * scored by the BEST of all its surface forms, and a patient's own name is that patient
+ * document's title, while every other document that merely mentions the same name (hasillab's
+ * alias is its patient's full name -- docs/kontrak-data.md "Entitas ketujuh") matches only
+ * through an alias. Found live: query "mark" ties patient "Mark Smith" (title match) with
+ * several of Mark's own lab results (alias match) at the same score; without this step the
+ * lab rows won the final kunci tie-break purely because "hasillab" sorts before "pasien"
+ * alphabetically, pushing the patient's own name out of a 6-item dropdown entirely.
  */
 public final class BigramJaccardSuggester {
 
@@ -63,8 +73,10 @@ public final class BigramJaccardSuggester {
 			double score = (double) irisan.size() / (double) gabungan.size();
 			String kunci = form.getDokumen().getKunci();
 			RankedDocument sebelumnya = terbaikPerKunci.get(kunci);
-			if (sebelumnya == null || score > sebelumnya.getSkor()) {
-				terbaikPerKunci.put(kunci, new RankedDocument(form.getDokumen(), score));
+			boolean menang = sebelumnya == null || score > sebelumnya.getSkor()
+			        || (score == sebelumnya.getSkor() && form.isJudul() && !sebelumnya.isViaJudul());
+			if (menang) {
+				terbaikPerKunci.put(kunci, new RankedDocument(form.getDokumen(), score, form.isJudul()));
 			}
 		}
 		List<RankedDocument> hasil = new ArrayList<RankedDocument>(terbaikPerKunci.values());
@@ -72,13 +84,26 @@ public final class BigramJaccardSuggester {
 		return hasil;
 	}
 
-	/** -skor lalu kunci dokumen (CLAUDE.md aturan 1: tie-break majemuk, bukan skor saja). */
+	/**
+	 * -skor, lalu cocok-lewat-judul sebelum cocok-lewat-alias/kode, lalu kunci dokumen
+	 * (CLAUDE.md aturan 1: tie-break majemuk, bukan skor saja -- lihat Javadoc kelas untuk
+	 * kenapa langkah judul ini ada). UnifiedSearchService.saran juga memakai comparator yang
+	 * sama ini untuk mengurutkan ulang gabungan seluruh entitas, supaya urutan tidak berubah
+	 * hanya karena hasil per-entitas digabung.
+	 */
 	static final Comparator<RankedDocument> KUNCI_COMPARATOR = new Comparator<RankedDocument>() {
 
 		@Override
 		public int compare(RankedDocument a, RankedDocument b) {
 			int byScore = Double.compare(b.getSkor(), a.getSkor());
-			return byScore != 0 ? byScore : a.getDokumen().getKunci().compareTo(b.getDokumen().getKunci());
+			if (byScore != 0) {
+				return byScore;
+			}
+			int byJudul = Boolean.compare(b.isViaJudul(), a.isViaJudul());
+			if (byJudul != 0) {
+				return byJudul;
+			}
+			return a.getDokumen().getKunci().compareTo(b.getDokumen().getKunci());
 		}
 	};
 }
