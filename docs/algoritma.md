@@ -73,7 +73,10 @@ skor(dokumen) = maks atas seluruh surface form dari:
 Ambil maksimum **setelah** menggabung, bukan sebelum. Yaitu: hitung skor
 gabungan tiap surface form dulu, baru ambil yang tertinggi.
 
-Buang dokumen dengan skor ≤ 0,07.
+Buang dokumen dengan skor ≤ 1e-6 (ambang riset di `eksperimen2.py`, muncul
+tiga kali). Nilai 0,07 yang pernah tertulis di sini keliru — itu ambang mockup
+demo di `docs/proposal.html`, bukan parameter penelitian. Lihat `CLAUDE.md`
+tabel parameter dan `docs/keputusan.md` ("Penyimpangan 2").
 
 ## 5. K6 — Weighted RRF
 
