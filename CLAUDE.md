@@ -177,7 +177,7 @@ mendekati angka ini. Kalau meleset jauh, laporkan â€” jangan sesuaikan doku
 |---|---|---|---|
 | B0 baseline pencocokan awalan (gaya legacy UI) | 0,628 | 0,689 | 18,3% |
 | B1 TF-IDF kata | 0,646 | 0,572 | 11,1% |
-| E1 + kepingan karakter | 0,804 | 0,783 | 0,6% |
+| E1 + kepingan karakter | 0,802 | 0,772 | 0,6% |
 | E3 + Weighted RRF | 0,815 | 0,806 | 0,6% |
 
 **Catatan (2026-08-22):** B0 di atas bukan tiruan setia OpenMRS —

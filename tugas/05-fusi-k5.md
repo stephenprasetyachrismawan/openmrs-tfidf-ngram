@@ -36,7 +36,8 @@ Menggabungkan dua jalur jadi satu skor per dokumen.
 ## Langkah
 1. Untuk tiap surface form: `skor = ALPHA*cos_kata + (1-ALPHA)*cos_kepingan`.
 2. Untuk tiap dokumen: ambil **maksimum** atas surface form-nya.
-3. Buang dokumen dengan skor â‰¤ 0,07.
+3. Buang dokumen dengan skor â‰¤ 1e-6. (Ambang 0,07 yang tertulis semula keliru
+   â€” ambang mockup demo, bukan parameter riset; koreksi di tugas 06 bagian 2.)
 4. Urutkan dengan kunci `(-skor, entitas+":"+id)`.
 
 ## Selesai kalau
