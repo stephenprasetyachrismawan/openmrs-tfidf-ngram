@@ -9,9 +9,9 @@
    "konsep:2144": 2,
    "konsep:2145": 1,
    "konsep:2143": 1,
-   "konsep:2777": 1,
    "konsep:2148": 1,
-   "konsep:2147": 1
+   "konsep:2147": 1,
+   "konsep:2777": 1
   }
  },
  {
@@ -22,18 +22,18 @@
   "seed": "konsep:455",
   "rel": {
    "konsep:455": 2,
-   "konsep:370": 1,
    "konsep:346": 1,
-   "konsep:367": 1,
-   "konsep:445": 1,
    "konsep:366": 1,
-   "konsep:610": 1,
+   "konsep:368": 1,
    "konsep:369": 1,
+   "konsep:448": 1,
    "konsep:446": 1,
    "konsep:364": 1,
    "konsep:365": 1,
-   "konsep:368": 1,
-   "konsep:448": 1
+   "konsep:367": 1,
+   "konsep:370": 1,
+   "konsep:445": 1,
+   "konsep:610": 1
   }
  },
  {
@@ -54,9 +54,9 @@
   "seed": "konsep:3544",
   "rel": {
    "konsep:3544": 2,
-   "konsep:3149": 1,
-   "konsep:1248": 1,
    "konsep:1326": 1,
+   "konsep:1248": 1,
+   "konsep:3149": 1,
    "konsep:3545": 1,
    "konsep:2044": 1
   }
@@ -150,11 +150,11 @@
   "seed": "konsep:2371",
   "rel": {
    "konsep:2371": 2,
-   "konsep:2367": 1,
    "konsep:2366": 1,
-   "konsep:2365": 1,
+   "konsep:3168": 1,
    "konsep:2465": 1,
-   "konsep:3168": 1
+   "konsep:2367": 1,
+   "konsep:2365": 1
   }
  },
  {
@@ -166,8 +166,8 @@
   "rel": {
    "konsep:1501": 2,
    "obat:93": 1,
-   "obat:94": 1,
-   "obat:92": 1
+   "obat:92": 1,
+   "obat:94": 1
   }
  },
  {
@@ -178,9 +178,9 @@
   "seed": "konsep:2434",
   "rel": {
    "konsep:2434": 2,
+   "konsep:2467": 1,
    "konsep:3419": 1,
-   "konsep:2352": 1,
-   "konsep:2467": 1
+   "konsep:2352": 1
   }
  },
  {
@@ -243,22 +243,22 @@
   "seed": "konsep:1409",
   "rel": {
    "konsep:1409": 2,
-   "konsep:3227": 1,
-   "konsep:3240": 1,
+   "konsep:3232": 1,
    "konsep:3239": 1,
+   "konsep:2939": 1,
+   "konsep:2931": 1,
+   "konsep:3240": 1,
+   "konsep:3096": 1,
    "konsep:3103": 1,
+   "konsep:3226": 1,
+   "konsep:3233": 1,
+   "konsep:3097": 1,
    "konsep:1945": 1,
    "konsep:3242": 1,
    "konsep:1414": 1,
-   "konsep:2931": 1,
+   "konsep:3237": 1,
    "konsep:2940": 1,
-   "konsep:3096": 1,
-   "konsep:3097": 1,
-   "konsep:3233": 1,
-   "konsep:3226": 1,
-   "konsep:3232": 1,
-   "konsep:2939": 1,
-   "konsep:3237": 1
+   "konsep:3227": 1
   }
  },
  {
@@ -280,23 +280,23 @@
   "seed": "konsep:3249",
   "rel": {
    "konsep:3249": 2,
-   "konsep:2634": 1,
-   "konsep:2991": 1,
-   "konsep:2268": 1,
-   "konsep:2978": 1,
-   "konsep:3571": 1,
-   "konsep:3686": 1,
    "konsep:2587": 1,
    "konsep:3338": 1,
-   "konsep:3202": 1,
-   "konsep:1355": 1,
-   "konsep:1298": 1,
-   "konsep:3063": 1,
-   "konsep:1299": 1,
-   "konsep:3005": 1,
-   "konsep:3140": 1,
+   "konsep:3571": 1,
+   "konsep:2268": 1,
    "konsep:1224": 1,
-   "konsep:3630": 1
+   "konsep:2634": 1,
+   "konsep:2978": 1,
+   "konsep:3140": 1,
+   "konsep:1299": 1,
+   "konsep:3063": 1,
+   "konsep:2991": 1,
+   "konsep:1355": 1,
+   "konsep:3202": 1,
+   "konsep:3686": 1,
+   "konsep:3005": 1,
+   "konsep:3630": 1,
+   "konsep:1298": 1
   }
  },
  {
@@ -307,22 +307,22 @@
   "seed": "konsep:3398",
   "rel": {
    "konsep:3398": 2,
-   "konsep:1399": 1,
-   "konsep:1289": 1,
+   "konsep:2732": 1,
+   "konsep:2557": 1,
+   "konsep:1953": 1,
+   "konsep:2419": 1,
+   "konsep:2096": 1,
    "konsep:2980": 1,
    "konsep:3166": 1,
-   "konsep:2419": 1,
-   "konsep:2557": 1,
-   "konsep:3447": 1,
-   "konsep:2110": 1,
-   "konsep:2096": 1,
-   "konsep:2098": 1,
-   "konsep:1953": 1,
    "konsep:2609": 1,
-   "konsep:2732": 1,
-   "konsep:3173": 1,
    "konsep:2431": 1,
-   "konsep:2440": 1
+   "konsep:2110": 1,
+   "konsep:1289": 1,
+   "konsep:3173": 1,
+   "konsep:3447": 1,
+   "konsep:2440": 1,
+   "konsep:2098": 1,
+   "konsep:1399": 1
   }
  },
  {
@@ -346,8 +346,8 @@
   "seed": "konsep:3991",
   "rel": {
    "konsep:3991": 2,
-   "konsep:3872": 1,
-   "konsep:3990": 1
+   "konsep:3990": 1,
+   "konsep:3872": 1
   }
  },
  {
@@ -358,30 +358,30 @@
   "seed": "konsep:1152",
   "rel": {
    "konsep:1152": 2,
-   "konsep:1156": 1,
-   "konsep:1116": 1,
-   "konsep:780": 1,
-   "konsep:1144": 1,
-   "konsep:1175": 1,
-   "konsep:1125": 1,
-   "konsep:779": 1,
-   "konsep:1133": 1,
-   "konsep:1149": 1,
-   "konsep:1192": 1,
-   "konsep:1127": 1,
-   "konsep:641": 1,
-   "konsep:1132": 1,
-   "konsep:1100": 1,
-   "konsep:2689": 1,
-   "konsep:776": 1,
-   "konsep:1085": 1,
-   "konsep:1183": 1,
-   "konsep:1101": 1,
-   "konsep:3704": 1,
-   "konsep:772": 1,
+   "konsep:2023": 1,
    "konsep:2726": 1,
    "konsep:3665": 1,
-   "konsep:2023": 1
+   "konsep:1101": 1,
+   "konsep:1192": 1,
+   "konsep:780": 1,
+   "konsep:1125": 1,
+   "konsep:1100": 1,
+   "konsep:1127": 1,
+   "konsep:1149": 1,
+   "konsep:3704": 1,
+   "konsep:779": 1,
+   "konsep:1085": 1,
+   "konsep:1133": 1,
+   "konsep:2689": 1,
+   "konsep:772": 1,
+   "konsep:1116": 1,
+   "konsep:1183": 1,
+   "konsep:641": 1,
+   "konsep:1132": 1,
+   "konsep:1156": 1,
+   "konsep:1175": 1,
+   "konsep:776": 1,
+   "konsep:1144": 1
   }
  },
  {
@@ -496,8 +496,8 @@
   "seed": "konsep:2253",
   "rel": {
    "konsep:2253": 2,
-   "konsep:3086": 1,
-   "konsep:2254": 1
+   "konsep:2254": 1,
+   "konsep:3086": 1
   }
  },
  {
@@ -570,8 +570,8 @@
   "seed": "konsep:2792",
   "rel": {
    "konsep:2792": 2,
-   "konsep:3126": 1,
-   "konsep:2402": 1
+   "konsep:2402": 1,
+   "konsep:3126": 1
   }
  },
  {
@@ -582,9 +582,9 @@
   "seed": "konsep:253",
   "rel": {
    "konsep:253": 2,
-   "konsep:246": 1,
    "konsep:252": 1,
-   "konsep:249": 1
+   "konsep:249": 1,
+   "konsep:246": 1
   }
  },
  {
@@ -616,8 +616,8 @@
   "seed": "konsep:3011",
   "rel": {
    "konsep:3011": 2,
-   "konsep:3193": 1,
-   "konsep:1338": 1
+   "konsep:1338": 1,
+   "konsep:3193": 1
   }
  },
  {
@@ -639,23 +639,23 @@
   "seed": "konsep:2096",
   "rel": {
    "konsep:2096": 2,
-   "konsep:1399": 1,
-   "konsep:1289": 1,
+   "konsep:3370": 1,
+   "konsep:2732": 1,
+   "konsep:2557": 1,
+   "konsep:1953": 1,
+   "konsep:2419": 1,
    "konsep:2980": 1,
    "konsep:3166": 1,
-   "konsep:2419": 1,
-   "konsep:2557": 1,
-   "konsep:3447": 1,
-   "konsep:2110": 1,
-   "konsep:2098": 1,
-   "konsep:1953": 1,
    "konsep:2609": 1,
-   "konsep:2732": 1,
-   "konsep:3173": 1,
-   "konsep:2431": 1,
    "konsep:3398": 1,
+   "konsep:2431": 1,
+   "konsep:2110": 1,
+   "konsep:1289": 1,
+   "konsep:3173": 1,
+   "konsep:3447": 1,
    "konsep:2440": 1,
-   "konsep:3370": 1
+   "konsep:2098": 1,
+   "konsep:1399": 1
   }
  },
  {
@@ -677,10 +677,10 @@
   "seed": "konsep:829",
   "rel": {
    "konsep:829": 2,
-   "konsep:3274": 1,
    "konsep:2386": 1,
-   "konsep:2662": 1,
-   "konsep:807": 1
+   "konsep:807": 1,
+   "konsep:3274": 1,
+   "konsep:2662": 1
   }
  },
  {
@@ -711,8 +711,8 @@
   "seed": "konsep:3324",
   "rel": {
    "konsep:3324": 2,
-   "konsep:1227": 1,
-   "konsep:2983": 1
+   "konsep:2983": 1,
+   "konsep:1227": 1
   }
  },
  {
@@ -733,10 +733,10 @@
   "seed": "konsep:2758",
   "rel": {
    "konsep:2758": 2,
-   "konsep:3501": 1,
    "konsep:2757": 1,
-   "konsep:1881": 1,
-   "konsep:3562": 1
+   "konsep:3501": 1,
+   "konsep:3562": 1,
+   "konsep:1881": 1
   }
  },
  {
@@ -747,23 +747,23 @@
   "seed": "konsep:996",
   "rel": {
    "konsep:996": 2,
-   "konsep:3320": 1,
-   "konsep:1017": 1,
-   "konsep:941": 1,
-   "konsep:994": 1,
-   "konsep:1018": 1,
-   "konsep:1012": 1,
+   "konsep:993": 1,
    "konsep:938": 1,
-   "konsep:1021": 1,
-   "konsep:986": 1,
-   "konsep:1019": 1,
-   "konsep:1008": 1,
-   "konsep:982": 1,
    "konsep:1020": 1,
+   "konsep:986": 1,
+   "konsep:994": 1,
    "konsep:1029": 1,
-   "konsep:1031": 1,
+   "konsep:3320": 1,
+   "konsep:1018": 1,
+   "konsep:1008": 1,
+   "konsep:1017": 1,
+   "konsep:1019": 1,
    "konsep:1023": 1,
-   "konsep:993": 1
+   "konsep:941": 1,
+   "konsep:1031": 1,
+   "konsep:1012": 1,
+   "konsep:982": 1,
+   "konsep:1021": 1
   }
  },
  {
@@ -784,22 +784,22 @@
   "seed": "konsep:3173",
   "rel": {
    "konsep:3173": 2,
-   "konsep:1399": 1,
-   "konsep:1289": 1,
+   "konsep:2732": 1,
+   "konsep:2557": 1,
+   "konsep:1953": 1,
+   "konsep:2419": 1,
+   "konsep:2096": 1,
    "konsep:2980": 1,
    "konsep:3166": 1,
-   "konsep:2419": 1,
-   "konsep:2557": 1,
-   "konsep:3447": 1,
-   "konsep:2110": 1,
-   "konsep:2096": 1,
-   "konsep:2098": 1,
-   "konsep:1953": 1,
    "konsep:2609": 1,
-   "konsep:2732": 1,
-   "konsep:2431": 1,
    "konsep:3398": 1,
-   "konsep:2440": 1
+   "konsep:2431": 1,
+   "konsep:2110": 1,
+   "konsep:1289": 1,
+   "konsep:3447": 1,
+   "konsep:2440": 1,
+   "konsep:2098": 1,
+   "konsep:1399": 1
   }
  },
  {
@@ -810,10 +810,10 @@
   "seed": "konsep:2134",
   "rel": {
    "konsep:2134": 2,
-   "konsep:2136": 1,
    "konsep:2135": 1,
    "konsep:2290": 1,
-   "konsep:2138": 1
+   "konsep:2138": 1,
+   "konsep:2136": 1
   }
  },
  {
@@ -885,10 +885,10 @@
   "seed": "konsep:1802",
   "rel": {
    "konsep:1802": 2,
-   "obat:42": 1,
-   "obat:44": 1,
+   "obat:43": 1,
    "obat:41": 1,
-   "obat:43": 1
+   "obat:44": 1,
+   "obat:42": 1
   }
  },
  {
@@ -922,11 +922,11 @@
   "rel": {
    "obat:143": 2,
    "konsep:1660": 1,
-   "obat:144": 1,
    "obat:222": 1,
-   "obat:223": 1,
    "obat:221": 1,
-   "obat:218": 1
+   "obat:144": 1,
+   "obat:218": 1,
+   "obat:223": 1
   }
  },
  {
@@ -984,12 +984,12 @@
   "rel": {
    "obat:151": 2,
    "konsep:1580": 1,
-   "obat:187": 1,
-   "obat:190": 1,
    "obat:191": 1,
-   "obat:189": 1,
+   "obat:187": 1,
+   "obat:150": 1,
+   "obat:190": 1,
    "obat:188": 1,
-   "obat:150": 1
+   "obat:189": 1
   }
  },
  {
@@ -1002,8 +1002,8 @@
    "obat:122": 2,
    "konsep:1571": 1,
    "obat:121": 1,
-   "obat:148": 1,
-   "obat:123": 1
+   "obat:123": 1,
+   "obat:148": 1
   }
  },
  {
@@ -1143,10 +1143,10 @@
   "rel": {
    "obat:180": 2,
    "konsep:1749": 1,
-   "obat:177": 1,
-   "obat:179": 1,
    "obat:178": 1,
-   "obat:176": 1
+   "obat:176": 1,
+   "obat:177": 1,
+   "obat:179": 1
   }
  },
  {
@@ -1185,9 +1185,9 @@
    "obat:269": 2,
    "konsep:1427": 1,
    "obat:271": 1,
-   "obat:270": 1,
+   "obat:268": 1,
    "obat:19": 1,
-   "obat:268": 1
+   "obat:270": 1
   }
  },
  {
@@ -1211,11 +1211,11 @@
   "rel": {
    "obat:104": 2,
    "konsep:1740": 1,
-   "obat:105": 1,
-   "obat:103": 1,
-   "obat:106": 1,
    "obat:258": 1,
-   "obat:102": 1
+   "obat:106": 1,
+   "obat:102": 1,
+   "obat:103": 1,
+   "obat:105": 1
   }
  },
  {
@@ -1251,11 +1251,11 @@
   "rel": {
    "obat:102": 2,
    "konsep:1740": 1,
-   "obat:105": 1,
    "obat:104": 1,
-   "obat:103": 1,
+   "obat:258": 1,
    "obat:106": 1,
-   "obat:258": 1
+   "obat:103": 1,
+   "obat:105": 1
   }
  },
  {
@@ -1278,9 +1278,9 @@
   "rel": {
    "obat:148": 2,
    "konsep:1571": 1,
-   "obat:122": 1,
    "obat:121": 1,
-   "obat:123": 1
+   "obat:123": 1,
+   "obat:122": 1
   }
  },
  {
@@ -1292,8 +1292,8 @@
   "rel": {
    "obat:274": 2,
    "konsep:1468": 1,
-   "obat:273": 1,
    "obat:275": 1,
+   "obat:273": 1,
    "obat:272": 1
   }
  },
@@ -1306,12 +1306,12 @@
   "rel": {
    "obat:28": 2,
    "konsep:118": 1,
-   "obat:31": 1,
    "obat:33": 1,
-   "obat:32": 1,
-   "obat:27": 1,
    "obat:29": 1,
-   "obat:30": 1
+   "obat:30": 1,
+   "obat:27": 1,
+   "obat:32": 1,
+   "obat:31": 1
   }
  },
  {
@@ -1335,8 +1335,8 @@
    "obat:237": 2,
    "konsep:1583": 1,
    "obat:240": 1,
-   "obat:238": 1,
    "obat:236": 1,
+   "obat:238": 1,
    "obat:239": 1
   }
  },
@@ -1350,9 +1350,9 @@
    "obat:270": 2,
    "konsep:1427": 1,
    "obat:271": 1,
-   "obat:19": 1,
+   "obat:268": 1,
    "obat:269": 1,
-   "obat:268": 1
+   "obat:19": 1
   }
  },
  {
@@ -1364,8 +1364,8 @@
   "rel": {
    "obat:183": 2,
    "konsep:1624": 1,
-   "obat:186": 1,
    "obat:185": 1,
+   "obat:186": 1,
    "obat:184": 1
   }
  },
@@ -1390,10 +1390,10 @@
   "rel": {
    "obat:218": 2,
    "konsep:1660": 1,
-   "obat:144": 1,
    "obat:222": 1,
-   "obat:223": 1,
    "obat:221": 1,
+   "obat:144": 1,
+   "obat:223": 1,
    "obat:143": 1
   }
  },
@@ -1406,11 +1406,11 @@
   "rel": {
    "obat:57": 2,
    "konsep:1535": 1,
+   "obat:129": 1,
    "obat:128": 1,
    "obat:59": 1,
-   "obat:127": 1,
    "obat:58": 1,
-   "obat:129": 1
+   "obat:127": 1
   }
  },
  {
@@ -1422,8 +1422,8 @@
   "rel": {
    "obat:93": 2,
    "konsep:1501": 1,
-   "obat:94": 1,
-   "obat:92": 1
+   "obat:92": 1,
+   "obat:94": 1
   }
  },
  {
