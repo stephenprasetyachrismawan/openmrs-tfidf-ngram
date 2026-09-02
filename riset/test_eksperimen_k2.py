@@ -127,3 +127,19 @@ def test_bangun_query_k2_deterministik():
     assert all(x["jenis"] in K.JENIS_K2 for x in a)
     assert all(len(x["q"]) >= 3 for x in a)
     assert {x["entitas"] for x in a} <= set(K.ENT8)
+
+
+def test_metrik_akurasi_hit_dan_mrr():
+    saran = [("konsep:9", (0.9, True)), ("konsep:1", (0.5, True)), ("konsep:3", (0.3, False))]
+    m = K.metrik_akurasi(saran, {"konsep:1": 2})
+    assert m["hit@1"] == 0
+    assert m["hit@3"] == 1
+    assert m["hit@6"] == 1
+    assert abs(m["mrr@6"] - 0.5) < 1e-9
+    assert m["saran_kosong"] == 0
+
+
+def test_metrik_akurasi_saran_kosong():
+    m = K.metrik_akurasi([], {"konsep:1": 2})
+    assert m["hit@1"] == m["hit@3"] == m["hit@6"] == 0
+    assert m["saran_kosong"] == 1

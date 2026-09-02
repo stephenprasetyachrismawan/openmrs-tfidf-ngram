@@ -292,3 +292,23 @@ def bangun_query_k2(rec):
                            seed=r["id"], rel=gold_k2(rec, r)))
             amb += 1
     return qs
+
+
+# --------------------------------------------------------- metrik 1: akurasi saran
+
+def metrik_akurasi(saran, rel):
+    """hit@{1,3,6}, MRR@6, saran_kosong dari daftar saran vs gold rel."""
+    ids = [kunci for kunci, _ in saran]
+    rel_di = lambda i: rel.get(i, 0) > 0
+    mrr = 0.0
+    for peringkat, i in enumerate(ids[:6], start=1):
+        if rel_di(i):
+            mrr = 1.0 / peringkat
+            break
+    return {
+        "hit@1": 1.0 if ids[:1] and rel_di(ids[0]) else 0.0,
+        "hit@3": 1.0 if any(rel_di(i) for i in ids[:3]) else 0.0,
+        "hit@6": 1.0 if any(rel_di(i) for i in ids[:6]) else 0.0,
+        "mrr@6": mrr,
+        "saran_kosong": 1.0 if not ids else 0.0,
+    }
