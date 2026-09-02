@@ -188,6 +188,13 @@ yang setia terhadap OpenMRS asli adalah **B0′**, lihat `docs/keputusan.md`
 ("E1") dan `riset/hasil4/`. Angka B0 di tabel ini (dari 180 query uji
 resmi) tidak diubah — cuma namanya, sesuai aturan 2 di atas.
 
+**K2 (saran ketik "Maksud Anda")** punya eksperimen sendiri sejak
+2026-09-01 — `riset/eksperimen_k2.py` → `riset/hasil5/`, korpus 8 entitas
+(termasuk `hasillab` + `kondisi`), terpisah dari tabel di atas. Metrik
+interaksi (hit@k saran, penyelamatan query buntu), **bukan nDCG**. Aturan 2/3
+tak berlaku untuk jalur K2 (bukan bagian pipeline K1–K6); klaim K2 bukan
+peningkatan mutu peringkat dan bukan setara K4.
+
 
 ### 10. Test set haram disentuh
 

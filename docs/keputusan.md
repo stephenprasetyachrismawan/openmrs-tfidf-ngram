@@ -1564,3 +1564,68 @@ Pencarian menampilkan tiga kolom dengan judul baru
 (fuzzy/Lucene)", "Kami — mode b0", "Kami — mode e3"), karakter `′` (U+2032)
 tampil benar di teks penjelasan, console bersih, `docker ps` tetap 4
 container.
+
+## 2026-09-01 · Eksperimen K2 (saran ketik) — `hasil5/`
+
+**Motivasi.** K2 (`BigramJaccardSuggester`, endpoint `/unifiedsearch/saran`,
+commit `8ef5799`) punya kode di main tapi **nol bukti empiris** — tak ada
+eksperimen, tak ada bagian hasil, tak ada di proposal. Framing artikel butuh
+K2 sebagai kontribusi kedua (mempermudah pengguna), sejajar K1 (peringkat).
+
+**Rancangan.** Spec `docs/superpowers/specs/2026-09-01-eksperimen-k2-design.md`,
+rencana `docs/superpowers/plans/2026-09-01-eksperimen-k2.md`. Dua metrik:
+akurasi saran (hit@k/MRR) dan penyelamatan query buntu. Reimplementasi Python
+(`saran_k2`) mengikuti pola K1 (`eksperimen2.py`), diuji unit setia ke jalur
+peringkat `eksperimen2` pada 6 entitas. `eksperimen_k2.py` mengimpor
+`eksperimen2` sebagai modul — **`main()` tak pernah dipanggil**, `qs[100:]`
+tak tersentuh (aturan 10).
+
+**Korpus 8 entitas.** K1 hanya 6. `hasillab` (2.018) + `kondisi` (1.279)
+diekspor dari DB (`ekspor_hasillab.sql` / `ekspor_kondisi.sql`, cermin
+`HasilLabSource.java` / `ConditionSource.java`), di-commit.
+`sha256 hasillab d2d96a83…b09d3c9`, `kondisi 093eaa7c…44c6355e`.
+`kontrak-data.md` menyatakan keduanya "tidak ada padanan di eksperimen2.py";
+eksperimen K2 = pengukuran riset pertama yang menyentuhnya — **terpisah dari
+`hasil3/`, angka K1 tak berubah**.
+
+**Hasil (214 query, `hasil5/hasil.json`).**
+
+| | keseluruhan |
+|---|---|
+| Akurasi saran hit@1 / hit@3 / hit@6 / MRR@6 | 0,682 / 0,813 / 0,869 / 0,754 |
+| Penyelamatan: buntu sebelum → terselamatkan → buntu efektif | 8,9% → 15,8% → 7,5% |
+| E3 mengembalikan 0 dokumen: sebelum → sesudah 1 klik | 3,7% → **0,0%** |
+
+Per jenis degradasi: `typo` hit@6 0,985 (kuat untuk salah ketik kata utuh),
+`typo_pendek` hit@6 0,375 (lemah — query pendek+salah eja). Kontrol `persis`
+hit@3 = 1,000.
+
+**Bacaan.** Jalur E3 (dengan kepingan karakter) **sudah** mencegah kebanyakan
+jalan buntu (hanya 8,9%). Peran K2 sempit: menyelamatkan ~16% dari yang buntu,
+dan **menghapus layar-kosong sepenuhnya**. K2 **bukan** peningkatan mutu
+peringkat, **bukan** setara K4. Ini S1 (Interactive Query Expansion, Ruthven
+2003), bukan K7 — metrik penyelamatan mensimulasikan klik pengguna, `q'` tak
+pernah diumpankan otomatis ke pipeline.
+
+**Determinisme.** `cek_determinisme_k2.py`: `hasil.json` / `query_k2.json` /
+`per_query_k2.json` identik byte di 3 proses (kecuali `waktu_indeks`).
+
+**Penyimpangan dari spec saat eksekusi** (perbaikan desain query set, bukan
+penyetelan ke angka; parameter suggester tak disentuh):
+1. `trunkasi_pendek`/`typo_pendek` dibatasi ke judul 1–2 kata. Frasa klinis
+   panjang dipotong pendek selalu kalah Jaccard-bigram dari kata pendek acak
+   (union raksasa) — bukan cara suggester dipakai.
+2. `trunkasi_pendek` memotong seluruh query ke 4–6 huruf, bukan kata pertama
+   ke 3–5.
+3. `gold_k2` hasillab/kondisi: kredit dokumen sejenis berjudul sama grade-1
+   (spec: seed-only). Nama tes berulang lintas pasien; tanpa ini kontrol
+   `persis` anjlok ke 0,75 karena tie-break kunci.
+
+**Pekerjaan terbuka.**
+- Cross-check `saran_k2` Python vs endpoint `/unifiedsearch/saran` live
+  (`cek_cross_k2.py`, siap) — **tertunda**, stack REST OpenMRS mati
+  (`webservices.rest` gagal load, `ClassNotFoundException MainResourceController`,
+  seluruh REST 500 setelah container backend di-recreate; sama dengan item #6).
+- Sub-cek privilege live (aturan 5) — tertunda bersama cross-check. Jalur kode
+  ada (`UnifiedSearchService.saran`, gerbang `mayViewPatients`); uji unit
+  khusus butuh mockito-inline di `api/pom.xml` = pekerjaan lanjutan.

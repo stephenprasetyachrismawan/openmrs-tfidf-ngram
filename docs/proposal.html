@@ -1479,6 +1479,42 @@ nDCG@10 = DCG ÷ IDCG = 3,062 ÷ 3,131 = <b>0,978</b>
 
 <p>Sesuai aturan proyek ("jangan menambal app resmi, kalau slot tidak ada, laporkan"), rencana mockup A untuk titik sisip ini <b>tidak dikerjakan</b>. Sebagai gantinya dibangun halaman <b>"Perbandingan Pencarian"</b> — satu query dijalankan serentak pada endpoint pencarian konsep bawaan OpenMRS yang sungguhan, tiruan heuristik kami, dan sistem usulan, ditampilkan berdampingan. Pendekatan ini membuktikan klaim yang sama (sistem kami tahan salah ketik, dijalankan pada endpoint nyata) tanpa menyentuh app resmi mana pun, dan sekaligus menutup celah yang mungkin dipertanyakan penguji: bahwa baseline-nya dibuat lemah sendiri. Rincian lengkap, termasuk bukti penelusuran DOM: <span class="mono">docs/keputusan.md</span> (entri "tugas 13" dan "D1").</p>
 
+<h3>6.3 Kontribusi 2 — saran ketik "Maksud Anda"</h3>
+
+<p>Selain memperbaiki hasil peringkat (K1), sistem menyediakan jalur kedua untuk mempermudah pengguna: kotak saran ketik di navbar. Saat query pengguna kacau, di bawah kotak muncul daftar "Maksud Anda: …"; satu klik menimpa isi kotak dan mencari ulang. Ini <b>Interactive Query Expansion</b> (Ruthven, SIGIR 2003): sistem <em>menawarkan</em>, pengguna <em>memutus</em> — berbeda dari perluasan query otomatis (yang diuji lalu dibuang, bagian di atas). Mesinnya kesamaan Jaccard atas kepingan dua-huruf; jalur terpisah dari peringkat, tidak menyentuh skor nDCG mana pun.</p>
+
+<p>Diukur pada <b>214 query terdegradasi</b>, korpus <b>8 entitas</b> (enam entitas K1 ditambah hasil lab dan kondisi pasien — <span class="mono">riset/hasil5/</span>). Korpus ini sengaja lebih luas dari 180 query uji K1 dan <b>tidak dicampur</b> dengan angka K1.</p>
+
+<table>
+<thead><tr><th>Jenis degradasi</th><th class="num">n</th><th class="num">hit@1</th><th class="num">hit@3</th><th class="num">hit@6</th><th class="num">MRR@6</th></tr></thead>
+<tbody>
+<tr><td>persis (kontrol)</td><td class="num">52</td><td class="num">0,962</td><td class="num">1,000</td><td class="num">1,000</td><td class="num">0,981</td></tr>
+<tr><td>salah ketik (kata utuh)</td><td class="num">66</td><td class="num">0,864</td><td class="num">0,985</td><td class="num">0,985</td><td class="num">0,924</td></tr>
+<tr><td>trunkasi (per kata)</td><td class="num">46</td><td class="num">0,609</td><td class="num">0,870</td><td class="num">0,913</td><td class="num">0,734</td></tr>
+<tr><td>trunkasi pendek (4–6 huruf)</td><td class="num">26</td><td class="num">0,308</td><td class="num">0,462</td><td class="num">0,692</td><td class="num">0,426</td></tr>
+<tr><td>pendek + salah eja</td><td class="num">24</td><td class="num">0,125</td><td class="num">0,208</td><td class="num">0,375</td><td class="num">0,192</td></tr>
+<tr class="hi"><td><b>keseluruhan</b></td><td class="num"><b>214</b></td><td class="num"><b>0,682</b></td><td class="num"><b>0,813</b></td><td class="num"><b>0,869</b></td><td class="num"><b>0,754</b></td></tr>
+</tbody>
+</table>
+<p class="small">Saran kuat untuk salah ketik kata utuh (hit@6 0,985); melemah tajam pada query pendek — Jaccard bigram menghukum kecocokan parsial, prefiks pendek dari judul panjang kalah dari kata pendek acak yang berbagi 2–3 kepingan. Batas metode, dilaporkan apa adanya.</p>
+
+<p><b>Penyelamatan query buntu.</b> Untuk tiap query, jalur E3 dijalankan lebih dulu; "buntu" = tidak ada satu pun dokumen relevan di 10 besar. Lalu diukur apakah <b>satu klik</b> saran teratas membawa ke hasil relevan.</p>
+
+<table>
+<thead><tr><th>Ukuran</th><th class="num">Nilai</th></tr></thead>
+<tbody>
+<tr><td>Query buntu (E3 tak beri relevan di top-10)</td><td class="num">8,9%</td></tr>
+<tr><td>Dari yang buntu: terselamatkan satu klik</td><td class="num">15,8%</td></tr>
+<tr><td>Query buntu efektif setelah satu klik</td><td class="num">7,5%</td></tr>
+<tr class="hi"><td><b>Query 0-hasil: sebelum → sesudah satu klik</b></td><td class="num"><b>3,7% → 0,0%</b></td></tr>
+</tbody>
+</table>
+
+<div class="box warn">
+<p class="lbl">Yang tidak diklaim untuk K2</p>
+<p>K2 <b>tidak</b> menaikkan nDCG, P@1, atau metrik peringkat mana pun — tak menyentuh jalur peringkat, dan tidak punya angka nDCG sendiri. Jalur E3 (dengan kepingan karakter K4) <b>sudah</b> mencegah kebanyakan jalan buntu; hanya 8,9% query yang benar-benar tak berujung. Peran K2 sempit: menyelamatkan sebagian dari yang buntu, dan <b>menghapus layar-kosong sepenuhnya</b>. Ini bukan komponen setara K4 (kepingan karakter, satu-satunya komponen yang terbukti berpengaruh substantif, +0,174 nDCG). Cross-check ke endpoint Java live tertunda saat penulisan (stack REST OpenMRS mati); angka di atas dari reimplementasi Python yang deterministik dan diuji setia ke pipeline pada enam entitas.</p>
+</div>
+
 <h2 id="b7"><span class="n">7</span>Pembagian kerja &amp; jadwal</h2>
 
 <h3>7.1 Siapa mengerjakan apa</h3>
