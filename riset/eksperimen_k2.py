@@ -131,3 +131,41 @@ def cari8(sistem, q, lokal, glob, rec, topk=10):
                 semua.append((k, w[e] * 1.0 / (eksperimen2.K_RRF + r + 1)))
     semua.sort(key=lambda kv: (-kv[1], kv[0]))
     return semua[:topk]
+
+
+# ------------------------------------------------------------ reimpl suggester K2
+
+def saran_k2(lokal8, q, limit=LIMIT_SARAN):
+    """Reimplementasi BigramJaccardSuggester.search + UnifiedSearchService.saran.
+
+    Skor tiap surface form = Jaccard irisan bigram karakter |A n B| / |A u B|.
+    Gerbang: |irisan| >= MIN_IRISAN, KECUALI himpunan bigram query == form persis.
+    Terbaik per kunci dokumen; seri skor -> surface form judul menang.
+    Urut: (-skor, via_judul dulu, kunci naik). Sama KUNCI_COMPARATOR Java.
+    Jalan tanpa filter privilege (indeks penuh); filter = perilaku endpoint,
+    dibuktikan di cek_cross_k2.py.
+    """
+    gq = frozenset(eksperimen2._grams_impl(q, NGRAM_K2))
+    if not gq:
+        return []
+    terbaik = {}  # kunci -> (skor, via_judul)
+    for e in ENT8:
+        idx = lokal8.get(e)
+        if not idx:
+            continue
+        for teks, pem, utama in zip(idx["teks"], idx["pem"], idx["utama"]):
+            gf = frozenset(eksperimen2._grams_impl(teks, NGRAM_K2))
+            if not gf:
+                continue
+            iris = gq & gf
+            if not iris:
+                continue
+            persis = gq == gf
+            if len(iris) < MIN_IRISAN and not persis:
+                continue
+            skor = len(iris) / len(gq | gf)
+            prev = terbaik.get(pem)
+            if prev is None or skor > prev[0] or (skor == prev[0] and utama and not prev[1]):
+                terbaik[pem] = (skor, utama)
+    urut = sorted(terbaik.items(), key=lambda kv: (-kv[1][0], not kv[1][1], kv[0]))
+    return urut[:limit]

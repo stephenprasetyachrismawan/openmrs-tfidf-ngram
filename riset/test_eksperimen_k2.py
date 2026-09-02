@@ -47,3 +47,52 @@ def test_cari8_setia_ke_eksperimen2_pada_6_entitas(monkeypatch):
             a = K.cari8(sistem, it["q"], lokal, glob, rec)
             b = K.eksperimen2.cari(sistem, it["q"], lokal2, glob2, rec)
             assert a == b, f"{sistem} / {it['q']!r}: {a} != {b}"
+
+
+class _FakeIdx(dict):
+    """lokal8[e] minimal: teks / pem / utama sejajar."""
+
+    @classmethod
+    def dari(cls, baris):
+        return cls(teks=[t for t, _, _ in baris], pem=[p for _, p, _ in baris],
+                   utama=[u for _, _, u in baris])
+
+
+def _saran_dgn_ent(lokal, q, ents):
+    backup = K.ENT8
+    K.ENT8 = ents
+    try:
+        return K.saran_k2(lokal, q)
+    finally:
+        K.ENT8 = backup
+
+
+def test_saran_jaccard_dan_gerbang_min_irisan():
+    # "fever" bigram: fe,ev,ve,er ; "fevr" bigram: fe,ev,vr
+    # irisan {fe,ev}=2 -> lolos; union {fe,ev,ve,er,vr}=5 -> skor 2/5 = 0.4
+    lokal = {"konsep": _FakeIdx.dari([
+        ("Fever", "konsep:1", True),
+        ("Xy", "konsep:2", True),          # bigram {xy}; irisan 0 -> dibuang
+    ])}
+    assert _saran_dgn_ent(lokal, "fevr", ["konsep"]) == [("konsep:1", (0.4, True))]
+
+
+def test_saran_cocok_persis_lolos_walau_1_bigram():
+    # query "tb" -> bigram {tb}; form "TB" -> bigram {tb}; sama-set -> lolos, skor 1.0
+    lokal = {"konsep": _FakeIdx.dari([("TB", "konsep:9", False)])}
+    assert _saran_dgn_ent(lokal, "tb", ["konsep"]) == [("konsep:9", (1.0, False))]
+
+
+def test_saran_1_bigram_bukan_persis_dibuang():
+    # query "fev" bigram {fe,ev}; form "Fe" bigram {fe}; irisan {fe}=1, bukan persis -> buang
+    lokal = {"konsep": _FakeIdx.dari([("Fe", "konsep:3", True)])}
+    assert _saran_dgn_ent(lokal, "fev", ["konsep"]) == []
+
+
+def test_saran_tie_break_judul_sebelum_alias():
+    lokal = {
+        "pasien": _FakeIdx.dari([("Mark Smith", "pasien:8", True)]),
+        "hasillab": _FakeIdx.dari([("Mark Smith", "hasillab:5", False)]),
+    }
+    hasil = _saran_dgn_ent(lokal, "mark smith", ["pasien", "hasillab"])
+    assert hasil[0][0] == "pasien:8"  # via judul, di atas hasillab:5 (via alias)
