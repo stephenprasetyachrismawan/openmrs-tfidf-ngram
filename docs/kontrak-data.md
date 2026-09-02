@@ -110,6 +110,10 @@ repo, setelah proyek awalnya selesai. **Tidak ada padanan di
 — klaim signifikansi K4 (+0,174 nDCG) dan seluruh angka lain di `docs/`
 tetap hanya berlaku untuk enam entitas asli.
 
+Sejak 2026-09-01, `riset/eksperimen_k2.py` (eksperimen K2, saran ketik)
+memuat entitas ini pada korpus 8-entitas — itu pengukuran K2 (`hasil5/`),
+terpisah dari angka K1 yang tetap hanya enam entitas.
+
 | entitas | tabel sumber | judul | alias | kode | tautan_pasien |
 |---|---|---|---|---|---|
 | `hasillab` | `obs` (kelas konsep `Test`/`LabSet`) + `concept_name` + `person_name` | nama tes (nama konsep) | nama lengkap pasien | — | `obs.person_id` |
@@ -137,6 +141,10 @@ permintaan eksplisit pemilik repo. **Tidak ada padanan di
 `riset/eksperimen2.py`**, jadi tidak ada angka B0/B1/E1/E3 untuk entitas ini
 — klaim signifikansi K4 (+0,174 nDCG) dan seluruh angka lain di `docs/`
 tetap hanya berlaku untuk enam entitas asli.
+
+Sejak 2026-09-01, `riset/eksperimen_k2.py` (eksperimen K2, saran ketik)
+memuat entitas ini pada korpus 8-entitas — itu pengukuran K2 (`hasil5/`),
+terpisah dari angka K1 yang tetap hanya enam entitas.
 
 Sumbernya tabel `conditions` — daftar masalah pasien, data yang sama yang
 ditampilkan widget "Conditions" di chart O3. (Bukan `encounter_diagnosis`;

@@ -140,6 +140,33 @@ terpotong (nDCG 0,822 vs 0,353 milik TF-IDF kata murni). Yang runtuh adalah
 kasus salah eja di tengah kata (0,081). Implementasikan apa adanya — jangan
 diperlemah supaya usulan terlihat lebih baik.
 
+## 6b. K2 — saran ketik "Maksud Anda" (untuk mempermudah pengguna)
+
+Jalur **terpisah** dari peringkat. Endpoint `GET /unifiedsearch/saran`, bukan
+salah satu `mode`. Tak menyentuh nDCG. Ini Interactive Query Expansion
+(Ruthven, SIGIR 2003): sistem menawarkan, pengguna memutus — bukan K7
+(perluasan query otomatis, dilarang).
+
+Untuk tiap surface form:
+
+```
+bigram(s) = kepingan karakter n=2 dari norm(s) (spasi -> "_")
+skor      = |bigram(query) ∩ bigram(form)| / |bigram(query) ∪ bigram(form)|   (Jaccard)
+```
+
+Gerbang: surface form diskor hanya bila `|irisan| ≥ 2`, kecuali
+`bigram(query) == bigram(form)` persis (cocok eksak lolos walau 1 bigram).
+
+Skor dokumen = tertinggi atas surface form-nya; seri skor → surface form
+**judul** menang atas alias/kode. Urut akhir `(-skor, via_judul dulu, kunci)`
+(aturan 1). Hasil `pasien`/`hasillab`/`kondisi` disaring privilege
+"View Patients" (aturan 5) sebelum dikembalikan.
+
+`n=2` (vs kepingan K5 `n=4`) dan gerbang 2-bigram membuat query pendek atau
+sedikit salah ketik tetap memunculkan saran di kasus E3 (n=4) gagal.
+Eksperimen: `riset/eksperimen_k2.py` → `riset/hasil5/`, korpus 8 entitas
+(termasuk `hasillab` + `kondisi`), terpisah dari angka K1.
+
 ## 7. Mode yang harus didukung endpoint
 
 | mode | jalur kata | jalur kepingan | penggabungan antar tabel |

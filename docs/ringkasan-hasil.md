@@ -16,6 +16,9 @@ Lucene, tanpa server indeks terpisah, tanpa GPU, tanpa layanan internet:
 - **Endpoint REST** pencarian (`mode=b0|b1|e1|e3`) dan evaluasi. Latensi
   p95 **26 ms** setelah JVM hangat (sekitar 60 ms pada 20 permintaan
   pertama pasca-restart — dilaporkan apa adanya, bukan disembunyikan).
+- **Endpoint saran ketik** (`/unifiedsearch/saran`, K2) — Jaccard bigram
+  karakter untuk kotak "Maksud Anda" di navbar. Jalur terpisah, tak
+  menyentuh peringkat. Diukur di `riset/hasil5/` (lihat di bawah).
 - **Tiga antarmuka**: halaman JSP legacy UI (pencarian + panel evaluasi),
   ESM RefApp 3 "Pencarian Terpadu" (halaman + panel evaluasi setara), dan
   ESM "Perbandingan Pencarian" (tiga kolom berdampingan: pencarian konsep
@@ -23,13 +26,26 @@ Lucene, tanpa server indeks terpisah, tanpa GPU, tanpa layanan internet:
 
 ## Angka apa yang didapat, terhadap baseline mana
 
-Tiga sumber angka, **jangan dicampur**:
+**K1 (peringkat) — tiga sumber angka nDCG, jangan dicampur:**
 
 | Sumber | Cakupan | Baseline | nDCG@10 sistem usulan (E3) |
 |---|---|---|---|
 | **Test set resmi** (`riset/hasil3/`, 180 query, sekali jalan) | 6 tabel penuh | B0 (tiruan pencocokan awalan kami) | **0,815** (vs B0 0,628, +0,187 p&lt;0,001; vs E1 +0,013 p=0,039) |
 | **Dev 100 query** (endpoint Java live, `docs/keputusan.md` "C1") | 6 tabel penuh | B0 (sama) | **0,846** (vs B0 0,660) — cocok Python sampai presisi `double` |
 | **Dev 42 query konsep** (`riset/hasil4/`, baseline B0′ = OpenMRS asli) | konsep saja | **B0′ (endpoint fuzzy Lucene OpenMRS sungguhan)** | **0,903** (vs B0′ 0,800, **+0,103, p=0,0076** — jauh lebih kecil dari klaim terhadap B0) |
+
+**K2 (saran ketik) — metrik interaksi, bukan nDCG** (`riset/hasil5/`, 214 query,
+korpus 8 entitas — terpisah dari K1):
+
+| Metrik | Angka |
+|---|---|
+| Akurasi saran hit@1 / hit@3 / hit@6 / MRR@6 | 0,682 / 0,813 / 0,869 / 0,754 |
+| Penyelamatan query buntu (E3 tak beri relevan → 1 klik → relevan) | 15,8% dari yang buntu (8,9% → buntu efektif 7,5%) |
+| Query 0-hasil: sebelum → sesudah 1 klik | 3,7% → **0,0%** |
+
+Per jenis: `typo` hit@6 0,985 (kuat untuk salah ketik kata utuh), `typo_pendek`
+hit@6 0,375 (lemah untuk query pendek+salah eja). Cross-check ke endpoint live
+tertunda (stack REST mati) — angka dari reimplementasi Python deterministik.
 
 **Klaim yang bertahan setelah B0′ diukur:** kepingan karakter (E1 vs B0,
 +0,174 nDCG, p&lt;0,001, 180 query) tetap satu-satunya komponen yang
@@ -81,6 +97,6 @@ sebagai gantinya — membuktikan klaim yang sama tanpa menyentuh app resmi.
 ## Rujukan lengkap
 
 `docs/proposal.html` (proposal penuh), `docs/algoritma.md` (spesifikasi
-K1–K6 + B0), `docs/keputusan.md` (seluruh keputusan & temuan, kronologis),
+K1–K6 + B0 + K2), `docs/keputusan.md` (seluruh keputusan & temuan, kronologis),
 `docs/reproduksi.md` (langkah instalasi), `riset/hasil3/` (test set resmi),
-`riset/hasil4/` (eksperimen B0′).
+`riset/hasil4/` (eksperimen B0′), `riset/hasil5/` (eksperimen K2 saran ketik).
