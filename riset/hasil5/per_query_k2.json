@@ -1,0 +1,7459 @@
+[
+ {
+  "qid": 0,
+  "q": "moderate stimuant use disorder",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2144",
+  "rel": {
+   "konsep:2144": 2,
+   "konsep:2145": 1,
+   "konsep:2143": 1,
+   "konsep:2777": 1,
+   "konsep:2148": 1,
+   "konsep:2147": 1
+  },
+  "saran5": [
+   "konsep:2144",
+   "konsep:2143",
+   "konsep:2140",
+   "konsep:2145",
+   "konsep:2159"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 1,
+  "q": "tuberculosis polymerase chain reaciton with rifampin resistance checking",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:455",
+  "rel": {
+   "konsep:455": 2,
+   "konsep:370": 1,
+   "konsep:346": 1,
+   "konsep:367": 1,
+   "konsep:445": 1,
+   "konsep:366": 1,
+   "konsep:610": 1,
+   "konsep:369": 1,
+   "konsep:446": 1,
+   "konsep:364": 1,
+   "konsep:365": 1,
+   "konsep:368": 1,
+   "konsep:448": 1
+  },
+  "saran5": [
+   "hasillab:1547",
+   "hasillab:155",
+   "hasillab:2109",
+   "hasillab:3870",
+   "hasillab:5260"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 2,
+  "q": "heptaic trauma",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:3296",
+  "rel": {
+   "konsep:3296": 2
+  },
+  "saran5": [
+   "konsep:3296",
+   "konsep:1084",
+   "konsep:3629",
+   "konsep:2661",
+   "konsep:2846"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 3,
+  "q": "speech language disrder",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:3544",
+  "rel": {
+   "konsep:3544": 2,
+   "konsep:3149": 1,
+   "konsep:1248": 1,
+   "konsep:1326": 1,
+   "konsep:3545": 1,
+   "konsep:2044": 1
+  },
+  "saran5": [
+   "konsep:3544",
+   "konsep:1326",
+   "konsep:3545",
+   "kondisi:1176",
+   "kondisi:149"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 4,
+  "q": "benzatihne penicillin v",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:108",
+  "rel": {
+   "konsep:108": 2
+  },
+  "saran5": [
+   "konsep:108",
+   "konsep:1454",
+   "konsep:1458",
+   "konsep:1459",
+   "konsep:41"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 5,
+  "q": "amilo",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:121",
+  "rel": {
+   "konsep:121": 2
+  },
+  "saran5": [
+   "konsep:121",
+   "konsep:2986",
+   "konsep:1014",
+   "konsep:902",
+   "konsep:42"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 6,
+  "q": "voges pros test",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:412",
+  "rel": {
+   "konsep:412": 2
+  },
+  "saran5": [
+   "hasillab:1983",
+   "hasillab:5698",
+   "konsep:412",
+   "konsep:1647",
+   "hasillab:1632"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 7,
+  "q": "docu sodi",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:89",
+  "rel": {
+   "konsep:89": 2
+  },
+  "saran5": [
+   "konsep:12",
+   "obat:97",
+   "konsep:89",
+   "konsep:649",
+   "hasillab:1008"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 8,
+  "q": "comple",
+  "jenis": "trunkasi_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:1515",
+  "rel": {
+   "konsep:1515": 2
+  },
+  "saran5": [
+   "konsep:140",
+   "konsep:1515",
+   "konsep:3755",
+   "konsep:18",
+   "konsep:1516"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 9,
+  "q": "perti",
+  "jenis": "typo_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:2441",
+  "rel": {
+   "konsep:2441": 2,
+   "konsep:3590": 1
+  },
+  "saran5": [
+   "konsep:3607",
+   "konsep:4216",
+   "konsep:4044",
+   "konsep:1182",
+   "konsep:928"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Vertigo",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 10,
+  "q": "atazanavir ritonavir",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:1443",
+  "rel": {
+   "konsep:1443": 2
+  },
+  "saran5": [
+   "konsep:1443",
+   "konsep:156",
+   "konsep:111",
+   "konsep:1641",
+   "konsep:4037"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 11,
+  "q": "chlorhexidine",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:1493",
+  "rel": {
+   "konsep:1493": 2
+  },
+  "saran5": [
+   "konsep:1493",
+   "konsep:1494",
+   "konsep:1495",
+   "obat:82",
+   "obat:83"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 12,
+  "q": "failure of bone graft",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2371",
+  "rel": {
+   "konsep:2371": 2,
+   "konsep:2367": 1,
+   "konsep:2366": 1,
+   "konsep:2365": 1,
+   "konsep:2465": 1,
+   "konsep:3168": 1
+  },
+  "saran5": [
+   "konsep:2371",
+   "konsep:2465",
+   "kondisi:1264",
+   "kondisi:440",
+   "kondisi:991"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 13,
+  "q": "clindamycin",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:1501",
+  "rel": {
+   "konsep:1501": 2,
+   "obat:93": 1,
+   "obat:94": 1,
+   "obat:92": 1
+  },
+  "saran5": [
+   "konsep:1501",
+   "obat:92",
+   "obat:93",
+   "obat:94",
+   "konsep:1813"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 14,
+  "q": "dheiscence of anastomosis",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2434",
+  "rel": {
+   "konsep:2434": 2,
+   "konsep:3419": 1,
+   "konsep:2352": 1,
+   "konsep:2467": 1
+  },
+  "saran5": [
+   "konsep:2434",
+   "konsep:3443",
+   "kondisi:133",
+   "kondisi:684",
+   "konsep:650"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 15,
+  "q": "b postive",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:217",
+  "rel": {
+   "konsep:217": 2
+  },
+  "saran5": [
+   "konsep:217",
+   "konsep:635",
+   "konsep:215",
+   "konsep:219",
+   "konsep:193"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 16,
+  "q": "secondayr dysmenorrhoea",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:3366",
+  "rel": {
+   "konsep:3366": 2,
+   "konsep:2514": 1
+  },
+  "saran5": [
+   "konsep:3366",
+   "konsep:2514",
+   "konsep:2684",
+   "konsep:1170",
+   "konsep:2265"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 17,
+  "q": "pyromanai",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2592",
+  "rel": {
+   "konsep:2592": 2
+  },
+  "saran5": [
+   "konsep:2592",
+   "konsep:3677",
+   "konsep:1547",
+   "konsep:66",
+   "obat:130"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 18,
+  "q": "oxcodone",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:45",
+  "rel": {
+   "konsep:45": 2,
+   "obat:252": 1
+  },
+  "saran5": [
+   "konsep:45",
+   "obat:252",
+   "konsep:3755",
+   "konsep:3783",
+   "konsep:99"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 19,
+  "q": "eye glass",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:1563",
+  "rel": {
+   "konsep:1563": 2
+  },
+  "saran5": [
+   "konsep:1563",
+   "konsep:3933",
+   "konsep:3827",
+   "konsep:3906",
+   "konsep:62"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 20,
+  "q": "fract of acet",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:1409",
+  "rel": {
+   "konsep:1409": 2,
+   "konsep:3227": 1,
+   "konsep:3240": 1,
+   "konsep:3239": 1,
+   "konsep:3103": 1,
+   "konsep:1945": 1,
+   "konsep:3242": 1,
+   "konsep:1414": 1,
+   "konsep:2931": 1,
+   "konsep:2940": 1,
+   "konsep:3096": 1,
+   "konsep:3097": 1,
+   "konsep:3233": 1,
+   "konsep:3226": 1,
+   "konsep:3232": 1,
+   "konsep:2939": 1,
+   "konsep:3237": 1
+  },
+  "saran5": [
+   "kondisi:10",
+   "kondisi:180",
+   "kondisi:447",
+   "kondisi:561",
+   "kondisi:731"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 21,
+  "q": "tinea corpo",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:1129",
+  "rel": {
+   "konsep:1129": 2,
+   "konsep:1130": 1
+  },
+  "saran5": [
+   "kondisi:1098",
+   "kondisi:194",
+   "kondisi:339",
+   "kondisi:51",
+   "kondisi:547"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 22,
+  "q": "ging reces",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:3249",
+  "rel": {
+   "konsep:3249": 2,
+   "konsep:2634": 1,
+   "konsep:2991": 1,
+   "konsep:2268": 1,
+   "konsep:2978": 1,
+   "konsep:3571": 1,
+   "konsep:3686": 1,
+   "konsep:2587": 1,
+   "konsep:3338": 1,
+   "konsep:3202": 1,
+   "konsep:1355": 1,
+   "konsep:1298": 1,
+   "konsep:3063": 1,
+   "konsep:1299": 1,
+   "konsep:3005": 1,
+   "konsep:3140": 1,
+   "konsep:1224": 1,
+   "konsep:3630": 1
+  },
+  "saran5": [
+   "konsep:3249",
+   "konsep:792",
+   "konsep:587",
+   "konsep:3002",
+   "konsep:3833"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 23,
+  "q": "haemop",
+  "jenis": "trunkasi_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:3398",
+  "rel": {
+   "konsep:3398": 2,
+   "konsep:1399": 1,
+   "konsep:1289": 1,
+   "konsep:2980": 1,
+   "konsep:3166": 1,
+   "konsep:2419": 1,
+   "konsep:2557": 1,
+   "konsep:3447": 1,
+   "konsep:2110": 1,
+   "konsep:2096": 1,
+   "konsep:2098": 1,
+   "konsep:1953": 1,
+   "konsep:2609": 1,
+   "konsep:2732": 1,
+   "konsep:3173": 1,
+   "konsep:2431": 1,
+   "konsep:2440": 1
+  },
+  "saran5": [
+   "konsep:1979",
+   "konsep:2182",
+   "hasillab:1154",
+   "hasillab:1276",
+   "hasillab:1691"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 24,
+  "q": "aggr",
+  "jenis": "trunkasi_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:2997",
+  "rel": {
+   "konsep:2997": 2,
+   "konsep:3465": 1,
+   "konsep:2284": 1,
+   "konsep:2288": 1
+  },
+  "saran5": [
+   "konsep:2997",
+   "konsep:2915",
+   "hasillab:1991",
+   "hasillab:5700",
+   "konsep:410"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 25,
+  "q": "foodd",
+  "jenis": "typo_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:3991",
+  "rel": {
+   "konsep:3991": 2,
+   "konsep:3872": 1,
+   "konsep:3990": 1
+  },
+  "saran5": [
+   "konsep:955",
+   "konsep:655",
+   "konsep:3143",
+   "konsep:3991",
+   "konsep:938"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 26,
+  "q": "bacteer",
+  "jenis": "typo_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:1152",
+  "rel": {
+   "konsep:1152": 2,
+   "konsep:1156": 1,
+   "konsep:1116": 1,
+   "konsep:780": 1,
+   "konsep:1144": 1,
+   "konsep:1175": 1,
+   "konsep:1125": 1,
+   "konsep:779": 1,
+   "konsep:1133": 1,
+   "konsep:1149": 1,
+   "konsep:1192": 1,
+   "konsep:1127": 1,
+   "konsep:641": 1,
+   "konsep:1132": 1,
+   "konsep:1100": 1,
+   "konsep:2689": 1,
+   "konsep:776": 1,
+   "konsep:1085": 1,
+   "konsep:1183": 1,
+   "konsep:1101": 1,
+   "konsep:3704": 1,
+   "konsep:772": 1,
+   "konsep:2726": 1,
+   "konsep:3665": 1,
+   "konsep:2023": 1
+  },
+  "saran5": [
+   "konsep:1579",
+   "obat:149",
+   "konsep:109",
+   "obat:50",
+   "konsep:161"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 27,
+  "q": "propofol",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:36",
+  "rel": {
+   "konsep:36": 2
+  },
+  "saran5": [
+   "konsep:36",
+   "konsep:1657",
+   "konsep:1748",
+   "obat:217",
+   "konsep:1668"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 28,
+  "q": "poisoning by antimalarial drug",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2464",
+  "rel": {
+   "konsep:2464": 2,
+   "konsep:3714": 1
+  },
+  "saran5": [
+   "konsep:2464",
+   "konsep:3714",
+   "konsep:966",
+   "konsep:2848",
+   "kondisi:1237"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 29,
+  "q": "injury of extensor tendon and muscle of forearm",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2545",
+  "rel": {
+   "konsep:2545": 2,
+   "konsep:2546": 1
+  },
+  "saran5": [
+   "konsep:2545",
+   "konsep:2546",
+   "konsep:3030",
+   "konsep:2542",
+   "konsep:3029"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 30,
+  "q": "acute myocarditis",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2987",
+  "rel": {
+   "konsep:2987": 2
+  },
+  "saran5": [
+   "konsep:2987",
+   "konsep:3371",
+   "konsep:2990",
+   "konsep:2986",
+   "konsep:3567"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 31,
+  "q": "malignant tumor of vluva",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2250",
+  "rel": {
+   "konsep:2250": 2,
+   "konsep:2863": 1
+  },
+  "saran5": [
+   "konsep:2250",
+   "kondisi:1119",
+   "kondisi:404",
+   "kondisi:955",
+   "konsep:1105"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 32,
+  "q": "seurm phosphorous",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:539",
+  "rel": {
+   "konsep:539": 2
+  },
+  "saran5": [
+   "hasillab:7759",
+   "konsep:539",
+   "konsep:1496",
+   "konsep:179",
+   "obat:80"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 33,
+  "q": "glomerular filtration rate calculatd",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:542",
+  "rel": {
+   "konsep:542": 2
+  },
+  "saran5": [
+   "hasillab:8322",
+   "konsep:542",
+   "hasillab:1811",
+   "hasillab:2567",
+   "hasillab:5528"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 34,
+  "q": "neonaal conjunctivitis",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2311",
+  "rel": {
+   "konsep:2311": 2,
+   "konsep:2001": 1
+  },
+  "saran5": [
+   "konsep:2311",
+   "kondisi:1173",
+   "konsep:1141",
+   "konsep:3122",
+   "konsep:3665"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 35,
+  "q": "swelilng",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:3939",
+  "rel": {
+   "konsep:3939": 2
+  },
+  "saran5": [
+   "konsep:3939",
+   "konsep:3874",
+   "konsep:3997",
+   "konsep:2423",
+   "konsep:3849"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 36,
+  "q": "acute gast ulcer witho hemor or perfo",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:808",
+  "rel": {
+   "konsep:808": 2
+  },
+  "saran5": [
+   "kondisi:1145",
+   "kondisi:204",
+   "kondisi:755",
+   "konsep:808",
+   "kondisi:1110"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 37,
+  "q": "chro kidne dise stage iiib mode",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:2253",
+  "rel": {
+   "konsep:2253": 2,
+   "konsep:3086": 1,
+   "konsep:2254": 1
+  },
+  "saran5": [
+   "konsep:2253",
+   "konsep:3086",
+   "konsep:2254",
+   "konsep:3090",
+   "konsep:3091"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 38,
+  "q": "abort compl by hemor",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:2617",
+  "rel": {
+   "konsep:2617": 2
+  },
+  "saran5": [
+   "konsep:2617",
+   "konsep:2700",
+   "konsep:3106",
+   "konsep:3278",
+   "konsep:3110"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 39,
+  "q": "skin flap necro",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:2468",
+  "rel": {
+   "konsep:2468": 2
+  },
+  "saran5": [
+   "konsep:2468",
+   "konsep:2066",
+   "konsep:3023",
+   "konsep:2709",
+   "konsep:112"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 40,
+  "q": "elect",
+  "jenis": "trunkasi_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:3201",
+  "rel": {
+   "konsep:3201": 2
+  },
+  "saran5": [
+   "konsep:3761",
+   "konsep:231",
+   "konsep:3113",
+   "konsep:1490",
+   "konsep:25"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 41,
+  "q": "uulce",
+  "jenis": "typo_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:802",
+  "rel": {
+   "konsep:802": 2,
+   "konsep:4042": 1
+  },
+  "saran5": [
+   "kondisi:113",
+   "kondisi:664",
+   "konsep:802",
+   "konsep:3596",
+   "konsep:3597"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 42,
+  "q": "burn of trunk",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:3054",
+  "rel": {
+   "konsep:3054": 2
+  },
+  "saran5": [
+   "konsep:3054",
+   "konsep:2759",
+   "konsep:2757",
+   "konsep:2758",
+   "konsep:3703"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 43,
+  "q": "hematochezia",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:3258",
+  "rel": {
+   "konsep:3258": 2,
+   "konsep:2262": 1
+  },
+  "saran5": [
+   "konsep:3258",
+   "hasillab:1693",
+   "hasillab:2226",
+   "hasillab:2349",
+   "hasillab:2393"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 44,
+  "q": "psychogenic seizure",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2792",
+  "rel": {
+   "konsep:2792": 2,
+   "konsep:3126": 1,
+   "konsep:2402": 1
+  },
+  "saran5": [
+   "konsep:2792",
+   "konsep:2561",
+   "konsep:3208",
+   "konsep:3580",
+   "konsep:3508"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 45,
+  "q": "body fluid pancreatic exocrine function panel",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:253",
+  "rel": {
+   "konsep:253": 2,
+   "konsep:246": 1,
+   "konsep:252": 1,
+   "konsep:249": 1
+  },
+  "saran5": [
+   "konsep:253",
+   "konsep:197",
+   "konsep:249",
+   "hasillab:1113",
+   "hasillab:200"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 46,
+  "q": "methylprendisolone",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:1655",
+  "rel": {
+   "konsep:1655": 2,
+   "obat:288": 1
+  },
+  "saran5": [
+   "konsep:1655",
+   "obat:288",
+   "konsep:1739",
+   "konsep:1740",
+   "obat:102"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 47,
+  "q": "tendon injry",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2316",
+  "rel": {
+   "konsep:2316": 2
+  },
+  "saran5": [
+   "konsep:2316",
+   "konsep:2333",
+   "konsep:2334",
+   "konsep:2335",
+   "konsep:2196"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 48,
+  "q": "apasia",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:3011",
+  "rel": {
+   "konsep:3011": 2,
+   "konsep:3193": 1,
+   "konsep:1338": 1
+  },
+  "saran5": [
+   "konsep:3011",
+   "konsep:132",
+   "obat:1",
+   "obat:2",
+   "obat:254"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 49,
+  "q": "ipratropium bromide albuteorl",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:1618",
+  "rel": {
+   "konsep:1618": 2,
+   "obat:98": 1
+  },
+  "saran5": [
+   "konsep:1618",
+   "obat:98",
+   "konsep:1617",
+   "konsep:1773",
+   "konsep:1616"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 50,
+  "q": "intestinal adhesinos with obstruction",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2096",
+  "rel": {
+   "konsep:2096": 2,
+   "konsep:1399": 1,
+   "konsep:1289": 1,
+   "konsep:2980": 1,
+   "konsep:3166": 1,
+   "konsep:2419": 1,
+   "konsep:2557": 1,
+   "konsep:3447": 1,
+   "konsep:2110": 1,
+   "konsep:2098": 1,
+   "konsep:1953": 1,
+   "konsep:2609": 1,
+   "konsep:2732": 1,
+   "konsep:3173": 1,
+   "konsep:2431": 1,
+   "konsep:3398": 1,
+   "konsep:2440": 1,
+   "konsep:3370": 1
+  },
+  "saran5": [
+   "konsep:2096",
+   "konsep:3370",
+   "konsep:2872",
+   "konsep:2982",
+   "kondisi:1147"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 51,
+  "q": "serum creat umol l",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:209",
+  "rel": {
+   "konsep:209": 2,
+   "konsep:373": 1
+  },
+  "saran5": [
+   "hasillab:1115",
+   "hasillab:1465",
+   "hasillab:1581",
+   "hasillab:201",
+   "hasillab:2539"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 52,
+  "q": "essen hype",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:829",
+  "rel": {
+   "konsep:829": 2,
+   "konsep:3274": 1,
+   "konsep:2386": 1,
+   "konsep:2662": 1,
+   "konsep:807": 1
+  },
+  "saran5": [
+   "kondisi:1083",
+   "kondisi:1128",
+   "kondisi:253",
+   "kondisi:532",
+   "kondisi:804"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.16666666666666666,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 53,
+  "q": "cong blind",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:1256",
+  "rel": {
+   "konsep:1256": 2
+  },
+  "saran5": [
+   "kondisi:143",
+   "kondisi:694",
+   "konsep:1256",
+   "konsep:44",
+   "konsep:3389"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 54,
+  "q": "gest diab",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:826",
+  "rel": {
+   "konsep:826": 2
+  },
+  "saran5": [
+   "kondisi:1172",
+   "konsep:826",
+   "konsep:804",
+   "konsep:1938",
+   "konsep:1869"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 55,
+  "q": "lymphro",
+  "jenis": "typo_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:3324",
+  "rel": {
+   "konsep:3324": 2,
+   "konsep:1227": 1,
+   "konsep:2983": 1
+  },
+  "saran5": [
+   "konsep:670",
+   "konsep:2224",
+   "konsep:3392",
+   "konsep:2223",
+   "konsep:211"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 56,
+  "q": "secondary malignant neoplasm of lymph node",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2682",
+  "rel": {
+   "konsep:2682": 2
+  },
+  "saran5": [
+   "konsep:2682",
+   "konsep:2523",
+   "konsep:2521",
+   "konsep:1105",
+   "konsep:3335"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 57,
+  "q": "sunburn of second degree",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:2758",
+  "rel": {
+   "konsep:2758": 2,
+   "konsep:3501": 1,
+   "konsep:2757": 1,
+   "konsep:1881": 1,
+   "konsep:3562": 1
+  },
+  "saran5": [
+   "konsep:2758",
+   "konsep:2759",
+   "konsep:2320",
+   "konsep:2757",
+   "konsep:2319"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 58,
+  "q": "allergy to almonds",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:996",
+  "rel": {
+   "konsep:996": 2,
+   "konsep:3320": 1,
+   "konsep:1017": 1,
+   "konsep:941": 1,
+   "konsep:994": 1,
+   "konsep:1018": 1,
+   "konsep:1012": 1,
+   "konsep:938": 1,
+   "konsep:1021": 1,
+   "konsep:986": 1,
+   "konsep:1019": 1,
+   "konsep:1008": 1,
+   "konsep:982": 1,
+   "konsep:1020": 1,
+   "konsep:1029": 1,
+   "konsep:1031": 1,
+   "konsep:1023": 1,
+   "konsep:993": 1
+  },
+  "saran5": [
+   "konsep:996",
+   "kondisi:250",
+   "kondisi:801",
+   "konsep:1032",
+   "kondisi:1103"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 59,
+  "q": "chlorpheniramine",
+  "jenis": "persis",
+  "entitas": "konsep",
+  "seed": "konsep:1497",
+  "rel": {
+   "konsep:1497": 2
+  },
+  "saran5": [
+   "konsep:1497",
+   "konsep:1723",
+   "konsep:1536",
+   "konsep:1724",
+   "konsep:1535"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 60,
+  "q": "disorder of preitoneum",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:3173",
+  "rel": {
+   "konsep:3173": 2,
+   "konsep:1399": 1,
+   "konsep:1289": 1,
+   "konsep:2980": 1,
+   "konsep:3166": 1,
+   "konsep:2419": 1,
+   "konsep:2557": 1,
+   "konsep:3447": 1,
+   "konsep:2110": 1,
+   "konsep:2096": 1,
+   "konsep:2098": 1,
+   "konsep:1953": 1,
+   "konsep:2609": 1,
+   "konsep:2732": 1,
+   "konsep:2431": 1,
+   "konsep:3398": 1,
+   "konsep:2440": 1
+  },
+  "saran5": [
+   "konsep:3173",
+   "konsep:3179",
+   "kondisi:1154",
+   "kondisi:1190",
+   "kondisi:166"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 61,
+  "q": "major neurocognitive disorder with behavior changes cased by traumatic brain injury",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:2134",
+  "rel": {
+   "konsep:2134": 2,
+   "konsep:2136": 1,
+   "konsep:2135": 1,
+   "konsep:2290": 1,
+   "konsep:2138": 1
+  },
+  "saran5": [
+   "konsep:2134",
+   "konsep:2135",
+   "konsep:2136",
+   "konsep:2138",
+   "konsep:3636"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 62,
+  "q": "cocaine induced organic menatl disorder",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:1245",
+  "rel": {
+   "konsep:1245": 2
+  },
+  "saran5": [
+   "kondisi:1260",
+   "konsep:1245",
+   "konsep:3713",
+   "konsep:2999",
+   "konsep:3422"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 63,
+  "q": "body fuid ph",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:247",
+  "rel": {
+   "konsep:247": 2
+  },
+  "saran5": [
+   "konsep:247",
+   "konsep:492",
+   "konsep:251",
+   "konsep:253",
+   "konsep:252"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 64,
+  "q": "abomen",
+  "jenis": "typo",
+  "entitas": "konsep",
+  "seed": "konsep:4157",
+  "rel": {
+   "konsep:4157": 2
+  },
+  "saran5": [
+   "konsep:4157",
+   "konsep:4004",
+   "konsep:3930",
+   "konsep:3563",
+   "konsep:381"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 65,
+  "q": "diplo",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:1314",
+  "rel": {
+   "konsep:1314": 2
+  },
+  "saran5": [
+   "kondisi:197",
+   "kondisi:748",
+   "konsep:1314",
+   "konsep:119",
+   "obat:25"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 66,
+  "q": "acti liche planu",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:2125",
+  "rel": {
+   "konsep:2125": 2
+  },
+  "saran5": [
+   "konsep:2125",
+   "konsep:2204",
+   "konsep:2006",
+   "konsep:2203",
+   "konsep:2444"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 67,
+  "q": "neop metas",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:3435",
+  "rel": {
+   "konsep:3435": 2,
+   "konsep:2243": 1
+  },
+  "saran5": [
+   "konsep:3435",
+   "konsep:1460",
+   "konsep:3381",
+   "konsep:3893",
+   "hasillab:1576"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 68,
+  "q": "tenor",
+  "jenis": "trunkasi",
+  "entitas": "konsep",
+  "seed": "konsep:1802",
+  "rel": {
+   "konsep:1802": 2,
+   "obat:42": 1,
+   "obat:44": 1,
+   "obat:41": 1,
+   "obat:43": 1
+  },
+  "saran5": [
+   "konsep:1802",
+   "obat:41",
+   "obat:42",
+   "obat:43",
+   "obat:44"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 69,
+  "q": "delusi",
+  "jenis": "trunkasi_pendek",
+  "entitas": "konsep",
+  "seed": "konsep:1296",
+  "rel": {
+   "konsep:1296": 2,
+   "konsep:3139": 1
+  },
+  "saran5": [
+   "kondisi:1038",
+   "kondisi:1122",
+   "kondisi:46",
+   "kondisi:487",
+   "kondisi:597"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.16666666666666666,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 70,
+  "q": "orxycod",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:252",
+  "rel": {
+   "obat:252": 2,
+   "konsep:45": 1
+  },
+  "saran5": [
+   "konsep:45",
+   "obat:252",
+   "obat:99",
+   "konsep:168",
+   "konsep:4129"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 71,
+  "q": "flagyll",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:143",
+  "rel": {
+   "obat:143": 2,
+   "konsep:1660": 1,
+   "obat:144": 1,
+   "obat:222": 1,
+   "obat:223": 1,
+   "obat:221": 1,
+   "obat:218": 1
+  },
+  "saran5": [
+   "konsep:56",
+   "obat:219",
+   "obat:220",
+   "obat:143",
+   "obat:144"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 72,
+  "q": "lindane 1",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:196",
+  "rel": {
+   "obat:196": 2,
+   "konsep:1585": 1
+  },
+  "saran5": [
+   "obat:196",
+   "konsep:1531",
+   "konsep:44",
+   "konsep:1501",
+   "konsep:47"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 73,
+  "q": "oxycodone acetaminophen 5mg 325mg",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:253",
+  "rel": {
+   "obat:253": 2,
+   "konsep:167": 1
+  },
+  "saran5": [
+   "obat:253",
+   "konsep:167",
+   "obat:2",
+   "konsep:168",
+   "konsep:132"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 74,
+  "q": "claritin 5mg 5ml",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:91",
+  "rel": {
+   "obat:91": 2,
+   "konsep:1642": 1,
+   "obat:89": 1,
+   "obat:90": 1
+  },
+  "saran5": [
+   "obat:91",
+   "obat:90",
+   "obat:89",
+   "obat:76",
+   "obat:77"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 75,
+  "q": "virufen forte sirop",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:307",
+  "rel": {
+   "obat:307": 2,
+   "konsep:1422": 1
+  },
+  "saran5": [
+   "obat:307",
+   "konsep:1451",
+   "obat:56",
+   "obat:158",
+   "obat:142"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 76,
+  "q": "fruosemide injection vial 20mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:151",
+  "rel": {
+   "obat:151": 2,
+   "konsep:1580": 1,
+   "obat:187": 1,
+   "obat:190": 1,
+   "obat:191": 1,
+   "obat:189": 1,
+   "obat:188": 1,
+   "obat:150": 1
+  },
+  "saran5": [
+   "obat:151",
+   "obat:174",
+   "obat:36",
+   "obat:276",
+   "obat:128"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 77,
+  "q": "dflucan 150mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:122",
+  "rel": {
+   "obat:122": 2,
+   "konsep:1571": 1,
+   "obat:121": 1,
+   "obat:148": 1,
+   "obat:123": 1
+  },
+  "saran5": [
+   "obat:122",
+   "obat:121",
+   "obat:123",
+   "obat:148",
+   "obat:318"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 78,
+  "q": "dicloenac co 50mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:119",
+  "rel": {
+   "obat:119": 2,
+   "konsep:1527": 1,
+   "obat:120": 1,
+   "obat:118": 1
+  },
+  "saran5": [
+   "obat:119",
+   "obat:118",
+   "obat:45",
+   "konsep:1527",
+   "obat:120"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 79,
+  "q": "celocin 150mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:92",
+  "rel": {
+   "obat:92": 2,
+   "konsep:1501": 1,
+   "obat:93": 1,
+   "obat:94": 1
+  },
+  "saran5": [
+   "obat:92",
+   "obat:94",
+   "obat:226",
+   "obat:93",
+   "obat:122"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 80,
+  "q": "permehrin",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:257",
+  "rel": {
+   "obat:257": 2,
+   "konsep:1719": 1
+  },
+  "saran5": [
+   "konsep:1719",
+   "obat:257",
+   "konsep:1650",
+   "konsep:70",
+   "konsep:1562"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 81,
+  "q": "minoc 90mg",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:226",
+  "rel": {
+   "obat:226": 2,
+   "konsep:1666": 1
+  },
+  "saran5": [
+   "obat:226",
+   "konsep:1666",
+   "obat:240",
+   "obat:310",
+   "konsep:47"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 82,
+  "q": "ampic inje vial 1g",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:34",
+  "rel": {
+   "obat:34": 2,
+   "konsep:114": 1
+  },
+  "saran5": [
+   "obat:34",
+   "obat:130",
+   "obat:300",
+   "obat:215",
+   "obat:120"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 83,
+  "q": "eucer",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:138",
+  "rel": {
+   "obat:138": 2,
+   "konsep:1550": 1
+  },
+  "saran5": [
+   "konsep:1562",
+   "obat:138",
+   "kondisi:113",
+   "kondisi:664",
+   "konsep:802"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 84,
+  "q": "otoca",
+  "jenis": "trunkasi_pendek",
+  "entitas": "obat",
+  "seed": "obat:251",
+  "rel": {
+   "obat:251": 2,
+   "konsep:1455": 1
+  },
+  "saran5": [
+   "konsep:12",
+   "obat:97",
+   "konsep:162",
+   "obat:251",
+   "provider:6"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 85,
+  "q": "tietr",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:294",
+  "rel": {
+   "obat:294": 2,
+   "konsep:29": 1,
+   "obat:295": 1
+  },
+  "saran5": [
+   "konsep:29",
+   "konsep:487",
+   "konsep:56",
+   "konsep:74",
+   "obat:168"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": true,
+   "q_klik": "Tetracycline",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 86,
+  "q": "vatl",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:306",
+  "rel": {
+   "obat:306": 2,
+   "konsep:1824": 1
+  },
+  "saran5": [
+   "konsep:62",
+   "konsep:1445",
+   "konsep:1784",
+   "obat:287",
+   "konsep:4219"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Lorazepam",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 87,
+  "q": "opeht",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:249",
+  "rel": {
+   "obat:249": 2,
+   "konsep:1798": 1,
+   "obat:292": 1
+  },
+  "saran5": [
+   "konsep:2779",
+   "obat:316",
+   "konsep:3750",
+   "konsep:63",
+   "konsep:40"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Syncope",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 88,
+  "q": "tobradex 0 3 0 1",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:298",
+  "rel": {
+   "obat:298": 2,
+   "konsep:1814": 1,
+   "obat:301": 1
+  },
+  "saran5": [
+   "obat:298",
+   "obat:108",
+   "obat:153",
+   "konsep:1813",
+   "konsep:6"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 89,
+  "q": "inderal ir 60mg",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:180",
+  "rel": {
+   "obat:180": 2,
+   "konsep:1749": 1,
+   "obat:177": 1,
+   "obat:179": 1,
+   "obat:178": 1,
+   "obat:176": 1
+  },
+  "saran5": [
+   "obat:180",
+   "obat:177",
+   "obat:178",
+   "obat:179",
+   "obat:176"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 90,
+  "q": "ultram 50mg",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:305",
+  "rel": {
+   "obat:305": 2,
+   "konsep:28": 1,
+   "obat:300": 1
+  },
+  "saran5": [
+   "obat:305",
+   "obat:256",
+   "konsep:63",
+   "obat:295",
+   "obat:304"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 91,
+  "q": "acyclovir co 400mg",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:5",
+  "rel": {
+   "obat:5": 2,
+   "konsep:129": 1,
+   "obat:7": 1,
+   "obat:8": 1,
+   "obat:6": 1
+  },
+  "saran5": [
+   "obat:5",
+   "obat:8",
+   "konsep:129",
+   "obat:6",
+   "obat:7"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 92,
+  "q": "porventil 2 5mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:269",
+  "rel": {
+   "obat:269": 2,
+   "konsep:1427": 1,
+   "obat:271": 1,
+   "obat:270": 1,
+   "obat:19": 1,
+   "obat:268": 1
+  },
+  "saran5": [
+   "obat:269",
+   "obat:270",
+   "obat:46",
+   "obat:268",
+   "obat:271"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 93,
+  "q": "levaqiun 500mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:193",
+  "rel": {
+   "obat:193": 2,
+   "konsep:1632": 1,
+   "obat:192": 1
+  },
+  "saran5": [
+   "obat:193",
+   "obat:192",
+   "obat:63",
+   "obat:11",
+   "obat:85"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 94,
+  "q": "deltasoe 20mg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:104",
+  "rel": {
+   "obat:104": 2,
+   "konsep:1740": 1,
+   "obat:105": 1,
+   "obat:103": 1,
+   "obat:106": 1,
+   "obat:258": 1,
+   "obat:102": 1
+  },
+  "saran5": [
+   "obat:104",
+   "obat:103",
+   "obat:105",
+   "obat:106",
+   "obat:102"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 95,
+  "q": "xyolcaine",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:317",
+  "rel": {
+   "obat:317": 2,
+   "konsep:65": 1
+  },
+  "saran5": [
+   "obat:317",
+   "konsep:65",
+   "konsep:1639",
+   "konsep:1746",
+   "konsep:98"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 96,
+  "q": "vitain b12 1000mcg",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:309",
+  "rel": {
+   "obat:309": 2,
+   "konsep:1829": 1,
+   "obat:314": 1,
+   "obat:313": 1
+  },
+  "saran5": [
+   "obat:309",
+   "obat:311",
+   "obat:310",
+   "obat:90",
+   "konsep:1830"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 97,
+  "q": "delt",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:102",
+  "rel": {
+   "obat:102": 2,
+   "konsep:1740": 1,
+   "obat:105": 1,
+   "obat:104": 1,
+   "obat:103": 1,
+   "obat:106": 1,
+   "obat:258": 1
+  },
+  "saran5": [
+   "konsep:148",
+   "obat:102",
+   "konsep:3624",
+   "konsep:6",
+   "obat:108"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 98,
+  "q": "esom 20mg",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:137",
+  "rel": {
+   "obat:137": 2,
+   "konsep:83": 1
+  },
+  "saran5": [
+   "obat:137",
+   "obat:104",
+   "obat:188",
+   "konsep:83",
+   "obat:12"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 99,
+  "q": "fluc co 150mg",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:148",
+  "rel": {
+   "obat:148": 2,
+   "konsep:1571": 1,
+   "obat:122": 1,
+   "obat:121": 1,
+   "obat:123": 1
+  },
+  "saran5": [
+   "obat:148",
+   "obat:122",
+   "obat:318",
+   "obat:310",
+   "obat:119"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 100,
+  "q": "pulmi flex 180mc",
+  "jenis": "trunkasi",
+  "entitas": "obat",
+  "seed": "obat:274",
+  "rel": {
+   "obat:274": 2,
+   "konsep:1468": 1,
+   "obat:273": 1,
+   "obat:275": 1,
+   "obat:272": 1
+  },
+  "saran5": [
+   "obat:274",
+   "obat:275",
+   "obat:273",
+   "obat:145",
+   "obat:21"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 101,
+  "q": "amox",
+  "jenis": "trunkasi_pendek",
+  "entitas": "obat",
+  "seed": "obat:28",
+  "rel": {
+   "obat:28": 2,
+   "konsep:118": 1,
+   "obat:31": 1,
+   "obat:33": 1,
+   "obat:32": 1,
+   "obat:27": 1,
+   "obat:29": 1,
+   "obat:30": 1
+  },
+  "saran5": [
+   "konsep:131",
+   "konsep:1800",
+   "konsep:119",
+   "konsep:60",
+   "obat:25"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 102,
+  "q": "azit",
+  "jenis": "trunkasi_pendek",
+  "entitas": "obat",
+  "seed": "obat:50",
+  "rel": {
+   "obat:50": 2,
+   "konsep:109": 1
+  },
+  "saran5": [
+   "konsep:109",
+   "obat:50",
+   "konsep:37",
+   "konsep:146",
+   "konsep:62"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 103,
+  "q": "neuor",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:237",
+  "rel": {
+   "obat:237": 2,
+   "konsep:1583": 1,
+   "obat:240": 1,
+   "obat:238": 1,
+   "obat:236": 1,
+   "obat:239": 1
+  },
+  "saran5": [
+   "konsep:71",
+   "konsep:2962",
+   "konsep:3386",
+   "konsep:54",
+   "konsep:103"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Isoflurane",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 104,
+  "q": "porv",
+  "jenis": "typo_pendek",
+  "entitas": "obat",
+  "seed": "obat:270",
+  "rel": {
+   "obat:270": 2,
+   "konsep:1427": 1,
+   "obat:271": 1,
+   "obat:19": 1,
+   "obat:269": 1,
+   "obat:268": 1
+  },
+  "saran5": [
+   "konsep:119",
+   "obat:25",
+   "obat:26",
+   "obat:235",
+   "konsep:25"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Amlodipine",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 105,
+  "q": "ketoconazole co 200mg",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:183",
+  "rel": {
+   "obat:183": 2,
+   "konsep:1624": 1,
+   "obat:186": 1,
+   "obat:185": 1,
+   "obat:184": 1
+  },
+  "saran5": [
+   "obat:183",
+   "obat:184",
+   "konsep:1624",
+   "obat:185",
+   "obat:186"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 106,
+  "q": "betamethasone 0 05",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:61",
+  "rel": {
+   "obat:61": 2,
+   "konsep:1517": 1,
+   "obat:20": 1
+  },
+  "saran5": [
+   "obat:61",
+   "konsep:1460",
+   "obat:20",
+   "konsep:92",
+   "obat:109"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 107,
+  "q": "metro gel 0 75",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:218",
+  "rel": {
+   "obat:218": 2,
+   "konsep:1660": 1,
+   "obat:144": 1,
+   "obat:222": 1,
+   "obat:223": 1,
+   "obat:221": 1,
+   "obat:143": 1
+  },
+  "saran5": [
+   "obat:218",
+   "konsep:56",
+   "obat:219",
+   "obat:220",
+   "obat:152"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 108,
+  "q": "benadryl",
+  "jenis": "persis",
+  "entitas": "obat",
+  "seed": "obat:57",
+  "rel": {
+   "obat:57": 2,
+   "konsep:1535": 1,
+   "obat:128": 1,
+   "obat:59": 1,
+   "obat:127": 1,
+   "obat:58": 1,
+   "obat:129": 1
+  },
+  "saran5": [
+   "obat:57",
+   "obat:58",
+   "obat:59",
+   "konsep:1425",
+   "obat:9"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 109,
+  "q": "cleocin 30m0g",
+  "jenis": "typo",
+  "entitas": "obat",
+  "seed": "obat:93",
+  "rel": {
+   "obat:93": 2,
+   "konsep:1501": 1,
+   "obat:94": 1,
+   "obat:92": 1
+  },
+  "saran5": [
+   "obat:93",
+   "obat:92",
+   "obat:94",
+   "obat:226",
+   "obat:237"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 110,
+  "q": "doanld harris",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:69",
+  "rel": {
+   "pasien:69": 2
+  },
+  "saran5": [
+   "pasien:19",
+   "pasien:69",
+   "hasillab:1416",
+   "hasillab:1417",
+   "hasillab:1418"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 111,
+  "q": "joseph dvais",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:93",
+  "rel": {
+   "pasien:93": 2
+  },
+  "saran5": [
+   "pasien:43",
+   "pasien:93",
+   "hasillab:8084",
+   "hasillab:8085",
+   "hasillab:8095"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 112,
+  "q": "michele lewis",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:37",
+  "rel": {
+   "pasien:37": 2
+  },
+  "saran5": [
+   "pasien:37",
+   "pasien:87",
+   "hasillab:7441",
+   "kondisi:1103",
+   "kondisi:1104"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 113,
+  "q": "helen roberst",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:47",
+  "rel": {
+   "pasien:47": 2
+  },
+  "saran5": [
+   "pasien:47",
+   "pasien:97",
+   "pasien:100",
+   "pasien:50",
+   "konsep:3817"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 114,
+  "q": "dani scott",
+  "jenis": "trunkasi",
+  "entitas": "pasien",
+  "seed": "pasien:41",
+  "rel": {
+   "pasien:41": 2
+  },
+  "saran5": [
+   "pasien:41",
+   "pasien:91",
+   "hasillab:7858",
+   "hasillab:7895",
+   "hasillab:7905"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 115,
+  "q": "rich nelso",
+  "jenis": "trunkasi",
+  "entitas": "pasien",
+  "seed": "pasien:106",
+  "rel": {
+   "pasien:106": 2
+  },
+  "saran5": [
+   "pasien:106",
+   "pasien:56",
+   "pasien:22",
+   "pasien:72",
+   "hasillab:1720"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 116,
+  "q": "steve thom",
+  "jenis": "trunkasi",
+  "entitas": "pasien",
+  "seed": "pasien:85",
+  "rel": {
+   "pasien:85": 2
+  },
+  "saran5": [
+   "pasien:35",
+   "pasien:85",
+   "hasillab:3418",
+   "hasillab:3419",
+   "hasillab:3420"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 117,
+  "q": "grace garci",
+  "jenis": "trunkasi",
+  "entitas": "pasien",
+  "seed": "pasien:60",
+  "rel": {
+   "pasien:60": 2
+  },
+  "saran5": [
+   "pasien:10",
+   "pasien:60",
+   "hasillab:235",
+   "hasillab:236",
+   "hasillab:237"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 118,
+  "q": "karen",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:75",
+  "rel": {
+   "pasien:75": 2
+  },
+  "saran5": [
+   "konsep:10",
+   "konsep:626",
+   "konsep:1833",
+   "obat:315",
+   "pasien:25"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.16666666666666666,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Heparin sodium",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 119,
+  "q": "doroth",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:104",
+  "rel": {
+   "pasien:104": 2
+  },
+  "saran5": [
+   "pasien:104",
+   "pasien:54",
+   "konsep:66",
+   "obat:194",
+   "obat:195"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 120,
+  "q": "micha",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:13",
+  "rel": {
+   "pasien:13": 2
+  },
+  "saran5": [
+   "pasien:13",
+   "pasien:63",
+   "hasillab:4332",
+   "hasillab:4333",
+   "hasillab:4334"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 121,
+  "q": "mark w",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:96",
+  "rel": {
+   "pasien:96": 2
+  },
+  "saran5": [
+   "pasien:46",
+   "pasien:96",
+   "hasillab:8413",
+   "hasillab:8432",
+   "kondisi:1269"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 122,
+  "q": "aganes",
+  "jenis": "typo_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:77",
+  "rel": {
+   "pasien:77": 2
+  },
+  "saran5": [
+   "konsep:1644",
+   "obat:224",
+   "konsep:132",
+   "obat:1",
+   "obat:2"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Magnesium",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 123,
+  "q": "kennne",
+  "jenis": "typo_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:98",
+  "rel": {
+   "pasien:98": 2
+  },
+  "saran5": [
+   "konsep:1776",
+   "konsep:907",
+   "obat:286",
+   "pasien:48",
+   "pasien:98"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.2,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 124,
+  "q": "eemily",
+  "jenis": "typo_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:16",
+  "rel": {
+   "pasien:16": 2
+  },
+  "saran5": [
+   "pasien:16",
+   "pasien:66",
+   "hasillab:1000",
+   "hasillab:1001",
+   "hasillab:1002"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 125,
+  "q": "sarah taylor",
+  "jenis": "persis",
+  "entitas": "pasien",
+  "seed": "pasien:81",
+  "rel": {
+   "pasien:81": 2
+  },
+  "saran5": [
+   "pasien:31",
+   "pasien:81",
+   "hasillab:2820",
+   "hasillab:2821",
+   "hasillab:2822"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 126,
+  "q": "steven white",
+  "jenis": "persis",
+  "entitas": "pasien",
+  "seed": "pasien:33",
+  "rel": {
+   "pasien:33": 2
+  },
+  "saran5": [
+   "pasien:33",
+   "pasien:83",
+   "hasillab:3221",
+   "hasillab:3222",
+   "hasillab:3223"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 127,
+  "q": "helen roberts",
+  "jenis": "persis",
+  "entitas": "pasien",
+  "seed": "pasien:97",
+  "rel": {
+   "pasien:97": 2
+  },
+  "saran5": [
+   "pasien:47",
+   "pasien:97",
+   "pasien:100",
+   "pasien:50",
+   "konsep:3817"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 128,
+  "q": "james martinez",
+  "jenis": "persis",
+  "entitas": "pasien",
+  "seed": "pasien:12",
+  "rel": {
+   "pasien:12": 2
+  },
+  "saran5": [
+   "pasien:12",
+   "pasien:62",
+   "hasillab:390",
+   "hasillab:391",
+   "hasillab:392"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 129,
+  "q": "richard borwn",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:95",
+  "rel": {
+   "pasien:95": 2
+  },
+  "saran5": [
+   "pasien:45",
+   "pasien:95",
+   "hasillab:8350",
+   "hasillab:8351",
+   "hasillab:8361"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 130,
+  "q": "joeph davis",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:43",
+  "rel": {
+   "pasien:43": 2
+  },
+  "saran5": [
+   "pasien:43",
+   "pasien:93",
+   "hasillab:8084",
+   "hasillab:8085",
+   "hasillab:8095"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 131,
+  "q": "susn hall",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:99",
+  "rel": {
+   "pasien:99": 2
+  },
+  "saran5": [
+   "pasien:49",
+   "pasien:99",
+   "pasien:102",
+   "pasien:52",
+   "konsep:3255"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 132,
+  "q": "sarah tyalor",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:31",
+  "rel": {
+   "pasien:31": 2
+  },
+  "saran5": [
+   "pasien:31",
+   "pasien:81",
+   "hasillab:2820",
+   "hasillab:2821",
+   "hasillab:2822"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 133,
+  "q": "steven wihte",
+  "jenis": "typo",
+  "entitas": "pasien",
+  "seed": "pasien:83",
+  "rel": {
+   "pasien:83": 2
+  },
+  "saran5": [
+   "pasien:33",
+   "pasien:83",
+   "hasillab:3221",
+   "hasillab:3222",
+   "hasillab:3223"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 134,
+  "q": "dorot odin",
+  "jenis": "trunkasi",
+  "entitas": "pasien",
+  "seed": "pasien:54",
+  "rel": {
+   "pasien:54": 2
+  },
+  "saran5": [
+   "pasien:104",
+   "pasien:54",
+   "konsep:119",
+   "obat:25",
+   "obat:26"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 135,
+  "q": "sandr walk",
+  "jenis": "trunkasi",
+  "entitas": "pasien",
+  "seed": "pasien:101",
+  "rel": {
+   "pasien:101": 2
+  },
+  "saran5": [
+   "pasien:101",
+   "pasien:51",
+   "konsep:2814",
+   "konsep:34",
+   "konsep:2112"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 136,
+  "q": "donal",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:19",
+  "rel": {
+   "pasien:19": 2
+  },
+  "saran5": [
+   "konsep:4152",
+   "konsep:3755",
+   "konsep:1677",
+   "pasien:19",
+   "pasien:69"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 137,
+  "q": "bett",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:57",
+  "rel": {
+   "pasien:57": 2
+  },
+  "saran5": [
+   "konsep:62",
+   "konsep:3390",
+   "konsep:115",
+   "konsep:1461",
+   "konsep:804"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.16666666666666666,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 138,
+  "q": "james",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:62",
+  "rel": {
+   "pasien:62": 2
+  },
+  "saran5": [
+   "konsep:119",
+   "konsep:1941",
+   "obat:25",
+   "obat:26",
+   "konsep:2489"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Amlodipine",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 139,
+  "q": "mary",
+  "jenis": "trunkasi_pendek",
+  "entitas": "pasien",
+  "seed": "pasien:71",
+  "rel": {
+   "pasien:71": 2
+  },
+  "saran5": [
+   "konsep:1870",
+   "pasien:21",
+   "pasien:71",
+   "hasillab:1545",
+   "hasillab:1547"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 140,
+  "q": "muscull",
+  "jenis": "typo_pendek",
+  "entitas": "kondisi",
+  "seed": "kondisi:31",
+  "rel": {
+   "kondisi:31": 2,
+   "kondisi:293": 1,
+   "kondisi:394": 1,
+   "kondisi:473": 1,
+   "kondisi:491": 1,
+   "kondisi:582": 1,
+   "kondisi:844": 1,
+   "kondisi:945": 1,
+   "kondisi:1024": 1,
+   "kondisi:1042": 1,
+   "kondisi:1240": 1
+  },
+  "saran5": [
+   "konsep:921",
+   "konsep:2114",
+   "kondisi:1024",
+   "kondisi:1042",
+   "kondisi:1240"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.3333333333333333,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 141,
+  "q": "niflu",
+  "jenis": "typo_pendek",
+  "entitas": "kondisi",
+  "seed": "kondisi:95",
+  "rel": {
+   "kondisi:95": 2,
+   "kondisi:485": 1,
+   "kondisi:646": 1,
+   "kondisi:1036": 1
+  },
+  "saran5": [
+   "konsep:1572",
+   "konsep:80",
+   "obat:139",
+   "kondisi:380",
+   "kondisi:931"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Flumazenil",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 142,
+  "q": "excessive sweating",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:305",
+  "rel": {
+   "kondisi:305": 2,
+   "kondisi:856": 1
+  },
+  "saran5": [
+   "kondisi:305",
+   "kondisi:856",
+   "konsep:1368",
+   "konsep:3623",
+   "konsep:3213"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 143,
+  "q": "enophthalmos due to trauma",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:178",
+  "rel": {
+   "kondisi:178": 2,
+   "kondisi:729": 1
+  },
+  "saran5": [
+   "kondisi:178",
+   "kondisi:729",
+   "konsep:1358",
+   "konsep:3803",
+   "konsep:2898"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 144,
+  "q": "diaphragmatic hernia",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:66",
+  "rel": {
+   "kondisi:66": 2,
+   "kondisi:617": 1
+  },
+  "saran5": [
+   "kondisi:617",
+   "kondisi:66",
+   "konsep:1311",
+   "konsep:3877",
+   "konsep:1304"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 145,
+  "q": "nutritional marasmus",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:837",
+  "rel": {
+   "kondisi:837": 2,
+   "kondisi:225": 1,
+   "kondisi:286": 1,
+   "kondisi:776": 1
+  },
+  "saran5": [
+   "kondisi:225",
+   "kondisi:286",
+   "kondisi:776",
+   "kondisi:837",
+   "konsep:1112"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 146,
+  "q": "dystropha unguium",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:1064",
+  "rel": {
+   "kondisi:1064": 2,
+   "kondisi:184": 1,
+   "kondisi:513": 1,
+   "kondisi:735": 1
+  },
+  "saran5": [
+   "kondisi:1064",
+   "kondisi:184",
+   "kondisi:513",
+   "kondisi:735",
+   "konsep:1346"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 147,
+  "q": "typohid fever",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:805",
+  "rel": {
+   "kondisi:805": 2,
+   "kondisi:254": 1,
+   "kondisi:492": 1,
+   "kondisi:501": 1,
+   "kondisi:1043": 1,
+   "kondisi:1052": 1
+  },
+  "saran5": [
+   "kondisi:1043",
+   "kondisi:1052",
+   "kondisi:254",
+   "kondisi:492",
+   "kondisi:501"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 148,
+  "q": "pleral effusion",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:1058",
+  "rel": {
+   "kondisi:1058": 2,
+   "kondisi:154": 1,
+   "kondisi:352": 1,
+   "kondisi:507": 1,
+   "kondisi:511": 1,
+   "kondisi:705": 1,
+   "kondisi:903": 1,
+   "kondisi:1062": 1
+  },
+  "saran5": [
+   "kondisi:1058",
+   "kondisi:1062",
+   "kondisi:154",
+   "kondisi:352",
+   "kondisi:507"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 149,
+  "q": "erytheam multiforme",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:364",
+  "rel": {
+   "kondisi:364": 2,
+   "kondisi:358": 1,
+   "kondisi:909": 1,
+   "kondisi:915": 1
+  },
+  "saran5": [
+   "kondisi:358",
+   "kondisi:364",
+   "kondisi:909",
+   "kondisi:915",
+   "konsep:1363"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 150,
+  "q": "chronic infecious disease",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:1057",
+  "rel": {
+   "kondisi:1057": 2,
+   "kondisi:506": 1
+  },
+  "saran5": [
+   "kondisi:1057",
+   "kondisi:506",
+   "konsep:1225",
+   "kondisi:388",
+   "kondisi:622"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 151,
+  "q": "acci not other spec",
+  "jenis": "trunkasi",
+  "entitas": "kondisi",
+  "seed": "kondisi:641",
+  "rel": {
+   "kondisi:641": 2,
+   "kondisi:90": 1,
+   "kondisi:1151": 1
+  },
+  "saran5": [
+   "kondisi:1151",
+   "kondisi:641",
+   "kondisi:90",
+   "konsep:1258",
+   "konsep:1263"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 152,
+  "q": "helm",
+  "jenis": "trunkasi",
+  "entitas": "kondisi",
+  "seed": "kondisi:707",
+  "rel": {
+   "kondisi:707": 2,
+   "kondisi:145": 1,
+   "kondisi:156": 1,
+   "kondisi:696": 1,
+   "kondisi:1159": 1
+  },
+  "saran5": [
+   "konsep:1359",
+   "kondisi:1159",
+   "kondisi:145",
+   "kondisi:156",
+   "kondisi:696"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 153,
+  "q": "bord tube lepr",
+  "jenis": "trunkasi",
+  "entitas": "kondisi",
+  "seed": "kondisi:699",
+  "rel": {
+   "kondisi:699": 2,
+   "kondisi:148": 1
+  },
+  "saran5": [
+   "kondisi:148",
+   "kondisi:699",
+   "konsep:1132",
+   "kondisi:1217",
+   "kondisi:245"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": true,
+   "q_klik": "Borderline tuberculoid leprosy",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 154,
+  "q": "cong pylor steno",
+  "jenis": "trunkasi",
+  "entitas": "kondisi",
+  "seed": "kondisi:750",
+  "rel": {
+   "kondisi:750": 2,
+   "kondisi:141": 1,
+   "kondisi:199": 1,
+   "kondisi:327": 1,
+   "kondisi:465": 1,
+   "kondisi:692": 1,
+   "kondisi:878": 1,
+   "kondisi:1016": 1
+  },
+  "saran5": [
+   "kondisi:1016",
+   "kondisi:141",
+   "kondisi:199",
+   "kondisi:327",
+   "kondisi:465"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 155,
+  "q": "kwash",
+  "jenis": "trunkasi_pendek",
+  "entitas": "kondisi",
+  "seed": "kondisi:953",
+  "rel": {
+   "kondisi:953": 2,
+   "kondisi:12": 1,
+   "kondisi:13": 1,
+   "kondisi:402": 1,
+   "kondisi:563": 1,
+   "kondisi:564": 1
+  },
+  "saran5": [
+   "kondisi:12",
+   "kondisi:13",
+   "kondisi:402",
+   "kondisi:563",
+   "kondisi:564"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 156,
+  "q": "gonor",
+  "jenis": "trunkasi_pendek",
+  "entitas": "kondisi",
+  "seed": "kondisi:175",
+  "rel": {
+   "kondisi:175": 2,
+   "kondisi:726": 1,
+   "kondisi:1263": 1
+  },
+  "saran5": [
+   "kondisi:1263",
+   "kondisi:175",
+   "kondisi:726",
+   "konsep:1170",
+   "konsep:654"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 157,
+  "q": "diiaph",
+  "jenis": "typo_pendek",
+  "entitas": "kondisi",
+  "seed": "kondisi:617",
+  "rel": {
+   "kondisi:617": 2,
+   "kondisi:66": 1
+  },
+  "saran5": [
+   "konsep:3877",
+   "konsep:3011",
+   "konsep:132",
+   "konsep:2219",
+   "obat:1"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 158,
+  "q": "pleurra",
+  "jenis": "typo_pendek",
+  "entitas": "kondisi",
+  "seed": "kondisi:903",
+  "rel": {
+   "kondisi:903": 2,
+   "kondisi:154": 1,
+   "kondisi:352": 1,
+   "kondisi:507": 1,
+   "kondisi:511": 1,
+   "kondisi:705": 1,
+   "kondisi:1058": 1,
+   "kondisi:1062": 1
+  },
+  "saran5": [
+   "konsep:2461",
+   "konsep:443",
+   "konsep:1197",
+   "kondisi:1058",
+   "kondisi:1062"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 159,
+  "q": "depressive disorder",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:125",
+  "rel": {
+   "kondisi:125": 2,
+   "kondisi:307": 1,
+   "kondisi:391": 1,
+   "kondisi:676": 1,
+   "kondisi:858": 1,
+   "kondisi:942": 1,
+   "kondisi:1142": 1,
+   "kondisi:1206": 1
+  },
+  "saran5": [
+   "kondisi:1142",
+   "kondisi:1206",
+   "kondisi:125",
+   "kondisi:307",
+   "kondisi:391"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 160,
+  "q": "varicella",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:782",
+  "rel": {
+   "kondisi:782": 2,
+   "kondisi:75": 1,
+   "kondisi:157": 1,
+   "kondisi:231": 1,
+   "kondisi:247": 1,
+   "kondisi:626": 1,
+   "kondisi:708": 1,
+   "kondisi:798": 1
+  },
+  "saran5": [
+   "kondisi:157",
+   "kondisi:231",
+   "kondisi:247",
+   "kondisi:626",
+   "kondisi:708"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 161,
+  "q": "stromal tumor of digestive system",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:1155",
+  "rel": {
+   "kondisi:1155": 2,
+   "kondisi:37": 1,
+   "kondisi:588": 1
+  },
+  "saran5": [
+   "kondisi:1155",
+   "kondisi:37",
+   "kondisi:588",
+   "konsep:1884",
+   "konsep:2248"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 162,
+  "q": "disorientated",
+  "jenis": "persis",
+  "entitas": "kondisi",
+  "seed": "kondisi:270",
+  "rel": {
+   "kondisi:270": 2,
+   "kondisi:821": 1,
+   "kondisi:1241": 1
+  },
+  "saran5": [
+   "kondisi:1241",
+   "kondisi:270",
+   "kondisi:821",
+   "konsep:1330",
+   "konsep:2836"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 163,
+  "q": "chronic viral hepatiis c",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:477",
+  "rel": {
+   "kondisi:477": 2,
+   "kondisi:1028": 1,
+   "kondisi:1113": 1
+  },
+  "saran5": [
+   "kondisi:1028",
+   "kondisi:1113",
+   "kondisi:477",
+   "konsep:1168",
+   "konsep:2060"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 164,
+  "q": "deluisons",
+  "jenis": "typo",
+  "entitas": "kondisi",
+  "seed": "kondisi:1122",
+  "rel": {
+   "kondisi:1122": 2,
+   "kondisi:46": 1,
+   "kondisi:487": 1,
+   "kondisi:597": 1,
+   "kondisi:1038": 1
+  },
+  "saran5": [
+   "kondisi:1038",
+   "kondisi:1122",
+   "kondisi:46",
+   "kondisi:487",
+   "kondisi:597"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 165,
+  "q": "serum crabon dioxide",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:397",
+  "rel": {
+   "hasillab:397": 2,
+   "hasillab:29": 1,
+   "hasillab:323": 1,
+   "hasillab:566": 1,
+   "hasillab:1583": 1,
+   "hasillab:2025": 1,
+   "hasillab:3270": 1,
+   "hasillab:3634": 1,
+   "hasillab:3749": 1,
+   "hasillab:4036": 1,
+   "hasillab:4105": 1,
+   "hasillab:4276": 1,
+   "hasillab:5294": 1,
+   "hasillab:5736": 1,
+   "hasillab:6985": 1,
+   "hasillab:7350": 1,
+   "hasillab:7644": 1,
+   "hasillab:8045": 1,
+   "hasillab:8271": 1
+  },
+  "saran5": [
+   "hasillab:1583",
+   "hasillab:2025",
+   "hasillab:29",
+   "hasillab:323",
+   "hasillab:3270"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 166,
+  "q": "serum calicum",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:4371",
+  "rel": {
+   "hasillab:4371": 2,
+   "hasillab:37": 1,
+   "hasillab:322": 1,
+   "hasillab:396": 1,
+   "hasillab:563": 1,
+   "hasillab:664": 1,
+   "hasillab:1002": 1,
+   "hasillab:1582": 1,
+   "hasillab:2021": 1,
+   "hasillab:2542": 1,
+   "hasillab:3272": 1,
+   "hasillab:3521": 1,
+   "hasillab:3637": 1,
+   "hasillab:3745": 1,
+   "hasillab:4034": 1,
+   "hasillab:4108": 1,
+   "hasillab:4280": 1,
+   "hasillab:4705": 1,
+   "hasillab:5292": 1,
+   "hasillab:5739": 1,
+   "hasillab:6265": 1,
+   "hasillab:6984": 1,
+   "hasillab:7224": 1,
+   "hasillab:7349": 1,
+   "hasillab:7622": 1,
+   "hasillab:7646": 1,
+   "hasillab:8044": 1,
+   "hasillab:8266": 1
+  },
+  "saran5": [
+   "hasillab:1002",
+   "hasillab:1582",
+   "hasillab:2021",
+   "hasillab:2542",
+   "hasillab:322"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 167,
+  "q": "sputum induction and concentration for acid fast baclli",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:276",
+  "rel": {
+   "hasillab:276": 2,
+   "hasillab:620": 1,
+   "hasillab:1929": 1,
+   "hasillab:3147": 1,
+   "hasillab:3991": 1,
+   "hasillab:4334": 1,
+   "hasillab:5643": 1,
+   "hasillab:6859": 1
+  },
+  "saran5": [
+   "hasillab:1929",
+   "hasillab:276",
+   "hasillab:3147",
+   "hasillab:3991",
+   "hasillab:4334"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 168,
+  "q": "hepat c test quali",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:3425",
+  "rel": {
+   "hasillab:3425": 2,
+   "hasillab:191": 1,
+   "hasillab:480": 1,
+   "hasillab:1122": 1,
+   "hasillab:2063": 1,
+   "hasillab:3478": 1,
+   "hasillab:3908": 1,
+   "hasillab:4197": 1,
+   "hasillab:4835": 1,
+   "hasillab:5777": 1,
+   "hasillab:7138": 1,
+   "hasillab:7192": 1,
+   "hasillab:7822": 1
+  },
+  "saran5": [
+   "konsep:533",
+   "hasillab:1122",
+   "hasillab:191",
+   "hasillab:2063",
+   "hasillab:3425"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 169,
+  "q": "hema",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:7983",
+  "rel": {
+   "hasillab:7983": 2,
+   "hasillab:1693": 1,
+   "hasillab:2226": 1,
+   "hasillab:2349": 1,
+   "hasillab:2393": 1,
+   "hasillab:2714": 1,
+   "hasillab:2923": 1,
+   "hasillab:3031": 1,
+   "hasillab:3186": 1,
+   "hasillab:3394": 1,
+   "hasillab:3464": 1,
+   "hasillab:3660": 1,
+   "hasillab:3690": 1,
+   "hasillab:5407": 1,
+   "hasillab:5939": 1,
+   "hasillab:6058": 1,
+   "hasillab:6105": 1,
+   "hasillab:6429": 1,
+   "hasillab:6635": 1,
+   "hasillab:6751": 1,
+   "hasillab:6900": 1,
+   "hasillab:7106": 1,
+   "hasillab:7184": 1,
+   "hasillab:7377": 1,
+   "hasillab:7404": 1,
+   "hasillab:7526": 1,
+   "hasillab:7947": 1,
+   "hasillab:8366": 1
+  },
+  "saran5": [
+   "konsep:4082",
+   "konsep:907",
+   "konsep:3892",
+   "konsep:447",
+   "konsep:4138"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 170,
+  "q": "stool test for redu subs",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:3235",
+  "rel": {
+   "hasillab:3235": 2,
+   "hasillab:1058": 1,
+   "hasillab:2194": 1,
+   "hasillab:4773": 1,
+   "hasillab:5905": 1,
+   "hasillab:6949": 1,
+   "hasillab:8205": 1,
+   "hasillab:8288": 1
+  },
+  "saran5": [
+   "hasillab:1058",
+   "hasillab:2194",
+   "hasillab:3235",
+   "hasillab:4773",
+   "hasillab:5905"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 171,
+  "q": "serum chlo",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:4033",
+  "rel": {
+   "hasillab:4033": 2,
+   "hasillab:35": 1,
+   "hasillab:316": 1,
+   "hasillab:398": 1,
+   "hasillab:564": 1,
+   "hasillab:1584": 1,
+   "hasillab:2023": 1,
+   "hasillab:3273": 1,
+   "hasillab:3635": 1,
+   "hasillab:3744": 1,
+   "hasillab:4110": 1,
+   "hasillab:4277": 1,
+   "hasillab:5291": 1,
+   "hasillab:5738": 1,
+   "hasillab:6988": 1,
+   "hasillab:7351": 1,
+   "hasillab:7645": 1,
+   "hasillab:8043": 1,
+   "hasillab:8265": 1
+  },
+  "saran5": [
+   "hasillab:1584",
+   "hasillab:2023",
+   "hasillab:316",
+   "hasillab:3273",
+   "hasillab:35"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 172,
+  "q": "widal",
+  "jenis": "trunkasi_pendek",
+  "entitas": "hasillab",
+  "seed": "hasillab:3091",
+  "rel": {
+   "hasillab:3091": 2,
+   "hasillab:580": 1,
+   "hasillab:1323": 1,
+   "hasillab:1464": 1,
+   "hasillab:2005": 1,
+   "hasillab:2633": 1,
+   "hasillab:2656": 1,
+   "hasillab:3102": 1,
+   "hasillab:4294": 1,
+   "hasillab:5037": 1,
+   "hasillab:5178": 1,
+   "hasillab:5719": 1,
+   "hasillab:6347": 1,
+   "hasillab:6370": 1,
+   "hasillab:6805": 1,
+   "hasillab:6816": 1,
+   "hasillab:8351": 1
+  },
+  "saran5": [
+   "konsep:293",
+   "konsep:294",
+   "konsep:2963",
+   "hasillab:1323",
+   "hasillab:1464"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.25,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 173,
+  "q": "aserum",
+  "jenis": "typo_pendek",
+  "entitas": "hasillab",
+  "seed": "hasillab:8193",
+  "rel": {
+   "hasillab:8193": 2,
+   "hasillab:33": 1,
+   "hasillab:203": 1,
+   "hasillab:320": 1,
+   "hasillab:392": 1,
+   "hasillab:453": 1,
+   "hasillab:667": 1,
+   "hasillab:939": 1,
+   "hasillab:996": 1,
+   "hasillab:1118": 1,
+   "hasillab:1578": 1,
+   "hasillab:2540": 1,
+   "hasillab:3513": 1,
+   "hasillab:3614": 1,
+   "hasillab:3746": 1,
+   "hasillab:3917": 1,
+   "hasillab:4030": 1,
+   "hasillab:4113": 1,
+   "hasillab:4168": 1,
+   "hasillab:4379": 1,
+   "hasillab:4655": 1,
+   "hasillab:4707": 1,
+   "hasillab:4831": 1,
+   "hasillab:5297": 1,
+   "hasillab:6257": 1,
+   "hasillab:7230": 1,
+   "hasillab:7329": 1,
+   "hasillab:7634": 1,
+   "hasillab:8267": 1
+  },
+  "saran5": [
+   "hasillab:1229",
+   "hasillab:4292",
+   "hasillab:4412",
+   "hasillab:4943",
+   "hasillab:578"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 174,
+  "q": "post prandial blood glucose measurement mg dl",
+  "jenis": "persis",
+  "entitas": "hasillab",
+  "seed": "hasillab:7231",
+  "rel": {
+   "hasillab:7231": 2,
+   "hasillab:658": 1,
+   "hasillab:999": 1,
+   "hasillab:2549": 1,
+   "hasillab:3518": 1,
+   "hasillab:4368": 1,
+   "hasillab:4710": 1,
+   "hasillab:6264": 1,
+   "hasillab:7631": 1
+  },
+  "saran5": [
+   "hasillab:2549",
+   "hasillab:3518",
+   "hasillab:4368",
+   "hasillab:4710",
+   "hasillab:6264"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 175,
+  "q": "blood typing",
+  "jenis": "persis",
+  "entitas": "hasillab",
+  "seed": "hasillab:325",
+  "rel": {
+   "hasillab:325": 2,
+   "hasillab:40": 1,
+   "hasillab:433": 1,
+   "hasillab:833": 1,
+   "hasillab:961": 1,
+   "hasillab:1207": 1,
+   "hasillab:1336": 1,
+   "hasillab:1485": 1,
+   "hasillab:2096": 1,
+   "hasillab:3009": 1,
+   "hasillab:3753": 1,
+   "hasillab:4040": 1,
+   "hasillab:4147": 1,
+   "hasillab:4547": 1,
+   "hasillab:4675": 1,
+   "hasillab:4922": 1,
+   "hasillab:5050": 1,
+   "hasillab:5199": 1,
+   "hasillab:5811": 1,
+   "hasillab:6722": 1,
+   "hasillab:7797": 1
+  },
+  "saran5": [
+   "hasillab:1207",
+   "hasillab:1336",
+   "hasillab:1485",
+   "hasillab:2096",
+   "hasillab:3009"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 176,
+  "q": "haemoglobin",
+  "jenis": "persis",
+  "entitas": "hasillab",
+  "seed": "hasillab:3663",
+  "rel": {
+   "hasillab:3663": 2,
+   "hasillab:510": 1,
+   "hasillab:693": 1,
+   "hasillab:1154": 1,
+   "hasillab:1276": 1,
+   "hasillab:1691": 1,
+   "hasillab:2227": 1,
+   "hasillab:2344": 1,
+   "hasillab:2396": 1,
+   "hasillab:2432": 1,
+   "hasillab:2716": 1,
+   "hasillab:2927": 1,
+   "hasillab:3030": 1,
+   "hasillab:3183": 1,
+   "hasillab:3392": 1,
+   "hasillab:3469": 1,
+   "hasillab:4224": 1,
+   "hasillab:4409": 1,
+   "hasillab:4870": 1,
+   "hasillab:4990": 1,
+   "hasillab:5403": 1,
+   "hasillab:5935": 1,
+   "hasillab:6060": 1,
+   "hasillab:6112": 1,
+   "hasillab:6147": 1,
+   "hasillab:6425": 1,
+   "hasillab:6637": 1,
+   "hasillab:6747": 1,
+   "hasillab:6897": 1,
+   "hasillab:7113": 1,
+   "hasillab:7181": 1,
+   "hasillab:7375": 1,
+   "hasillab:7532": 1,
+   "hasillab:7707": 1,
+   "hasillab:7945": 1,
+   "hasillab:7986": 1,
+   "hasillab:8362": 1
+  },
+  "saran5": [
+   "hasillab:1154",
+   "hasillab:1276",
+   "hasillab:1691",
+   "hasillab:2227",
+   "hasillab:2344"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 177,
+  "q": "streptococcal dnase b test",
+  "jenis": "persis",
+  "entitas": "hasillab",
+  "seed": "hasillab:5692",
+  "rel": {
+   "hasillab:5692": 2,
+   "hasillab:435": 1,
+   "hasillab:1979": 1,
+   "hasillab:4149": 1
+  },
+  "saran5": [
+   "hasillab:1979",
+   "hasillab:4149",
+   "hasillab:435",
+   "hasillab:5692",
+   "konsep:418"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 178,
+  "q": "human immunodeficiency virus srological test",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:2983",
+  "rel": {
+   "hasillab:2983": 2,
+   "hasillab:532": 1,
+   "hasillab:766": 1,
+   "hasillab:1019": 1,
+   "hasillab:1298": 1,
+   "hasillab:2139": 1,
+   "hasillab:2196": 1,
+   "hasillab:3221": 1,
+   "hasillab:3331": 1,
+   "hasillab:3427": 1,
+   "hasillab:4246": 1,
+   "hasillab:4480": 1,
+   "hasillab:4733": 1,
+   "hasillab:5012": 1,
+   "hasillab:5853": 1,
+   "hasillab:5910": 1,
+   "hasillab:6697": 1,
+   "hasillab:6935": 1,
+   "hasillab:7045": 1,
+   "hasillab:7141": 1
+  },
+  "saran5": [
+   "hasillab:1019",
+   "hasillab:1298",
+   "hasillab:2139",
+   "hasillab:2196",
+   "hasillab:2983"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 179,
+  "q": "comlete blood count",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:3659",
+  "rel": {
+   "hasillab:3659": 2,
+   "hasillab:1687": 1,
+   "hasillab:2388": 1,
+   "hasillab:2708": 1,
+   "hasillab:3391": 1,
+   "hasillab:3463": 1,
+   "hasillab:5401": 1,
+   "hasillab:6102": 1,
+   "hasillab:6422": 1,
+   "hasillab:7105": 1,
+   "hasillab:7177": 1,
+   "hasillab:7373": 1,
+   "hasillab:7941": 1
+  },
+  "saran5": [
+   "hasillab:1687",
+   "hasillab:2388",
+   "hasillab:2708",
+   "hasillab:3391",
+   "hasillab:3463"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 180,
+  "q": "gulcose serum 1 hr post 75g oral glucose mg dl",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:6835",
+  "rel": {
+   "hasillab:6835": 2,
+   "hasillab:81": 1,
+   "hasillab:2981": 1,
+   "hasillab:3122": 1,
+   "hasillab:3356": 1,
+   "hasillab:3548": 1,
+   "hasillab:3796": 1,
+   "hasillab:6694": 1,
+   "hasillab:7072": 1,
+   "hasillab:7262": 1,
+   "hasillab:7564": 1
+  },
+  "saran5": [
+   "hasillab:2981",
+   "hasillab:3122",
+   "hasillab:3356",
+   "hasillab:3548",
+   "hasillab:3796"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 181,
+  "q": "urine nitite test",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:1916",
+  "rel": {
+   "hasillab:1916": 2,
+   "hasillab:878": 1,
+   "hasillab:1348": 1,
+   "hasillab:1629": 1,
+   "hasillab:2167": 1,
+   "hasillab:2830": 1,
+   "hasillab:3319": 1,
+   "hasillab:4598": 1,
+   "hasillab:5072": 1,
+   "hasillab:5346": 1,
+   "hasillab:5630": 1,
+   "hasillab:5876": 1,
+   "hasillab:6535": 1,
+   "hasillab:7027": 1,
+   "hasillab:8121": 1
+  },
+  "saran5": [
+   "hasillab:1348",
+   "hasillab:1629",
+   "hasillab:1916",
+   "hasillab:2167",
+   "hasillab:2830"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 182,
+  "q": "human immunodeficiency vrus serological test",
+  "jenis": "typo",
+  "entitas": "hasillab",
+  "seed": "hasillab:5910",
+  "rel": {
+   "hasillab:5910": 2,
+   "hasillab:532": 1,
+   "hasillab:766": 1,
+   "hasillab:1019": 1,
+   "hasillab:1298": 1,
+   "hasillab:2139": 1,
+   "hasillab:2196": 1,
+   "hasillab:2983": 1,
+   "hasillab:3221": 1,
+   "hasillab:3331": 1,
+   "hasillab:3427": 1,
+   "hasillab:4246": 1,
+   "hasillab:4480": 1,
+   "hasillab:4733": 1,
+   "hasillab:5012": 1,
+   "hasillab:5853": 1,
+   "hasillab:6697": 1,
+   "hasillab:6935": 1,
+   "hasillab:7045": 1,
+   "hasillab:7141": 1
+  },
+  "saran5": [
+   "hasillab:1019",
+   "hasillab:1298",
+   "hasillab:2139",
+   "hasillab:2196",
+   "hasillab:2983"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 183,
+  "q": "comp blood count",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:3463",
+  "rel": {
+   "hasillab:3463": 2,
+   "hasillab:1687": 1,
+   "hasillab:2388": 1,
+   "hasillab:2708": 1,
+   "hasillab:3391": 1,
+   "hasillab:3659": 1,
+   "hasillab:5401": 1,
+   "hasillab:6102": 1,
+   "hasillab:6422": 1,
+   "hasillab:7105": 1,
+   "hasillab:7177": 1,
+   "hasillab:7373": 1,
+   "hasillab:7941": 1
+  },
+  "saran5": [
+   "hasillab:1687",
+   "hasillab:2388",
+   "hasillab:2708",
+   "hasillab:3391",
+   "hasillab:3463"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 184,
+  "q": "blood grou test",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:6721",
+  "rel": {
+   "hasillab:6721": 2,
+   "hasillab:38": 1,
+   "hasillab:324": 1,
+   "hasillab:432": 1,
+   "hasillab:832": 1,
+   "hasillab:960": 1,
+   "hasillab:1206": 1,
+   "hasillab:1334": 1,
+   "hasillab:1484": 1,
+   "hasillab:2095": 1,
+   "hasillab:3007": 1,
+   "hasillab:3752": 1,
+   "hasillab:4038": 1,
+   "hasillab:4146": 1,
+   "hasillab:4546": 1,
+   "hasillab:4674": 1,
+   "hasillab:4920": 1,
+   "hasillab:5048": 1,
+   "hasillab:5198": 1,
+   "hasillab:5809": 1,
+   "hasillab:7796": 1
+  },
+  "saran5": [
+   "hasillab:1206",
+   "hasillab:1334",
+   "hasillab:1484",
+   "hasillab:2095",
+   "hasillab:3007"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 185,
+  "q": "fast blood gluco measu mg dl",
+  "jenis": "trunkasi",
+  "entitas": "hasillab",
+  "seed": "hasillab:7624",
+  "rel": {
+   "hasillab:7624": 2,
+   "hasillab:652": 1,
+   "hasillab:997": 1,
+   "hasillab:2534": 1,
+   "hasillab:3509": 1,
+   "hasillab:4377": 1,
+   "hasillab:4709": 1,
+   "hasillab:6260": 1,
+   "hasillab:7225": 1
+  },
+  "saran5": [
+   "hasillab:2534",
+   "hasillab:3509",
+   "hasillab:4377",
+   "hasillab:4709",
+   "hasillab:6260"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 186,
+  "q": "seru",
+  "jenis": "trunkasi_pendek",
+  "entitas": "hasillab",
+  "seed": "hasillab:7227",
+  "rel": {
+   "hasillab:7227": 2,
+   "hasillab:32": 1,
+   "hasillab:317": 1,
+   "hasillab:394": 1,
+   "hasillab:565": 1,
+   "hasillab:662": 1,
+   "hasillab:1001": 1,
+   "hasillab:1580": 1,
+   "hasillab:2022": 1,
+   "hasillab:2537": 1,
+   "hasillab:3271": 1,
+   "hasillab:3525": 1,
+   "hasillab:3636": 1,
+   "hasillab:3743": 1,
+   "hasillab:4037": 1,
+   "hasillab:4111": 1,
+   "hasillab:4278": 1,
+   "hasillab:4375": 1,
+   "hasillab:4716": 1,
+   "hasillab:5293": 1,
+   "hasillab:5735": 1,
+   "hasillab:6248": 1,
+   "hasillab:6987": 1,
+   "hasillab:7348": 1,
+   "hasillab:7633": 1,
+   "hasillab:7643": 1,
+   "hasillab:8046": 1,
+   "hasillab:8268": 1
+  },
+  "saran5": [
+   "konsep:612",
+   "konsep:646",
+   "konsep:1013",
+   "konsep:4161",
+   "konsep:435"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Gamma glutamyl transpeptidase, serum",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 187,
+  "q": "tottal",
+  "jenis": "typo_pendek",
+  "entitas": "hasillab",
+  "seed": "hasillab:653",
+  "rel": {
+   "hasillab:653": 2,
+   "hasillab:188": 1,
+   "hasillab:485": 1,
+   "hasillab:1003": 1,
+   "hasillab:2545": 1,
+   "hasillab:3424": 1,
+   "hasillab:3515": 1,
+   "hasillab:3904": 1,
+   "hasillab:4194": 1,
+   "hasillab:4374": 1,
+   "hasillab:4717": 1,
+   "hasillab:6253": 1,
+   "hasillab:7135": 1,
+   "hasillab:7234": 1,
+   "hasillab:7636": 1
+  },
+  "saran5": [
+   "konsep:678",
+   "konsep:646",
+   "konsep:676",
+   "konsep:2407",
+   "hasillab:1487"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Creatine kinase",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 188,
+  "q": "basophils microscopic exam",
+  "jenis": "persis",
+  "entitas": "hasillab",
+  "seed": "hasillab:6752",
+  "rel": {
+   "hasillab:6752": 2,
+   "hasillab:2222": 1,
+   "hasillab:2352": 1,
+   "hasillab:2922": 1,
+   "hasillab:3038": 1,
+   "hasillab:3187": 1,
+   "hasillab:5937": 1,
+   "hasillab:6066": 1,
+   "hasillab:6636": 1,
+   "hasillab:6898": 1,
+   "hasillab:7529": 1,
+   "hasillab:7990": 1,
+   "hasillab:8369": 1
+  },
+  "saran5": [
+   "hasillab:2222",
+   "hasillab:2352",
+   "hasillab:2922",
+   "hasillab:3038",
+   "hasillab:3187"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 189,
+  "q": "c reactive protein",
+  "jenis": "persis",
+  "entitas": "hasillab",
+  "seed": "hasillab:2636",
+  "rel": {
+   "hasillab:2636": 2,
+   "hasillab:141": 1,
+   "hasillab:144": 1,
+   "hasillab:2268": 1,
+   "hasillab:3560": 1,
+   "hasillab:3855": 1,
+   "hasillab:3858": 1,
+   "hasillab:5982": 1,
+   "hasillab:6350": 1,
+   "hasillab:7274": 1,
+   "hasillab:7659": 1,
+   "hasillab:7721": 1
+  },
+  "saran5": [
+   "hasillab:141",
+   "hasillab:144",
+   "hasillab:2268",
+   "hasillab:2636",
+   "hasillab:3560"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 190,
+  "q": "site 40",
+  "jenis": "persis",
+  "entitas": "lokasi",
+  "seed": "lokasi:51",
+  "rel": {
+   "lokasi:51": 2
+  },
+  "saran5": [
+   "lokasi:51",
+   "lokasi:15",
+   "lokasi:52",
+   "lokasi:53",
+   "lokasi:54"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 191,
+  "q": "main store",
+  "jenis": "persis",
+  "entitas": "lokasi",
+  "seed": "lokasi:3",
+  "rel": {
+   "lokasi:3": 2
+  },
+  "saran5": [
+   "lokasi:3",
+   "konsep:2953",
+   "konsep:2415",
+   "konsep:3258",
+   "konsep:3549"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 192,
+  "q": "cmmunity outreach",
+  "jenis": "typo",
+  "entitas": "lokasi",
+  "seed": "lokasi:8",
+  "rel": {
+   "lokasi:8": 2
+  },
+  "saran5": [
+   "lokasi:8",
+   "konsep:48",
+   "konsep:946",
+   "konsep:112",
+   "obat:37"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 193,
+  "q": "main pharm",
+  "jenis": "trunkasi",
+  "entitas": "lokasi",
+  "seed": "lokasi:2",
+  "rel": {
+   "lokasi:2": 2
+  },
+  "saran5": [
+   "lokasi:2",
+   "konsep:704",
+   "konsep:2235",
+   "konsep:54",
+   "konsep:103"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 194,
+  "q": "site",
+  "jenis": "trunkasi_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:25",
+  "rel": {
+   "lokasi:25": 2
+  },
+  "saran5": [
+   "lokasi:12",
+   "lokasi:13",
+   "lokasi:14",
+   "lokasi:15",
+   "lokasi:16"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": true,
+   "q_klik": "Site 1",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 195,
+  "q": "site",
+  "jenis": "trunkasi_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:43",
+  "rel": {
+   "lokasi:43": 2
+  },
+  "saran5": [
+   "lokasi:12",
+   "lokasi:13",
+   "lokasi:14",
+   "lokasi:15",
+   "lokasi:16"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Site 1",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 196,
+  "q": "site",
+  "jenis": "trunkasi_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:44",
+  "rel": {
+   "lokasi:44": 2
+  },
+  "saran5": [
+   "lokasi:12",
+   "lokasi:13",
+   "lokasi:14",
+   "lokasi:15",
+   "lokasi:16"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Site 1",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 197,
+  "q": "site",
+  "jenis": "trunkasi_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:12",
+  "rel": {
+   "lokasi:12": 2
+  },
+  "saran5": [
+   "lokasi:12",
+   "lokasi:13",
+   "lokasi:14",
+   "lokasi:15",
+   "lokasi:16"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 198,
+  "q": "siite",
+  "jenis": "typo_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:19",
+  "rel": {
+   "lokasi:19": 2
+  },
+  "saran5": [
+   "lokasi:12",
+   "lokasi:13",
+   "lokasi:14",
+   "lokasi:15",
+   "lokasi:16"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Site 1",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 199,
+  "q": "stie",
+  "jenis": "typo_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:20",
+  "rel": {
+   "lokasi:20": 2
+  },
+  "saran5": [
+   "konsep:88",
+   "konsep:13",
+   "konsep:3133",
+   "konsep:965",
+   "konsep:1694"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": false,
+   "q_klik": "Efavirenz",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 200,
+  "q": "siet",
+  "jenis": "typo_pendek",
+  "entitas": "lokasi",
+  "seed": "lokasi:14",
+  "rel": {
+   "lokasi:14": 2
+  },
+  "saran5": [
+   "konsep:3007",
+   "konsep:3435",
+   "konsep:87",
+   "konsep:1783",
+   "obat:115"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 0.0,
+   "hit@6": 0.0,
+   "mrr@6": 0.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": true,
+   "nol_hasil_sebelum": true,
+   "terselamatkan": false,
+   "q_klik": "Anxiety",
+   "nol_hasil_sesudah": false
+  }
+ },
+ {
+  "qid": 201,
+  "q": "site 16",
+  "jenis": "persis",
+  "entitas": "lokasi",
+  "seed": "lokasi:27",
+  "rel": {
+   "lokasi:27": 2
+  },
+  "saran5": [
+   "lokasi:27",
+   "lokasi:12",
+   "lokasi:21",
+   "lokasi:22",
+   "lokasi:23"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 202,
+  "q": "mobile clinic",
+  "jenis": "persis",
+  "entitas": "lokasi",
+  "seed": "lokasi:7",
+  "rel": {
+   "lokasi:7": 2
+  },
+  "saran5": [
+   "lokasi:7",
+   "konsep:706",
+   "konsep:41",
+   "konsep:1435",
+   "konsep:736"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 203,
+  "q": "site 23",
+  "jenis": "persis",
+  "entitas": "lokasi",
+  "seed": "lokasi:34",
+  "rel": {
+   "lokasi:34": 2
+  },
+  "saran5": [
+   "lokasi:34",
+   "lokasi:13",
+   "lokasi:31",
+   "lokasi:32",
+   "lokasi:33"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 204,
+  "q": "site 41",
+  "jenis": "persis",
+  "entitas": "lokasi",
+  "seed": "lokasi:52",
+  "rel": {
+   "lokasi:52": 2
+  },
+  "saran5": [
+   "lokasi:52",
+   "lokasi:15",
+   "lokasi:51",
+   "lokasi:53",
+   "lokasi:54"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 205,
+  "q": "surgical oeration",
+  "jenis": "typo",
+  "entitas": "form",
+  "seed": "form:8",
+  "rel": {
+   "form:8": 2
+  },
+  "saran5": [
+   "form:8",
+   "konsep:761",
+   "konsep:3356",
+   "konsep:3466",
+   "konsep:3937"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 206,
+  "q": "covdi 19",
+  "jenis": "typo",
+  "entitas": "form",
+  "seed": "form:1",
+  "rel": {
+   "form:1": 2
+  },
+  "saran5": [
+   "form:1",
+   "konsep:1940",
+   "konsep:2139",
+   "konsep:2140",
+   "konsep:2627"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 207,
+  "q": "lboratory test results",
+  "jenis": "typo",
+  "entitas": "form",
+  "seed": "form:10",
+  "rel": {
+   "form:10": 2
+  },
+  "saran5": [
+   "form:10",
+   "konsep:1939",
+   "konsep:1847",
+   "konsep:923",
+   "konsep:596"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 208,
+  "q": "ward admssion",
+  "jenis": "typo",
+  "entitas": "form",
+  "seed": "form:4",
+  "rel": {
+   "form:4": 2
+  },
+  "saran5": [
+   "form:4",
+   "konsep:3768",
+   "konsep:3766",
+   "lokasi:10",
+   "lokasi:11"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 209,
+  "q": "form engie cookbook library",
+  "jenis": "typo",
+  "entitas": "form",
+  "seed": "form:3",
+  "rel": {
+   "form:3": 2
+  },
+  "saran5": [
+   "form:3",
+   "form:2",
+   "konsep:2384",
+   "konsep:2564",
+   "konsep:18"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 210,
+  "q": "jake doct",
+  "jenis": "trunkasi",
+  "entitas": "provider",
+  "seed": "provider:6",
+  "rel": {
+   "provider:6": 2
+  },
+  "saran5": [
+   "provider:6",
+   "konsep:12",
+   "obat:97",
+   "konsep:4139",
+   "konsep:555"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 211,
+  "q": "june techn",
+  "jenis": "trunkasi",
+  "entitas": "provider",
+  "seed": "provider:4",
+  "rel": {
+   "provider:4": 2
+  },
+  "saran5": [
+   "provider:4",
+   "konsep:1064",
+   "hasillab:1348",
+   "hasillab:1629",
+   "hasillab:1916"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 212,
+  "q": "jane n",
+  "jenis": "trunkasi_pendek",
+  "entitas": "provider",
+  "seed": "provider:5",
+  "rel": {
+   "provider:5": 2
+  },
+  "saran5": [
+   "provider:5",
+   "obat:196",
+   "konsep:132",
+   "obat:1",
+   "obat:2"
+  ],
+  "akurasi": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ },
+ {
+  "qid": 213,
+  "q": "unkno",
+  "jenis": "trunkasi_pendek",
+  "entitas": "provider",
+  "seed": "provider:1",
+  "rel": {
+   "provider:1": 2
+  },
+  "saran5": [
+   "konsep:656",
+   "provider:1",
+   "lokasi:1",
+   "konsep:2812",
+   "kondisi:109"
+  ],
+  "akurasi": {
+   "hit@1": 0.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.5,
+   "saran_kosong": 0.0
+  },
+  "penyelamatan": {
+   "buntu_sebelum": false,
+   "nol_hasil_sebelum": false,
+   "terselamatkan": null,
+   "q_klik": null,
+   "nol_hasil_sesudah": null
+  }
+ }
+]

@@ -205,16 +205,23 @@ def degradasi_k2(nama, jenis, rnd):
     kata = eksperimen2.words(nama)
     if not kata:
         return None, None
+    # Jenis "pendek" hanya untuk judul 1-2 kata (mis. "Fever", "Diabetes mellitus",
+    # nama pasien). Frasa klinis panjang dipotong pendek -> Jaccard bigram selalu
+    # kalah dari kata pendek acak (union raksasa); itu bukan cara suggester dipakai
+    # dan bukan aksi pengguna realistis. Frasa panjang tetap kena typo/trunkasi
+    # tingkat-kata, yang memang jalur E3.
+    if jenis in ("trunkasi_pendek", "typo_pendek") and len(kata) > 2:
+        return None, None
     if jenis == "trunkasi_pendek":
-        pool = [w for w in kata if len(w) > 5] or [w for w in kata if len(w) >= 4]
-        if not pool:
-            return None, None
-        w = pool[0]
-        opsi = [c for c in (3, 4, 5) if c < len(w)]
+        # Potong seluruh query ke 4-6 huruf pertama: model pengguna yang berhenti
+        # mengetik lebih awal ("diabetes mellitus" -> "diabe").
+        penuh = " ".join(kata)
+        rapat = penuh.replace(" ", "")
+        opsi = [c for c in (4, 5, 6) if c < len(rapat)]
         if not opsi:
             return None, None
-        potong = w[:rnd.choice(opsi)]
-        if potong == w:
+        potong = penuh[:rnd.choice(opsi)].strip()
+        if len(potong) < 3 or potong == penuh:
             return None, None
         return potong, "trunkasi_pendek"
     if jenis == "typo_pendek":
@@ -229,9 +236,19 @@ def degradasi_k2(nama, jenis, rnd):
 
 
 def gold_k2(rec, r):
-    """gold() eksperimen2 untuk 6 entitas asli; seed grade-2 saja untuk hasillab/kondisi."""
+    """gold() eksperimen2 untuk 6 entitas asli. Untuk hasillab/kondisi: seed grade-2
+    plus dokumen sejenis berjudul sama grade-1 -- nama tes/kondisi berulang lintas
+    pasien (mis. "Haemoglobin"), dan pengguna yang mengetik nama itu puas dengan
+    instans mana pun. Tanpa ini, kontrol 'persis' anjlok hanya karena tie-break
+    kunci memilih obs_id lain."""
     if r["entitas"] in ("hasillab", "kondisi"):
-        return {r["id"]: 2}
+        g = {r["id"]: 2}
+        jn = eksperimen2.norm(r["judul"])
+        for x in rec.values():
+            if (x["entitas"] == r["entitas"] and x["id"] != r["id"]
+                    and eksperimen2.norm(x["judul"]) == jn):
+                g[x["id"]] = 1
+        return g
     ref2c = collections.defaultdict(set)
     for x in rec.values():
         for t in x["refs"]:
@@ -344,3 +361,116 @@ def penyelamatan_satu(q, rel, rec, e3_fn, saran_fn):
     out["terselamatkan"] = _ada_relevan(h1, rel)
     out["nol_hasil_sesudah"] = (len(h1) == 0)
     return out
+
+
+# --------------------------------------------------------------- rakit + tulis
+
+def _agg(baris, kunci):
+    return sum(b[kunci] for b in baris) / len(baris) if baris else 0.0
+
+
+def _sha(path):
+    return dict(baris=sum(1 for _ in open(path, encoding="utf-8-sig")),
+               sha256=hashlib.sha256(open(path, "rb").read()).hexdigest())
+
+
+def _pyl_agg(B):
+    buntu = [p for p in B if p["penyelamatan"]["buntu_sebelum"]]
+    selamat = [p for p in buntu if p["penyelamatan"]["terselamatkan"]]
+    n = len(B) or 1
+
+    def _nol_sesudah(p):
+        v = p["penyelamatan"]["nol_hasil_sesudah"]
+        return v if v is not None else p["penyelamatan"]["nol_hasil_sebelum"]
+
+    nol0 = sum(1 for p in B if p["penyelamatan"]["nol_hasil_sebelum"])
+    nol1 = sum(1 for p in B if _nol_sesudah(p))
+    return dict(
+        buntu_sebelum=len(buntu) / n,
+        terselamatkan=(len(selamat) / len(buntu)) if buntu else None,
+        buntu_efektif_sesudah=(len(buntu) - len(selamat)) / n,
+        nol_hasil_sebelum=nol0 / n,
+        nol_hasil_sesudah=nol1 / n)
+
+
+def main():
+    print("memuat korpus 8 entitas ...")
+    rec = muat8()
+    hit = collections.Counter(r["entitas"] for r in rec.values())
+    print("  dokumen:", sum(hit.values()), dict(hit))
+    lokal, glob, t_idx = bangun8(rec)
+    nform = sum(len(lokal[e]["teks"]) for e in lokal)
+    print("  surface form: %d | waktu indeks: %.2f detik" % (nform, t_idx))
+
+    qs = bangun_query_k2(rec)
+    print("  query K2:", len(qs), dict(collections.Counter(x["jenis"] for x in qs)))
+
+    e3_cache = {}
+
+    def e3(q):
+        if q not in e3_cache:
+            e3_cache[q] = cari8("E3", q, lokal, glob, rec, topk=10)
+        return e3_cache[q]
+
+    def saran(q):
+        return saran_k2(lokal, q, limit=50)
+
+    per_query = []
+    for it in qs:
+        srn = saran_k2(lokal, it["q"], limit=50)
+        akr = metrik_akurasi(srn, it["rel"])
+        pyl = penyelamatan_satu(it["q"], it["rel"], rec, e3_fn=e3, saran_fn=saran)
+        per_query.append(dict(
+            qid=it["qid"], q=it["q"], jenis=it["jenis"], entitas=it["entitas"],
+            seed=it["seed"], rel=it["rel"],
+            saran5=[k for k, _ in srn[:5]], akurasi=akr, penyelamatan=pyl))
+
+    def rinci(ambil):
+        out = {}
+        for j in JENIS_K2 + ["keseluruhan"]:
+            baris = [p for p in per_query if j == "keseluruhan" or p["jenis"] == j]
+            out[j] = dict(n=len(baris), **ambil(baris))
+        return out
+
+    akurasi_tab = rinci(lambda B: {
+        k: _agg([p["akurasi"] for p in B], k)
+        for k in ("hit@1", "hit@3", "hit@6", "mrr@6", "saran_kosong")})
+    penyelamatan_tab = rinci(_pyl_agg)
+
+    per_entitas = {}
+    for e in ENT8:
+        B = [p for p in per_query if p["entitas"] == e]
+        per_entitas[e] = ({k: _agg([p["akurasi"] for p in B], k)
+                           for k in ("hit@1", "hit@3", "hit@6", "mrr@6")} if B else {})
+
+    hasil = dict(
+        korpus=dict(hit), surface_form=nform, waktu_indeks=t_idx,
+        n_query=len(qs),
+        param=dict(ngram=NGRAM_K2, min_irisan=MIN_IRISAN,
+                   limit_saran=LIMIT_SARAN, seed_k2=SEED_K2),
+        akurasi=akurasi_tab, penyelamatan=penyelamatan_tab, per_entitas=per_entitas,
+        snapshot=dict((fn, _sha(os.path.join(DATA, fn)))
+                      for fn in ("hasillab.jsonl", "kondisi.jsonl")))
+
+    json.dump(qs, open(os.path.join(OUT, "query_k2.json"), "w", encoding="utf-8"),
+              indent=1, ensure_ascii=False)
+    json.dump(hasil, open(os.path.join(OUT, "hasil.json"), "w", encoding="utf-8"),
+              indent=1, ensure_ascii=False)
+    json.dump(per_query, open(os.path.join(OUT, "per_query_k2.json"), "w", encoding="utf-8"),
+              indent=1, ensure_ascii=False)
+    with open(os.path.join(OUT, "ringkasan.csv"), "w", encoding="utf-8") as f:
+        f.write("jenis,n,hit@1,hit@3,hit@6,mrr@6,saran_kosong,"
+                "buntu_sebelum,terselamatkan,buntu_efektif,nol_sebelum,nol_sesudah\n")
+        for j in JENIS_K2 + ["keseluruhan"]:
+            a, p = akurasi_tab[j], penyelamatan_tab[j]
+            ts = "" if p["terselamatkan"] is None else "%.4f" % p["terselamatkan"]
+            f.write("%s,%d,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%s,%.4f,%.4f,%.4f\n" % (
+                j, a["n"], a["hit@1"], a["hit@3"], a["hit@6"], a["mrr@6"],
+                a["saran_kosong"], p["buntu_sebelum"], ts, p["buntu_efektif_sesudah"],
+                p["nol_hasil_sebelum"], p["nol_hasil_sesudah"]))
+    print("selesai. hasil di:", OUT)
+    return hasil
+
+
+if __name__ == "__main__":
+    main()

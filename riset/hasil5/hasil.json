@@ -1,0 +1,181 @@
+{
+ "korpus": {
+  "konsep": 4249,
+  "obat": 322,
+  "pasien": 100,
+  "form": 10,
+  "lokasi": 61,
+  "provider": 6,
+  "hasillab": 2018,
+  "kondisi": 1279
+ },
+ "surface_form": 35914,
+ "waktu_indeks": 1.871873140335083,
+ "n_query": 214,
+ "param": {
+  "ngram": 2,
+  "min_irisan": 2,
+  "limit_saran": 6,
+  "seed_k2": 20260901
+ },
+ "akurasi": {
+  "persis": {
+   "n": 52,
+   "hit@1": 0.9615384615384616,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.9807692307692307,
+   "saran_kosong": 0.0
+  },
+  "typo": {
+   "n": 66,
+   "hit@1": 0.8636363636363636,
+   "hit@3": 0.9848484848484849,
+   "hit@6": 0.9848484848484849,
+   "mrr@6": 0.9242424242424242,
+   "saran_kosong": 0.0
+  },
+  "trunkasi": {
+   "n": 46,
+   "hit@1": 0.6086956521739131,
+   "hit@3": 0.8695652173913043,
+   "hit@6": 0.9130434782608695,
+   "mrr@6": 0.7336956521739131,
+   "saran_kosong": 0.0
+  },
+  "trunkasi_pendek": {
+   "n": 26,
+   "hit@1": 0.3076923076923077,
+   "hit@3": 0.46153846153846156,
+   "hit@6": 0.6923076923076923,
+   "mrr@6": 0.4262820512820513,
+   "saran_kosong": 0.0
+  },
+  "typo_pendek": {
+   "n": 24,
+   "hit@1": 0.125,
+   "hit@3": 0.20833333333333334,
+   "hit@6": 0.375,
+   "mrr@6": 0.1923611111111111,
+   "saran_kosong": 0.0
+  },
+  "keseluruhan": {
+   "n": 214,
+   "hit@1": 0.6822429906542056,
+   "hit@3": 0.8130841121495327,
+   "hit@6": 0.8691588785046729,
+   "mrr@6": 0.7544392523364486,
+   "saran_kosong": 0.0
+  }
+ },
+ "penyelamatan": {
+  "persis": {
+   "n": 52,
+   "buntu_sebelum": 0.0,
+   "terselamatkan": null,
+   "buntu_efektif_sesudah": 0.0,
+   "nol_hasil_sebelum": 0.0,
+   "nol_hasil_sesudah": 0.0
+  },
+  "typo": {
+   "n": 66,
+   "buntu_sebelum": 0.0,
+   "terselamatkan": null,
+   "buntu_efektif_sesudah": 0.0,
+   "nol_hasil_sebelum": 0.0,
+   "nol_hasil_sesudah": 0.0
+  },
+  "trunkasi": {
+   "n": 46,
+   "buntu_sebelum": 0.021739130434782608,
+   "terselamatkan": 1.0,
+   "buntu_efektif_sesudah": 0.0,
+   "nol_hasil_sebelum": 0.0,
+   "nol_hasil_sesudah": 0.0
+  },
+  "trunkasi_pendek": {
+   "n": 26,
+   "buntu_sebelum": 0.23076923076923078,
+   "terselamatkan": 0.16666666666666666,
+   "buntu_efektif_sesudah": 0.19230769230769232,
+   "nol_hasil_sebelum": 0.0,
+   "nol_hasil_sesudah": 0.0
+  },
+  "typo_pendek": {
+   "n": 24,
+   "buntu_sebelum": 0.5,
+   "terselamatkan": 0.08333333333333333,
+   "buntu_efektif_sesudah": 0.4583333333333333,
+   "nol_hasil_sebelum": 0.3333333333333333,
+   "nol_hasil_sesudah": 0.0
+  },
+  "keseluruhan": {
+   "n": 214,
+   "buntu_sebelum": 0.08878504672897196,
+   "terselamatkan": 0.15789473684210525,
+   "buntu_efektif_sesudah": 0.07476635514018691,
+   "nol_hasil_sebelum": 0.037383177570093455,
+   "nol_hasil_sesudah": 0.0
+  }
+ },
+ "per_entitas": {
+  "konsep": {
+   "hit@1": 0.6714285714285714,
+   "hit@3": 0.8142857142857143,
+   "hit@6": 0.8714285714285714,
+   "mrr@6": 0.7428571428571429
+  },
+  "obat": {
+   "hit@1": 0.775,
+   "hit@3": 0.825,
+   "hit@6": 0.875,
+   "mrr@6": 0.8125
+  },
+  "pasien": {
+   "hit@1": 0.4,
+   "hit@3": 0.8,
+   "hit@6": 0.9333333333333333,
+   "mrr@6": 0.6205555555555555
+  },
+  "form": {
+   "hit@1": 1.0,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 1.0
+  },
+  "lokasi": {
+   "hit@1": 0.6,
+   "hit@3": 0.6,
+   "hit@6": 0.6,
+   "mrr@6": 0.6
+  },
+  "provider": {
+   "hit@1": 0.75,
+   "hit@3": 1.0,
+   "hit@6": 1.0,
+   "mrr@6": 0.875
+  },
+  "hasillab": {
+   "hit@1": 0.76,
+   "hit@3": 0.8,
+   "hit@6": 0.84,
+   "mrr@6": 0.79
+  },
+  "kondisi": {
+   "hit@1": 0.8,
+   "hit@3": 0.88,
+   "hit@6": 0.92,
+   "mrr@6": 0.8433333333333333
+  }
+ },
+ "snapshot": {
+  "hasillab.jsonl": {
+   "baris": 2018,
+   "sha256": "d2d96a838f809159add7a638946ae88711523f404934c67fd3dfc3b84b09d3c9"
+  },
+  "kondisi.jsonl": {
+   "baris": 1279,
+   "sha256": "093eaa7c32649170697eb80d09c10da2b61ee9eb5b2267ff3f23588644c6355e"
+  }
+ }
+}
