@@ -312,3 +312,35 @@ def metrik_akurasi(saran, rel):
         "mrr@6": mrr,
         "saran_kosong": 1.0 if not ids else 0.0,
     }
+
+
+# ------------------------------------------------ metrik 2: penyelamatan query buntu
+
+def _ada_relevan(hasil, rel, topk=10):
+    return any(rel.get(k, 0) > 0 for k, _ in hasil[:topk])
+
+
+def penyelamatan_satu(q, rel, rec, e3_fn, saran_fn):
+    """Satu query: buntu? -> 1 klik saran top-1 -> selamat?
+
+    e3_fn(query) -> list[(kunci, skor)] ; saran_fn(query) -> list[(kunci, (skor, judul))].
+    Disuntik supaya bisa diuji tanpa indeks.
+    """
+    h0 = e3_fn(q)
+    buntu = not _ada_relevan(h0, rel)
+    out = dict(buntu_sebelum=buntu, nol_hasil_sebelum=(len(h0) == 0),
+               terselamatkan=None, q_klik=None, nol_hasil_sesudah=None)
+    if not buntu:
+        return out
+    saran = saran_fn(q)
+    if not saran:
+        out["terselamatkan"] = False
+        out["nol_hasil_sesudah"] = out["nol_hasil_sebelum"]
+        return out
+    kunci_top1 = saran[0][0]
+    q_klik = rec[kunci_top1]["judul"] if kunci_top1 in rec else kunci_top1
+    h1 = e3_fn(q_klik)
+    out["q_klik"] = q_klik
+    out["terselamatkan"] = _ada_relevan(h1, rel)
+    out["nol_hasil_sesudah"] = (len(h1) == 0)
+    return out

@@ -143,3 +143,33 @@ def test_metrik_akurasi_saran_kosong():
     m = K.metrik_akurasi([], {"konsep:1": 2})
     assert m["hit@1"] == m["hit@3"] == m["hit@6"] == 0
     assert m["saran_kosong"] == 1
+
+
+def test_penyelamatan_buntu_lalu_selamat():
+    rec = {"konsep:1": {"id": "konsep:1", "entitas": "konsep", "judul": "Fever"}}
+
+    def e3_palsu(q):
+        return [("konsep:9", 0.5)] if q == "fevr" else [("konsep:1", 1.0)]
+
+    def saran_palsu(q):
+        return [("konsep:1", (0.4, True))]
+
+    hasil = K.penyelamatan_satu("fevr", {"konsep:1": 2}, rec, e3_fn=e3_palsu, saran_fn=saran_palsu)
+    assert hasil["buntu_sebelum"] is True
+    assert hasil["terselamatkan"] is True
+    assert hasil["q_klik"] == "Fever"
+
+
+def test_penyelamatan_tidak_buntu():
+    hasil = K.penyelamatan_satu(
+        "fever", {"konsep:1": 2}, {}, e3_fn=lambda q: [("konsep:1", 1.0)], saran_fn=lambda q: [])
+    assert hasil["buntu_sebelum"] is False
+    assert hasil["terselamatkan"] is None
+
+
+def test_penyelamatan_saran_kosong_gagal():
+    hasil = K.penyelamatan_satu(
+        "xyzq", {"konsep:1": 2}, {}, e3_fn=lambda q: [], saran_fn=lambda q: [])
+    assert hasil["buntu_sebelum"] is True
+    assert hasil["terselamatkan"] is False
+    assert hasil["nol_hasil_sebelum"] is True
