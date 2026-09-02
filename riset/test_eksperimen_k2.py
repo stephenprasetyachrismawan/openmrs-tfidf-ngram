@@ -96,3 +96,34 @@ def test_saran_tie_break_judul_sebelum_alias():
     }
     hasil = _saran_dgn_ent(lokal, "mark smith", ["pasien", "hasillab"])
     assert hasil[0][0] == "pasien:8"  # via judul, di atas hasillab:5 (via alias)
+
+
+def test_trunkasi_pendek():
+    rnd = random.Random(1)
+    q, tt = K.degradasi_k2("Fever", "trunkasi_pendek", rnd)
+    assert tt == "trunkasi_pendek"
+    assert 3 <= len(q) <= 5
+    assert "fever".startswith(q)
+    assert q != "fever"
+
+
+def test_trunkasi_pendek_buang_judul_terlalu_pendek():
+    rnd = random.Random(1)
+    assert K.degradasi_k2("Flu", "trunkasi_pendek", rnd) == (None, None)
+
+
+def test_typo_pendek_pendek_dan_berubah():
+    rnd = random.Random(2)
+    q, tt = K.degradasi_k2("Diabetes mellitus", "typo_pendek", rnd)
+    assert tt == "typo_pendek"
+    assert 3 <= len(q) <= 6
+    assert not "diabetes".startswith(q)  # ada perubahan huruf, bukan trunkasi bersih
+
+
+def test_bangun_query_k2_deterministik():
+    a = K.bangun_query_k2(K.muat8())
+    b = K.bangun_query_k2(K.muat8())
+    assert [x["q"] for x in a] == [x["q"] for x in b]
+    assert all(x["jenis"] in K.JENIS_K2 for x in a)
+    assert all(len(x["q"]) >= 3 for x in a)
+    assert {x["entitas"] for x in a} <= set(K.ENT8)

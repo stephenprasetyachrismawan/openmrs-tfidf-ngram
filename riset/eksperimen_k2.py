@@ -169,3 +169,126 @@ def saran_k2(lokal8, q, limit=LIMIT_SARAN):
                 terbaik[pem] = (skor, utama)
     urut = sorted(terbaik.items(), key=lambda kv: (-kv[1][0], not kv[1][1], kv[0]))
     return urut[:limit]
+
+
+# ---------------------------------------------------------------- query set K2
+
+JENIS_K2 = ["persis", "typo", "trunkasi", "trunkasi_pendek", "typo_pendek"]
+
+# proporsi siklus (spec Bagian 3): typo 25%, trunkasi 20%, trunkasi_pendek 20%,
+# typo_pendek 15%, persis 20% -> pola panjang 20
+_SIKLUS_K2 = (["typo"] * 5 + ["trunkasi"] * 4 + ["trunkasi_pendek"] * 4
+              + ["typo_pendek"] * 3 + ["persis"] * 4)
+
+_RENCANA_K2 = [("konsep", 70), ("obat", 40), ("pasien", 30), ("kondisi", 25),
+               ("hasillab", 25), ("lokasi", 15), ("form", 5), ("provider", 5)]
+
+
+def _sisip_typo(w, rnd):
+    """sisip / tukar / gandakan satu huruf di string pendek w (>=3)."""
+    x = list(w)
+    i = rnd.randrange(len(x))
+    aksi = rnd.choice(("gandakan", "tukar", "sisip"))
+    if aksi == "gandakan":
+        x.insert(i, x[i])
+    elif aksi == "tukar" and i + 1 < len(x):
+        x[i], x[i + 1] = x[i + 1], x[i]
+    else:
+        x.insert(i, rnd.choice("aeiourtns"))
+    return "".join(x)
+
+
+def degradasi_k2(nama, jenis, rnd):
+    """degradasi() eksperimen2 + 2 jenis pendek. Kembalikan (q, jenis) atau (None, None)."""
+    if jenis in ("persis", "typo", "trunkasi"):
+        return eksperimen2.degradasi(nama, jenis, rnd)
+    kata = eksperimen2.words(nama)
+    if not kata:
+        return None, None
+    if jenis == "trunkasi_pendek":
+        pool = [w for w in kata if len(w) > 5] or [w for w in kata if len(w) >= 4]
+        if not pool:
+            return None, None
+        w = pool[0]
+        opsi = [c for c in (3, 4, 5) if c < len(w)]
+        if not opsi:
+            return None, None
+        potong = w[:rnd.choice(opsi)]
+        if potong == w:
+            return None, None
+        return potong, "trunkasi_pendek"
+    if jenis == "typo_pendek":
+        dasar, _ = degradasi_k2(nama, "trunkasi_pendek", rnd)
+        if not dasar:
+            return None, None
+        out = _sisip_typo(dasar, rnd)
+        if out == dasar:
+            return None, None
+        return out, "typo_pendek"
+    return None, None
+
+
+def gold_k2(rec, r):
+    """gold() eksperimen2 untuk 6 entitas asli; seed grade-2 saja untuk hasillab/kondisi."""
+    if r["entitas"] in ("hasillab", "kondisi"):
+        return {r["id"]: 2}
+    ref2c = collections.defaultdict(set)
+    for x in rec.values():
+        for t in x["refs"]:
+            ref2c[t].add(x["id"])
+    tautan2obat = collections.defaultdict(set)
+    for x in rec.values():
+        if x["entitas"] == "obat" and x["tautan"]:
+            tautan2obat[int(x["tautan"])].add(x["id"])
+    g = {r["id"]: 2}
+    if r["entitas"] == "konsep":
+        cid = int(r["id"].split(":")[1])
+        for d in tautan2obat.get(cid, ()):
+            g.setdefault(d, 1)
+        for t in r["refs"]:
+            for c in ref2c[t]:
+                if c != r["id"]:
+                    g.setdefault(c, 1)
+    elif r["entitas"] == "obat" and r["tautan"]:
+        k = "konsep:%s" % r["tautan"]
+        if k in rec:
+            g.setdefault(k, 1)
+        for d in tautan2obat.get(int(r["tautan"]), ()):
+            if d != r["id"]:
+                g.setdefault(d, 1)
+    return g
+
+
+def bangun_query_k2(rec):
+    rnd = random.Random(SEED_K2)
+    byent = collections.defaultdict(list)
+    for r in rec.values():
+        byent[r["entitas"]].append(r)
+    for e in byent:
+        byent[e].sort(key=lambda r: r["id"])
+    qs, n = [], 0
+    for e, jml in _RENCANA_K2:
+        pool = list(byent.get(e, []))
+        if e == "konsep":
+            pool = [r for r in pool if r["kelas"] in eksperimen2.KLINIS
+                    and len(eksperimen2.words(r["judul"])) >= 1]
+        if not pool:
+            continue
+        rnd.shuffle(pool)
+        amb = 0
+        for r in pool:
+            if amb >= jml:
+                break
+            jenis = _SIKLUS_K2[n % len(_SIKLUS_K2)]
+            q, tt = degradasi_k2(r["judul"], jenis, rnd)
+            n += 1
+            # degradasi() sudah kembalikan (None, None) kalau tak ada yang berubah;
+            # untuk 'persis' q memang == judul (itu kontrolnya) -> jangan dibuang.
+            if not q or len(q) < 3:
+                continue
+            if tt != "persis" and q == eksperimen2.norm(r["judul"]):
+                continue
+            qs.append(dict(qid=len(qs), q=q, jenis=tt, entitas=e,
+                           seed=r["id"], rel=gold_k2(rec, r)))
+            amb += 1
+    return qs
