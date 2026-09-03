@@ -1,0 +1,434 @@
+%% ---------------------------------------------------------------------------
+%%  lampiran.tex -- halaman lampiran, disisipkan di bagian paling bawah naskah.
+%%
+%%  Dipanggil dari main.tex dengan:   \input{lampiran}
+%%  tepat sebelum \end{document}, sesudah daftar pustaka.
+%%
+%%  >>> YANG PERLU ANDA ISI ADA DI BLOK "TAUTAN" DI BAWAH INI. <<<
+%%      Ganti isi tiga makro berikut, lalu kompilasi ulang. Tidak ada tempat
+%%      lain yang perlu disentuh -- seluruh tabel di bawah membaca makro ini.
+%% ---------------------------------------------------------------------------
+
+% ===== TAUTAN — ISI DI SINI =================================================
+
+% Repositori GitHub (sudah terisi; ubah kalau repo dipindahkan).
+\newcommand{\tautanRepo}{https://github.com/stephenprasetyachrismawan/openmrs-tfidf-ngram}
+
+% Google Drive — kumpulan PPT progress. Ganti teks di dalam kurung kurawal.
+\newcommand{\tautanPPT}{\textit{[tempelkan tautan Google Drive di sini]}}
+
+% Google Drive — demo aplikasi (rekaman layar / berkas demo).
+\newcommand{\tautanDemo}{\textit{[tempelkan tautan Google Drive di sini]}}
+
+% ===== AKHIR BLOK TAUTAN ====================================================
+
+
+
+% Judul bagian lampiran. Tidak memakai \section* bawaan ieeecolor.cls
+% karena spasi vertikalnya dirancang untuk tata letak dua kolom dan
+% meninggalkan lubang besar pada halaman satu kolom.
+\newcommand{\lampiransec}[2]{%
+  \par\addvspace{3ex}%
+  \noindent{\large\bfseries Lampiran #1\quad #2}%
+  \par\addvspace{1.2ex}%
+  \noindent\ignorespaces}
+
+\newpage
+\onecolumn
+\raggedbottom   % kelas IEEE memakai \flushbottom;
+                % pada halaman lampiran yang isinya sedikit, itu meregangkan
+                % jarak antar-paragraf sampai memenuhi tinggi halaman.
+
+\begin{center}
+{\Large\bfseries LAMPIRAN}\\[2pt]
+{\normalsize Pencarian Terpadu Tahan Salah Ketik pada OpenMRS}
+\end{center}
+
+\vspace{1.5ex}
+
+\noindent
+Lampiran ini memuat seluruh tautan ke berkas pendukung penelitian: kode sumber,
+data, tutorial menjalankan, panduan pengguna, dan bahan presentasi. Seluruh
+berkas yang dapat dipublikasikan berada pada satu repositori GitHub; berkas
+yang berukuran besar atau tidak cocok disimpan di repositori kode (rekaman
+demo, kumpulan slide) berada pada Google Drive dan tautannya dicantumkan di
+Lampiran~B.
+
+% ---------------------------------------------------------------------------
+\lampiransec{A}{Repositori Kode Sumber dan Berkas Pendukung}
+
+\noindent
+\textbf{Repositori utama:} \url{\tautanRepo}
+
+\vspace{1ex}
+\noindent
+Seluruh butir pada tabel berikut berada di dalam repositori tersebut. Kolom
+``Lokasi'' adalah lintasan relatif terhadap akar repositori.
+
+\vspace{1ex}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{@{}p{0.28\textwidth}p{0.27\textwidth}p{0.41\textwidth}@{}}
+\toprule
+\textbf{Butir lampiran} & \textbf{Lokasi di repositori} & \textbf{Keterangan} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\footnotesize\itshape Lampiran A, lanjutan}\\
+\toprule
+\textbf{Butir lampiran} & \textbf{Lokasi di repositori} & \textbf{Keterangan} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r@{}}{\footnotesize\itshape bersambung ke halaman berikutnya}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\textbf{Kode sumber modul OpenMRS} &
+\texttt{backend/} \newline
+\texttt{~~openmrs-module-} \newline
+\texttt{~~tfidf-search/} &
+Modul Java (\texttt{.omod}). Berisi seluruh algoritma K1--K6: normalisasi,
+tokenisasi kata dan kepingan karakter, pembobotan \emph{ltc}, fusi tingkat
+satu, \emph{Weighted RRF}, baseline B0, jalur saran ketik, serta dua endpoint
+REST. Dilengkapi 47 uji unit. \\
+
+\textbf{Kode sumber antarmuka} &
+\texttt{frontend/} \newline
+\texttt{~~esm-unified-search/} &
+Microfrontend (ESM) untuk OpenMRS Reference Application~3: halaman
+``Pencarian Terpadu'', halaman ``Perbandingan Pencarian'', dan panel
+evaluasi. \\
+
+\textbf{Kode eksperimen} &
+\texttt{riset/} &
+Implementasi rujukan Python untuk seluruh angka pada naskah:
+\texttt{eksperimen2.py} (sistem B0--E4, himpunan uji),
+\texttt{eksperimen3\_baseline\_asli.py} (baseline B0$'$),
+\texttt{eksperimen\_k2.py} (jalur saran ketik),
+\texttt{sapuan\_dev.py} dan \texttt{sapuan\_alpha\_dev.py} (sapuan parameter). \\
+
+\textbf{Dataset / basis data} &
+\texttt{riset/data/*.jsonl} \newline
+\texttt{riset/ekspor\_*.sql} &
+Korpus hasil ekspor dari basis data OpenMRS dalam format JSON Lines
+(\texttt{konsep}, \texttt{obat}, \texttt{pasien}, \texttt{lain},
+\texttt{hasillab}, \texttt{kondisi}), beserta kueri SQL yang dipakai untuk
+mengekspornya sehingga dapat dibangkitkan ulang dari instalasi OpenMRS mana
+pun. \\
+
+\textbf{Berkas hasil eksperimen} &
+\texttt{riset/hasil4/} \dots \texttt{riset/hasil6/} &
+Keluaran mentah tiap eksperimen (\texttt{hasil.json},
+\texttt{per\_query.json}, \texttt{ringkasan.csv}, \texttt{laporan.md}).
+Pemetaan berkas ke tabel dan gambar naskah ada pada Lampiran~F. \\
+
+\textbf{Tutorial menjalankan kode} &
+\texttt{README.md} &
+Panduan lengkap dari nol: prasyarat, penyalaan stack Docker, pembangunan
+modul, pemasangan, verifikasi, sampai halaman terbuka di peramban. Disertai
+bagian penanganan galat yang sering muncul. \\
+
+\textbf{Panduan reproduksi hasil} &
+\texttt{docs/reproduksi.md} &
+Sembilan langkah untuk mengulang seluruh angka penelitian, masing-masing
+dengan kriteria ``cara tahu berhasil'' yang dapat diperiksa. \\
+
+\textbf{Panduan pengguna} &
+\texttt{docs/panduan-pengguna.md} &
+Cara memakai halaman Pencarian Terpadu, halaman Perbandingan Pencarian,
+kotak saran ketik, dan panel evaluasi dari sudut pandang pengguna akhir. \\
+
+\textbf{Spesifikasi algoritma} &
+\texttt{docs/algoritma.md} &
+Spesifikasi K1--K6, baseline B0, dan jalur saran ketik K2, cukup rinci untuk
+diimplementasikan ulang tanpa menebak. \\
+
+\textbf{Kontrak data} &
+\texttt{docs/kontrak-data.md} &
+Bentuk dokumen virtual yang menyatukan delapan entitas OpenMRS; wajib diikuti
+persis bila menambahkan entitas baru. \\
+
+\textbf{Catatan keputusan} &
+\texttt{docs/keputusan.md} &
+Seluruh keputusan rancangan dan temuan penelitian secara kronologis, termasuk
+kekeliruan yang ditemukan dan cara memperbaikinya. Rujukan utama untuk
+pengembangan lanjutan. \\
+
+\textbf{Fakta lingkungan} &
+\texttt{docs/lingkungan.md} &
+Versi platform terverifikasi, alamat, kredensial basis data, jumlah baris
+tabel, dan jebakan lingkungan yang sudah terdokumentasi. \\
+
+\textbf{Aturan proyek} &
+\texttt{CLAUDE.md} &
+Sepuluh aturan yang mengikat seluruh perubahan kode dan dokumen, termasuk
+aturan determinisme dan larangan mengubah angka hasil. \\
+
+\textbf{Proposal penelitian} &
+\texttt{docs/proposal.html} &
+Proposal lengkap beserta \emph{mockup} interaktif dan contoh perhitungan. \\
+
+\textbf{Naskah artikel ini} &
+\texttt{article/} &
+Sumber \LaTeX{} naskah, skrip pembangun gambar, dan berkas hasil kompilasi. \\
+
+\end{longtable}
+
+% ---------------------------------------------------------------------------
+\vspace{3ex}
+\lampiransec{B}{Tautan Berkas Pendukung Eksternal}
+
+\noindent
+Berkas berikut berada di Google Drive karena ukurannya tidak sesuai untuk
+disimpan pada repositori kode.
+
+\vspace{1ex}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}p{0.24\textwidth}p{0.72\textwidth}@{}}
+\toprule
+\textbf{Berkas} & \textbf{Tautan} \\
+\midrule
+
+\textbf{Kumpulan PPT Progress} \newline
+{\footnotesize Seluruh slide laporan kemajuan penelitian, berurutan menurut
+tanggal.} &
+\tautanPPT \\
+
+\textbf{Demo Aplikasi} \newline
+{\footnotesize Rekaman layar modul yang berjalan: kueri gagal pada kotak
+pencarian bawaan, kueri yang sama berhasil pada sistem usulan.} &
+\tautanDemo \\
+
+\bottomrule
+\end{tabular}
+
+\vspace{1.5ex}
+\noindent
+{\footnotesize \textbf{Catatan bagi penulis:} kedua tautan di atas diisi pada
+blok \texttt{TAUTAN} di kepala berkas \texttt{article/lampiran.tex}
+(makro \texttt{\textbackslash tautanPPT} dan \texttt{\textbackslash
+tautanDemo}). Tidak perlu mengubah tabel ini.}
+
+% ---------------------------------------------------------------------------
+\vspace{3ex}
+\lampiransec{C}{Peta Isi Repositori}
+
+\begin{verbatim}
+openmrs-tfidf-ngram/
+|
++-- README.md                 tutorial lengkap menjalankan dari nol
++-- CLAUDE.md                 aturan proyek yang mengikat
+|
++-- backend/openmrs-module-tfidf-search/
+|   +-- api/                  algoritma inti + 47 uji unit
+|   |   +-- src/main/java/org/openmrs/module/unifiedsearch/
+|   |   |   +-- TextNormalizer.java        normalisasi teks
+|   |   |   +-- Tokenizer.java             token kata + kepingan karakter
+|   |   |   +-- TfIdfIndex.java            indeks terbalik, pembobotan ltc
+|   |   |   +-- FusionSearch.java          fusi tingkat 1 (alpha)
+|   |   |   +-- WeightedRrf.java           fusi tingkat 2 (Weighted RRF)
+|   |   |   +-- OpenMrsHeuristic.java      baseline B0
+|   |   |   +-- BigramJaccardSuggester.java  jalur saran ketik
+|   |   |   +-- RankingEngine.java         pemilih mode b0/b1/e1/e3
+|   |   |   +-- IndexBuilder.java          pembangunan 13 indeks saat startup
+|   |   |   +-- EvalService.java           endpoint evaluasi
+|   |   |   +-- source/                    proyeksi 8 tabel OpenMRS
+|   |   +-- src/main/resources/gold-dev-100.json   standar emas 100 kueri dev
+|   +-- omod/                 lapisan web: REST controller, halaman JSP
+|
++-- frontend/esm-unified-search/   microfrontend RefApp 3
+|
++-- riset/                    eksperimen Python
+|   +-- eksperimen2.py                sistem B0-E4, himpunan uji 180 kueri
+|   +-- eksperimen3_baseline_asli.py  baseline B0' (OpenMRS asli)
+|   +-- eksperimen_k2.py              jalur saran ketik
+|   +-- sapuan_dev.py                 sapuan NGRAM / K_RRF / EPS
+|   +-- sapuan_alpha_dev.py           sapuan ALPHA
+|   +-- data/*.jsonl                  korpus hasil ekspor
+|   +-- ekspor_*.sql                  kueri SQL pembangkit korpus
+|   +-- hasil4..hasil6/               keluaran mentah tiap eksperimen
+|
++-- docs/                     dokumentasi
+|   +-- reproduksi.md         9 langkah mengulang hasil
+|   +-- panduan-pengguna.md   panduan pengguna akhir
+|   +-- algoritma.md          spesifikasi K1-K6 + B0 + K2
+|   +-- kontrak-data.md       bentuk dokumen virtual
+|   +-- keputusan.md          catatan keputusan dan temuan, kronologis
+|   +-- lingkungan.md         versi, alamat, kredensial, jebakan
+|   +-- proposal.html         proposal + mockup interaktif
+|
++-- scripts/                  otomasi pemasangan (PowerShell)
+|   +-- pasang-modul.ps1      build .omod -> salin -> restart -> tunggu sehat
+|   +-- pasang-esm.ps1        build ESM -> sisipkan ke importmap
+|   +-- verify-openmrs.ps1    pemeriksaan kesehatan menyeluruh
+|
++-- article/                  naskah artikel ini
+|   +-- main.tex, lampiran.tex, referensi.bib
+|   +-- gambar/buat_gambar.py  membangun gambar dari berkas hasil
+|
++-- tugas/                    14 berkas tugas berurutan, masing-masing
+                              dengan kriteria uji "Selesai kalau"
+\end{verbatim}
+
+% ---------------------------------------------------------------------------
+\newpage
+\lampiransec{D}{Ringkasan Langkah Menjalankan}
+
+\noindent
+Ringkasan ini memuat perintah intinya saja. Penjelasan lengkap setiap langkah,
+termasuk cara memastikan langkah itu berhasil dan penanganan galat yang sering
+muncul, ada pada \texttt{README.md} di akar repositori.
+
+\vspace{1ex}
+\noindent\textbf{Prasyarat:} Docker Desktop, Git, JDK~17, Node.js~20+,
+Python~3.9+, dan PowerShell (Windows). Rincian versi terverifikasi ada pada
+\texttt{docs/lingkungan.md}.
+
+\vspace{1.5ex}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{0.05\textwidth}p{0.40\textwidth}p{0.51\textwidth}@{}}
+\toprule
+\textbf{No.} & \textbf{Langkah} & \textbf{Perintah} \\
+\midrule
+1 & Klon repositori penelitian &
+\texttt{git clone https://github.com/} \newline
+\texttt{~~stephenprasetyachrismawan/} \newline
+\texttt{~~openmrs-tfidf-ngram.git} \\
+2 & Klon stack Docker OpenMRS sejajar dengan repositori penelitian &
+\texttt{git clone https://github.com/} \newline
+\texttt{openmrs/openmrs-distro-} \newline
+\texttt{referenceapplication.git} \\
+3 & Nyalakan stack (tanpa \texttt{-p}) &
+\texttt{cd openmrs-distro-referenceapplication} \newline
+\texttt{docker compose up -d} \\
+4 & Tunggu empat kontainer sehat &
+\texttt{docker ps} \\
+5 & Bangun dan pasang modul backend &
+\texttt{.\textbackslash scripts\textbackslash pasang-modul.ps1} \\
+6 & Bangun dan pasang antarmuka ESM &
+\texttt{.\textbackslash scripts\textbackslash pasang-esm.ps1} \\
+7 & Verifikasi menyeluruh &
+\texttt{.\textbackslash scripts\textbackslash verify-openmrs.ps1} \\
+8 & Buka di peramban &
+\texttt{http://127.0.0.1/openmrs/spa/} \newline
+\texttt{unified-search} \\
+\bottomrule
+\end{tabular}
+
+\vspace{2ex}
+\noindent
+\textbf{Peringatan lingkungan.} Seluruh alamat memakai \texttt{http://127.0.0.1},
+\emph{bukan} \texttt{localhost}. Pada sebagian mesin Windows, \texttt{localhost}
+teresolusi ke IPv6 \texttt{::1} yang mungkin dikuasai server lain, sehingga
+seluruh lintasan \texttt{/openmrs/\dots} mengembalikan 404. Bila muncul halaman
+bawaan Apache, yang salah adalah alamatnya, bukan modulnya.
+
+\vspace{1ex}
+\noindent
+\textbf{Kredensial demo bawaan:} \texttt{admin} / \texttt{Admin123}.
+
+% ---------------------------------------------------------------------------
+\vspace{3ex}
+\lampiransec{E}{Antarmuka REST Modul}
+
+\noindent
+Basis alamat: \texttt{http://127.0.0.1/openmrs/ws/rest/v1/unifiedsearch}
+
+\vspace{1.5ex}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{0.20\textwidth}p{0.34\textwidth}p{0.42\textwidth}@{}}
+\toprule
+\textbf{Endpoint} & \textbf{Parameter} & \textbf{Keterangan} \\
+\midrule
+
+\texttt{GET /unifiedsearch} &
+\texttt{q} (wajib) \newline
+\texttt{mode} = \texttt{b0} $|$ \texttt{b1} $|$ \texttt{e1} $|$ \texttt{e3}
+  (bawaan \texttt{e3}) \newline
+\texttt{limit} (bawaan 10) \newline
+\texttt{entitas} (opsional) &
+Pencarian terpadu. Parameter \texttt{mode} memilih sistem, sehingga kontribusi
+tiap komponen dapat diukur ulang kapan saja tanpa mengubah kode. \\
+
+\texttt{GET /unifiedsearch/} \newline \texttt{saran} &
+\texttt{q} (wajib) \newline
+\texttt{limit} (bawaan 6) &
+Saran ketik ``Maksud Anda'' berbasis Jaccard bigram. Jalur terpisah; tidak
+menyentuh peringkat. Hasil berjenis pasien, hasil laboratorium, dan kondisi
+disaring menurut privilese \texttt{View Patients} pemanggil. \\
+
+\texttt{GET /unifiedsearch/} \newline \texttt{eval} &
+\texttt{mode} (bawaan \texttt{e3}) &
+Menjalankan evaluasi atas 100 kueri pengembangan dan mengembalikan P@1, P@5,
+R@10, MRR, MAP, nDCG@10, serta proporsi kueri tanpa hasil. Jawaban menyertakan
+\texttt{gold\_sha256} agar standar emas yang dipakai dapat dicocokkan. \\
+
+\bottomrule
+\end{tabular}
+
+\vspace{1.5ex}
+\noindent
+Setiap jawaban menyertakan tajuk \texttt{X-Unifiedsearch-Waktu-Ms} berisi waktu
+pemrosesan. Waktu sengaja ditempatkan pada tajuk, bukan pada badan JSON, agar
+dua panggilan yang sama menghasilkan badan jawaban yang identik pada tingkat
+bita --- syarat pengujian determinisme.
+
+\vspace{1.5ex}
+\noindent\textbf{Contoh pemanggilan:}
+\begin{verbatim}
+curl -u admin:Admin123 \
+  "http://127.0.0.1/openmrs/ws/rest/v1/unifiedsearch?q=diabete%20melitus&mode=e3"
+\end{verbatim}
+
+% ---------------------------------------------------------------------------
+\vspace{2ex}
+\lampiransec{F}{Pemetaan Berkas Hasil ke Tabel dan Gambar Naskah}
+
+\noindent
+Tidak ada angka pada naskah ini yang diketik ulang secara manual ke dalam
+gambar. Skrip \texttt{article/gambar/buat\_gambar.py} membaca berkas hasil
+di bawah dan membangun ulang seluruh gambar; bila eksperimen dijalankan ulang
+dan angkanya berubah, gambarnya ikut berubah.
+
+\vspace{1.5ex}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}p{0.26\textwidth}p{0.30\textwidth}p{0.40\textwidth}@{}}
+\toprule
+\textbf{Bagian naskah} & \textbf{Berkas sumber} & \textbf{Cakupan} \\
+\midrule
+Tabel~\ref{tab:utama}, \ref{tab:ablasi}, \ref{tab:tipe}, \ref{tab:entitas};
+Gambar~\ref{fig:sistem}, \ref{fig:tipe} &
+\texttt{riset/hasil6/hasil.json} &
+260 kueri uji, korpus 8 entitas, sekali jalan, parameter terkunci \\
+
+Gambar~\ref{fig:sapuan} &
+\texttt{riset/hasil6/sapuan\_dev.json} &
+Sapuan $\alpha$, $n$, $k$, $\varepsilon$ pada 100 kueri pengembangan \\
+
+Tabel~\ref{tab:b0prime}; Gambar~\ref{fig:b0prime} &
+\texttt{riset/hasil4/hasil.json} &
+34 kueri konsep, baseline B0$'$ (endpoint OpenMRS asli) \\
+
+Tabel~\ref{tab:k2}; Gambar~\ref{fig:k2} &
+\texttt{riset/hasil5/hasil.json} &
+214 kueri, jalur saran ketik, korpus 8 entitas \\
+
+Tabel~\ref{tab:verifikasi}, angka latensi dan determinisme &
+\texttt{docs/keputusan.md} bagian C1--C4, F1--F2 &
+Verifikasi silang Java--Python dan pengukuran kinerja modul \\
+\bottomrule
+\end{tabular}
+
+\vspace{2ex}
+\noindent
+\textbf{Cara membangkitkan ulang seluruh angka:} jalankan
+\texttt{python riset/eksperimen2.py} (himpunan uji),
+\texttt{python riset/eksperimen3\_baseline\_asli.py} (baseline B0$'$, perlu
+stack Docker berjalan), dan \texttt{python riset/eksperimen\_k2.py}
+(jalur saran ketik), lalu \texttt{python article/gambar/buat\_gambar.py} untuk
+membangun ulang gambar. Seluruh skrip deterministik: benih acak dipatok,
+pengurutan memakai kunci majemuk, dan iterasi himpunan selalu diurutkan lebih
+dahulu, sehingga dua proses terpisah menghasilkan berkas yang identik pada
+tingkat bita.
+
+\twocolumn

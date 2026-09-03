@@ -27,7 +27,9 @@ DATA = os.path.join(DIR, "data")
 OUT = os.path.join(DIR, "hasil5")
 os.makedirs(OUT, exist_ok=True)
 
-ENT8 = eksperimen2.ENT + ["hasillab", "kondisi"]
+# eksperimen2.ENT kini sudah 8 entitas (diseragamkan ke modul Java).
+# Nama ENT8 dipertahankan supaya sisa berkas ini tidak perlu diubah.
+ENT8 = list(eksperimen2.ENT)
 SEED_K2 = 20260901
 
 # Parameter K2 dikunci ke nilai modul Java (BigramJaccardSuggester), TIDAK disapu.

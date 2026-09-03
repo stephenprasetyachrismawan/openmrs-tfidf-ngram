@@ -5,7 +5,7 @@ Kenapa berkas ini ada: DevQueryGoldStandard.java sebelumnya mencoba meniru
 bangun_query() dengan java.util.Random(42), tapi itu PRNG berbeda dari Python
 random.Random (LCG 48-bit vs Mersenne Twister) - seed sama, urutan beda,
 sehingga query dev Java dan Python tidak pernah bisa cocok. Bukti:
-riset/hasil3/investigasi_gap_eval.json (SHA-256 daftar query Python
+riset/hasil6/investigasi_gap_eval.json (SHA-256 daftar query Python
 3b140c96... vs Java d2c27d1b...; peringkat Java yang sama, dievaluasi dengan
 gold Python, cocok persis 0,8464).
 

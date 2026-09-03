@@ -208,7 +208,7 @@ mengukur sesuatu, pakai `qs[:100]`.
 
 Ini pernah dilanggar: `riset/eksperimen2b.py` menjalankan keempat sapuannya di
 `test`, sehingga seluruh tabel sapuan parameter di proposal tercemar. Berkas itu
-dipertahankan sebagai arsip dan **tidak boleh dijalankan lagi**. Lihat
+sudah dihapus dan seluruh sapuan dijalankan ulang pada `qs[:100]`. Lihat
 `docs/keputusan.md`.
 
 Kalau test set terlanjur dijalankan berulang sambil menyetel, ia berhenti jadi

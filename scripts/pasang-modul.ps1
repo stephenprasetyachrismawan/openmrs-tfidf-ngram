@@ -61,6 +61,42 @@ Write-Step "Menyalin .omod ke ${Container}:$ContainerDir"
 & docker cp $omod.FullName "${Container}:$ContainerDir/$($omod.Name)"
 if ($LASTEXITCODE -ne 0) { throw "docker cp gagal (exit $LASTEXITCODE)" }
 
+# --- 3b. Samakan kepemilikan berkas ------------------------------------------
+# `docker cp` selalu menyalin sebagai root, sedangkan Tomcat berjalan sebagai
+# uid lain (uid 1001 pada image ini). Berkas .omod milik root tidak bisa
+# diganti/dihapus OpenMRS saat modul diperbarui. Kepemilikan diambil dari
+# direktori modules itu sendiri supaya tidak ada uid yang ditulis keras.
+Write-Step "Menyamakan kepemilikan .omod dengan direktori modul"
+$ownerCmd = "stat -c '%u:%g' $ContainerDir"
+$owner = (& docker exec $Container sh -c $ownerCmd).Trim()
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($owner)) {
+    throw "Gagal membaca kepemilikan $ContainerDir"
+}
+& docker exec -u root $Container sh -c "chown $owner '$ContainerDir/$($omod.Name)' && chmod 644 '$ContainerDir/$($omod.Name)'"
+if ($LASTEXITCODE -ne 0) { throw "chown .omod gagal (exit $LASTEXITCODE)" }
+Write-Host "    kepemilikan .omod -> $owner"
+
+# --- 3c. Pastikan .openmrs-lib-cache bisa ditulis -----------------------------
+# OpenMRS menghapus lalu membangun ulang cache ini setiap start. Kalau
+# direktorinya milik root (bekas start sebelumnya, atau tersentuh perintah
+# root), penghapusan gagal diam-diam: log penuh "could not remove directory",
+# cache tetap versi lama, dan kelas modul yang berubah tidak ditemukan ->
+# ClassNotFoundException -> SELURUH REST OpenMRS balas 500.
+# Kepemilikannya diperbaiki, bukan cache-nya dihapus.
+# Dipotong sebagai string biasa, bukan Split-Path: ContainerDir memakai
+# pemisah POSIX sedangkan Split-Path mengembalikan pemisah Windows.
+$dataDir  = $ContainerDir.Substring(0, $ContainerDir.LastIndexOf('/'))
+$cacheDir = "$dataDir/.openmrs-lib-cache"
+$cacheState = (& docker exec $Container sh -c "test -d '$cacheDir' && (touch '$cacheDir/.uji-tulis' 2>/dev/null && rm -f '$cacheDir/.uji-tulis' && echo BISA || echo TERKUNCI) || echo TIDAKADA").Trim()
+if ($cacheState -eq 'TERKUNCI') {
+    Write-Step "Memperbaiki kepemilikan $cacheDir (tidak bisa ditulis Tomcat)"
+    & docker exec -u root $Container sh -c "chown -R $owner '$cacheDir'"
+    if ($LASTEXITCODE -ne 0) { throw "chown lib-cache gagal (exit $LASTEXITCODE)" }
+    Write-Host "    kepemilikan cache -> $owner"
+} else {
+    Write-Host "    lib-cache: $cacheState (tidak perlu diperbaiki)"
+}
+
 # --- 4. Restart -------------------------------------------------------------
 Write-Step "Merestart container backend"
 & docker restart $Container | Out-Null

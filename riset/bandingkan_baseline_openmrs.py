@@ -121,7 +121,7 @@ def main():
     print(f"\nKesepakatan asli vs b0 (keduanya benar atau keduanya salah): {setuju}/{len(diagnosis_queries)}")
     json.dump(
         {"n": len(diagnosis_queries), "setuju": setuju, "detail": hasil},
-        open(r"C:\src\tfidf-openmrs\riset\hasil3\baseline_openmrs_vs_b0.json", "w", encoding="utf-8"),
+        open(r"C:\src\tfidf-openmrs\riset\hasil6\baseline_openmrs_vs_b0.json", "w", encoding="utf-8"),
         indent=2, ensure_ascii=False,
     )
 

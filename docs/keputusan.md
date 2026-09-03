@@ -1629,3 +1629,190 @@ penyetelan ke angka; parameter suggester tak disentuh):
 - Sub-cek privilege live (aturan 5) — tertunda bersama cross-check. Jalur kode
   ada (`UnifiedSearchService.saran`, gerbang `mayViewPatients`); uji unit
   khusus butuh mockito-inline di `api/pom.xml` = pekerjaan lanjutan.
+
+---
+
+## 2026-09-02 · F1: seluruh REST 500 — akar masalah ditemukan dan diperbaiki
+
+**Status item "Pekerjaan terbuka" #6 dan cross-check K2: TERTUTUP.** Penyebabnya
+bukan `webservices.rest` yang cacat, melainkan izin berkas pada cache modul.
+
+### Gejala
+
+`GET /openmrs/ws/rest/v1/session` → HTTP 500. Log:
+`ClassNotFoundException: org.openmrs.module.webservices.rest.web.v1_0.controller.MainResourceController`.
+
+Yang membuat dugaan lama meleset: kelas yang hilang **tidak hanya milik
+`webservices.rest`**. Log yang sama juga memuat
+`CannotLoadBeanClassException` untuk `patientflags.web.PatientFlagsRestController`
+dan `initializer.api.HibernateInitializerDAO`. Pola lintas-modul itulah petunjuk
+bahwa masalahnya sistemik, bukan pada satu modul.
+
+### Akar masalah, dengan bukti
+
+| # | Bukti | Cara memverifikasi |
+|---|---|---|
+| 1 | Tomcat berjalan sebagai `uid=1001, gid=0` | `docker exec ... id` |
+| 2 | `/openmrs/data/.openmrs-lib-cache` milik `root:root` mode `0750` → uid 1001 hanya dapat `r-x` | `ls -ld` |
+| 3 | Tulis ke cache ditolak | `touch` → `Permission denied` |
+| 4 | Cache beku 29 Agustus; `.omod` diperbarui 2 September | timestamp keduanya |
+| 5 | `MainResourceController.class` memang tidak ada di cache | `ls` → `No such file` |
+
+Rantai sebabnya: OpenMRS menghapus lalu membangun ulang `.openmrs-lib-cache`
+setiap start. Karena direktorinya tak bisa ditulis, penghapusan gagal (ratusan
+baris `could not remove directory` di log — sebelumnya terbaca sebagai derau),
+cache tetap versi lama, kelas yang berubah tidak ditemukan, konteks Spring
+batal, seluruh REST 500.
+
+Kenapa cache jadi milik root: `docker cp` dan `docker exec` berjalan sebagai
+root secara bawaan. Terbukti pada berkas modul kami sendiri —
+`unifiedsearch-omod-1.0.0-SNAPSHOT.omod` bermilik `root:root`, sementara seluruh
+`.omod` lain bermilik `1001:1001`.
+
+### Perbaikan
+
+1. Cache disisihkan (`mv`, bukan `rm` — reversibel) supaya OpenMRS
+   membangunnya ulang. Cache dibangkitkan dari `.omod`, jadi tidak ada data
+   yang hilang.
+2. Kepemilikan `.omod` kami disamakan menjadi `1001:1001`.
+3. `scripts/pasang-modul.ps1` ditambah dua langkah pencegahan: menyamakan
+   kepemilikan `.omod` sesudah `docker cp` (uid dibaca dari direktori
+   `modules`, tidak ditulis keras), dan memeriksa apakah lib-cache masih bisa
+   ditulis — kalau tidak, kepemilikannya diperbaiki sebelum restart.
+
+### Verifikasi sesudah perbaikan
+
+- `verify-openmrs.ps1`: seluruh cek HTTP 200, determinisme C2 OK.
+- Ketiga endpoint modul jalan; `?q=diabete melitus&mode=e3` memberi
+  *Diabetes mellitus* di peringkat 1.
+- `gold_sha256` endpoint eval tetap `cfd7a5ae…e533fbc4`, cocok dengan
+  `gold-dev-100.json`.
+- `pasang-modul.ps1` dijalankan ulang penuh: lulus, cache terbaca `BISA`.
+
+### Tiga angka yang berbeda dari dokumen — dilaporkan, bukan disesuaikan
+
+Ketiganya berpangkal pada satu sebab yang sama: modul terpasang mengindeks
+**8 entitas**, sedangkan seluruh angka penelitian berasal dari korpus
+**6 entitas**. Selama REST mati, ketiganya tidak terlihat.
+
+| Besaran | Dokumen (6 entitas) | Live (8 entitas) |
+|---|---|---|
+| dokumen / surface form / indeks | 4.748 / 29.320 / 13 | 8.045 / 35.914 / 17 |
+| nDCG@10 `e3` (100 kueri dev) | 0,846 | **0,765** |
+| latensi p95 (hangat) | 26 ms | **50 ms** |
+
+Aritmetikanya konsisten: 4.249+322+100+10+61+6 = 4.748, ditambah `hasillab`
+2.018 dan `kondisi` 1.279 = 8.045; dan 8×2+1 = 17 indeks.
+
+**Kenapa nDCG turun.** `gold-dev-100.json` dibangkitkan dari korpus 6 entitas —
+tidak ada satu pun dokumen `hasillab`/`kondisi` di dalamnya. Diukur langsung
+pada instalasi ini: **152 dari 976 slot top-10 (15,6%)** direbut kedua entitas
+itu, memengaruhi **29 dari 100** kueri, dan tidak satu pun bisa dinilai relevan.
+Ini ketidakcocokan cakupan antara indeks dan standar emas, **bukan kerusakan
+peringkat**. Angka di `riset/hasil3/` tidak terpengaruh — pipeline Python hanya
+memakai 6 entitas.
+
+**Keputusan yang belum diambil (butuh manusia).** `EvalService` memanggil
+`engine.searchKeys()` atas seluruh entitas. Ada dua pilihan, keduanya sah:
+
+- **Batasi evaluasi ke 6 entitas riset.** Endpoint kembali sebanding dengan
+  0,846 dan dengan pipeline Python — itulah gunanya endpoint ini. Perlu
+  diingat: membatasi hasil saja belum cukup persis, karena bobot entitas
+  Weighted RRF dihitung dari indeks global atas 8 entitas, sehingga bobot
+  keenam entitas riset pun ikut bergeser. Reproduksi persis menuntut indeks
+  global juga dibatasi ke 6 entitas.
+- **Biarkan 8 entitas.** Angkanya mencerminkan apa yang benar-benar dialami
+  pengguna, tetapi berhenti sebanding dengan angka artikel.
+
+Belum dikerjakan — mengubah cakupan evaluasi menyentuh kode verifikasi
+penelitian, jadi menunggu keputusan pemilik repo (aturan 2).
+
+---
+
+## 2026-09-03 · F2: pipeline riset diseragamkan ke 8 entitas — klaim utama menyusut
+
+**Keputusan pemilik repo:** korpus evaluasi disamakan dengan korpus yang
+benar-benar dipasang, dan **kode modul jadi patokannya**. `eksperimen2.py`
+karena itu diubah dari 6 entitas ke 8, mengikuti `DocumentRepository.ENTITAS`.
+
+### Yang diubah
+
+| Berkas | Perubahan |
+|---|---|
+| `riset/eksperimen2.py` | `ENT` 6→8; `muat()` memuat `hasillab.jsonl`+`kondisi.jsonl`; `gold()` menangani dua entitas baru; `rencana` +40 hasillab +40 kondisi; `OUT` `hasil3`→`hasil6` |
+| `riset/eksperimen_k2.py` | `ENT8 = list(eksperimen2.ENT)` (dulu menambahkan dua entitas ke ENT yang kini sudah memuatnya) |
+| `riset/eval_dev8.py` | **baru** — evaluasi dev-only, dengan `del test` eksplisit (aturan 10) |
+| `gold-dev-100.json` | dibangkitkan ulang, sha `cfd7a5ae…`→`7ed59a42…` |
+| `article/gambar/buat_gambar.py` | sumber `hasil3`/`hasil2` → `hasil6` |
+
+`hasil3/` **tidak ditimpa** — dipertahankan sebagai rekaman jalannya 6 entitas
+(aturan 2). `hasil5/` (K2) diverifikasi tidak terpengaruh: `ENT8` identik dengan
+nilai lamanya dan `muat8()` menghasilkan korpus yang sama.
+
+### Verifikasi kecocokan dengan kode terpasang
+
+```
+Python: 8.045 dokumen | 35.914 surface form | 17 indeks
+Java  : 8.045 dokumen | 35.914 surface form | 17 indeks
+```
+
+### Model relevansi kedua, untuk dua entitas baru
+
+`hasillab` 2.018 dokumen → **203 judul unik** (99,7% berbagi judul;
+"Haemoglobin" ×37). `kondisi` 1.279 → 386 judul unik (97,1%). Keduanya instans
+per-pasien, bukan entri kamus. `gold()` karena itu memakai dua model: tautan
+struktural untuk enam entitas lama, kesamaan judul (grade-1) untuk dua entitas
+baru — mengikuti `gold_k2` yang sudah lebih dulu menghadapi masalah ini.
+
+### Hasil — klaim utama TIDAK bertahan
+
+Test set baru: 360 kueri (dev 100 / test 260), dijalankan sekali.
+
+| Perbandingan | 6 entitas (`hasil3/`) | 8 entitas (`hasil6/`) |
+|---|---|---|
+| E3 vs B0 | +0,187 (p<0,001) | **+0,039 (p=0,079)** — tidak signifikan |
+| E1 vs B0 | +0,174 (p<0,001) | +0,050 (p=0,045) |
+| E1 vs B1 | +0,156 (p<0,001) | +0,114 (p<0,001) |
+| E3 vs E1 | +0,013 (p=0,039) | −0,011 (p=0,406) |
+| E3 vs B0′ | +0,103 (p=0,0076) | **+0,055 (p=0,269)** — tidak signifikan |
+| kueri 0-hasil, B0 → E3 | 18,3% → 0,6% | **15,4% → 0,0%** |
+
+### Sebabnya — temuan yang paling berguna
+
+nDCG per entitas (test 260), selisih E3 − B0:
+
+```
+form +0,333 | obat +0,232 | konsep +0,171 | lokasi +0,058 | provider 0,000
+kondisi −0,053 | hasillab −0,180 | pasien −0,242
+```
+
+Manfaat kepingan karakter **berbalik tanda** menurut sifat entitas: besar pada
+data berciri kamus, negatif pada instans per-pasien yang judulnya berulang.
+Pada `hasillab`, fusi berbobot memperburuk secara khusus (E1 0,650 → E3 0,399):
+RRF mengubah skor identik jadi peringkat berurutan, dan `1/(k+r)` mendorong
+kandidat yang sama sahihnya keluar dari sepuluh besar.
+
+### Parameter tetap layak
+
+Sapuan ulang pada dev 8 entitas: ALPHA argmax **tepat 0,20** (konfirmasi tak
+direncanakan); `n=3` unggul +0,0071 tapi p=0,2806 (CI memuat nol — dulu p=0,0686
+borderline, kini jelas derau); K_RRF rentang 0,0056; EPS rentang 0,0021.
+Keempatnya dipertahankan.
+
+### Verifikasi silang Java–Python (dev 8 entitas)
+
+| Mode | Java live | Python | Selisih |
+|---|---|---|---|
+| b0 | 0,5613 | 0,5613 | 0,0000 |
+| b1 | 0,5546 | 0,5534 | 0,0012 |
+| e1 | 0,7383 | 0,7371 | 0,0012 |
+| e3 | 0,7368 | 0,7368 | 0,0000 |
+
+`b0`/`e3` cocok persis. `b1`/`e1` beda 0,0012 (≈1 kueri): keduanya memeringkat
+menurut skor kosinus mentah, dan pada korpus dengan puluhan dokumen berjudul
+identik banyak skor bernilai persis sama, sehingga selisih pembulatan
+floating-point sangat kecil dapat membalik pasangan yang seri. `e3` memeringkat
+menurut peringkat bilangan bulat sehingga kebal. Dilaporkan apa adanya.
+
+Latensi hangat 8 entitas: p50 42 ms, p95 50 ms (6 entitas: p95 26 ms) — sebanding
+dengan naiknya indeks 13→17 dan surface form 29.320→35.914.
