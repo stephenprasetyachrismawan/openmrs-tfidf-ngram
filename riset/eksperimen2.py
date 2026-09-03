@@ -8,9 +8,14 @@ import json, math, os, re, random, time, bisect, collections
 
 DIR  = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(DIR, "data")
-OUT  = os.path.join(DIR, "hasil3")
+# hasil6 = korpus 8 entitas, seragam dengan DocumentRepository.ENTITAS
+# pada modul Java. Jalannya 6 entitas sudah tidak dipakai lagi.
+OUT  = os.path.join(DIR, "hasil6")
 os.makedirs(OUT, exist_ok=True)
-ENT  = ["konsep", "obat", "pasien", "form", "lokasi", "provider"]
+# Urutan dan isi daftar ini WAJIB sama dengan DocumentRepository.ENTITAS
+# pada modul Java -- kode modul adalah patokannya, bukan sebaliknya.
+ENT  = ["konsep", "obat", "pasien", "form", "lokasi", "provider",
+        "hasillab", "kondisi"]
 SEED = 42
 ALPHA, NGRAM, K_RRF, EPS = 0.20, 4, 20, 0.05
 
@@ -59,7 +64,7 @@ def muat():
         rec[rid] = dict(id=rid, entitas="konsep", judul=nama, alias=alias, kode=kode,
                         konteks=o.get("deskripsi") or "", kelas=o.get("kelas") or "",
                         refs=refs, tautan=None, n_obs=o.get("n_obs") or 0)
-    for fn in ("obat.jsonl", "pasien.jsonl", "lain.jsonl"):
+    for fn in ("obat.jsonl", "pasien.jsonl", "lain.jsonl", "hasillab.jsonl", "kondisi.jsonl"):
         p = os.path.join(DATA, fn)
         if not os.path.exists(p): continue
         for line in open(p, encoding="utf-8-sig"):
@@ -297,8 +302,23 @@ def bangun_query(rec, rnd):
     for r in rec.values(): byent[r["entitas"]].append(r)
     for e in byent: byent[e].sort(key=lambda r: r["id"])
 
+    # judul ternormalisasi -> seluruh id sejenis, untuk hasillab/kondisi.
+    # Dibangun sekali; tanpa ini gold() jadi O(n^2) atas 3.297 dokumen.
+    judul2id = collections.defaultdict(set)
+    for r in rec.values():
+        if r["entitas"] in ("hasillab", "kondisi"):
+            judul2id[(r["entitas"], norm(r["judul"]))].add(r["id"])
+
     def gold(r):
         g = {r["id"]: 2}
+        if r["entitas"] in ("hasillab", "kondisi"):
+            # Judul tes/kondisi berulang lintas pasien ("Haemoglobin" x37).
+            # Pengguna yang mengetik nama itu puas dengan instans mana pun,
+            # jadi dokumen berjudul sama diberi kredit grade-1. Tanpa ini
+            # metriknya mengukur tie-break kunci, bukan mutu peringkat.
+            for x in judul2id[(r["entitas"], norm(r["judul"]))]:
+                if x != r["id"]: g.setdefault(x, 1)
+            return g
         if r["entitas"] == "konsep":
             cid = int(r["id"].split(":")[1])
             for d in tautan2obat.get(cid, ()): g.setdefault(d, 1)
@@ -312,8 +332,13 @@ def bangun_query(rec, rnd):
                 if d != r["id"]: g.setdefault(d, 1)
         return g
 
+    # Kuota hasillab/kondisi ditetapkan 40 masing-masing: keduanya entitas
+    # instans per-pasien dengan judul berulang (2.018 dokumen -> 203 judul unik;
+    # 1.279 -> 386), sehingga kuota sebesar porsi dokumennya akan menggandakan
+    # judul yang sama berkali-kali tanpa menambah keragaman kueri.
     rencana = [("konsep", 110), ("obat", 80), ("pasien", 60),
-               ("lokasi", 40), ("form", 10), ("provider", 6)]
+               ("lokasi", 40), ("form", 10), ("provider", 6),
+               ("hasillab", 40), ("kondisi", 40)]
     tipe_siklus = ["persis", "typo", "trunkasi", "hilang_kata", "urut_balik"]
     qs, n = [], 0
     for e, jml in rencana:

@@ -1,5 +1,357 @@
 [
   {
+    "q": "isoniaizd rifapentine",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "f01f4a5f-198f-4d1f-a950-94a161863223",
+        "display": "Isoniazid / Rifapentine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "f01f4a5f-198f-4d1f-a950-94a161863223",
+        "display": "Isoniazid / Rifapentine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "date of hiv diagnossi",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Date of HIV diagnosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Date of HIV diagnosis",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "propo",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "82726AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Propofol",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "83645AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Salicylic acid",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "82726AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Propofol",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "83645AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Salicylic acid",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "swell of ingu regio",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "125207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Swelling of Inguinal Region",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "125207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Swelling of Inguinal Region",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "unspecified arthritis juvenile",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "157409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Juvenile arthritis, unspecified",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "157409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Juvenile arthritis, unspecified",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "c hepatitis viral",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "28AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Viral hepatitis C",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "145347AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic viral Hepatitis C",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "111479AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Viral hepatitis",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "149743AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute hepatitis C",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "28AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Viral hepatitis C",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "145347AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic viral Hepatitis C",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "111479AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Viral hepatitis",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "149743AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute hepatitis C",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "hiv enzyme immunoassay quantitative",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "1041AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "HIV enzyme immunoassay, quantitative",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "1318AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "HIV enzyme immunoassay (cut-off od), quantitative",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "1041AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "HIV enzyme immunoassay, quantitative",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "1318AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "HIV enzyme immunoassay (cut-off od), quantitative",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "proedure refused",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "128453AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Procedure refused",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "128453AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Procedure refused",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "imperfecta dentinogenesis",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "142575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dentinogenesis imperfecta",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "142575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dentinogenesis imperfecta",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "pyode gangr",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "128019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pyoderma gangrenosum",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "128019AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pyoderma gangrenosum",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "phobia needle",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "157897AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Needle phobia",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "157897AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Needle phobia",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "problem behaviour adult",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "167086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Adult behaviour problem",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "167086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Adult behaviour problem",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "food supp",
+    "tipe": "trunkasi",
+    "panggilan1": [
+      {
+        "uuid": "161648AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Food support",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "c5032f5b-11b8-49f2-a183-bd3d3a95df31",
+        "display": "Ready-to-Use Supplementary Foods",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "161648AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Food support",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "c5032f5b-11b8-49f2-a183-bd3d3a95df31",
+        "display": "Ready-to-Use Supplementary Foods",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "esteem self of loss",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "163475AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Loss of self-esteem",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "163475AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Loss of self-esteem",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "dyphenhydramine",
+    "tipe": "persis",
+    "panggilan1": [
+      {
+        "uuid": "497457dc-48c1-40f9-8261-0bd9f4bf6b21",
+        "display": "Dyphenhydramine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "497457dc-48c1-40f9-8261-0bd9f4bf6b21",
+        "display": "Dyphenhydramine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "allergy to mropenem",
+    "tipe": "typo",
+    "panggilan1": [],
+    "panggilan2": [],
+    "deterministik": true
+  },
+  {
     "q": "disease kidney chronic",
     "tipe": "urut_balik",
     "panggilan1": [
@@ -89,578 +441,144 @@
     "deterministik": true
   },
   {
-    "q": "dribblng of urine",
-    "tipe": "typo",
-    "panggilan1": [
-      {
-        "uuid": "141774AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Dribbling of Urine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "141774AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Dribbling of Urine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "benzyl procaine",
-    "tipe": "hilang_kata",
-    "panggilan1": [
-      {
-        "uuid": "aee293c2-1ca7-413e-b85a-50ae41bc5305",
-        "display": "Benzyl penicillin Procaine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "aee293c2-1ca7-413e-b85a-50ae41bc5305",
-        "display": "Benzyl penicillin Procaine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "heparin sodium",
-    "tipe": "persis",
-    "panggilan1": [
-      {
-        "uuid": "77414AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Heparin sodium",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "77414AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Heparin sodium",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "newborn in vomiting",
+    "q": "strip test by urine in presence total bilirubin",
     "tipe": "urut_balik",
     "panggilan1": [
       {
-        "uuid": "122981AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Vomiting in newborn",
+        "uuid": "163680AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Bilirubin total presence in urine by test strip",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "122981AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Vomiting in newborn",
+        "uuid": "163680AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Bilirubin total presence in urine by test strip",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "isoniaizd rifapentine",
-    "tipe": "typo",
+    "q": "increta placenta",
+    "tipe": "urut_balik",
     "panggilan1": [
       {
-        "uuid": "f01f4a5f-198f-4d1f-a950-94a161863223",
-        "display": "Isoniazid / Rifapentine",
+        "uuid": "130128AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Placenta increta",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "f01f4a5f-198f-4d1f-a950-94a161863223",
-        "display": "Isoniazid / Rifapentine",
+        "uuid": "130128AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Placenta increta",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "dilated cardiomoypathy i42 0",
+    "q": "oteophyte",
     "tipe": "typo",
     "panggilan1": [],
     "panggilan2": [],
     "deterministik": true
   },
   {
-    "q": "dyphenhydramine",
-    "tipe": "persis",
-    "panggilan1": [
-      {
-        "uuid": "497457dc-48c1-40f9-8261-0bd9f4bf6b21",
-        "display": "Dyphenhydramine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "497457dc-48c1-40f9-8261-0bd9f4bf6b21",
-        "display": "Dyphenhydramine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "acute ulcerative gingivitis",
-    "tipe": "persis",
-    "panggilan1": [
-      {
-        "uuid": "149482AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acute ulcerative gingivitis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "149482AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acute ulcerative gingivitis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "mitral valve stenosis",
-    "tipe": "persis",
-    "panggilan1": [
-      {
-        "uuid": "134082AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Mitral valve stenosis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "134082AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Mitral valve stenosis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "unspecified arthritis juvenile",
-    "tipe": "urut_balik",
-    "panggilan1": [
-      {
-        "uuid": "157409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Juvenile arthritis, unspecified",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "157409AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Juvenile arthritis, unspecified",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "self accu",
+    "q": "dent cari",
     "tipe": "trunkasi",
     "panggilan1": [
       {
-        "uuid": "163470AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Self-accusation",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "163470AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Self-accusation",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "psychotic disorder due to medical condition with delusions",
-    "tipe": "persis",
-    "panggilan1": [
-      {
-        "uuid": "1a717880-04d3-4631-acd7-b2848f56e6f1",
-        "display": "Psychotic disorder due to medical condition with delusions",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "1a717880-04d3-4631-acd7-b2848f56e6f1",
-        "display": "Psychotic disorder due to medical condition with delusions",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "post trau stres disor",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "113881AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Post-traumatic stress disorder",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "113881AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Post-traumatic stress disorder",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "date of hiv diagnossi",
-    "tipe": "typo",
-    "panggilan1": [
-      {
-        "uuid": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Date of HIV diagnosis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "160554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Date of HIV diagnosis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "seafood to allergy",
-    "tipe": "urut_balik",
-    "panggilan1": [
-      {
-        "uuid": "149070AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Allergy to seafood",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "149070AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Allergy to seafood",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "propo",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "82726AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Propofol",
+        "uuid": "119558AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "83645AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Salicylic acid",
+        "uuid": "161907AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class V",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161906AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class IV",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161905AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class III",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161904AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class II",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "161903AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class I",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "155436AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Caries of dentine",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "1374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental care referral",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "118661AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries limited to enamel",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "82726AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Propofol",
+        "uuid": "119558AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "83645AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Salicylic acid",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "hist of jaun",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "5986AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "History of jaundice",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "5986AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "History of jaundice",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "umbilical cord copmlication during labour and delivery",
-    "tipe": "typo",
-    "panggilan1": [],
-    "panggilan2": [],
-    "deterministik": true
-  },
-  {
-    "q": "lido",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "104584AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Epinephrine / lidocaine",
+        "uuid": "161907AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class V",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "8f8920be-f144-4fba-b4db-d32940dcea04",
-        "display": "Dequalinium & Lidocaine",
+        "uuid": "161906AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class IV",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "78849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Lidocaine",
+        "uuid": "161905AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class III",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "5c07fc3a-5bcd-4282-9717-f0a3fbfe6f7e",
-        "display": "Lidocaine & Epinephrine",
+        "uuid": "161904AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class II",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "4c7472fd-a025-49a1-bdca-ffd7d4fd766f",
-        "display": "Lidocaine w & epinephrine dental",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "104584AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Epinephrine / lidocaine",
+        "uuid": "161903AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries, class I",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "8f8920be-f144-4fba-b4db-d32940dcea04",
-        "display": "Dequalinium & Lidocaine",
+        "uuid": "155436AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Caries of dentine",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "78849AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Lidocaine",
+        "uuid": "1374AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental care referral",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "5c07fc3a-5bcd-4282-9717-f0a3fbfe6f7e",
-        "display": "Lidocaine & Epinephrine",
-        "resourceVersion": "2.0"
-      },
-      {
-        "uuid": "4c7472fd-a025-49a1-bdca-ffd7d4fd766f",
-        "display": "Lidocaine w & epinephrine dental",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "qualitative test pregnancy serum",
-    "tipe": "urut_balik",
-    "panggilan1": [
-      {
-        "uuid": "1945AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Serum pregnancy test, qualitative",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "1945AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Serum pregnancy test, qualitative",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "angian pectoris",
-    "tipe": "typo",
-    "panggilan1": [
-      {
-        "uuid": "121610AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Angina pectoris",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "121610AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Angina pectoris",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "spells fainting",
-    "tipe": "urut_balik",
-    "panggilan1": [
-      {
-        "uuid": "112961AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Fainting Spells",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "112961AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Fainting Spells",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "natural death unknown cause",
-    "tipe": "hilang_kata",
-    "panggilan1": [
-      {
-        "uuid": "133475AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Natural Death with Unknown Cause",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "133475AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Natural Death with Unknown Cause",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "acute cornoary syndrome",
-    "tipe": "typo",
-    "panggilan1": [
-      {
-        "uuid": "122093AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acute coronary syndrome",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "122093AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acute coronary syndrome",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "swell of ingu regio",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "125207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Swelling of Inguinal Region",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "125207AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Swelling of Inguinal Region",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "haem influ b vacc",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "1f89aab8-a830-4469-98b4-2f19143d7244",
-        "display": "Haemophilus influenzae B vaccination",
-        "resourceVersion": "2.0"
-      },
-      {
-        "uuid": "5261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Hemophilus influenza B vaccination",
-        "resourceVersion": "2.0"
-      },
-      {
-        "uuid": "159694AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acellular Pertussis / Diphtheria Toxoid / Haemophilus influenzae b, capsular polysaccharide  / Inactivated Polioviruses Type 1 / Inactivated Polioviruses Type 2 / Inactivated Polioviruses Type 3 / Tetanus toxoid conjugate vaccine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "1f89aab8-a830-4469-98b4-2f19143d7244",
-        "display": "Haemophilus influenzae B vaccination",
-        "resourceVersion": "2.0"
-      },
-      {
-        "uuid": "5261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Hemophilus influenza B vaccination",
-        "resourceVersion": "2.0"
-      },
-      {
-        "uuid": "159694AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acellular Pertussis / Diphtheria Toxoid / Haemophilus influenzae b, capsular polysaccharide  / Inactivated Polioviruses Type 1 / Inactivated Polioviruses Type 2 / Inactivated Polioviruses Type 3 / Tetanus toxoid conjugate vaccine",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "personal history of infertility",
-    "tipe": "hilang_kata",
-    "panggilan1": [
-      {
-        "uuid": "158308AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Personal history of female infertility",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "158308AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Personal history of female infertility",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "disease liver toxic",
-    "tipe": "urut_balik",
-    "panggilan1": [
-      {
-        "uuid": "159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Hepatotoxicity",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Hepatotoxicity",
+        "uuid": "118661AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Dental caries limited to enamel",
         "resourceVersion": "2.0"
       }
     ],
@@ -696,114 +614,132 @@
     "deterministik": true
   },
   {
-    "q": "imperfecta dentinogenesis",
+    "q": "simplex herpes",
     "tipe": "urut_balik",
     "panggilan1": [
       {
-        "uuid": "142575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Dentinogenesis imperfecta",
+        "uuid": "138706AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Herpes simplex",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "110516AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Herpes simplex esophagitis",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "117829AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Genital herpes",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "142575AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Dentinogenesis imperfecta",
+        "uuid": "138706AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Herpes simplex",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "110516AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Herpes simplex esophagitis",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "117829AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Genital herpes",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "uterus of body of neoplasm malignant",
-    "tipe": "urut_balik",
+    "q": "peri fluid",
+    "tipe": "trunkasi",
     "panggilan1": [
       {
-        "uuid": "116077AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Malignant neoplasm of body of uterus",
+        "uuid": "159997AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Peritoneal fluid",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "163366AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pericardial fluid specimen",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "116077AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Malignant neoplasm of body of uterus",
+        "uuid": "159997AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Peritoneal fluid",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "163366AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pericardial fluid specimen",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "acute otiits externa",
+    "q": "dilated cardiomoypathy i42 0",
     "tipe": "typo",
-    "panggilan1": [
-      {
-        "uuid": "121897AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acute otitis externa",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "121897AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Acute otitis externa",
-        "resourceVersion": "2.0"
-      }
-    ],
+    "panggilan1": [],
+    "panggilan2": [],
     "deterministik": true
   },
   {
-    "q": "discharge hospital",
+    "q": "personal history of femur",
     "tipe": "hilang_kata",
     "panggilan1": [
       {
-        "uuid": "2537896a-7d27-4c71-8e93-4c265ffa5954",
-        "display": "Discharge from hospital",
+        "uuid": "1632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Personal history of femur fracture",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "2537896a-7d27-4c71-8e93-4c265ffa5954",
-        "display": "Discharge from hospital",
+        "uuid": "1632AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Personal history of femur fracture",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "proedure refused",
+    "q": "albendazloe",
     "tipe": "typo",
     "panggilan1": [
       {
-        "uuid": "128453AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Procedure refused",
+        "uuid": "70439AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Albendazole",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "128453AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Procedure refused",
+        "uuid": "70439AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Albendazole",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "diarrhea vomiting or abdominal",
+    "q": "with sepsis",
     "tipe": "hilang_kata",
     "panggilan1": [
       {
-        "uuid": "87b3f6a1-6d79-4923-9485-200dfd937782",
-        "display": "Diarrhea, Vomiting or Abdominal pain",
+        "uuid": "150746AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Abortion with sepsis",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "87b3f6a1-6d79-4923-9485-200dfd937782",
-        "display": "Diarrhea, Vomiting or Abdominal pain",
+        "uuid": "150746AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Abortion with sepsis",
         "resourceVersion": "2.0"
       }
     ],
@@ -1319,93 +1255,135 @@
     "deterministik": true
   },
   {
-    "q": "peri fluid",
-    "tipe": "trunkasi",
+    "q": "fatgiue",
+    "tipe": "typo",
     "panggilan1": [
       {
-        "uuid": "159997AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Peritoneal fluid",
+        "uuid": "140501AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Fatigue",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "163366AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Pericardial fluid specimen",
+        "uuid": "120655AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic fatigue",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135367AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malaise and fatigue",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "162626AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Intense fatigue and general weakness",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "167069AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Feeling tired or having little energy over past two weeks",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "159997AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Peritoneal fluid",
+        "uuid": "140501AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Fatigue",
         "resourceVersion": "2.0"
       },
       {
-        "uuid": "163366AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Pericardial fluid specimen",
+        "uuid": "120655AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Chronic fatigue",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "135367AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Malaise and fatigue",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "162626AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Intense fatigue and general weakness",
+        "resourceVersion": "2.0"
+      },
+      {
+        "uuid": "167069AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Feeling tired or having little energy over past two weeks",
         "resourceVersion": "2.0"
       }
     ],
     "deterministik": true
   },
   {
-    "q": "uncontrolled hypertension",
+    "q": "nose saddle",
+    "tipe": "urut_balik",
+    "panggilan1": [
+      {
+        "uuid": "127212AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Saddle nose",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "127212AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Saddle nose",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "acetylcystenie",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "70148AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acetylcysteine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "70148AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acetylcysteine",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "acute laryngotracheitis without mention of obstructoin",
+    "tipe": "typo",
+    "panggilan1": [
+      {
+        "uuid": "122007AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute laryngotracheitis without mention of obstruction",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "panggilan2": [
+      {
+        "uuid": "122007AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Acute laryngotracheitis without mention of obstruction",
+        "resourceVersion": "2.0"
+      }
+    ],
+    "deterministik": true
+  },
+  {
+    "q": "pale conjunctiva",
     "tipe": "persis",
     "panggilan1": [
       {
-        "uuid": "165587AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Uncontrolled hypertension",
+        "uuid": "516AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pale conjunctiva",
         "resourceVersion": "2.0"
       }
     ],
     "panggilan2": [
       {
-        "uuid": "165587AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Uncontrolled hypertension",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "lept",
-    "tipe": "trunkasi",
-    "panggilan1": [
-      {
-        "uuid": "116341AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Leptospirosis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "116341AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "Leptospirosis",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "deterministik": true
-  },
-  {
-    "q": "acrodermatitis atrophicans crhonica",
-    "tipe": "typo",
-    "panggilan1": [],
-    "panggilan2": [],
-    "deterministik": true
-  },
-  {
-    "q": "cd8",
-    "tipe": "hilang_kata",
-    "panggilan1": [
-      {
-        "uuid": "854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "CD4/CD8",
-        "resourceVersion": "2.0"
-      }
-    ],
-    "panggilan2": [
-      {
-        "uuid": "854AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "display": "CD4/CD8",
+        "uuid": "516AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "display": "Pale conjunctiva",
         "resourceVersion": "2.0"
       }
     ],

@@ -12,7 +12,7 @@ import urllib.request
 import eksperimen2 as E
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(DIR, "hasil3", "investigasi_gap_eval.json")
+OUT = os.path.join(DIR, "hasil6", "investigasi_gap_eval.json")
 AUTH = base64.b64encode(b"admin:Admin123").decode()
 
 

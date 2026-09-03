@@ -1,0 +1,7 @@
+# artefak kompilasi LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
+logo-eps-converted-to.pdf

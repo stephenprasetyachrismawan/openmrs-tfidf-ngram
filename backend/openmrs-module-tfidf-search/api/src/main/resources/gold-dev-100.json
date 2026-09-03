@@ -3,169 +3,15 @@
   "queries": [
     {
       "entitas_target": "obat",
-      "q": "alclo 0 05",
+      "q": "glyburide 6mg",
       "rel": {
-        "konsep:1517": 1,
-        "obat:20": 2,
-        "obat:61": 1
+        "konsep:1595": 1,
+        "obat:162": 1,
+        "obat:163": 1,
+        "obat:164": 2
       },
-      "seed": "obat:20",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "advil 600g",
-      "rel": {
-        "konsep:73": 1,
-        "obat:12": 1,
-        "obat:13": 1,
-        "obat:14": 2,
-        "obat:175": 1,
-        "obat:228": 1,
-        "obat:229": 1
-      },
-      "seed": "obat:14",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "375mg sirop sorbacid",
-      "rel": {
-        "konsep:1792": 1,
-        "obat:289": 2
-      },
-      "seed": "obat:289",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "disease kidney chronic",
-      "rel": {
-        "konsep:3790": 2
-      },
-      "seed": "konsep:3790",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "500mg cipro",
-      "rel": {
-        "konsep:101": 1,
-        "obat:84": 1,
-        "obat:85": 2,
-        "obat:86": 1,
-        "obat:87": 1
-      },
-      "seed": "obat:85",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "richard",
-      "rel": {
-        "pasien:106": 2
-      },
-      "seed": "pasien:106",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "micr 30",
-      "rel": {
-        "konsep:1633": 1,
-        "obat:225": 2
-      },
-      "seed": "obat:225",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "dribblng of urine",
-      "rel": {
-        "konsep:3800": 2
-      },
-      "seed": "konsep:3800",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "5 water dextrose",
-      "rel": {
-        "konsep:1525": 1,
-        "obat:110": 1,
-        "obat:113": 1,
-        "obat:114": 2
-      },
-      "seed": "obat:114",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "benzyl procaine",
-      "rel": {
-        "konsep:1459": 2
-      },
-      "seed": "konsep:1459",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "100mg neurontin",
-      "rel": {
-        "konsep:1583": 1,
-        "obat:236": 2,
-        "obat:237": 1,
-        "obat:238": 1,
-        "obat:239": 1,
-        "obat:240": 1
-      },
-      "seed": "obat:236",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "form",
-      "q": "mental health assessment",
-      "rel": {
-        "form:5": 2
-      },
-      "seed": "form:5",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "heparin sodium",
-      "rel": {
-        "konsep:10": 2
-      },
-      "seed": "konsep:10",
+      "seed": "obat:164",
       "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "newborn in vomiting",
-      "rel": {
-        "konsep:1260": 1,
-        "konsep:1264": 1,
-        "konsep:1269": 1,
-        "konsep:1367": 1,
-        "konsep:2312": 1,
-        "konsep:2379": 1,
-        "konsep:2442": 1,
-        "konsep:2922": 1,
-        "konsep:2942": 2,
-        "konsep:3012": 1,
-        "konsep:3164": 1,
-        "konsep:3291": 1,
-        "konsep:3343": 1,
-        "konsep:3377": 1,
-        "konsep:3379": 1,
-        "konsep:3527": 1,
-        "konsep:3638": 1,
-        "konsep:3697": 1,
-        "konsep:3835": 1
-      },
-      "seed": "konsep:2942",
-      "tipe": "urut_balik"
     },
     {
       "entitas_target": "konsep",
@@ -175,244 +21,6 @@
       },
       "seed": "konsep:143",
       "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "allegra 10mg",
-      "rel": {
-        "konsep:1569": 1,
-        "obat:21": 2,
-        "obat:22": 1
-      },
-      "seed": "obat:21",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "inderal ir",
-      "rel": {
-        "konsep:1749": 1,
-        "obat:176": 1,
-        "obat:177": 2,
-        "obat:178": 1,
-        "obat:179": 1,
-        "obat:180": 1
-      },
-      "seed": "obat:177",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "benzyl benzoate lotion",
-      "rel": {
-        "konsep:107": 1,
-        "obat:60": 2
-      },
-      "seed": "obat:60",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "dilated cardiomoypathy i42 0",
-      "rel": {
-        "konsep:1895": 2
-      },
-      "seed": "konsep:1895",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "form",
-      "q": "laboratory test results",
-      "rel": {
-        "form:10": 2
-      },
-      "seed": "form:10",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "melissa",
-      "rel": {
-        "pasien:30": 2
-      },
-      "seed": "pasien:30",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "ophtalmide",
-      "rel": {
-        "konsep:1798": 1,
-        "obat:249": 2,
-        "obat:292": 1
-      },
-      "seed": "obat:249",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "malarone 250mg 100mg",
-      "rel": {
-        "konsep:1447": 1,
-        "obat:207": 1,
-        "obat:208": 2
-      },
-      "seed": "obat:208",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "susan harris",
-      "rel": {
-        "pasien:52": 2
-      },
-      "seed": "pasien:52",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "dyphenhydramine",
-      "rel": {
-        "konsep:1546": 2
-      },
-      "seed": "konsep:1546",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "acute ulcerative gingivitis",
-      "rel": {
-        "konsep:2808": 1,
-        "konsep:2978": 1,
-        "konsep:3612": 2
-      },
-      "seed": "konsep:3612",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "mitral valve stenosis",
-      "rel": {
-        "konsep:2273": 2
-      },
-      "seed": "konsep:2273",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "unspecified arthritis juvenile",
-      "rel": {
-        "konsep:2166": 1,
-        "konsep:2975": 2
-      },
-      "seed": "konsep:2975",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "cala loti",
-      "rel": {
-        "konsep:1473": 1,
-        "obat:69": 2
-      },
-      "seed": "obat:69",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "lokasi",
-      "q": "site 23",
-      "rel": {
-        "lokasi:34": 2
-      },
-      "seed": "lokasi:34",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "flagyl 250mg",
-      "rel": {
-        "konsep:1660": 1,
-        "obat:143": 2,
-        "obat:144": 1,
-        "obat:218": 1,
-        "obat:221": 1,
-        "obat:222": 1,
-        "obat:223": 1
-      },
-      "seed": "obat:143",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "self accu",
-      "rel": {
-        "konsep:2490": 2
-      },
-      "seed": "konsep:2490",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "zantac 150mg",
-      "rel": {
-        "konsep:1760": 1,
-        "obat:276": 1,
-        "obat:318": 2
-      },
-      "seed": "obat:318",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "kimberly thompson",
-      "rel": {
-        "pasien:70": 2
-      },
-      "seed": "pasien:70",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "psychotic disorder due to medical condition with delusions",
-      "rel": {
-        "konsep:2184": 2,
-        "konsep:2342": 1,
-        "konsep:3139": 1,
-        "konsep:3493": 1
-      },
-      "seed": "konsep:2184",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "post trau stres disor",
-      "rel": {
-        "konsep:3469": 2
-      },
-      "seed": "konsep:3469",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "pulmi",
-      "rel": {
-        "konsep:1468": 1,
-        "obat:272": 2,
-        "obat:273": 1,
-        "obat:274": 1,
-        "obat:275": 1
-      },
-      "seed": "obat:272",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "lokasi",
-      "q": "site 28",
-      "rel": {
-        "lokasi:39": 2
-      },
-      "seed": "lokasi:39",
-      "tipe": "persis"
     },
     {
       "entitas_target": "konsep",
@@ -430,51 +38,6 @@
     },
     {
       "entitas_target": "konsep",
-      "q": "seafood to allergy",
-      "rel": {
-        "konsep:1008": 1,
-        "konsep:1012": 1,
-        "konsep:1016": 1,
-        "konsep:1017": 1,
-        "konsep:1018": 1,
-        "konsep:1019": 1,
-        "konsep:1020": 1,
-        "konsep:1021": 1,
-        "konsep:1023": 2,
-        "konsep:1029": 1,
-        "konsep:1031": 1,
-        "konsep:3320": 1,
-        "konsep:938": 1,
-        "konsep:941": 1,
-        "konsep:982": 1,
-        "konsep:986": 1,
-        "konsep:993": 1,
-        "konsep:994": 1,
-        "konsep:996": 1
-      },
-      "seed": "konsep:1023",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "form",
-      "q": "test form 1",
-      "rel": {
-        "form:9": 2
-      },
-      "seed": "form:9",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "brina lopez",
-      "rel": {
-        "pasien:68": 2
-      },
-      "seed": "pasien:68",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "konsep",
       "q": "propo",
       "rel": {
         "konsep:36": 2
@@ -483,188 +46,14 @@
       "tipe": "trunkasi"
     },
     {
-      "entitas_target": "konsep",
-      "q": "hist of jaun",
-      "rel": {
-        "konsep:3855": 2
-      },
-      "seed": "konsep:3855",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "umbilical cord copmlication during labour and delivery",
-      "rel": {
-        "konsep:1893": 2
-      },
-      "seed": "konsep:1893",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "provider",
-      "q": "doctor jake",
-      "rel": {
-        "provider:6": 2
-      },
-      "seed": "provider:6",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "lokasi",
-      "q": "site",
-      "rel": {
-        "lokasi:24": 2
-      },
-      "seed": "lokasi:24",
-      "tipe": "hilang_kata"
-    },
-    {
       "entitas_target": "obat",
-      "q": "capto 50mg",
+      "q": "allegra 10mg",
       "rel": {
-        "konsep:1478": 1,
-        "obat:70": 1,
-        "obat:71": 1,
-        "obat:72": 2,
-        "obat:73": 1
+        "konsep:1569": 1,
+        "obat:21": 2,
+        "obat:22": 1
       },
-      "seed": "obat:72",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "lido",
-      "rel": {
-        "konsep:65": 2,
-        "obat:317": 1
-      },
-      "seed": "konsep:65",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "liinopril 2 5 mg",
-      "rel": {
-        "konsep:64": 1,
-        "obat:197": 1,
-        "obat:198": 1,
-        "obat:199": 2,
-        "obat:200": 1,
-        "obat:201": 1,
-        "obat:202": 1,
-        "obat:203": 1
-      },
-      "seed": "obat:199",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "ringer lactate",
-      "rel": {
-        "konsep:1767": 1,
-        "obat:280": 2
-      },
-      "seed": "obat:280",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "qualitative test pregnancy serum",
-      "rel": {
-        "konsep:243": 2
-      },
-      "seed": "konsep:243",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "angian pectoris",
-      "rel": {
-        "konsep:3002": 2
-      },
-      "seed": "konsep:3002",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "325mg ir iron",
-      "rel": {
-        "konsep:1568": 1,
-        "obat:142": 1,
-        "obat:182": 2
-      },
-      "seed": "obat:182",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "miller barbara",
-      "rel": {
-        "pasien:9": 2
-      },
-      "seed": "pasien:9",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "spells fainting",
-      "rel": {
-        "konsep:2779": 1,
-        "konsep:3536": 2
-      },
-      "seed": "konsep:3536",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "mary simth",
-      "rel": {
-        "pasien:71": 2
-      },
-      "seed": "pasien:71",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "lokasi",
-      "q": "outpa clini",
-      "rel": {
-        "lokasi:5": 2
-      },
-      "seed": "lokasi:5",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "natural death unknown cause",
-      "rel": {
-        "konsep:846": 2
-      },
-      "seed": "konsep:846",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "5ml 100mg s children motrin",
-      "rel": {
-        "konsep:73": 1,
-        "obat:12": 1,
-        "obat:13": 1,
-        "obat:14": 1,
-        "obat:175": 1,
-        "obat:228": 2,
-        "obat:229": 1
-      },
-      "seed": "obat:228",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "acute cornoary syndrome",
-      "rel": {
-        "konsep:2976": 2,
-        "konsep:2981": 1
-      },
-      "seed": "konsep:2976",
+      "seed": "obat:21",
       "tipe": "typo"
     },
     {
@@ -679,79 +68,153 @@
       "tipe": "trunkasi"
     },
     {
-      "entitas_target": "konsep",
-      "q": "haem influ b vacc",
+      "entitas_target": "lokasi",
+      "q": "mobiel clinic",
       "rel": {
-        "konsep:4204": 2,
-        "konsep:4230": 1
+        "lokasi:7": 2
       },
-      "seed": "konsep:4204",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "personal history of infertility",
-      "rel": {
-        "konsep:2881": 2,
-        "konsep:2882": 1
-      },
-      "seed": "konsep:2881",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "edwar odin",
-      "rel": {
-        "pasien:94": 2
-      },
-      "seed": "pasien:94",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "form",
-      "q": "soap note temlpate",
-      "rel": {
-        "form:6": 2
-      },
-      "seed": "form:6",
+      "seed": "lokasi:7",
       "tipe": "typo"
     },
     {
-      "entitas_target": "obat",
-      "q": "eucer",
+      "entitas_target": "konsep",
+      "q": "unspecified arthritis juvenile",
       "rel": {
-        "konsep:1550": 1,
-        "obat:138": 2
+        "konsep:2166": 1,
+        "konsep:2975": 2
       },
-      "seed": "obat:138",
+      "seed": "konsep:2975",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "inder ir 60mg",
+      "rel": {
+        "konsep:1749": 1,
+        "obat:176": 1,
+        "obat:177": 1,
+        "obat:178": 1,
+        "obat:179": 1,
+        "obat:180": 2
+      },
+      "seed": "obat:180",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "plasmodium species seen on smera",
+      "rel": {
+        "hasillab:162": 2,
+        "hasillab:3159": 1,
+        "hasillab:3874": 1,
+        "hasillab:6876": 1,
+        "hasillab:7580": 1,
+        "hasillab:7835": 1,
+        "hasillab:8005": 1,
+        "hasillab:8394": 1
+      },
+      "seed": "hasillab:162",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "c hepatitis viral",
+      "rel": {
+        "konsep:1168": 1,
+        "konsep:1986": 1,
+        "konsep:2060": 2
+      },
+      "seed": "konsep:2060",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "hiv west blot qual",
+      "rel": {
+        "hasillab:1022": 1,
+        "hasillab:1300": 1,
+        "hasillab:2142": 1,
+        "hasillab:2200": 1,
+        "hasillab:2984": 1,
+        "hasillab:3225": 1,
+        "hasillab:3333": 1,
+        "hasillab:3432": 1,
+        "hasillab:4250": 2,
+        "hasillab:4481": 1,
+        "hasillab:4734": 1,
+        "hasillab:5013": 1,
+        "hasillab:537": 1,
+        "hasillab:5856": 1,
+        "hasillab:5914": 1,
+        "hasillab:6699": 1,
+        "hasillab:6938": 1,
+        "hasillab:7047": 1,
+        "hasillab:7144": 1,
+        "hasillab:768": 1
+      },
+      "seed": "hasillab:4250",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "solu medr 125mg 5ml",
+      "rel": {
+        "konsep:1655": 1,
+        "obat:288": 2
+      },
+      "seed": "obat:288",
       "tipe": "trunkasi"
     },
     {
       "entitas_target": "konsep",
-      "q": "disease liver toxic",
+      "q": "hiv enzyme immunoassay quantitative",
       "rel": {
-        "konsep:980": 2
+        "konsep:546": 1,
+        "konsep:658": 1,
+        "konsep:659": 2
       },
-      "seed": "konsep:980",
-      "tipe": "urut_balik"
+      "seed": "konsep:659",
+      "tipe": "persis"
     },
     {
       "entitas_target": "konsep",
-      "q": "neonatal jaundice",
+      "q": "proedure refused",
       "rel": {
-        "konsep:3376": 2
+        "konsep:2623": 1,
+        "konsep:628": 2
       },
-      "seed": "konsep:3376",
-      "tipe": "persis"
+      "seed": "konsep:628",
+      "tipe": "typo"
     },
     {
       "entitas_target": "pasien",
-      "q": "margaret king",
+      "q": "lopez susan",
       "rel": {
-        "pasien:38": 2
+        "pasien:8": 2
       },
-      "seed": "pasien:38",
-      "tipe": "persis"
+      "seed": "pasien:8",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "monocytes exam",
+      "rel": {
+        "hasillab:2225": 1,
+        "hasillab:2350": 1,
+        "hasillab:2924": 1,
+        "hasillab:3036": 1,
+        "hasillab:3188": 1,
+        "hasillab:5943": 1,
+        "hasillab:6064": 1,
+        "hasillab:6640": 1,
+        "hasillab:6748": 2,
+        "hasillab:6901": 1,
+        "hasillab:7534": 1,
+        "hasillab:7989": 1,
+        "hasillab:8365": 1
+      },
+      "seed": "hasillab:6748",
+      "tipe": "hilang_kata"
     },
     {
       "entitas_target": "konsep",
@@ -780,261 +243,8 @@
       "tipe": "urut_balik"
     },
     {
-      "entitas_target": "obat",
-      "q": "1mg proscar",
-      "rel": {
-        "konsep:1570": 1,
-        "obat:264": 2,
-        "obat:265": 1
-      },
-      "seed": "obat:264",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "thompson kimberly",
-      "rel": {
-        "pasien:20": 2
-      },
-      "seed": "pasien:20",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "priamquine co 7 5mg",
-      "rel": {
-        "konsep:1741": 1,
-        "obat:262": 2,
-        "obat:263": 1
-      },
-      "seed": "obat:262",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "cleocin 450mg",
-      "rel": {
-        "konsep:1501": 1,
-        "obat:92": 1,
-        "obat:93": 1,
-        "obat:94": 2
-      },
-      "seed": "obat:94",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "james thom",
-      "rel": {
-        "pasien:92": 2
-      },
-      "seed": "pasien:92",
-      "tipe": "trunkasi"
-    },
-    {
       "entitas_target": "konsep",
-      "q": "uterus of body of neoplasm malignant",
-      "rel": {
-        "konsep:3329": 2
-      },
-      "seed": "konsep:3329",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "inder ir 60mg",
-      "rel": {
-        "konsep:1749": 1,
-        "obat:176": 1,
-        "obat:177": 1,
-        "obat:178": 1,
-        "obat:179": 1,
-        "obat:180": 2
-      },
-      "seed": "obat:180",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "mary smtih",
-      "rel": {
-        "pasien:21": 2
-      },
-      "seed": "pasien:21",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "5mg",
-      "rel": {
-        "konsep:1592": 1,
-        "obat:159": 1,
-        "obat:160": 2
-      },
-      "seed": "obat:160",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "acute otiits externa",
-      "rel": {
-        "konsep:2989": 2,
-        "konsep:3431": 1
-      },
-      "seed": "konsep:2989",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "michael turner",
-      "rel": {
-        "pasien:63": 2
-      },
-      "seed": "pasien:63",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "discharge hospital",
-      "rel": {
-        "konsep:3773": 2
-      },
-      "seed": "konsep:3773",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "williams",
-      "rel": {
-        "pasien:96": 2
-      },
-      "seed": "pasien:96",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "proedure refused",
-      "rel": {
-        "konsep:2623": 1,
-        "konsep:628": 2
-      },
-      "seed": "konsep:628",
-      "tipe": "typo"
-    },
-    {
-      "entitas_target": "form",
-      "q": "form engi cook",
-      "rel": {
-        "form:2": 2
-      },
-      "seed": "form:2",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "10mg zyrtec",
-      "rel": {
-        "konsep:1491": 1,
-        "obat:321": 2,
-        "obat:322": 1
-      },
-      "seed": "obat:321",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "diarrhea vomiting or abdominal",
-      "rel": {
-        "konsep:1931": 2
-      },
-      "seed": "konsep:1931",
-      "tipe": "hilang_kata"
-    },
-    {
-      "entitas_target": "pasien",
-      "q": "nelson richard",
-      "rel": {
-        "pasien:56": 2
-      },
-      "seed": "pasien:56",
-      "tipe": "urut_balik"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "malignant neoplasm",
-      "rel": {
-        "konsep:2364": 1,
-        "konsep:2727": 1,
-        "konsep:3477": 1,
-        "konsep:787": 2,
-        "konsep:788": 1
-      },
-      "seed": "konsep:787",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "peri fluid",
-      "rel": {
-        "konsep:583": 2
-      },
-      "seed": "konsep:583",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "lokasi",
-      "q": "site 21",
-      "rel": {
-        "lokasi:32": 2
-      },
-      "seed": "lokasi:32",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "obat",
-      "q": "zeasorb 2",
-      "rel": {
-        "konsep:1662": 1,
-        "obat:319": 2
-      },
-      "seed": "obat:319",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "uncontrolled hypertension",
-      "rel": {
-        "konsep:1397": 1,
-        "konsep:2386": 2,
-        "konsep:2662": 1,
-        "konsep:3274": 1,
-        "konsep:807": 1,
-        "konsep:829": 1
-      },
-      "seed": "konsep:2386",
-      "tipe": "persis"
-    },
-    {
-      "entitas_target": "form",
-      "q": "form engi cook libra",
-      "rel": {
-        "form:3": 2
-      },
-      "seed": "form:3",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "lept",
-      "rel": {
-        "konsep:784": 2
-      },
-      "seed": "konsep:784",
-      "tipe": "trunkasi"
-    },
-    {
-      "entitas_target": "konsep",
-      "q": "acrodermatitis atrophicans crhonica",
+      "q": "pyode gangr",
       "rel": {
         "konsep:1303": 1,
         "konsep:1315": 1,
@@ -1059,7 +269,7 @@
         "konsep:2438": 1,
         "konsep:2453": 1,
         "konsep:2554": 1,
-        "konsep:2588": 1,
+        "konsep:2588": 2,
         "konsep:2708": 1,
         "konsep:2709": 1,
         "konsep:2710": 1,
@@ -1071,32 +281,532 @@
         "konsep:3319": 1,
         "konsep:3546": 1,
         "konsep:3556": 1,
-        "konsep:3561": 2,
+        "konsep:3561": 1,
         "konsep:3621": 1,
         "konsep:3655": 1,
         "konsep:3699": 1,
         "konsep:3707": 1
       },
-      "seed": "konsep:3561",
-      "tipe": "typo"
+      "seed": "konsep:2588",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "complications cerebral with malaria falciparum plasmodium",
+      "rel": {
+        "kondisi:115": 2,
+        "kondisi:295": 1,
+        "kondisi:666": 1,
+        "kondisi:846": 1
+      },
+      "seed": "kondisi:115",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "capto 50mg",
+      "rel": {
+        "konsep:1478": 1,
+        "obat:70": 1,
+        "obat:71": 1,
+        "obat:72": 2,
+        "obat:73": 1
+      },
+      "seed": "obat:72",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "acide folique co 5mg",
+      "rel": {
+        "konsep:77": 1,
+        "obat:4": 2
+      },
+      "seed": "obat:4",
+      "tipe": "persis"
     },
     {
       "entitas_target": "pasien",
-      "q": "jones richard",
+      "q": "david williams",
       "rel": {
-        "pasien:22": 2
+        "pasien:73": 2
       },
-      "seed": "pasien:22",
+      "seed": "pasien:73",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "dl mg measurement glucose blood fasting",
+      "rel": {
+        "hasillab:2534": 1,
+        "hasillab:3509": 1,
+        "hasillab:4377": 1,
+        "hasillab:4709": 1,
+        "hasillab:6260": 1,
+        "hasillab:652": 1,
+        "hasillab:7225": 2,
+        "hasillab:7624": 1,
+        "hasillab:997": 1
+      },
+      "seed": "hasillab:7225",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "edward odnga",
+      "rel": {
+        "pasien:44": 2
+      },
+      "seed": "pasien:44",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "provider",
+      "q": "unknown proider",
+      "rel": {
+        "provider:1": 2
+      },
+      "seed": "provider:1",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "acetasol 2",
+      "rel": {
+        "konsep:1607": 1,
+        "obat:169": 1,
+        "obat:3": 2
+      },
+      "seed": "obat:3",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "phobia needle",
+      "rel": {
+        "konsep:2179": 1,
+        "konsep:2180": 1,
+        "konsep:2181": 1,
+        "konsep:2182": 1,
+        "konsep:2183": 1,
+        "konsep:2927": 2
+      },
+      "seed": "konsep:2927",
       "tipe": "urut_balik"
     },
     {
       "entitas_target": "konsep",
-      "q": "cd8",
+      "q": "problem behaviour adult",
       "rel": {
-        "konsep:204": 2
+        "konsep:1300": 1,
+        "konsep:2289": 2,
+        "konsep:2354": 1,
+        "konsep:2420": 1,
+        "konsep:2680": 1,
+        "konsep:3006": 1,
+        "konsep:3051": 1,
+        "konsep:3268": 1,
+        "konsep:3372": 1,
+        "konsep:3662": 1
       },
-      "seed": "konsep:204",
+      "seed": "konsep:2289",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "diazepam injection vial 5mg",
+      "rel": {
+        "konsep:90": 1,
+        "obat:116": 1,
+        "obat:117": 2
+      },
+      "seed": "obat:117",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "cleocin 450mg",
+      "rel": {
+        "konsep:1501": 1,
+        "obat:92": 1,
+        "obat:93": 1,
+        "obat:94": 2
+      },
+      "seed": "obat:94",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "ringer lactate",
+      "rel": {
+        "konsep:1767": 1,
+        "obat:280": 2
+      },
+      "seed": "obat:280",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "allergy to insects",
+      "rel": {
+        "kondisi:1025": 1,
+        "kondisi:236": 2,
+        "kondisi:474": 1,
+        "kondisi:48": 1,
+        "kondisi:599": 1,
+        "kondisi:787": 1
+      },
+      "seed": "kondisi:236",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "senok 17mg",
+      "rel": {
+        "konsep:1776": 1,
+        "obat:286": 2
+      },
+      "seed": "obat:286",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "allergy blocker channel calcium",
+      "rel": {
+        "kondisi:117": 1,
+        "kondisi:310": 1,
+        "kondisi:668": 1,
+        "kondisi:861": 2
+      },
+      "seed": "kondisi:861",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "food supp",
+      "rel": {
+        "konsep:3872": 1,
+        "konsep:3990": 1,
+        "konsep:3991": 2
+      },
+      "seed": "konsep:3991",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "form",
+      "q": "laboratory test results",
+      "rel": {
+        "form:10": 2
+      },
+      "seed": "form:10",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "thompson",
+      "rel": {
+        "pasien:34": 2
+      },
+      "seed": "pasien:34",
       "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "williams",
+      "rel": {
+        "pasien:96": 2
+      },
+      "seed": "pasien:96",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "esteem self of loss",
+      "rel": {
+        "konsep:2488": 2
+      },
+      "seed": "konsep:2488",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "dyphenhydramine",
+      "rel": {
+        "konsep:1546": 2
+      },
+      "seed": "konsep:1546",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "allergy to mropenem",
+      "rel": {
+        "konsep:1004": 1,
+        "konsep:984": 1,
+        "konsep:990": 2,
+        "konsep:991": 1,
+        "konsep:992": 1
+      },
+      "seed": "konsep:990",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "erthema multiforme",
+      "rel": {
+        "kondisi:358": 1,
+        "kondisi:364": 2,
+        "kondisi:909": 1,
+        "kondisi:915": 1
+      },
+      "seed": "kondisi:364",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "fasting blood glucose measurement mg dl",
+      "rel": {
+        "hasillab:2534": 1,
+        "hasillab:3509": 1,
+        "hasillab:4377": 2,
+        "hasillab:4709": 1,
+        "hasillab:6260": 1,
+        "hasillab:652": 1,
+        "hasillab:7225": 1,
+        "hasillab:7624": 1,
+        "hasillab:997": 1
+      },
+      "seed": "hasillab:4377",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "edwar odin",
+      "rel": {
+        "pasien:94": 2
+      },
+      "seed": "pasien:94",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "cala loti",
+      "rel": {
+        "konsep:1473": 1,
+        "obat:69": 2
+      },
+      "seed": "obat:69",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "form",
+      "q": "form engi cook libra",
+      "rel": {
+        "form:3": 2
+      },
+      "seed": "form:3",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "hepatitis b surface antigen test",
+      "rel": {
+        "hasillab:1883": 1,
+        "hasillab:194": 1,
+        "hasillab:2373": 1,
+        "hasillab:3423": 1,
+        "hasillab:3902": 1,
+        "hasillab:4198": 1,
+        "hasillab:484": 1,
+        "hasillab:5596": 1,
+        "hasillab:6087": 2,
+        "hasillab:7134": 1,
+        "hasillab:8034": 1
+      },
+      "seed": "hasillab:6087",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "dysf uter blee",
+      "rel": {
+        "kondisi:1008": 1,
+        "kondisi:239": 1,
+        "kondisi:272": 1,
+        "kondisi:345": 1,
+        "kondisi:457": 1,
+        "kondisi:790": 1,
+        "kondisi:823": 1,
+        "kondisi:896": 2
+      },
+      "seed": "kondisi:896",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "disease kidney chronic",
+      "rel": {
+        "konsep:3790": 2
+      },
+      "seed": "konsep:3790",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "serum poassium",
+      "rel": {
+        "hasillab:1001": 1,
+        "hasillab:1580": 1,
+        "hasillab:2022": 1,
+        "hasillab:2537": 1,
+        "hasillab:317": 1,
+        "hasillab:32": 1,
+        "hasillab:3271": 1,
+        "hasillab:3525": 1,
+        "hasillab:3636": 1,
+        "hasillab:3743": 1,
+        "hasillab:394": 1,
+        "hasillab:4037": 1,
+        "hasillab:4111": 1,
+        "hasillab:4278": 1,
+        "hasillab:4375": 1,
+        "hasillab:4716": 1,
+        "hasillab:5293": 1,
+        "hasillab:565": 2,
+        "hasillab:5735": 1,
+        "hasillab:6248": 1,
+        "hasillab:662": 1,
+        "hasillab:6987": 1,
+        "hasillab:7227": 1,
+        "hasillab:7348": 1,
+        "hasillab:7633": 1,
+        "hasillab:7643": 1,
+        "hasillab:8046": 1,
+        "hasillab:8268": 1
+      },
+      "seed": "hasillab:565",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "strip test by urine in presence total bilirubin",
+      "rel": {
+        "konsep:406": 2
+      },
+      "seed": "konsep:406",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "pulmi",
+      "rel": {
+        "konsep:1468": 1,
+        "obat:272": 2,
+        "obat:273": 1,
+        "obat:274": 1,
+        "obat:275": 1
+      },
+      "seed": "obat:272",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "400mg co ibuprofen",
+      "rel": {
+        "konsep:73": 1,
+        "obat:12": 1,
+        "obat:13": 1,
+        "obat:14": 1,
+        "obat:175": 2,
+        "obat:228": 1,
+        "obat:229": 1
+      },
+      "seed": "obat:175",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "form",
+      "q": "covid",
+      "rel": {
+        "form:1": 2
+      },
+      "seed": "form:1",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "100mg neurontin",
+      "rel": {
+        "konsep:1583": 1,
+        "obat:236": 2,
+        "obat:237": 1,
+        "obat:238": 1,
+        "obat:239": 1,
+        "obat:240": 1
+      },
+      "seed": "obat:236",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "george phillips",
+      "rel": {
+        "pasien:90": 2
+      },
+      "seed": "pasien:90",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "increta placenta",
+      "rel": {
+        "konsep:2454": 1,
+        "konsep:2455": 2,
+        "konsep:2456": 1
+      },
+      "seed": "konsep:2455",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "oteophyte",
+      "rel": {
+        "konsep:2236": 2
+      },
+      "seed": "konsep:2236",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "donan roberts",
+      "rel": {
+        "pasien:50": 2
+      },
+      "seed": "pasien:50",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "serum glut oxalo tran",
+      "rel": {
+        "hasillab:1006": 1,
+        "hasillab:192": 1,
+        "hasillab:2535": 1,
+        "hasillab:3422": 1,
+        "hasillab:3523": 1,
+        "hasillab:3903": 1,
+        "hasillab:4195": 1,
+        "hasillab:4380": 1,
+        "hasillab:4713": 1,
+        "hasillab:483": 1,
+        "hasillab:6256": 2,
+        "hasillab:661": 1,
+        "hasillab:7136": 1,
+        "hasillab:7229": 1,
+        "hasillab:7628": 1
+      },
+      "seed": "hasillab:6256",
+      "tipe": "trunkasi"
     },
     {
       "entitas_target": "provider",
@@ -1106,9 +816,493 @@
       },
       "seed": "provider:4",
       "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "dent cari",
+      "rel": {
+        "konsep:1224": 1,
+        "konsep:1298": 1,
+        "konsep:1299": 1,
+        "konsep:1355": 1,
+        "konsep:2268": 1,
+        "konsep:2587": 1,
+        "konsep:2634": 1,
+        "konsep:2638": 1,
+        "konsep:2639": 1,
+        "konsep:2640": 1,
+        "konsep:2641": 1,
+        "konsep:2642": 1,
+        "konsep:2978": 1,
+        "konsep:2991": 1,
+        "konsep:3005": 1,
+        "konsep:3063": 1,
+        "konsep:3140": 2,
+        "konsep:3202": 1,
+        "konsep:3249": 1,
+        "konsep:3338": 1,
+        "konsep:3571": 1,
+        "konsep:3630": 1,
+        "konsep:3686": 1
+      },
+      "seed": "konsep:3140",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "ceft lip",
+      "rel": {
+        "kondisi:1059": 1,
+        "kondisi:179": 1,
+        "kondisi:508": 2,
+        "kondisi:648": 1,
+        "kondisi:730": 1,
+        "kondisi:97": 1
+      },
+      "seed": "kondisi:508",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "neonatal jaundice",
+      "rel": {
+        "konsep:3376": 2
+      },
+      "seed": "konsep:3376",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "steven thompson",
+      "rel": {
+        "pasien:35": 2
+      },
+      "seed": "pasien:35",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "celberex 200mg",
+      "rel": {
+        "konsep:1490": 1,
+        "obat:79": 2
+      },
+      "seed": "obat:79",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "simplex herpes",
+      "rel": {
+        "konsep:1179": 1,
+        "konsep:1189": 1,
+        "konsep:1988": 2
+      },
+      "seed": "konsep:1988",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "lokasi",
+      "q": "20 site",
+      "rel": {
+        "lokasi:31": 2
+      },
+      "seed": "lokasi:31",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "peri fluid",
+      "rel": {
+        "konsep:583": 2
+      },
+      "seed": "konsep:583",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "dilated cardiomoypathy i42 0",
+      "rel": {
+        "konsep:1895": 2
+      },
+      "seed": "konsep:1895",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "325mg ir iron",
+      "rel": {
+        "konsep:1568": 1,
+        "obat:142": 1,
+        "obat:182": 2
+      },
+      "seed": "obat:182",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "furos co 40mg",
+      "rel": {
+        "konsep:1580": 1,
+        "obat:150": 2,
+        "obat:151": 1,
+        "obat:187": 1,
+        "obat:188": 1,
+        "obat:189": 1,
+        "obat:190": 1,
+        "obat:191": 1
+      },
+      "seed": "obat:150",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "personal history of femur",
+      "rel": {
+        "konsep:2068": 1,
+        "konsep:2512": 2,
+        "konsep:2519": 1,
+        "konsep:2522": 1
+      },
+      "seed": "konsep:2512",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "albendazloe",
+      "rel": {
+        "konsep:127": 2,
+        "obat:15": 1,
+        "obat:16": 1,
+        "obat:17": 1,
+        "obat:18": 1
+      },
+      "seed": "konsep:127",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "with sepsis",
+      "rel": {
+        "konsep:1125": 1,
+        "konsep:3106": 1,
+        "konsep:3278": 1,
+        "konsep:3485": 2,
+        "konsep:3565": 1
+      },
+      "seed": "konsep:3485",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "malignant neoplasm",
+      "rel": {
+        "konsep:2364": 1,
+        "konsep:2727": 1,
+        "konsep:3477": 1,
+        "konsep:787": 2,
+        "konsep:788": 1
+      },
+      "seed": "konsep:787",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "allergy antagonist receptor 3 hydroxytryptamine 5",
+      "rel": {
+        "kondisi:50": 1,
+        "kondisi:601": 2
+      },
+      "seed": "kondisi:601",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "serum potas",
+      "rel": {
+        "hasillab:1001": 1,
+        "hasillab:1580": 1,
+        "hasillab:2022": 1,
+        "hasillab:2537": 1,
+        "hasillab:317": 1,
+        "hasillab:32": 1,
+        "hasillab:3271": 1,
+        "hasillab:3525": 1,
+        "hasillab:3636": 1,
+        "hasillab:3743": 1,
+        "hasillab:394": 1,
+        "hasillab:4037": 2,
+        "hasillab:4111": 1,
+        "hasillab:4278": 1,
+        "hasillab:4375": 1,
+        "hasillab:4716": 1,
+        "hasillab:5293": 1,
+        "hasillab:565": 1,
+        "hasillab:5735": 1,
+        "hasillab:6248": 1,
+        "hasillab:662": 1,
+        "hasillab:6987": 1,
+        "hasillab:7227": 1,
+        "hasillab:7348": 1,
+        "hasillab:7633": 1,
+        "hasillab:7643": 1,
+        "hasillab:8046": 1,
+        "hasillab:8268": 1
+      },
+      "seed": "hasillab:4037",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "lokasi",
+      "q": "community",
+      "rel": {
+        "lokasi:8": 2
+      },
+      "seed": "lokasi:8",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "lokasi",
+      "q": "main stoe",
+      "rel": {
+        "lokasi:3": 2
+      },
+      "seed": "lokasi:3",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "lokasi",
+      "q": "main pharm",
+      "rel": {
+        "lokasi:2": 2
+      },
+      "seed": "lokasi:2",
+      "tipe": "trunkasi"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "hepatitis c test qualiative",
+      "rel": {
+        "hasillab:1122": 2,
+        "hasillab:191": 1,
+        "hasillab:2063": 1,
+        "hasillab:3425": 1,
+        "hasillab:3478": 1,
+        "hasillab:3908": 1,
+        "hasillab:4197": 1,
+        "hasillab:480": 1,
+        "hasillab:4835": 1,
+        "hasillab:5777": 1,
+        "hasillab:7138": 1,
+        "hasillab:7192": 1,
+        "hasillab:7822": 1
+      },
+      "seed": "hasillab:1122",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "form",
+      "q": "mental health assessment",
+      "rel": {
+        "form:5": 2
+      },
+      "seed": "form:5",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "mark smih",
+      "rel": {
+        "pasien:61": 2
+      },
+      "seed": "pasien:61",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "fatgiue",
+      "rel": {
+        "konsep:1380": 2,
+        "konsep:2228": 1,
+        "konsep:3019": 1,
+        "konsep:3074": 1,
+        "konsep:3318": 1,
+        "konsep:3325": 1
+      },
+      "seed": "konsep:1380",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "communication",
+      "rel": {
+        "kondisi:211": 1,
+        "kondisi:261": 2,
+        "kondisi:762": 1,
+        "kondisi:812": 1
+      },
+      "seed": "kondisi:261",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "nose saddle",
+      "rel": {
+        "konsep:2664": 2
+      },
+      "seed": "konsep:2664",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "acetylcystenie",
+      "rel": {
+        "konsep:130": 2
+      },
+      "seed": "konsep:130",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "acute laryngotracheitis without mention of obstructoin",
+      "rel": {
+        "konsep:2982": 2
+      },
+      "seed": "konsep:2982",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "furosemde injection vial 20mg",
+      "rel": {
+        "konsep:1580": 1,
+        "obat:150": 1,
+        "obat:151": 2,
+        "obat:187": 1,
+        "obat:188": 1,
+        "obat:189": 1,
+        "obat:190": 1,
+        "obat:191": 1
+      },
+      "seed": "obat:151",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "pasien",
+      "q": "kenneth catrer",
+      "rel": {
+        "pasien:48": 2
+      },
+      "seed": "pasien:48",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "ketoconazole co 200mg",
+      "rel": {
+        "konsep:1624": 1,
+        "obat:183": 2,
+        "obat:184": 1,
+        "obat:185": 1,
+        "obat:186": 1
+      },
+      "seed": "obat:183",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "fracture of acetabulum",
+      "rel": {
+        "kondisi:10": 1,
+        "kondisi:180": 1,
+        "kondisi:447": 2,
+        "kondisi:561": 1,
+        "kondisi:731": 1,
+        "kondisi:998": 1
+      },
+      "seed": "kondisi:447",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "globugne sirop",
+      "rel": {
+        "konsep:1567": 1,
+        "obat:141": 1,
+        "obat:158": 2
+      },
+      "seed": "obat:158",
+      "tipe": "typo"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "1mg proscar",
+      "rel": {
+        "konsep:1570": 1,
+        "obat:264": 2,
+        "obat:265": 1
+      },
+      "seed": "obat:264",
+      "tipe": "urut_balik"
+    },
+    {
+      "entitas_target": "konsep",
+      "q": "pale conjunctiva",
+      "rel": {
+        "konsep:3885": 2
+      },
+      "seed": "konsep:3885",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "obat",
+      "q": "lisinopril 10 mg",
+      "rel": {
+        "konsep:64": 1,
+        "obat:197": 1,
+        "obat:198": 2,
+        "obat:199": 1,
+        "obat:200": 1,
+        "obat:201": 1,
+        "obat:202": 1,
+        "obat:203": 1
+      },
+      "seed": "obat:198",
+      "tipe": "persis"
+    },
+    {
+      "entitas_target": "hasillab",
+      "q": "glucose tolerance test pre administration",
+      "rel": {
+        "hasillab:2978": 1,
+        "hasillab:3124": 1,
+        "hasillab:3353": 1,
+        "hasillab:3546": 1,
+        "hasillab:3794": 1,
+        "hasillab:6690": 1,
+        "hasillab:6838": 1,
+        "hasillab:7067": 1,
+        "hasillab:7260": 1,
+        "hasillab:7563": 2,
+        "hasillab:78": 1
+      },
+      "seed": "hasillab:7563",
+      "tipe": "hilang_kata"
+    },
+    {
+      "entitas_target": "kondisi",
+      "q": "death of cause",
+      "rel": {
+        "kondisi:109": 2,
+        "kondisi:39": 1,
+        "kondisi:590": 1,
+        "kondisi:660": 1
+      },
+      "seed": "kondisi:109",
+      "tipe": "hilang_kata"
     }
   ],
   "seed": 42,
-  "sha256_sumber": "cfd7a5aeb8452a3d6b05c67374b8ecba7ada60b7b919d2d99055ee28e533fbc4",
+  "sha256_sumber": "7ed59a42918c94d0753d21616be8319dc6470413159725ec270729b885cd91ee",
   "sumber": "riset/eksperimen2.py bangun_query(), qs[:100] (dev, bukan qs[100:])"
 }
