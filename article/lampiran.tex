@@ -3,22 +3,23 @@
 %%
 %%  Dipanggil dari main.tex dengan:   \input{lampiran}
 %%  tepat sebelum \end{document}, sesudah daftar pustaka.
-%%
-%%  >>> YANG PERLU ANDA ISI ADA DI BLOK "TAUTAN" DI BAWAH INI. <<<
-%%      Ganti isi tiga makro berikut, lalu kompilasi ulang. Tidak ada tempat
-%%      lain yang perlu disentuh -- seluruh tabel di bawah membaca makro ini.
 %% ---------------------------------------------------------------------------
 
-% ===== TAUTAN — ISI DI SINI =================================================
+% ===== TAUTAN ===============================================================
+% Seluruh tabel di bawah membaca makro ini; ubah di sini kalau alamatnya pindah.
 
-% Repositori GitHub (sudah terisi; ubah kalau repo dipindahkan).
+% Repositori GitHub penelitian.
 \newcommand{\tautanRepo}{https://github.com/stephenprasetyachrismawan/openmrs-tfidf-ngram}
+
+% Stack Docker OpenMRS Reference Application (klon hulu).
+\newcommand{\tautanDistro}{https://github.com/openmrs/openmrs-distro-referenceapplication}
 
 % Google Drive — kumpulan PPT progress dan dokumen demo aplikasi.
 \newcommand{\tautanPPT}{https://drive.google.com/drive/folders/1TJqGHXuPlr9W1WJoZRUFE8TqpMC2NnWo?usp=sharing}
 
-% Google Drive — demo aplikasi (rekaman layar / berkas demo).
-\newcommand{\tautanDemo}{https://drive.google.com/drive/folders/1TJqGHXuPlr9W1WJoZRUFE8TqpMC2NnWo?usp=sharing}
+% Alamat lokal instalasi OpenMRS hasil pemasangan.
+\newcommand{\tautanHalaman}{http://127.0.0.1/openmrs/spa/unified-search}
+\newcommand{\tautanRest}{http://127.0.0.1/openmrs/ws/rest/v1/unifiedsearch}
 
 % ===== AKHIR BLOK TAUTAN ====================================================
 
@@ -192,17 +193,10 @@ disimpan pada repositori kode.
 \textbf{Kumpulan PPT Progress \& Demo Aplikasi} \newline
 {\footnotesize Slide laporan kemajuan penelitian dan berkas demo aplikasi
 berada dalam satu folder Google Drive.} &
-\tautanPPT \\
+\url{\tautanPPT} \\
 
 \bottomrule
 \end{tabular}
-
-\vspace{1.5ex}
-\noindent
-{\footnotesize \textbf{Catatan bagi penulis:} kedua tautan di atas diisi pada
-blok \texttt{TAUTAN} di kepala berkas \texttt{article/lampiran.tex}
-(makro \texttt{\textbackslash tautanPPT} dan \texttt{\textbackslash
-tautanDemo}). Tidak perlu mengubah tabel ini.}
 
 % ---------------------------------------------------------------------------
 \vspace{3ex}
@@ -286,13 +280,15 @@ Python~3.9+, dan PowerShell (Windows). Rincian versi terverifikasi ada pada
 \textbf{No.} & \textbf{Langkah} & \textbf{Perintah} \\
 \midrule
 1 & Klon repositori penelitian &
-\texttt{git clone https://github.com/} \newline
+\texttt{git clone}
+\href{\tautanRepo}{\texttt{https://github.com/} \newline
 \texttt{~~stephenprasetyachrismawan/} \newline
-\texttt{~~openmrs-tfidf-ngram.git} \\
+\texttt{~~openmrs-tfidf-ngram.git}} \\
 2 & Klon stack Docker OpenMRS sejajar dengan repositori penelitian &
-\texttt{git clone https://github.com/} \newline
+\texttt{git clone}
+\href{\tautanDistro}{\texttt{https://github.com/} \newline
 \texttt{openmrs/openmrs-distro-} \newline
-\texttt{referenceapplication.git} \\
+\texttt{referenceapplication.git}} \\
 3 & Nyalakan stack (tanpa \texttt{-p}) &
 \texttt{cd openmrs-distro-referenceapplication} \newline
 \texttt{docker compose up -d} \\
@@ -305,8 +301,8 @@ Python~3.9+, dan PowerShell (Windows). Rincian versi terverifikasi ada pada
 7 & Verifikasi menyeluruh &
 \texttt{.\textbackslash scripts\textbackslash verify-openmrs.ps1} \\
 8 & Buka di peramban &
-\texttt{http://127.0.0.1/openmrs/spa/} \newline
-\texttt{unified-search} \\
+\href{\tautanHalaman}{\texttt{http://127.0.0.1/openmrs/spa/} \newline
+\texttt{unified-search}} \\
 \bottomrule
 \end{tabular}
 
@@ -327,7 +323,7 @@ bawaan Apache, yang salah adalah alamatnya, bukan modulnya.
 \lampiransec{E}{Antarmuka REST Modul}
 
 \noindent
-Basis alamat: \texttt{http://127.0.0.1/openmrs/ws/rest/v1/unifiedsearch}
+Basis alamat: \href{\tautanRest}{\texttt{http://127.0.0.1/openmrs/ws/rest/v1/unifiedsearch}}
 
 \vspace{1.5ex}
 \renewcommand{\arraystretch}{1.3}
